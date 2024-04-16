@@ -7,12 +7,12 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋生信分析  流程介绍准备工作R语言软件和程序包 R语言软件：最新3.6.1版本 芯片分析所需程序包  原始数据和注释文件 sample_group表格：样本分组信息 raw data：芯片原始数据，例如昂飞芯片的CEL文件 annotation表格：芯片注释信息  数据预处理导入数据和分组信息归一化 Affy包rma函数进行背景矫正、归">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋生信全书  流程介绍准备工作R语言软件和程序包 R语言软件：最新3.6.1版本 芯片分析所需程序包  原始数据和注释文件 sample_group表格：样本分组信息 raw data：芯片原始数据，例如昂飞芯片的CEL文件 annotation表格：芯片注释信息  数据预处理导入数据和分组信息归一化 Affy包rma函数进行背景矫正、归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="生信全书Lesson 3 芯片标准分析流程">
-<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6Lesson%203%20%E8%8A%AF%E7%89%87%E6%A0%87%E5%87%86%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:title" content="生信全书 Lesson 3 芯片标准分析流程">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%203%20%E8%8A%AF%E7%89%87%E6%A0%87%E5%87%86%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Flynn&#39;s Blog">
-<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋生信分析  流程介绍准备工作R语言软件和程序包 R语言软件：最新3.6.1版本 芯片分析所需程序包  原始数据和注释文件 sample_group表格：样本分组信息 raw data：芯片原始数据，例如昂飞芯片的CEL文件 annotation表格：芯片注释信息  数据预处理导入数据和分组信息归一化 Affy包rma函数进行背景矫正、归">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋生信全书  流程介绍准备工作R语言软件和程序包 R语言软件：最新3.6.1版本 芯片分析所需程序包  原始数据和注释文件 sample_group表格：样本分组信息 raw data：芯片原始数据，例如昂飞芯片的CEL文件 annotation表格：芯片注释信息  数据预处理导入数据和分组信息归一化 Affy包rma函数进行背景矫正、归">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="og:image" content="http://example.com/img/404.jpg">
@@ -20,12 +20,12 @@
 <meta property="article:author" content="Flynn">
 <meta property="article:tag" content="科研">
 <meta property="article:tag" content="解螺旋">
-<meta property="article:tag" content="生信分析">
+<meta property="article:tag" content="生信全书">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/404.jpg">
 
 
-<title >生信全书Lesson 3 芯片标准分析流程</title>
+<title >生信全书 Lesson 3 芯片标准分析流程</title>
 
 <!-- Favicon -->
 
@@ -64,7 +64,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"09/02/2024 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"]};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-04-16 19:59:29"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-04-16 20:20:24"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
@@ -233,7 +233,7 @@
                             
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            生信全书Lesson 3 芯片标准分析流程
+                            生信全书 Lesson 3 芯片标准分析流程
                         </h1>
 
                         
@@ -351,7 +351,7 @@
 </div>
 <div class="trm-card ">
     <article id="article-container" class="trm-publication">
-    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://flynn.yeyeah.life/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://flynn.yeyeah.life/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://flynn.yeyeah.life/tags/%E7%94%9F%E4%BF%A1%E5%88%86%E6%9E%90/">生信分析</a></p>
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://flynn.yeyeah.life/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://flynn.yeyeah.life/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://flynn.yeyeah.life/tags/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/">生信全书</a></p>
 </div>
 <h1 id="流程介绍"><a href="#流程介绍" class="headerlink" title="流程介绍"></a>流程介绍</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="R语言软件和程序包"><a href="#R语言软件和程序包" class="headerlink" title="R语言软件和程序包"></a>R语言软件和程序包</h3><ul>
 <li>R语言软件：最新3.6.1版本</li>
