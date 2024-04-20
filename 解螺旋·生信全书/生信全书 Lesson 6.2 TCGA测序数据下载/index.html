@@ -65,7 +65,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"09/02/2024 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"]};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-04-20 17:14:44"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-04-20 17:22:54"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
@@ -357,14 +357,19 @@
 <h1 id="TCGA数据库简介"><a href="#TCGA数据库简介" class="headerlink" title="TCGA数据库简介"></a>TCGA数据库简介</h1><ul>
 <li>全称The Cancer Genome Atlas，是一个具有里程碑意义的癌症基因组学项目，启动于 2005年，2013年 12月完成了33个癌症类型、共计2万多例样本收集；2014年6月完成了所有样本基因组数据采集</li>
 <li>TCGA项目产生了非常庞大的数据量，有超过 2.5PB的基因组、表观基因组、转录组和蛋白质组数据，从基因、分子水平揭示了癌症的特征，提高了对癌症的诊疗和预防水平。</li>
-<li>TCGA的数据收集于Genomic Data Commons（GDC）数据门户网站，链接<a target="_blank" rel="noopener" href="https://portal.gdc.cancer.gov/%EF%BC%8CGDC%E7%BD%91%E7%AB%99%E6%94%B6%E5%BD%95%E4%BA%86TCGA%E5%85%A8%E9%83%A8%E7%9A%8433%E4%B8%AAprojects%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E6%AD%A4%E5%A4%96%E8%BF%98%E6%9C%89%E7%BE%8E%E5%9B%BD%E5%9B%BD%E5%AE%B6%E7%99%8C%E7%97%87%E7%A0%94%E7%A9%B6%E6%89%80NCI%E7%9A%84%E5%85%B6%E4%BB%9620%E4%B8%AA%E9%A1%B9%E7%9B%AE%E6%95%B0%E6%8D%AE">https://portal.gdc.cancer.gov/，GDC网站收录了TCGA全部的33个projects的数据，此外还有美国国家癌症研究所NCI的其他20个项目数据</a><br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-20%2013.35.54.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>TCGA的数据收集于Genomic Data Commons（GDC）数据门户网站，链接<a target="_blank" rel="noopener" href="https://portal.gdc.cancer.gov/">https://portal.gdc.cancer.gov/</a></li>
+<li>GDC网站收录了TCGA全部的33个projects的数据，此外还有美国国家癌症研究所NCI的其他20个项目数据<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-20%2013.35.54.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
 </ul>
 <h2 id="TCGA收录数据概要"><a href="#TCGA收录数据概要" class="headerlink" title="TCGA收录数据概要"></a>TCGA收录数据概要</h2><ul>
 <li>TCGA数据包含7种数据类型，其中6类可以开放 获取</li>
 <li>sequencing reads数据全部受限，simple nucleotide variation数据几乎全部受限，其他5类数据基本不受限制<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-20%2013.38.37.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
 </ul>
 <h1 id="TCGA数据检索"><a href="#TCGA数据检索" class="headerlink" title="TCGA数据检索"></a>TCGA数据检索</h1><h2 id="Cohort-Builder中检索"><a href="#Cohort-Builder中检索" class="headerlink" title="Cohort Builder中检索"></a>Cohort Builder中检索</h2><ul>
-<li>进入检索界面：GDC网站<a target="_blank" rel="noopener" href="https://portal.gdc.cancer.gov/%E4%B8%AD%E7%82%B9%E5%87%BB%22Cohort">https://portal.gdc.cancer.gov/中点击&quot;Cohort</a> Builder”</li>
+<li>进入检索界面<ul>
+<li>GDC网站<a target="_blank" rel="noopener" href="https://portal.gdc.cancer.gov/">https://portal.gdc.cancer.gov/</a></li>
+<li>点击”Cohort Builder”</li>
+</ul>
+</li>
 <li>举例：检索TCGA中含有生存状态信息的肝癌患者的mRNA测序count数据</li>
 <li>首先进入Cohort Builder界面，选择General<ul>
 <li>Program——TCGA</li>
