@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋生信全书基因芯片  基本介绍 NetworkAnalyst是一个基因表达谱和荟萃分析的可视化在线分析平台，集成了先进的统计方法和创新的数据可视化系统 可以支持：高效的数据比较，生物学解释和假设生成  数据库的引用 使用 NetworkAnalyst数据库发表论文时请注意引用文献（PMID:30931480、PMID: 25950236、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生信全书 Lesson 4.2 在线工具NetworkAnalyst">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%204.2%20%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7NetworkAnalyst/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋生信全书基因芯片  基本介绍 NetworkAnalyst是一个基因表达谱和荟萃分析的可视化在线分析平台，集成了先进的统计方法和创新的数据可视化系统 可以支持：高效的数据比较，生物学解释和假设生成  数据库的引用 使用 NetworkAnalyst数据库发表论文时请注意引用文献（PMID:30931480、PMID: 25950236、">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:26.910Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:26.910Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="解螺旋">
+<meta property="article:tag" content="生信全书">
+<meta property="article:tag" content="基因芯片">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >生信全书 Lesson 4.2 在线工具NetworkAnalyst</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:26"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            生信全书 Lesson 4.2 在线工具NetworkAnalyst
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        解螺旋·生信全书
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/">生信全书</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E5%9F%BA%E5%9B%A0%E8%8A%AF%E7%89%87/">基因芯片</a></p>
+</div>
+<h1 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h1><ul>
+<li>NetworkAnalyst是一个基因表达谱和荟萃分析的可视化在线分析平台，集成了先进的统计方法和创新的数据可视化系统</li>
+<li>可以支持：高效的数据比较，生物学解释和假设生成</li>
+</ul>
+<h2 id="数据库的引用"><a href="#数据库的引用" class="headerlink" title="数据库的引用"></a>数据库的引用</h2><ul>
+<li>使用 NetworkAnalyst数据库发表论文时请注意引用文献（PMID:30931480、PMID: 25950236、PMID: 24861621、PMID：24078684、PMID:23766290）以及所用数据源对应的文献</li>
+</ul>
+<h2 id="电脑和浏览器要求"><a href="#电脑和浏览器要求" class="headerlink" title="电脑和浏览器要求"></a>电脑和浏览器要求</h2><ul>
+<li>电脑：至少4GB内存</li>
+<li>浏览器：启用Java标本的Web浏览器<ul>
+<li>Chrome</li>
+<li>Safari</li>
+<li>Firefox</li>
+<li>IE 9+</li>
+</ul>
+</li>
+</ul>
+<h2 id="支持的数据类型"><a href="#支持的数据类型" class="headerlink" title="支持的数据类型"></a>支持的数据类型</h2><ul>
+<li>芯片和测序数据（50M限制）</li>
+<li>数据需要格式化（详见FAQs部份）</li>
+</ul>
+<h2 id="分析内容"><a href="#分析内容" class="headerlink" title="分析内容"></a>分析内容</h2><ul>
+<li>差异分析</li>
+<li>功能分析</li>
+<li>网络分析</li>
+</ul>
+<h2 id="新用户注册"><a href="#新用户注册" class="headerlink" title="新用户注册"></a>新用户注册</h2><ul>
+<li>注册用户可以保存其工作状态</li>
+<li>最多可以保存10个项目，每个项目最长保存1年</li>
+</ul>
+<h2 id="Network-Analyst主页面"><a href="#Network-Analyst主页面" class="headerlink" title="Network Analyst主页面"></a>Network Analyst主页面</h2><ul>
+<li>在浏览器输入 <a target="_blank" rel="noopener" href="http://www.networkanalyst.ca/">www.networkanalyst.ca</a> 以进入主页面<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2018.27.25.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h3 id="Gene-List-Input"><a href="#Gene-List-Input" class="headerlink" title="Gene List Input"></a>Gene List Input</h3><ul>
+<li>基因列表</li>
+<li>带有表达值的基因ID列表的差异分析</li>
+</ul>
+<h3 id="Gene-Expression-Table"><a href="#Gene-Expression-Table" class="headerlink" title="Gene Expression Table"></a>Gene Expression Table</h3><ul>
+<li>基因表达数据</li>
+<li>单个RNA测序或芯片表达数据的差异分析</li>
+</ul>
+<h3 id="Multiple-Gene-Expression-Tables"><a href="#Multiple-Gene-Expression-Tables" class="headerlink" title="Multiple Gene Expression Tables"></a>Multiple Gene Expression Tables</h3><ul>
+<li>多个基因表达数据</li>
+<li>多个RNA测序或基因表达数据进行meta-analysis</li>
+</ul>
+<h3 id="Raw-RNA-seq-Data"><a href="#Raw-RNA-seq-Data" class="headerlink" title="Raw RNA-seq Data"></a>Raw RNA-seq Data</h3><ul>
+<li>RNA原始测序数据</li>
+<li>将RNAseq fastq文件上传到Galaxy服务器，以进行分析</li>
+</ul>
+<h3 id="Network-File"><a href="#Network-File" class="headerlink" title="Network File"></a>Network File</h3><ul>
+<li>网络文件</li>
+<li>支持sif、graphml、json格式的网络分析</li>
+</ul>
+<h1 id="基因表达分析"><a href="#基因表达分析" class="headerlink" title="基因表达分析"></a>基因表达分析</h1><ul>
+<li>这个部份的教程主要针对Gene Expression Table模块展开</li>
+<li>点开以后的主界面长这样（可能会有一些跳转页面）<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2018.30.02.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>选择中间的”A single expression table”</li>
+</ul>
+<h2 id="上传数据"><a href="#上传数据" class="headerlink" title="上传数据"></a>上传数据</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2018.32.02.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>选择物种</li>
+<li>选择分析类型（差异表达&#x2F;时间序列或效应反应）</li>
+<li>选择数据类型：芯片或测序</li>
+<li>选择ID类型</li>
+<li>（好像没看到）选择基因水平总结方法：芯片选择Mean或Median，测序选择SUM</li>
+<li>上传数据文件：50M限制</li>
+</ul>
+<h2 id="查看数据质检结果"><a href="#查看数据质检结果" class="headerlink" title="查看数据质检结果"></a>查看数据质检结果</h2><h3 id="以文字方式呈现："><a href="#以文字方式呈现：" class="headerlink" title="以文字方式呈现："></a>以文字方式呈现：</h3><p>  <img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2018.42.08.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="以图片方式呈现："><a href="#以图片方式呈现：" class="headerlink" title="以图片方式呈现："></a>以图片方式呈现：</h3><ul>
+<li>箱式图<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2018.42.46.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>* 该组数据已经经过归一化处理，各分组具有相同的分布，并且所有数值都略大于8<br>* 箱式图可以用来判断数据有没有经过对数转换，芯片数据经过对数转换后，数据值通常&lt;16，测序数据经过数据转换后数据通常&lt;20<br>* 如果所有数据值的数据都&lt;20，而且各组数据具有相似的分布，就可以合理地假设该数据已经经过了归一化</li>
+<li>基因计数总和<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2018.50.20.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>PCA图：将高维数据投影到低维，来直观地识别表达模式<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2018.51.17.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>密度图<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2018.51.36.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>点击”Proceed”可以进入下一步</li>
+</ul>
+<h2 id="归一化"><a href="#归一化" class="headerlink" title="归一化"></a>归一化</h2><ul>
+<li>这一步的全程是数据过滤与归一化Data Filtering &amp; Normalization<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2018.53.53.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>过滤这一步骤可以删除无用的数据，过滤的参数通常保持默认即可</li>
+<li>归一化方式通常选择Log2 Transformation，这对于得出合理的结论至关重要（因为我们选择的示例数据已经经过了转换，所以此处选无）</li>
+<li>点击提交，查看更新后的质检图</li>
+<li>点击”Proceed”可以进入下一步</li>
+</ul>
+<h2 id="差异分析"><a href="#差异分析" class="headerlink" title="差异分析"></a>差异分析</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2019.08.14.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="统计方法"><a href="#统计方法" class="headerlink" title="统计方法"></a>统计方法</h3><ul>
+<li>limma用于芯片分析</li>
+<li>EdgeR和DESeq2用于RNAseq数据分析</li>
+</ul>
+<h3 id="研究设计"><a href="#研究设计" class="headerlink" title="研究设计"></a>研究设计</h3><ul>
+<li>主要因素</li>
+<li>次要因素</li>
+</ul>
+<h3 id="比较方法"><a href="#比较方法" class="headerlink" title="比较方法"></a>比较方法</h3><ul>
+<li>特定的两组比较</li>
+<li>与一个共同的对照组比较</li>
+<li>嵌套比较</li>
+<li>两两比较</li>
+<li>时间序列比较</li>
+<li>不同比较方法的差异，详见FAQs部份</li>
+</ul>
+<h3 id="显著性阈值"><a href="#显著性阈值" class="headerlink" title="显著性阈值"></a>显著性阈值</h3><ul>
+<li>调整后的p值，推荐0.05</li>
+<li>Log2差异倍数绝对值，推荐1.0</li>
+</ul>
+<h2 id="结果总结"><a href="#结果总结" class="headerlink" title="结果总结"></a>结果总结</h2><ul>
+<li>符合筛选条件的显著差异基因数量<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2019.15.13.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h2 id="差异基因"><a href="#差异基因" class="headerlink" title="差异基因"></a>差异基因</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2019.16.25.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>符合筛选条件的显著差异基因分析结果<ul>
+<li>排序依据：常用logFC或adj.P.Val</li>
+<li>排序方式：升序或降序</li>
+</ul>
+</li>
+<li>点击Figure这一栏的图片，可以看到单个基因在不同分组中表达的箱式图</li>
+</ul>
+<h2 id="差异表达分析"><a href="#差异表达分析" class="headerlink" title="差异表达分析"></a>差异表达分析</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-17%2019.25.38.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>﻿﻿EntrezID：NCBI Gene数据库基因编号</li>
+<li>﻿﻿logFC：log2 之后的fold-change</li>
+<li>AveExpr：标准化后基因平均表达值</li>
+<li>t：t检验</li>
+<li>P.Value： 原始P值</li>
+<li>adj.P.Val:  调整后的P值</li>
+<li>﻿﻿B: BH值</li>
+<li>﻿﻿Symbols： 基因符号</li>
+<li>Name：基因名称</li>
+</ul>
+<h1 id="应用示例"><a href="#应用示例" class="headerlink" title="应用示例"></a>应用示例</h1><h2 id="示例文章"><a href="#示例文章" class="headerlink" title="示例文章"></a>示例文章</h2><ul>
+<li>示例文章：PMID：30356407</li>
+<li>题目：利用WGCNA研究胶质母细胞瘤的候选生物标志物及其分子机制</li>
+<li>杂志：BioMed Research Internation</li>
+<li>IF&#x3D;2.2</li>
+</ul>
+<h2 id="芯片数据与筛选标准"><a href="#芯片数据与筛选标准" class="headerlink" title="芯片数据与筛选标准"></a>芯片数据与筛选标准</h2><ul>
+<li>来源：GEO数据库：GSE50161</li>
+<li>分组<ul>
+<li>实验组：34例胶质母细胞瘤患者的脑组织样本</li>
+<li>对照组：13例癫痫儿童脑组织样本</li>
+</ul>
+</li>
+<li>差异分析<ul>
+<li>分析平台：R语言</li>
+<li>筛选标准<ul>
+<li>adj p value&lt;0.05</li>
+<li>|log-fold change|&gt;2</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="GEO数据下载"><a href="#GEO数据下载" class="headerlink" title="GEO数据下载"></a>GEO数据下载</h2><ul>
+<li>在GEO主页检索GSE50161，采集必要信息（如下图）后，下载.txt格式的基因表达值文件<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-18%2002.25.56.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h2 id="格式化数据"><a href="#格式化数据" class="headerlink" title="格式化数据"></a>格式化数据</h2><h3 id="格式化数据的要求"><a href="#格式化数据的要求" class="headerlink" title="格式化数据的要求"></a>格式化数据的要求</h3><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-18%2012.40.45.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>第一行：sample names样品名称</li>
+<li>第二行：metadata labels 分组信息，需要以“#Class”开头</li>
+</ul>
+<h3 id="格式化数据需要进行的操作"><a href="#格式化数据需要进行的操作" class="headerlink" title="格式化数据需要进行的操作"></a>格式化数据需要进行的操作</h3><ul>
+<li>把txt文件下载，用excel打开（numbers好像打不开这种类型的数据）</li>
+<li>找到!Sample_title（对应样本标题）和!Sample_geo_accession（对应GEO数据库内的样本编号）</li>
+<li>关注!Sample_title这一行的GBM样本，将所有样本为GBM的列复制到新的工作表中，把新的工作表重命名为sheet2</li>
+<li>删除一些无用和空白部份，使表格变成下图的样子<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-18%2013.41.33.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>添加探针列，从原来的表格中复制到原文的正确位置<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-18%2013.57.34.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>回顾NetworkAnalyst的格式要求，我们需要把”ID_REF”改为”#NAME”，在第一行后面插入一行，命名为”#CLASS”</li>
+<li>最后，将sheet2整体复制，Ctrl&#x2F;Cmd+A，新建一个表格并且粘贴，再另存为“文本文件（制表符分隔）”</li>
+</ul>
+<h2 id="上传数据-1"><a href="#上传数据-1" class="headerlink" title="上传数据"></a>上传数据</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-18%2014.50.09.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="对ID-type进行合适的调整"><a href="#对ID-type进行合适的调整" class="headerlink" title="对ID type进行合适的调整"></a>对ID type进行合适的调整</h3><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-18%2014.55.34.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>Entrez ID&#x2F;Gene ID，是一串数字，相对稳定，与Gene Symbol一一对应，可以用来做GO以及KEGG富集分析，参考网址<a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/gene">https://www.ncbi.nlm.nih.gov/gene</a></li>
+<li>RefSeq ID：两个大些字母，加下划线，后面接数字，参考网址<a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/gene/?term=2">https://www.ncbi.nlm.nih.gov/gene/?term=2</a><ul>
+<li>NC__：DNA序列</li>
+<li>NM__：mRNA序列</li>
+<li>NP__：蛋白质序列</li>
+</ul>
+</li>
+<li>GenBank ID：全称是Gene Bank Accession Number，目前基本上与RefSeq ID一致</li>
+<li>Official Gene Symbol：HGNC数据库为基因提供的官方命名，由大写字母和数字组成，官方链接<a target="_blank" rel="noopener" href="https://www.genenames.org/">https://www.genenames.org</a></li>
+<li>Ensembl Gene ID：物种前缀+序列类型+数字<ul>
+<li>前缀ENS——<em>Homo sapiens</em>即人</li>
+<li>前缀ENSMUS——<em>Mus musculus</em>即小鼠</li>
+<li>序列类型G——Gene</li>
+<li>序列类型T——Transcript转录本</li>
+<li>序列类型P——Protein</li>
+</ul>
+</li>
+</ul>
+<h2 id="质检"><a href="#质检" class="headerlink" title="质检"></a>质检</h2><ul>
+<li>查看质检结果：数据概览和箱式图，PCA图等信息，判断样本的质量</li>
+</ul>
+<h2 id="过滤和归一化"><a href="#过滤和归一化" class="headerlink" title="过滤和归一化"></a>过滤和归一化</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-18%2020.05.03.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="差异分析-1"><a href="#差异分析-1" class="headerlink" title="差异分析"></a>差异分析</h2><ul>
+<li>设置分析方法和分组比较信息后提交<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-18%2020.05.52.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>设定筛选标准后提交，查看结果概要并下载分析结果<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-18%2020.07.13.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="芯片Meta-Analysis"><a href="#芯片Meta-Analysis" class="headerlink" title="芯片Meta Analysis"></a>芯片Meta Analysis</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="什么是荟萃分析"><a href="#什么是荟萃分析" class="headerlink" title="什么是荟萃分析"></a>什么是荟萃分析</h3><ul>
+<li>荟萃分析是一种统计技术，用来整合已经在相似实验条件下收集的多个独立数据集，以获得更加强大的生物标记。通过组合多个数据集，该方法可以提交统计功效（更加多的样本）并减少潜在的偏差</li>
+<li>通常不建议直接组合不同的独立数据集（即将这些数据集合并到一个大表格内），并将它们作为一个单元分析，这是由于与每个数据集相关联的潜在批次效应，可以完全压倒生物学效应</li>
+<li>通常根据汇总统计信息（p-值，效应大小等）来计算荟萃分析和识别可靠的生物标记</li>
+</ul>
+<h3 id="哪些数据集适合进行荟萃分析"><a href="#哪些数据集适合进行荟萃分析" class="headerlink" title="哪些数据集适合进行荟萃分析"></a>哪些数据集适合进行荟萃分析</h3><ul>
+<li>具有相同假设或者相同机理基础的数据集</li>
+<li>只有两个分组（对照组&#x2F;治疗组）的数据集</li>
+<li>相同类型ID的数据集，即检测平台相同，或者同一厂商的同一系列芯片</li>
+<li>所有数据在相同的比例或范围内的数据集</li>
+</ul>
+<h2 id="实战部份"><a href="#实战部份" class="headerlink" title="实战部份"></a>实战部份</h2><ul>
+<li>点击进入ExpressAnalyst的Multiple expression tables分析模块<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-18%2020.15.28.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><h3 id="数据上传"><a href="#数据上传" class="headerlink" title="数据上传"></a>数据上传</h3><ul>
+<li>样本数最多1000个</li>
+<li>点击”upload”可以上传数据，一次只能上传一个数据集</li>
+</ul>
+<h3 id="质检-1"><a href="#质检-1" class="headerlink" title="质检"></a>质检</h3><ul>
+<li>需要核对的数据集的内容<ul>
+<li>上传数据集的名称</li>
+<li>ID转换</li>
+<li>Meta数据质检</li>
+<li>可视化</li>
+<li>标准化</li>
+<li>差异表达分析</li>
+<li>数据总结</li>
+<li>是否选择该数据集</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>质检结果<ul>
+<li>数据类型</li>
+<li>匹配的特征数</li>
+<li>样本总数</li>
+<li>分组名称</li>
+<li>数据集名称</li>
+</ul>
+</li>
+<li>消除批次效应：要记得勾选”Combat”后，点击”Update”</li>
+<li>质检图<ul>
+<li>PCA图</li>
+<li>密度图</li>
+</ul>
+<h3 id="荟萃分析"><a href="#荟萃分析" class="headerlink" title="荟萃分析"></a>荟萃分析</h3><ul>
+<li>有以下四种方法可以选择，选择合适的meta分析方法后点”Submit”，提交成功后点”Proceed”</li>
+<li>P值法<ul>
+<li>选择统计分析方法<ul>
+<li>Stouffer：基于样本大小，仅用在所有研究质量相似的时候</li>
+<li>Fisher：无权重方法，比较推荐</li>
+</ul>
+</li>
+<li>设置p值：默认0.05</li>
+<li>点击”Submit”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>效果大小法<ul>
+<li>定义：两组均值之差除以标准差</li>
+<li>Cochran Q检验：当数据与基线重合时，选择FEM，否则选择REM</li>
+<li>统计方法：<ul>
+<li>固定效应模型FEM</li>
+<li>随机效应模型REM</li>
+</ul>
+</li>
+<li>p值：默认0.05</li>
+<li>选择合适的统计方法后点”Submit”</li>
+</ul>
+</li>
+<li>投票计数法<ul>
+<li>根据阈值（p值和计数次数）选择差异表达的基因</li>
+<li>不推荐使用</li>
+</ul>
+</li>
+<li>直接合并法<ul>
+<li>将所有数据集直接合并成一个大型数据集，然后对合并后的单个数据集进行分析</li>
+<li>不推荐使用</li>
+</ul>
+</li>
+<li>选择合适的meta方法后，点击Proceed<h3 id="Meta分析"><a href="#Meta分析" class="headerlink" title="Meta分析"></a>Meta分析</h3><ul>
+<li>参数设置<ul>
+<li>单个数据集的显示方式</li>
+<li>排序依据</li>
+<li>排序方式</li>
+<li>更新</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>结果预览<ul>
+<li>ID类型</li>
+<li>单个数据集差异倍数</li>
+<li>整合的差异倍数</li>
+<li>p值</li>
+<li>箱式图预览</li>
+</ul>
+</li>
+<li>点击Proceed</li>
+</ul>
+<h1 id="FAQs"><a href="#FAQs" class="headerlink" title="FAQs"></a>FAQs</h1><h2 id="如果我的芯片检测平台不在支持的列表中，怎么办"><a href="#如果我的芯片检测平台不在支持的列表中，怎么办" class="headerlink" title="如果我的芯片检测平台不在支持的列表中，怎么办"></a>如果我的芯片检测平台不在支持的列表中，怎么办</h2><ul>
+<li>芯片官网或GEO数据库下载芯片注释文件</li>
+<li>使用芯片注释文件为探针注释常见的基因ID（如Official Gene Symbol, Entrez, Refseq, Ensemble等）</li>
+<li>NetworkAnalyst上传数据时：ID类型选择：未指定”，然后上传已经注释的数据文件</li>
+</ul>
+<h2 id="如何格式化分析数据"><a href="#如何格式化分析数据" class="headerlink" title="如何格式化分析数据"></a>如何格式化分析数据</h2><ul>
+<li>文件格式：制表符分隔的文本文件</li>
+<li>数据格式（示例：2个实验条件以#+大写字母的形式展示出来，参考下图）<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-18%2023.09.15.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h2 id="如何判断数据是否归一化，并选择合适的归一化方法？"><a href="#如何判断数据是否归一化，并选择合适的归一化方法？" class="headerlink" title="如何判断数据是否归一化，并选择合适的归一化方法？"></a>如何判断数据是否归一化，并选择合适的归一化方法？</h2><ul>
+<li>箱式图可以判断数据是否经过了对数转换，芯片数据对数转换后，数据值通常&lt;16，测序数据对数转换后数据值通常&lt;20</li>
+<li>如果所有数据值都&lt;20，并且各个分组都有相似的分布，就可以合理地解释该数据已经归一化了</li>
+<li>NetworkAnalyst所有归一化方法都在以前的研究中使用过，它们基于稍有不同的假设，并且产生基本相似的结果</li>
+</ul>
+<h2 id="如何识别并且处理质检一场的样本"><a href="#如何识别并且处理质检一场的样本" class="headerlink" title="如何识别并且处理质检一场的样本"></a>如何识别并且处理质检一场的样本</h2><ul>
+<li>PCA图可以识别潜在的异常样本，这些异常样本通常是远离其余样本的离群值</li>
+<li>发现异常样本：<ul>
+<li>首先检查样本是否正确地被测量，在许多情况下，异常值时分析过程中操作错误的结果</li>
+<li>如果无法校正这些值，则应删除样品，然后重新开始分析</li>
+</ul>
+</li>
+</ul>
+<h2 id="如何选择合适的差异分析方法"><a href="#如何选择合适的差异分析方法" class="headerlink" title="如何选择合适的差异分析方法"></a>如何选择合适的差异分析方法</h2><h3 id="特定两组比较"><a href="#特定两组比较" class="headerlink" title="特定两组比较"></a>特定两组比较</h3><ul>
+<li>适用于单因素实验设计</li>
+</ul>
+<h3 id="成对比较（两两比较）"><a href="#成对比较（两两比较）" class="headerlink" title="成对比较（两两比较）"></a>成对比较（两两比较）</h3><ul>
+<li>适用于任何两两分组之间的比较</li>
+<li>举例，取A、B、C三个组，“成对比较”将比较AB、AC和BC</li>
+</ul>
+<h3 id="时间序列比较"><a href="#时间序列比较" class="headerlink" title="时间序列比较"></a>时间序列比较</h3><ul>
+<li>适用于连续分组（多个时间点或不同浓度）的比较</li>
+<li>举例，取A、B、C三个时间点，“时间序列比较”将对比AB和BC</li>
+</ul>
+<h3 id="嵌套比较"><a href="#嵌套比较" class="headerlink" title="嵌套比较"></a>嵌套比较</h3><ul>
+<li>适用于因条件不同，而产生不同反应的基因</li>
+<li>举例，在10小时和48小时，测量带有和不带有雌激素受体细胞的差异表达基因</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%206.1%20GEO%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">生信全书 Lesson 6.1 GEO测序数据下载</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%202.1%20%E8%8A%AF%E7%89%87%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">生信全书 Lesson 2.1 芯片基础知识</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="基本介绍"><a rel="nofollow" class="trm-toc-link" href="#基本介绍"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">基本介绍</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="数据库的引用"><a rel="nofollow" class="trm-toc-link" href="#数据库的引用"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">数据库的引用</span></a></li><li class="trm-toc-item trm-toc-level-2" title="电脑和浏览器要求"><a rel="nofollow" class="trm-toc-link" href="#电脑和浏览器要求"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">电脑和浏览器要求</span></a></li><li class="trm-toc-item trm-toc-level-2" title="支持的数据类型"><a rel="nofollow" class="trm-toc-link" href="#支持的数据类型"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">支持的数据类型</span></a></li><li class="trm-toc-item trm-toc-level-2" title="分析内容"><a rel="nofollow" class="trm-toc-link" href="#分析内容"><span class="trm-toc-number">1.4.</span> <span class="trm-toc-text">分析内容</span></a></li><li class="trm-toc-item trm-toc-level-2" title="新用户注册"><a rel="nofollow" class="trm-toc-link" href="#新用户注册"><span class="trm-toc-number">1.5.</span> <span class="trm-toc-text">新用户注册</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Network Analyst主页面"><a rel="nofollow" class="trm-toc-link" href="#Network-Analyst主页面"><span class="trm-toc-number">1.6.</span> <span class="trm-toc-text">Network Analyst主页面</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="Gene List Input"><a rel="nofollow" class="trm-toc-link" href="#Gene-List-Input"><span class="trm-toc-number">1.6.1.</span> <span class="trm-toc-text">Gene List Input</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Gene Expression Table"><a rel="nofollow" class="trm-toc-link" href="#Gene-Expression-Table"><span class="trm-toc-number">1.6.2.</span> <span class="trm-toc-text">Gene Expression Table</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Multiple Gene Expression Tables"><a rel="nofollow" class="trm-toc-link" href="#Multiple-Gene-Expression-Tables"><span class="trm-toc-number">1.6.3.</span> <span class="trm-toc-text">Multiple Gene Expression Tables</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Raw RNA-seq Data"><a rel="nofollow" class="trm-toc-link" href="#Raw-RNA-seq-Data"><span class="trm-toc-number">1.6.4.</span> <span class="trm-toc-text">Raw RNA-seq Data</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Network File"><a rel="nofollow" class="trm-toc-link" href="#Network-File"><span class="trm-toc-number">1.6.5.</span> <span class="trm-toc-text">Network File</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="基因表达分析"><a rel="nofollow" class="trm-toc-link" href="#基因表达分析"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">基因表达分析</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="上传数据"><a rel="nofollow" class="trm-toc-link" href="#上传数据"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">上传数据</span></a></li><li class="trm-toc-item trm-toc-level-2" title="查看数据质检结果"><a rel="nofollow" class="trm-toc-link" href="#查看数据质检结果"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">查看数据质检结果</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="以文字方式呈现："><a rel="nofollow" class="trm-toc-link" href="#以文字方式呈现："><span class="trm-toc-number">2.2.1.</span> <span class="trm-toc-text">以文字方式呈现：</span></a></li><li class="trm-toc-item trm-toc-level-3" title="以图片方式呈现："><a rel="nofollow" class="trm-toc-link" href="#以图片方式呈现："><span class="trm-toc-number">2.2.2.</span> <span class="trm-toc-text">以图片方式呈现：</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="归一化"><a rel="nofollow" class="trm-toc-link" href="#归一化"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">归一化</span></a></li><li class="trm-toc-item trm-toc-level-2" title="差异分析"><a rel="nofollow" class="trm-toc-link" href="#差异分析"><span class="trm-toc-number">2.4.</span> <span class="trm-toc-text">差异分析</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="统计方法"><a rel="nofollow" class="trm-toc-link" href="#统计方法"><span class="trm-toc-number">2.4.1.</span> <span class="trm-toc-text">统计方法</span></a></li><li class="trm-toc-item trm-toc-level-3" title="研究设计"><a rel="nofollow" class="trm-toc-link" href="#研究设计"><span class="trm-toc-number">2.4.2.</span> <span class="trm-toc-text">研究设计</span></a></li><li class="trm-toc-item trm-toc-level-3" title="比较方法"><a rel="nofollow" class="trm-toc-link" href="#比较方法"><span class="trm-toc-number">2.4.3.</span> <span class="trm-toc-text">比较方法</span></a></li><li class="trm-toc-item trm-toc-level-3" title="显著性阈值"><a rel="nofollow" class="trm-toc-link" href="#显著性阈值"><span class="trm-toc-number">2.4.4.</span> <span class="trm-toc-text">显著性阈值</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="结果总结"><a rel="nofollow" class="trm-toc-link" href="#结果总结"><span class="trm-toc-number">2.5.</span> <span class="trm-toc-text">结果总结</span></a></li><li class="trm-toc-item trm-toc-level-2" title="差异基因"><a rel="nofollow" class="trm-toc-link" href="#差异基因"><span class="trm-toc-number">2.6.</span> <span class="trm-toc-text">差异基因</span></a></li><li class="trm-toc-item trm-toc-level-2" title="差异表达分析"><a rel="nofollow" class="trm-toc-link" href="#差异表达分析"><span class="trm-toc-number">2.7.</span> <span class="trm-toc-text">差异表达分析</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="应用示例"><a rel="nofollow" class="trm-toc-link" href="#应用示例"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">应用示例</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="示例文章"><a rel="nofollow" class="trm-toc-link" href="#示例文章"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">示例文章</span></a></li><li class="trm-toc-item trm-toc-level-2" title="芯片数据与筛选标准"><a rel="nofollow" class="trm-toc-link" href="#芯片数据与筛选标准"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">芯片数据与筛选标准</span></a></li><li class="trm-toc-item trm-toc-level-2" title="GEO数据下载"><a rel="nofollow" class="trm-toc-link" href="#GEO数据下载"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">GEO数据下载</span></a></li><li class="trm-toc-item trm-toc-level-2" title="格式化数据"><a rel="nofollow" class="trm-toc-link" href="#格式化数据"><span class="trm-toc-number">3.4.</span> <span class="trm-toc-text">格式化数据</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="格式化数据的要求"><a rel="nofollow" class="trm-toc-link" href="#格式化数据的要求"><span class="trm-toc-number">3.4.1.</span> <span class="trm-toc-text">格式化数据的要求</span></a></li><li class="trm-toc-item trm-toc-level-3" title="格式化数据需要进行的操作"><a rel="nofollow" class="trm-toc-link" href="#格式化数据需要进行的操作"><span class="trm-toc-number">3.4.2.</span> <span class="trm-toc-text">格式化数据需要进行的操作</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="上传数据"><a rel="nofollow" class="trm-toc-link" href="#上传数据-1"><span class="trm-toc-number">3.5.</span> <span class="trm-toc-text">上传数据</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="对ID type进行合适的调整"><a rel="nofollow" class="trm-toc-link" href="#对ID-type进行合适的调整"><span class="trm-toc-number">3.5.1.</span> <span class="trm-toc-text">对ID type进行合适的调整</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="质检"><a rel="nofollow" class="trm-toc-link" href="#质检"><span class="trm-toc-number">3.6.</span> <span class="trm-toc-text">质检</span></a></li><li class="trm-toc-item trm-toc-level-2" title="过滤和归一化"><a rel="nofollow" class="trm-toc-link" href="#过滤和归一化"><span class="trm-toc-number">3.7.</span> <span class="trm-toc-text">过滤和归一化</span></a></li><li class="trm-toc-item trm-toc-level-2" title="差异分析"><a rel="nofollow" class="trm-toc-link" href="#差异分析-1"><span class="trm-toc-number">3.8.</span> <span class="trm-toc-text">差异分析</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="芯片Meta Analysis"><a rel="nofollow" class="trm-toc-link" href="#芯片Meta-Analysis"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">芯片Meta Analysis</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="简介"><a rel="nofollow" class="trm-toc-link" href="#简介"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">简介</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="什么是荟萃分析"><a rel="nofollow" class="trm-toc-link" href="#什么是荟萃分析"><span class="trm-toc-number">4.1.1.</span> <span class="trm-toc-text">什么是荟萃分析</span></a></li><li class="trm-toc-item trm-toc-level-3" title="哪些数据集适合进行荟萃分析"><a rel="nofollow" class="trm-toc-link" href="#哪些数据集适合进行荟萃分析"><span class="trm-toc-number">4.1.2.</span> <span class="trm-toc-text">哪些数据集适合进行荟萃分析</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="实战部份"><a rel="nofollow" class="trm-toc-link" href="#实战部份"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">实战部份</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="数据上传"><a rel="nofollow" class="trm-toc-link" href="#数据上传"><span class="trm-toc-number">4.2.1.</span> <span class="trm-toc-text">数据上传</span></a></li><li class="trm-toc-item trm-toc-level-3" title="质检"><a rel="nofollow" class="trm-toc-link" href="#质检-1"><span class="trm-toc-number">4.2.2.</span> <span class="trm-toc-text">质检</span></a></li><li class="trm-toc-item trm-toc-level-3" title="荟萃分析"><a rel="nofollow" class="trm-toc-link" href="#荟萃分析"><span class="trm-toc-number">4.2.3.</span> <span class="trm-toc-text">荟萃分析</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Meta分析"><a rel="nofollow" class="trm-toc-link" href="#Meta分析"><span class="trm-toc-number">4.2.4.</span> <span class="trm-toc-text">Meta分析</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="FAQs"><a rel="nofollow" class="trm-toc-link" href="#FAQs"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">FAQs</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="如果我的芯片检测平台不在支持的列表中，怎么办"><a rel="nofollow" class="trm-toc-link" href="#如果我的芯片检测平台不在支持的列表中，怎么办"><span class="trm-toc-number">5.1.</span> <span class="trm-toc-text">如果我的芯片检测平台不在支持的列表中，怎么办</span></a></li><li class="trm-toc-item trm-toc-level-2" title="如何格式化分析数据"><a rel="nofollow" class="trm-toc-link" href="#如何格式化分析数据"><span class="trm-toc-number">5.2.</span> <span class="trm-toc-text">如何格式化分析数据</span></a></li><li class="trm-toc-item trm-toc-level-2" title="如何判断数据是否归一化，并选择合适的归一化方法？"><a rel="nofollow" class="trm-toc-link" href="#如何判断数据是否归一化，并选择合适的归一化方法？"><span class="trm-toc-number">5.3.</span> <span class="trm-toc-text">如何判断数据是否归一化，并选择合适的归一化方法？</span></a></li><li class="trm-toc-item trm-toc-level-2" title="如何识别并且处理质检一场的样本"><a rel="nofollow" class="trm-toc-link" href="#如何识别并且处理质检一场的样本"><span class="trm-toc-number">5.4.</span> <span class="trm-toc-text">如何识别并且处理质检一场的样本</span></a></li><li class="trm-toc-item trm-toc-level-2" title="如何选择合适的差异分析方法"><a rel="nofollow" class="trm-toc-link" href="#如何选择合适的差异分析方法"><span class="trm-toc-number">5.5.</span> <span class="trm-toc-text">如何选择合适的差异分析方法</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="特定两组比较"><a rel="nofollow" class="trm-toc-link" href="#特定两组比较"><span class="trm-toc-number">5.5.1.</span> <span class="trm-toc-text">特定两组比较</span></a></li><li class="trm-toc-item trm-toc-level-3" title="成对比较（两两比较）"><a rel="nofollow" class="trm-toc-link" href="#成对比较（两两比较）"><span class="trm-toc-number">5.5.2.</span> <span class="trm-toc-text">成对比较（两两比较）</span></a></li><li class="trm-toc-item trm-toc-level-3" title="时间序列比较"><a rel="nofollow" class="trm-toc-link" href="#时间序列比较"><span class="trm-toc-number">5.5.3.</span> <span class="trm-toc-text">时间序列比较</span></a></li><li class="trm-toc-item trm-toc-level-3" title="嵌套比较"><a rel="nofollow" class="trm-toc-link" href="#嵌套比较"><span class="trm-toc-number">5.5.4.</span> <span class="trm-toc-text">嵌套比较</span></a></li></ol></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

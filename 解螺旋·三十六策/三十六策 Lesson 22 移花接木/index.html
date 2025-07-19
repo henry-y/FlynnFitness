@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋三十六策   RNA和蛋白结合应该说是分子交互套路中的新鲜事物，出现的最晚。主要的应用场景是LncRNA与蛋白结合的机制研究，是LncRNA除了ceRNA之外，现阶段比较主流的第二种直接机制模式。粗略分，可以把LncRNA的机制分为两条路线：跟RNA交互，以ceRNA为主流，剩下的思路就是找LncRNA的互作蛋白了。 LncRNA可以结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三十六策 Lesson 22 移花接木">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2022%20%E7%A7%BB%E8%8A%B1%E6%8E%A5%E6%9C%A8/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋三十六策   RNA和蛋白结合应该说是分子交互套路中的新鲜事物，出现的最晚。主要的应用场景是LncRNA与蛋白结合的机制研究，是LncRNA除了ceRNA之外，现阶段比较主流的第二种直接机制模式。粗略分，可以把LncRNA的机制分为两条路线：跟RNA交互，以ceRNA为主流，剩下的思路就是找LncRNA的互作蛋白了。 LncRNA可以结">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-24T05:07:26.680Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:26.680Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="解螺旋">
+<meta property="article:tag" content="三十六策">
+<meta name="twitter:card" content="summary">
+
+
+<title >三十六策 Lesson 22 移花接木</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:26"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/cover2.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            三十六策 Lesson 22 移花接木
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        解螺旋·三十六策
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/">三十六策</a></p>
+</div>
+<ul>
+<li>RNA和蛋白结合应该说是分子交互套路中的新鲜事物，出现的最晚。主要的应用场景是LncRNA与蛋白结合的机制研究，是LncRNA除了ceRNA之外，现阶段比较主流的第二种直接机制模式。粗略分，可以把LncRNA的机制分为两条路线：跟RNA交互，以ceRNA为主流，剩下的思路就是找LncRNA的互作蛋白了。<blockquote>
+<p>LncRNA可以结合转录因子，调控下游靶基因的启动子，构成RNA-蛋白-DNA的三元结构。凡是蛋白能扮演的戏码，LncRNA都能插一手，这表现出LncRNA的全能性。在<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%204%20%E5%88%86%E5%AD%90%E7%82%B9%E7%9D%9B/">三十六策 Lesson 4</a>介绍分子变量具体形式的部分，我们就有提到过LncRNA可谓“无所不能”。LncRNA出现前科学界一直流行的是一神论，唯有蛋白是执行一切生理、病理功能的基本单位，是无所不能的Game master。随后LncRNA崛起了，才发现你的信仰崩塌了，以前书本里学的那些东西都过时了，必须重新建立对这个世界的认识。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>这一节课之所以叫移花接木，是因为我想向大家传递理解LncRNA作用机制的一个核心思想：LncRNA的研究思路其实和原来做蛋白是几乎一样的，蛋白能干的事、能介导的功能、能产生的分子机制，LncRNA一样不差，都能参与其中。这一招移花接木是把变量从功能基因、蛋白换成了LncRNA，效果还是很显著的，课题的创新性就足够了。</p>
+</blockquote>
+<h1 id="LncRNA与mRNA的差异"><a href="#LncRNA与mRNA的差异" class="headerlink" title="LncRNA与mRNA的差异"></a>LncRNA与mRNA的差异</h1><ul>
+<li>除是否编码蛋白之外，还有它的转录起始、转录的位置、转录出来剪切加工的形式、有没有帽和Poly-A尾的结构，以及它们在细胞内的定位、是否受到一些修饰调控、 最终降解的途径等等。当疾病发生过程中某些环节产生异常，就可能导致LncRNA的表达和介导的功能异常</li>
+<li><a target="_blank" rel="noopener" href="https://www.nature.com/articles/nrg.2015.10">一篇推荐阅读的文献</a><blockquote>
+<p>在三十六策中，我们不会过多关注LncRNA的表型特征，这是二十四型里面展开的内容，主要关注的的是怎么做LncRNA的机制。机制是做课题时的主要难点，也是读文章的难点。已知功能，找主变量调节了谁，合理挖掘出在表型和主变量之间建立联系的因变量，这是文章策略中的“天元”位置，在这一门课程中我们会重点解构这方面的常理知识。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>分子间的调控关系和相互作用是有规律可循的，可以具体代表某一些普遍的生物学过程。转录可以归纳为蛋白作用于另一个基因的启动子DNA，这是逻辑框架。但转录是产生分子调节的途径之一，这点认识并不能舍弃，其效应结果是改变mRNA的表达，最终改变蛋白表达。</p>
+</blockquote>
+<blockquote>
+<p>无论主变量是转录因子蛋白还是被调节的基因，分子交互的模式并不会变化，我把它称作逻辑套路的“双向兼容”。在下游作用机制研究中，是把主变量放在调节的发起者身份上，而调节的对象是下游的效应分子——因变量。主变量本身在疾病中为何表达会改变，也是非常关键的科学问题，如果研究上游调节的施加对象，因变量就在上游了，被调节的是主变量。一前一后这么位置一换，逻辑上双向兼容，套路格式完全通用。大家真正理解了两个上下游分子怎么相互调节，把经典的模式记住了，主动、被动一换，就是上下游的转换。</p>
+</blockquote>
+<blockquote>
+<p>一个分子对另外一个分子产生调控，有多少种方式可以实现呢?这个问题我们从来没有完整 梳理过。按照不同层次来归纳，基因的调控可发生在基因水平、转录、转录后、翻译、翻译 后这5个环节。LncRNA目前研究的比较多的调控机制主要就是在转录环节，其次是对mRNA的转录后调节，然后是参与蛋白翻译的过程，差不多就是一个全局性的影响。在这5个环节里面还有一些细节今天要具体地说一说，其中包含一共12种能够影响基因表达调控与功能的途径，我们来一一罗列。</p>
+</blockquote>
+<blockquote>
+<p>有时候文章看的不懂，一方面是你没有把文章的论证套路化解成什么类型分子与什么类型分子交互这种逻辑结构，甚至简化成LncRNA到底是做与RNA结合，还是做蛋白结合这么简单粗暴。另一方面是对调控规律，那些经常拿来研究的故事情节，缺乏足够的熟悉度。文章看多了一瞥到关键词，就知道又来那一套，接下来理解的难度就减轻很多了。</p>
+</blockquote>
+<h1 id="十二种调控场景"><a href="#十二种调控场景" class="headerlink" title="十二种调控场景"></a>十二种调控场景</h1><ul>
+<li>首先从DNA开始，基因水平有DNA的甲基化，这其中LncRNA是可以调节的。甲基化需要蛋白酶催化，LncRNA可以起到穿针引线的作用，这是第一种。</li>
+<li>接下来，对转录因子以及其他转录调节蛋白的作用主要是两种：招募recruitment和抑制inhibitor，是完全不同的两种模式。注意招募不一定是促进转录，抑制也不一定是抑制转录，万一招募和抑制的是转录的负调节因子，就正负得负，负负得正了。这里是第二组和第三组。</li>
+<li>第四种调控模式，LncRNA转录出来可以直接结合旁边的DNA序列，结合了能抑制转录。这跟前面二和三的不同在于不依赖于蛋白，是核酸之间直接结合，是比较独特的一种形式。</li>
+<li>还有，转录不仅仅是转录因子和DNA，主要催化的是RNA聚合酶，LncRNA也可以影响转录复合物以及RNA聚合酶的催化活性，这就第五种了。</li>
+<li>转录还需要染色质结构的解开才能进行，影响染色质结构的组蛋白修饰包括甲基化、乙酰化，都有LncRNA的参与，影响了这些组蛋白修饰环节一样可以调节转录。数一数，从DNA 到RNA就有6种形式的调控模型了，都是围绕转录水平的细化。LncRNA跟蛋白调节转录套路基本差不多，几乎转录过程的方方面面LncRNA都可以影响到。</li>
+<li>在转录后调节中，LncRNA可以通过结合mRNA，影响可变剪切，具体内容见<a href="">下一节课的内容</a>，LncRNA可以影响mRNA的前体加工成熟的过程，这是第七种了。</li>
+<li>mRNA加工成熟后，需要转送到细胞质进行蛋白翻译，mRNA 的定位也会受到LncRNA影响，相当于原本路口红绿灯控制着，交警来了可以用手势来干预，mRNA转运是一套标准流程，而这套流程能被LncRNA调控，这是第八种。</li>
+<li>mRNA的稳定性同样受到LncRNA调节，LncRNA可以结合mRNA的3’-UTR，诱导mRNA降解，很像miRNA，miRNA就是在这个步骤起作用。LncRNA还可以结合蛋白，再靶向结合mRNA的序列，促进mRNA的稳定性。好全面，正反都能干。影响mRNA的稳定性是第九种调控路径。</li>
+<li>到了翻译环节，LncRNA可以结合mRNA的5’-UTR，促进翻译过程。它也可以结合特定的蛋白，然后靶向mRNA抑制翻译，又是正反都能干，这已经是第十种了。</li>
+<li>在翻译后修饰方面，JAK-STAT信号通路的明星分子STAT3，它的磷酸化就受到LncRNA的调控。调控蛋白翻译后修饰，第十一种。翻译后修饰的类型多了去了，看到文章里把LncRNA 掺和进去做什么修饰都不要奇怪。</li>
+<li>最后，LncRNA还能调节蛋白的细胞定位，定位也会影响功能，这就十二种了。</li>
+<li>研究LncRNA，有这么多可以研究的机制模型，是欣喜呢还是痛苦呢？能套出来一种，说清楚它是如何影响下游基因的，或者主变量怎么被调控，文章就发了，那是幸福的滋味。但选择太多也是痛苦，虽然条条大路通罗马，但是人品不好的时候走的偏偏都是死路，造化弄人。</li>
+</ul>
+<h1 id="一个简化模型"><a href="#一个简化模型" class="headerlink" title="一个简化模型"></a>一个简化模型</h1><ul>
+<li>在LncRNA套路课里，老谈给大家讲了一套包含signal，decoy，guide，scaffold四种依据分子作用的特点总结的LncRNA机制模型，比较经典，在LncRNA领域有一定认可。</li>
+</ul>
+<h2 id="信号分子Signal"><a href="#信号分子Signal" class="headerlink" title="信号分子Signal"></a>信号分子Signal</h2><ul>
+<li>LncRNA因为是RNA，它一转录就能够起到调控作用，效率要比蛋白高。蛋白需要编码翻译了之后，从胞浆再运送到细胞核内，才能参与转录调控，而LncRNA转录出来之后，可以直接结合染色体中邻近位置的DNA，调节基因表达。</li>
+<li>这种自产自销的模式还有个专业的分子生物学名称，叫顺式调控，<em>cis</em>-acting。LncRNA当中的一些分类，比如反义antisense LncRNA，以及eRNA(enhancer RNA)主要就是这种顺式作用模式。从分子相互作用的角度，signal一般是RNA结合DNA，我们没有单独拿出来这两种分子类型交互作为一策分析，是因为RNA和DNA结合依据的是碱基互补配对原则，研究起来不复杂，构不成单独一策的内容。</li>
+<li>signal强调的是LncRNA本身是信号传递中的一个必要环节，当然并不仅限于RNA与DNA的互作，跟蛋白互作也是兼容的。四种模型的归类方法不是分子类型归类，它考虑的是执行功能的特点，大家横竖都要会拆解。</li>
+</ul>
+<h2 id="诱骗Decoy"><a href="#诱骗Decoy" class="headerlink" title="诱骗Decoy"></a>诱骗Decoy</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2021%20%E8%9D%B6%E4%BD%BF%E8%9C%82%E5%AA%92/">上一策</a>讲的ceRNA就是LncRNA发挥decoy作用的典型，属于RNA-RNA直接结合的decoy。当然，作为竞争性结合的模式，LncRNA也可以decoy蛋白，比如转录因子，让它误以为自己已经结合到调控的DNA序列了，而其实并没有。</li>
+</ul>
+<h2 id="引导员Guide"><a href="#引导员Guide" class="headerlink" title="引导员Guide"></a>引导员Guide</h2><ul>
+<li>第三种机制模型叫Guide，引导员。比如我们在<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2019%20%E7%AD%89%E9%87%8F%E9%BD%90%E8%A7%82/">三十六策 Lesson 19</a>提到的伴侣分子，RNA-蛋白-DNA三元机制模式就是属于Guide。Guide是LncRNA一手拉转录因子，一手利用碱基互补配对结合DNA，引导它们靠近发挥调节作用。从分子结合的角度，这里面包含了RNA-DNA以及RNA-蛋白两种结合。伴侣分子，没它则不能进行正常的转录调控，这样的三元结构本质上还是两个二元机制的叠加。</li>
+<li>Guide和Signal有时候是比较类似的，它们的区别是Guide是媒婆，介绍完你们继续聊，不 参与谈恋爱的过程；Signal是三角恋，分子本身参与恋爱，是关系中的一个环节。</li>
+<li>与顺式(<em>cis</em>)调节对应的，还有一个 反式(<em>trans</em>)作用。LncRNA被转录出来之后，去调控另一个位置的基因，就属于反式调节。Guide是典型的反式调节模式，是在远端发挥作用的。<em>cis</em>-acting和<em>trans</em>-regulation，文章里面经常看到，怎么区分呢？顺式、反式的概念很早就有，没有非编码RNA时很简单，启动子、增强子都是顺式元件，因为它们是跟基因同一条序列上的DNA分子。如果蛋白来调节转录那就是反式，因为蛋白都已经转录翻译到胞浆逛完一圈了， 肯定不会在同一个位置产生。LncRNA一出来就复杂了，它转录出来既可以在附近作用也可以跑到很远，那么多远的位置才叫顺式调控呢?一般认为1Mbps，100万碱基对距离之内的属于<em>cis</em>。染色体的三维空间结构，线性距离上几千bp，几万bp甚至几十万 bp的DNA，在空间结构上很有可能是相互接近的，所以我们会把最远1个Million bp之内的距离定义为是<em>cis</em>调控，当然实际研究过程中100万碱基范围内基因太多了，可以人为缩小，比如20万、50 万，有些文章就是这么分析的。</li>
+<li>signal和guide跟顺式反式没有绝对的对应关系。邻近位置的调控也可以招募蛋白，形成 Guide的模型，注意依然叫顺式。Signal也不一定是顺式调控，一般是调控邻近基因，但是具体看位置。因为本身是两个概念，大家不要混淆。顺式、反式只看位置远近，signal、decoy、guide这种分类方法只看作用的特点，不管分子交互类型。</li>
+</ul>
+<h2 id="结构骨架Scaffold"><a href="#结构骨架Scaffold" class="headerlink" title="结构骨架Scaffold"></a>结构骨架Scaffold</h2><ul>
+<li>这个词原来是脚手架的意思</li>
+<li>第四个是Scaffold，结构骨架，指的是一个LncRNA充当蛋白复合体的骨架，连接多个蛋白， 从分子类型来说它也属于 RNA 和蛋白结合的范畴。</li>
+<li>Scaffold和Guide都可以结合蛋白，甚至Decoy也可以结合蛋白，区别是什么?</li>
+<li>经典的Guide模式可以连接DNA，而Scaffold没有结合DNA的戏，只结合蛋白。Decoy竞争的蛋白，它本来是有一个其他的结合对象的， Scaffold模式中没有。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>上述机制中，我们更应该关注的是RNA结合什么分子，以及RNA结合几个分子，也就是研究是二元变量还是三元变量，而不是这四种分类。</li>
+<li>这些机制模型很重要，用的人多，是研究LncRNA的一种交流语言，但这只是一种描述的思维框架，具体涉及到实验设计我认为还是要按照分子类型来界定比较好。Signal，Decoy，Guide和Scaffold不是最开始想做机制的时候就想好的，而是做完了才能总结出来。选定的LncRNA是要做RNA结合RNA的ceRNA机制，还是LncRNA结合蛋白的机制，这是两个不同的大方向，一开始就要确定，研究方法完全不一样。</li>
+<li>可以适当复习<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2020%20%E5%B7%A6%E5%8F%B3%E9%80%A2%E6%BA%90/">三十六策 Lesson 20</a>中关于IP、co-IP和GST pulldown、质谱鉴定蛋白的内容，以及<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2016%20%E7%A7%89%E8%BD%B4%E6%8C%81%E9%92%A7/">三十六策 Lesson 16</a>中关于研究蛋白质和DNA互作的chIP实验。</li>
+</ul>
+<h1 id="RNA与蛋白分子交互课题的实验设计"><a href="#RNA与蛋白分子交互课题的实验设计" class="headerlink" title="RNA与蛋白分子交互课题的实验设计"></a>RNA与蛋白分子交互课题的实验设计</h1><h2 id="已知LncRNA找蛋白"><a href="#已知LncRNA找蛋白" class="headerlink" title="已知LncRNA找蛋白"></a>已知LncRNA找蛋白</h2><ul>
+<li>已知LncRNA找结合蛋白的实验方法叫RNA pulldown，跟GST-pulldown原理差不多，捕获LncRNA可以用一条互补的合成的RNA探针，探针上人为加上生物素biotin的标签，然后用链霉亲和素Streptavidin的beads结合biotin，这样RNA的bait就做好了， 接下来一样亲和层析，换溶液洗脱，洗下来的结合蛋白去打质谱鉴定，跟鉴定蛋白-蛋白相互作用大同小异。</li>
+</ul>
+<h2 id="已知蛋白找互作的LncRNA"><a href="#已知蛋白找互作的LncRNA" class="headerlink" title="已知蛋白找互作的LncRNA"></a>已知蛋白找互作的LncRNA</h2><ul>
+<li>用RIP，也就是RNA的免疫沉淀，其实就是RNA版本的ChIP。用ProteinA的beads偶联抗体结合蛋白，蛋白把RNA沉淀下来，然后测序分析，就能找到可能有结合的LncRNA。这里不做测序，用基因芯片高通量检测也是可行的。</li>
+</ul>
+<h2 id="对技术的补充"><a href="#对技术的补充" class="headerlink" title="对技术的补充"></a>对技术的补充</h2><ul>
+<li>上面两种技术可以用于筛选，也可以用于验证。用在验证的时候，RIP沉淀下来的RNA用定量PCR鉴定，而RNA pulldown拉下来的蛋白用Western就好了。</li>
+<li>RNA-蛋白结合是目前LncRNA研究的重要机制方向，而且是高分文章的标配，所以改进的新方法也层出不穷， 但基本原理背后都一样。用生物素标记RNA，然后捕获蛋白，用测序分析RNA，质谱分析蛋白。这些衍生技术有CLIP、ChIRP、CHART，感兴趣的可以自己查一查。</li>
+<li>如果蛋白和RNA两个分子都已经锁定，验证彼此结合也可以用另一种常用的核酸与蛋白相互作用的研究方法，凝胶迁移实验EMSA，可以复习<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2016%20%E7%A7%89%E8%BD%B4%E6%8C%81%E9%92%A7/">三十六策 Lesson 16</a>中的内容。最初是用于转录因子与DNA相互作用的验证性实验中，现在RNA研究大热，也经常被用在蛋白-RNA互作研究中。</li>
+</ul>
+<h2 id="补充：蛋白芯片技术"><a href="#补充：蛋白芯片技术" class="headerlink" title="补充：蛋白芯片技术"></a>补充：蛋白芯片技术</h2><ul>
+<li>讲<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2020%20%E5%B7%A6%E5%8F%B3%E9%80%A2%E6%BA%90/">三十六策 Lesson 20</a>的时候，我们有提到过，可以用蛋白芯片技术研究蛋白交互作用，这里稍微补充一下。</li>
+<li>一款蛋白组芯片上预先放置有大概2万种人全长蛋白，只需要我们把LncRNA用化学合成，或体外转录方法获取和纯化出来，加上荧光标记后与芯片孵育杂交。这样分析芯片上哪个位置蛋白结合探针有，荧光信号，就可以识别LncRNA的结合蛋白。如果是研究蛋白-蛋白相互作用，就加入标记的蛋白样品进行杂交，原理一样。蛋白芯片是个商业化的 产品，好处是有公司服务，做起来很简单，只要有 LncRNA 序列外包全套都能做下来，费用也还好。<ul>
+<li>这种实验方法的缺点在于：它是一种纯粹体外的结合体系，跟胞内可能会有不同，所以存在假阳性结果，后续验证起来会有点麻烦。</li>
+<li>在<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2020%20%E5%B7%A6%E5%8F%B3%E9%80%A2%E6%BA%90/">三十六策 Lesson 20</a>中我们提到过，蛋白蛋白相互作用数据库预测显得不是那么重要，因为co-IP、GST-pulldown必须做的很熟，文章才能成。如果课题是做LncRNA和蛋白结合的机制，那RIP、RNA-pulldown就都是标配实验，都需要会做、做熟，筛选结合分子也就是个送质谱和送测序的问题。做蛋白组芯片实验难度上的降低可能是种假象，找到互作分子后面一定需要提供经典实验的数据。</li>
+</ul>
+</li>
+<li>一路讲下来，跟<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2020%20%E5%B7%A6%E5%8F%B3%E9%80%A2%E6%BA%90/">三十六策 Lesson 20</a>中的蛋白蛋白相互作用，大家应该能感觉到很多相通的知识，蛋白-蛋白结合预测说到了一个数据库string，LncRNA和蛋白互作预测的专门数据库也是有一些的，比如catRAPID，这是一个专门用来分析和计算蛋白与LncRNAs 相互结合能力的数据库，根据二级结构、氢键、范德华力等参数来预测蛋白-RNA 的结合关系。转录因子结合启动子预测的JASPAR数据库是根据DNA motif，也就是蛋白爱什么种类的DNA来预测的，是根据序列特征。catRAPID也差不多，是一种基于算法的预测。它里面有好几个模块，其中catRAPID omics应该首先会用到。Omics可以用于预测某一个LncRNA的结合蛋白，或者某一个蛋白的结合LncRNA，可以从RNA 出发，也可以从蛋白出发，只需知道LncRNA的核苷酸序列或蛋白氨基酸序列就可以了，circRNA也可以做。这个网站的其它模块主要是确定了特定的LncRNA和蛋白的组合之后，来进行进一步分析，评估两者间相互结合的效能。</li>
+</ul>
+<h1 id="总结：研究流程"><a href="#总结：研究流程" class="headerlink" title="总结：研究流程"></a>总结：研究流程</h1><h2 id="直接机制之前的内容"><a href="#直接机制之前的内容" class="headerlink" title="直接机制之前的内容"></a>直接机制之前的内容</h2><ul>
+<li>LncRNA研究的展开跟其他分子类型一样，第一步是找分子。</li>
+<li>在这一步，猜的来源太少，基本都是新分子，而且做LncRNA文章主要是想发高分，所以目前大部分LncRNA的文章都是以筛选结果为起点的，筛选是第一步。</li>
+<li>把筛选并且确认了表达差异和细胞定位的LncRNA分子，进一步进行一正一反的功能验证，细胞做完再动物二次验证，这样表达检测、Gain of function、Loss of function以及在体动物功能验证，是第二三四步，都是前面讲过的套路规范。</li>
+<li>这些内容全部完成之后，就该思考机制的方向了，如果目标5分左右，间接作用机制就可以胜任，找明星通路和明星分子，二元或者三元都可以，本质上跟功能基因也没差别。但如果你目标是发8-10分，那么区别就来了，因为要做直接作用机制才能到这种水平。<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2021%20%E8%9D%B6%E4%BD%BF%E8%9C%82%E5%AA%92/">上一节课</a>和这节课的内容讲的就是LncRNA直接作用机制，也兼容了CircRNA，当前最新潮的基础科研玩法就摆在面前。</li>
+</ul>
+<h2 id="直接机制"><a href="#直接机制" class="headerlink" title="直接机制"></a>直接机制</h2><ul>
+<li>做LncRNA的直接作用机制，首先要确认的是这个LncRNA的转录位置和亚细胞定位。<ul>
+<li>如果是在细胞核内的，就先考虑附近的基因有没有表达受影响，也就是signal模式。</li>
+<li>前面有高通量测序的数据，这里就根据表达的相关性来分析确认，找顺式调控作用。研究LncRNA表达差异，一般都需要把mRNA的表达谱一起做了，这是有道理的，分析顺式作用以及后面ceRNA都要用到mRNA表达数据。</li>
+<li>如果顺式没找到，定位于细胞核内的LncRNA就要考虑反式作用调控基因。这时候位置没有限制了，关键需要找结合的转录因子，套的是guide或者decoy的模式，研究蛋白-RNA相互作用。这里当然也不能忘了LncRNA还可以结合RNA聚合酶，影响染色质，结合组蛋白，调节组蛋白修饰，DNA甲基化这样的机制模式，可以根据RNA pulldown筛到的蛋白来具体展开。我们在实验中细胞核与细胞质组分是可以分离研究的，根据核内LncRNA结合到什么蛋白来具体确定后面怎么圆这个story，核内顺式和反式就是两条直接机制的路线了。</li>
+</ul>
+</li>
+<li>如果定位在胞浆的，那么可以考虑结合RNA做ceRNA机制，从miRNA的靶点预测入手，也不算难。ceRNA的场景是在细胞浆的，如果不是胞浆定位的LncRNA，不走这条线路。胞核定位聚焦转录调节，胞浆定位优先考虑ceRNA是一个固定套路。最后就是走LncRNA结合蛋白，或者考虑mRNA结合影响稳定性、可变剪切、调节翻译、介导翻译后修饰等角度。不管是scaffold，guide还是decoy，反正用来研究RNA结合蛋白的实验方法从筛选到验证都一样。</li>
+</ul>
+<h2 id="参考复习内容（如果想做LncRNA或CircRNA）"><a href="#参考复习内容（如果想做LncRNA或CircRNA）" class="headerlink" title="参考复习内容（如果想做LncRNA或CircRNA）"></a>参考复习内容（如果想做LncRNA或CircRNA）</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2011%20%E8%A7%81%E5%BE%AE%E7%9F%A5%E8%91%97/">三十六策 Lesson 11</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2012%20%E9%9D%A9%E6%95%85%E9%BC%8E%E6%96%B0/">三十六策 Lesson 12</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2021%20%E8%9D%B6%E4%BD%BF%E8%9C%82%E5%AA%92/">三十六策 Lesson 21</a></li>
+<li>本节的内容</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2016%20%E7%A7%89%E8%BD%B4%E6%8C%81%E9%92%A7/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/cover2.jpg">
+                </span>
+                <h6 class="trm-op-title">三十六策 Lesson 16 秉轴持钧</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2013%20%E9%98%B4%E9%98%B3%E4%B8%A4%E4%BB%AA/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">三十六策 Lesson 13 阴阳两仪</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="LncRNA与mRNA的差异"><a rel="nofollow" class="trm-toc-link" href="#LncRNA与mRNA的差异"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">LncRNA与mRNA的差异</span></a></li><li class="trm-toc-item trm-toc-level-1" title="十二种调控场景"><a rel="nofollow" class="trm-toc-link" href="#十二种调控场景"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">十二种调控场景</span></a></li><li class="trm-toc-item trm-toc-level-1" title="一个简化模型"><a rel="nofollow" class="trm-toc-link" href="#一个简化模型"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">一个简化模型</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="信号分子Signal"><a rel="nofollow" class="trm-toc-link" href="#信号分子Signal"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">信号分子Signal</span></a></li><li class="trm-toc-item trm-toc-level-2" title="诱骗Decoy"><a rel="nofollow" class="trm-toc-link" href="#诱骗Decoy"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">诱骗Decoy</span></a></li><li class="trm-toc-item trm-toc-level-2" title="引导员Guide"><a rel="nofollow" class="trm-toc-link" href="#引导员Guide"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">引导员Guide</span></a></li><li class="trm-toc-item trm-toc-level-2" title="结构骨架Scaffold"><a rel="nofollow" class="trm-toc-link" href="#结构骨架Scaffold"><span class="trm-toc-number">3.4.</span> <span class="trm-toc-text">结构骨架Scaffold</span></a></li><li class="trm-toc-item trm-toc-level-2" title="总结"><a rel="nofollow" class="trm-toc-link" href="#总结"><span class="trm-toc-number">3.5.</span> <span class="trm-toc-text">总结</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="RNA与蛋白分子交互课题的实验设计"><a rel="nofollow" class="trm-toc-link" href="#RNA与蛋白分子交互课题的实验设计"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">RNA与蛋白分子交互课题的实验设计</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="已知LncRNA找蛋白"><a rel="nofollow" class="trm-toc-link" href="#已知LncRNA找蛋白"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">已知LncRNA找蛋白</span></a></li><li class="trm-toc-item trm-toc-level-2" title="已知蛋白找互作的LncRNA"><a rel="nofollow" class="trm-toc-link" href="#已知蛋白找互作的LncRNA"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">已知蛋白找互作的LncRNA</span></a></li><li class="trm-toc-item trm-toc-level-2" title="对技术的补充"><a rel="nofollow" class="trm-toc-link" href="#对技术的补充"><span class="trm-toc-number">4.3.</span> <span class="trm-toc-text">对技术的补充</span></a></li><li class="trm-toc-item trm-toc-level-2" title="补充：蛋白芯片技术"><a rel="nofollow" class="trm-toc-link" href="#补充：蛋白芯片技术"><span class="trm-toc-number">4.4.</span> <span class="trm-toc-text">补充：蛋白芯片技术</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="总结：研究流程"><a rel="nofollow" class="trm-toc-link" href="#总结：研究流程"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">总结：研究流程</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="直接机制之前的内容"><a rel="nofollow" class="trm-toc-link" href="#直接机制之前的内容"><span class="trm-toc-number">5.1.</span> <span class="trm-toc-text">直接机制之前的内容</span></a></li><li class="trm-toc-item trm-toc-level-2" title="直接机制"><a rel="nofollow" class="trm-toc-link" href="#直接机制"><span class="trm-toc-number">5.2.</span> <span class="trm-toc-text">直接机制</span></a></li><li class="trm-toc-item trm-toc-level-2" title="参考复习内容（如果想做LncRNA或CircRNA）"><a rel="nofollow" class="trm-toc-link" href="#参考复习内容（如果想做LncRNA或CircRNA）"><span class="trm-toc-number">5.3.</span> <span class="trm-toc-text">参考复习内容（如果想做LncRNA或CircRNA）</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

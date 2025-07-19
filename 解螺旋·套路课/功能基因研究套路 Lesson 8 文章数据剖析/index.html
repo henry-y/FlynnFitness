@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋套路课   文献范例：https:&#x2F;&#x2F;pubmed.ncbi.nlm.nih.gov&#x2F;26565812&#x2F;  Fig.1当中，作者希望通过一系列的实验，告诉我们CISD2这个基因在胃癌组织中高表达，而在癌旁对照组织中表达很低    a图中，作者从TCGA数据库收集了相应的CISD2表达数据，根据作者的报道，作者收集了409例胃癌标本，37">
+<meta property="og:type" content="article">
+<meta property="og:title" content="功能基因研究套路 Lesson 8 文章数据剖析">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E5%8A%9F%E8%83%BD%E5%9F%BA%E5%9B%A0%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%208%20%E6%96%87%E7%AB%A0%E6%95%B0%E6%8D%AE%E5%89%96%E6%9E%90/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋套路课   文献范例：https:&#x2F;&#x2F;pubmed.ncbi.nlm.nih.gov&#x2F;26565812&#x2F;  Fig.1当中，作者希望通过一系列的实验，告诉我们CISD2这个基因在胃癌组织中高表达，而在癌旁对照组织中表达很低    a图中，作者从TCGA数据库收集了相应的CISD2表达数据，根据作者的报道，作者收集了409例胃癌标本，37">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:27.230Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:27.230Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="解螺旋">
+<meta property="article:tag" content="套路课">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >功能基因研究套路 Lesson 8 文章数据剖析</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:27"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            功能基因研究套路 Lesson 8 文章数据剖析
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        解螺旋·套路课
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E5%A5%97%E8%B7%AF%E8%AF%BE/">套路课</a></p>
+</div>
+<blockquote>
+<p>文献范例：<a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/26565812/">https://pubmed.ncbi.nlm.nih.gov/26565812/</a><br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-09%2010.04.36.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+<h1 id="Fig-1当中，作者希望通过一系列的实验，告诉我们CISD2这个基因在胃癌组织中高表达，而在癌旁对照组织中表达很低"><a href="#Fig-1当中，作者希望通过一系列的实验，告诉我们CISD2这个基因在胃癌组织中高表达，而在癌旁对照组织中表达很低" class="headerlink" title="Fig.1当中，作者希望通过一系列的实验，告诉我们CISD2这个基因在胃癌组织中高表达，而在癌旁对照组织中表达很低"></a>Fig.1当中，作者希望通过一系列的实验，告诉我们CISD2这个基因在胃癌组织中高表达，而在癌旁对照组织中表达很低</h1><p>  <img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2016.39.30.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>a图中，作者从TCGA数据库收集了相应的CISD2表达数据，根据作者的报道，作者收集了409例胃癌标本，37例癌旁对照的正常组织标本；通过数据分析，作者发现，CISD2在肿瘤组织中的表达，要显著高于CISD2在癌旁对照组织中的表达</li>
+<li>b图中，为了消除个体的差异性，研究人员挑选了成对的33例组织样本，证实了在这33对组织样本中，CISD2在其中的25例癌组织中高表达，而在癌旁对照组织中低表达</li>
+<li>随后，作者在c图和d图中，通过qPCR和western，证实了在胃癌细胞系中，CISD2在mRNA和蛋白水平的表达，都比正常细胞的表达要高，因为在后续的研究中，研究者对这个分子做了过表达和RNAi，所以在这里，作者选了两株CISD2分子表达量比较“中庸”的分子进行表达细胞功能学实验</li>
+<li>在选择细胞株的时候，后续的原则是，如果要做敲减实验，那么就选择细胞株内高表达目的基因的细胞株，反之亦然。对于既要做过表达，又要做RNAi，即可以选择目的基因表达比较一般的细胞株（本文的选择），也可以选择在过表达中选低表达目的基因的细胞株，反之亦然</li>
+<li>e和f图中，作者同样证实了在自己收集的5对临床配对样本中，CISD2的mRNA和蛋白水平在癌组织中的表达，比癌旁组织中的表达更高</li>
+<li>在Fig.1b中，癌和癌旁之间的比较，正常情况下可以用柱状图来进行表示，但是因为作者选了33对临床组织样本，如果要把这堆样本全都用柱状图来表示，那柱子的数量就太多了，显得整张图非常局促，影响视觉上的效果；作者采用颜色来显示表达，显得图片相对精美一些，这种左图思路值得借鉴</li>
+<li>在Fig.1a中，作者选择了409例癌组织，但是对应的癌旁组织仅有37例，这是一个非常奇怪的现象，可能引起审稿人的怀疑；建议我们在展示数据时，无论是自己收集的病例，还是从公开数据库下载的病例，都要让对照样本和肿瘤样本在数量上差不多，避免出现相差了几倍，甚至十几倍的现象</li>
+</ul>
+<h1 id="作者在Fig-2中研究了CISD2的表达差异与临床预后的相关性"><a href="#作者在Fig-2中研究了CISD2的表达差异与临床预后的相关性" class="headerlink" title="作者在Fig.2中研究了CISD2的表达差异与临床预后的相关性"></a>作者在Fig.2中研究了CISD2的表达差异与临床预后的相关性</h1><p>  <img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2016.41.31.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>作者总共收集了210例石蜡包埋的正常胃组织和胃癌组织的样本，通过免疫组化IHC，在这些胃和胃癌组织上，进行了CISD2的表达检测，IHC的结果显示，CISD2在正常胃组织，或者比较早期的胃癌组织中低表达，在晚期胃癌组织上表达很高，呈现出从正常组织到晚期的胃癌组织，表达不断上升的趋势</li>
+<li>CISD2随着胃癌恶性程度升高而表达增加的趋势，提示了CISD2在胃癌发生过程中可能起到了癌基因的作用</li>
+<li>图d的生存曲线，作者把患者分成了高表达CISD2组和低表达CISD2，其中高表达CISD2的患者预后显著小于低CISD2组</li>
+<li>图b是一个体系验证结果，在没有加一抗的条件下，是没有CISD2的阳性结果的；体系验证的结果对文章的证据没有重大影响，完全可以考虑放在补充材料中，而且这张图很可能是审稿人要求作者后补的</li>
+<li>对于实验结果是应该放在正文中，还是应该放在补充材料中：对于文章的结果导向有重大影响的，应该放在正文中，反之没有重大影响的，放在补充材料中就可以了</li>
+</ul>
+<h1 id="和临床相关的数据表格"><a href="#和临床相关的数据表格" class="headerlink" title="和临床相关的数据表格"></a>和临床相关的数据表格</h1><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2018.42.20.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h1 id="基因表达检测"><a href="#基因表达检测" class="headerlink" title="基因表达检测"></a>基因表达检测</h1><ul>
+<li>基因表达检测的常用方法<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2018.42.57.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>作者在检测mRNA水平的内容时，使用了qPCR和基因芯片两种方法，基因芯片没有直接用，但是文章里用到了TCGA数据库下载的文章，这也是基因芯片的内容；其他的方法还有rtPCR（逆转录PCR），这种检查方法只能半定量地观察细胞中基因的表达量；Northern blot的原理是使用与待测序列互补的探针，随后通过检测探针与待测序列互补结合来怕断结果，Northern最大的问题是实验流程长，而且早期的Northern使用放射性同位素，对人的身体伤害比较大</li>
+<li>在研究tRNA和rRNA时，Northern依然是很有用的方法</li>
+<li>相比qPCR，Northern的好处是，它可以检测的序列非常长，最多可以到十几个kb的水平</li>
+<li>对于蛋白水平，作者采用了western和IHC，IHC的好处是可以同时观察到蛋白的表达量和蛋白的亚细胞定位</li>
+<li>其他检测蛋白质的方法：2D-gel，是同时利用了蛋白质分子大小和所带电荷数的特性，可以更好，更精细地区分不同蛋白质之间的差异</li>
+<li>免疫荧光也是主流的检测蛋白表达水平的方法，但这篇文章中作者使用的是免疫组化，这俩的原理是一致的，差别在于检测免疫荧光用的二抗有一个荧光基团，可以检测荧光强弱的变化，大部份情况下免疫组化就足够研究蛋白的表达量了，但是，如果要研究共定位的话，免疫荧光具有更大的优势，因为免疫荧光可以进行两种颜色的共定位-双标研究</li>
+<li>ELISA：常用于小分子分泌型蛋白的检测，可以直接取用细胞培养的培养液进行ELISA检测，而且ELISA检测的敏感性也比较高，一般情况下没有必要对培养液进行浓缩</li>
+<li>IP：免疫共沉淀，不是用来检测蛋白的常用方法，但是对于检测某些分子的特殊修饰，比如磷酸化修饰是非常有意义的；对于那些没有磷酸化形式的特异性抗体的，先通过免疫共沉淀的方式把所有的分子都拉下来，无论是磷酸化了的还是没有磷酸化的，然后再这一群拉下来的分子中，再通过泛磷酸化的抗体，检测目的分子</li>
+</ul>
+<h1 id="作者在细胞和动物层面研究CISD2对肿瘤细胞表型的影响"><a href="#作者在细胞和动物层面研究CISD2对肿瘤细胞表型的影响" class="headerlink" title="作者在细胞和动物层面研究CISD2对肿瘤细胞表型的影响"></a>作者在细胞和动物层面研究CISD2对肿瘤细胞表型的影响</h1><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2019.41.58.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>作者首先做了GSEA的分析，发现CISD2的表达水平，和细胞周期相关的基因子集具有高度的表达相关性，由GSEA的分析结果，作者可以得到的是CISD2可以影响的是细胞的周期以及分裂</li>
+<li>为了验证上述假说，作者首先构建了CISD2的过表达质粒和敲减质粒，然后证明了这些质粒都是有用的</li>
+<li>然后作者通过经典的克隆形成和MTT比色法的实验，分别检测了过表达和沉默CISD2后，细胞增殖以及克隆形成收到的影响，结果显示CISD2过表达的组增殖能力增加，反之亦然<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2019.55.26.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在Fig.4中，作者采用了锚定非依赖的增殖实验，这是利用了肿瘤细胞不需锚定基质，就可以进行显著增殖的现象，在肿瘤细胞内提高CISD2的表达水平，肿瘤细胞这种锚定非依赖的增殖能力就获得了极大的提升，反之亦然，这个实验充分说明了表达CISD2水平的高低和肿瘤的增殖能力有直接的相关性<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2020.11.40.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在做完了离体的细胞实验后，作者选择了在体的动物实验，但是只做了CISD2敲减情况下的动物模型验证，敲减CISD2后，能在小鼠体内形成的肿瘤组织体积会明显减小，重量也减轻了</li>
+<li>在移植瘤实验结束后，获取移植瘤匀浆样本，再进行western检测，发现RNAi的效率可以持续到整个实验的结束</li>
+<li>通过移植瘤组织进行IHC研究，也可以发现CISD2在对照的移植瘤内高表达，而在敲减的移植瘤内表达明显降低，和CISD2表达高低抑制的，是肿瘤增殖的标志物Ki-67</li>
+<li>在细胞层面上，作者同时做了高表达CISD2和低表达CISD2两组的结果，但是在动物模型上的研究就只有敲减CISD2的了，这主要是因为动物模型工作量巨大，能够仅通过敲减CISD2这一个实验就证明CISD2的癌基因功能，在一般情况下，审稿人不会过分要求，不是非要在在体层次上重复离体细胞实验的结果</li>
+<li>作者在本项研究中进行的RNAi方法，不是常规的慢病毒敲减方法，而是逆转录病毒介导的RNAi敲减的方法，因为和慢病毒相比，逆转录病毒只有在细胞分裂的时候才会产生作用，细胞不分裂的时候是无法发挥作用的，慢病毒则不会受到细胞分裂的影响</li>
+</ul>
+<h1 id="作者进行机制研究"><a href="#作者进行机制研究" class="headerlink" title="作者进行机制研究"></a>作者进行机制研究</h1><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2020.26.53.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>Fig.5证明了CISD2可以影响肿瘤的细胞周期调控，尤其是影响细胞的G1&#x2F;S期转化</li>
+<li>作者首先进行了BrdU染色实验，BrdU阳性的细胞是进行了细胞分裂，且有DNA复制的细胞，实验中总的细胞数可以通过DAPI染色显示，因为DAPI是一种核染料，可以把所有的细胞核都染色</li>
+<li>在CISD2过表达情况下，BrdU阳性的百分比会显著提升，说明发生细胞分裂和DNA复制的细胞百分比显著上升，反之亦然</li>
+<li>作者接着通过流式细胞术对肿瘤的细胞周期进行了更加细致的分解，在CISD2过表达的情况下，S期的细胞会有明显提升，相应的G0&#x2F;G1期细胞比例下降，反之亦然，所以说流式细胞术证明了CISD2调控了细胞G1&#x2F;S期的转化过程</li>
+<li>最后，作者通过Fig.5d和5e，从mRNA水平和蛋白水平，验证了和细胞周期相关的，调控分子的表达的高低，作者的实验结果证实，p21&#x2F;p27&#x2F;cyclin D1明显收到了CISD2的调控，但是其他分子，如cyclin B1&#x2F;CDK4&#x2F;6没有受到CISD2表达的影响</li>
+<li>作者选这几个分子是因为cyclin D1&#x2F;CDK4&#x2F;6是有大量文献证明参与了G1&#x2F;S期转化的，cyclin B1介导了G2&#x2F;M期转化，p21和p27是在细胞周期中重要的负调控分子，所以在CISD2过表达的情况下，p21和p27的表达是受到抑制的，反之亦然<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2023.26.15.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>通过Fig.5，作者证实了CISD2影响cyclin D&#x2F;p21&#x2F;p27，进而影响细胞周期，于是在Fig.6继续对这条信号通路进行了挖掘</li>
+<li>Fig.6中，作者依然首先通过GSEA的分析方法，发现CISD2的表达与AKT，以及FOXO3相关的基因子集之间，有高度的富集现象，所以作者就把研究重点聚焦在了AKT-FOXO信号通路上</li>
+<li>通过western也证实了，CISD2过表达后，AKT的磷酸化增加了，FOXO、FOXO-1、FOXO-3a的磷酸化都增加了，相反，如果削减CISD2的表达，AKT的磷酸化， FOXO-1、FOXO-3a、FOXO-4的磷酸化水平都会显著受到抑制</li>
+<li>FOXO家族的4个成员是：FOXO-1、3、4、6，在这个实验中作者只检测了FOXO-1、3、4，没有检测FOXO-6，这里可能引起审稿人的怀疑（为什么不检测FOXO-6，还是FOXO-6的数据做出来不好看，所以没有放上去）</li>
+<li>一个复习：没有被磷酸化的FOXO才可以进入细胞核内，调节基因的表达；p-FOXO无法进入细胞核，也就是说FOXO的磷酸化水平和其进入细胞核，调节基因转录的能力成反比；在FOXO的磷酸化水平提升后，通过荧光素酶实验可以发现，FOXO reporter activity是明显下降的，这一结果充分证明了FOXO的磷酸化水平和其进入细胞核，调节基因转录的能力成反比</li>
+<li>在验证完CISD2与AKT-FOXO信号通路之间的相关性后，作者提出一个隐含的假设：CISD2可以调控下游的AKT-FOXO信号通路，同时CISD2也能影响增殖和细胞周期的表型，所以作者的隐含假设是：CISD2通过影响AKT- FOXO信号通路，影响肿瘤增殖和细胞周期表型</li>
+<li>为了验证这个假设，作者阻断了AKT信号通路，验证CISD2引起的表型，是否可以因为AKT信号通路被阻断而阻断，如果CISD2引起的下游效应很大程度上依赖于AKT信号通路，那么AKT信号通路阻断后，CISD2的下游效应也会消失</li>
+<li>作者通过MTT比色法和锚定非依赖的增殖实验，以及细胞周期实验，都证实单独过表达CISD2可以显著引起肿瘤细胞的增殖，以及导致锚定非依赖增殖现象的升高，但是只要阻断AKT信号通路，CISD2引起的增殖就会受到抑制，锚定非依赖的增殖效应也会受到抑制，发生S期周期阻滞的细胞比例下降，这些结果都证明，CISD2确实通过AKT信号通路，介导了肿瘤细胞的恶性增殖表型</li>
+<li>最后，作者证实了，在使用了AKT抑制剂之后，p21&#x2F;p27的表达都是显著升高的，而cyclin D1的表达是显著降低的</li>
+<li>Fig.6主要证明了CISD2的下游效应是依赖AKT信号通路的，但是整个实验的逻辑不够严谨</li>
+<li>通过之前的实验，作者证明了CISD2可以影响细胞的周期和增殖表型，CISD2可以调控AKT-FOXO信号通路，所以作者自然而然就会形成一个思路，也就是CISD2通过AKT-FOXO信号通路，介导了肿瘤增殖和细胞周期表型</li>
+<li>但是，作者为了阻断AKT-FOXO信号通路，选择的是AKT的抑制剂，这里的问题是AKT下游介导的信号通路是非常复杂的，FOXO只是其中一个信号分子，还有mTor，VEGF-MAPK，NF-κB，甚至是AKT直接抑制p21&#x2F;p27，所以很难解释Fig.6g中，AKT被抑制剂抑制后，细胞中p21&#x2F;p27表达升高到底是因为什么（AKT直接影响p21&#x2F;27，还是AKT通过FOXO间接性影响p21&#x2F;27）</li>
+<li>所以，如果要验证AKT-FOXO的功能，选择FOXO的抑制剂可能比选择AKT的抑制剂更好</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E5%8A%9F%E8%83%BD%E5%9F%BA%E5%9B%A0%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%207%20%E8%82%BF%E7%98%A4%E6%A0%B7%E6%9C%AC%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">功能基因研究套路 Lesson 7 肿瘤样本研究套路</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E5%8A%9F%E8%83%BD%E5%9F%BA%E5%9B%A0%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%206%20%E4%BF%A1%E5%8F%B7%E9%80%9A%E8%B7%AF%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">功能基因研究套路 Lesson 6 信号通路数据库</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="Fig.1当中，作者希望通过一系列的实验，告诉我们CISD2这个基因在胃癌组织中高表达，而在癌旁对照组织中表达很低"><a rel="nofollow" class="trm-toc-link" href="#Fig-1当中，作者希望通过一系列的实验，告诉我们CISD2这个基因在胃癌组织中高表达，而在癌旁对照组织中表达很低"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">Fig.1当中，作者希望通过一系列的实验，告诉我们CISD2这个基因在胃癌组织中高表达，而在癌旁对照组织中表达很低</span></a></li><li class="trm-toc-item trm-toc-level-1" title="作者在Fig.2中研究了CISD2的表达差异与临床预后的相关性"><a rel="nofollow" class="trm-toc-link" href="#作者在Fig-2中研究了CISD2的表达差异与临床预后的相关性"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">作者在Fig.2中研究了CISD2的表达差异与临床预后的相关性</span></a></li><li class="trm-toc-item trm-toc-level-1" title="和临床相关的数据表格"><a rel="nofollow" class="trm-toc-link" href="#和临床相关的数据表格"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">和临床相关的数据表格</span></a></li><li class="trm-toc-item trm-toc-level-1" title="基因表达检测"><a rel="nofollow" class="trm-toc-link" href="#基因表达检测"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">基因表达检测</span></a></li><li class="trm-toc-item trm-toc-level-1" title="作者在细胞和动物层面研究CISD2对肿瘤细胞表型的影响"><a rel="nofollow" class="trm-toc-link" href="#作者在细胞和动物层面研究CISD2对肿瘤细胞表型的影响"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">作者在细胞和动物层面研究CISD2对肿瘤细胞表型的影响</span></a></li><li class="trm-toc-item trm-toc-level-1" title="作者进行机制研究"><a rel="nofollow" class="trm-toc-link" href="#作者进行机制研究"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">作者进行机制研究</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研10x产品介绍Xenium原位数据分析生信分析  Xenium技术可以解决两个维度的问题 细胞在哪里——如何精确地勾划出细胞的形态和边界 当我们有了细胞边界的信息后，感兴趣的分析靶点，包括RNA和蛋白的位置在哪里 当我们有了这两个维度的信息，就可以在组织原位上进行单个细胞范围内的表达量计算counting；当我们知道了每一个细胞范围内的，不同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024.7.2 Xenium技术介绍">
+<meta property="og:url" content="http://example.com/10x/2024.7.2%20Xenium%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研10x产品介绍Xenium原位数据分析生信分析  Xenium技术可以解决两个维度的问题 细胞在哪里——如何精确地勾划出细胞的形态和边界 当我们有了细胞边界的信息后，感兴趣的分析靶点，包括RNA和蛋白的位置在哪里 当我们有了这两个维度的信息，就可以在组织原位上进行单个细胞范围内的表达量计算counting；当我们知道了每一个细胞范围内的，不同">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-11-25T04:57:33.120Z">
+<meta property="article:modified_time" content="2024-11-25T04:57:33.120Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="10x">
+<meta property="article:tag" content="产品介绍">
+<meta property="article:tag" content="生信分析">
+<meta property="article:tag" content="Xenium原位">
+<meta property="article:tag" content="数据分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >2024.7.2 Xenium技术介绍</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-11-25 12:57:33"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/10x/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            2024.7.2 Xenium技术介绍
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        10x
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            11/25
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            12:57
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/10x/">10x</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/">产品介绍</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/Xenium%E5%8E%9F%E4%BD%8D/">Xenium原位</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%94%9F%E4%BF%A1%E5%88%86%E6%9E%90/">生信分析</a></p>
+</div>
+<h1 id="Xenium技术可以解决两个维度的问题"><a href="#Xenium技术可以解决两个维度的问题" class="headerlink" title="Xenium技术可以解决两个维度的问题"></a>Xenium技术可以解决两个维度的问题</h1><ul>
+<li>细胞在哪里——如何精确地勾划出细胞的形态和边界</li>
+<li>当我们有了细胞边界的信息后，感兴趣的分析靶点，包括RNA和蛋白的位置在哪里</li>
+<li>当我们有了这两个维度的信息，就可以在组织原位上进行单个细胞范围内的表达量计算counting；当我们知道了每一个细胞范围内的，不同的分子表达谱的分布，我们自然就能理解细胞的身份、状态以及细胞之间潜在的互作</li>
+</ul>
+<h1 id="Xenium技术的工作流程"><a href="#Xenium技术的工作流程" class="headerlink" title="Xenium技术的工作流程"></a>Xenium技术的工作流程</h1><ul>
+<li>整个工作流程需要3天，如果使用了5K的panel，可能需要延长到6天<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2013.12.43.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>样品切片-贴片-脱蜡-解交联&#x2F;透化</li>
+<li>探针杂交-连接-扩增</li>
+<li>染色：oligo标记的染色</li>
+<li>荧光探针杂交，扩增，成像和解码（500个基因对应着15轮cycle，5000个基因需要32个cycle）</li>
+<li>数据可视化</li>
+</ul>
+<h2 id="Xenium技术的原理"><a href="#Xenium技术的原理" class="headerlink" title="Xenium技术的原理"></a>Xenium技术的原理</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2013.18.50.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>挂锁探针的设计原理与滚环扩增的信号</li>
+<li>探针设计了双杂交区域，针对转录本的特定区域</li>
+<li>探针与转录本结合后，会由DNA连接酶进行连接，从而形成闭环的探针</li>
+<li>闭环的探针会被扩增，扩增后基因特异性的绿色barcode会被扩增，信号从而得到放大</li>
+<li>可以区分高度同源的转录本、可变剪接和融合基因</li>
+<li>通过原位成像的原理去区分不同的RNA的位置</li>
+</ul>
+<h2 id="Xenium数据的分析"><a href="#Xenium数据的分析" class="headerlink" title="Xenium数据的分析"></a>Xenium数据的分析</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2013.38.58.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="细胞位置的精确分割Cell-Segmentation"><a href="#细胞位置的精确分割Cell-Segmentation" class="headerlink" title="细胞位置的精确分割Cell Segmentation"></a>细胞位置的精确分割Cell Segmentation</h3><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2013.39.35.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>对细胞膜、细胞内容物（RNA和蛋白）以及细胞核进行染色，分成4个channel</li>
+<li>首先利用细胞膜信息，也就是说细胞膜的优先级是最高的，如果细胞膜的完整性是可以确定的，那无论这个区域内是否存在细胞核，或存在几个细胞核，都会被我们界定为一个细胞，这个区域内的所有RNA都会被指派进来</li>
+<li>如果细胞膜染色不能解决问题，那我们会进一步利用细胞质的信息，无论是蛋白质还是RNA，来实现对细胞轮廓的清晰界定</li>
+<li>如果上述三种物质仍然不能解决细胞轮廓的界定，那我们会最后尝试利用细胞核的染色信息，在细胞核的染色上向外扩张5μm来实现对细胞边界的界定；如果在5μm扩张之前就遇到了细胞的边界，算法也会提前停止</li>
+<li>这样的算法可以获得更加真实的结果（相比于之前只染细胞核，然后向外扩张15μm的版本）</li>
+<li>对于不同的组织，不同的channel对segmentation的贡献是不同的<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2015.29.48.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="Xenium-5K-Pan-Tissue-Pathway"><a href="#Xenium-5K-Pan-Tissue-Pathway" class="headerlink" title="Xenium 5K Pan Tissue &amp; Pathway"></a>Xenium 5K Pan Tissue &amp; Pathway</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2015.34.14.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>不同于V1版本的，针对不同的组织和疾病类型设计的panel，5K Pan-Tissue是更加综合性筛选的大panel，可以对不同的组织和类型中，筛选出Cell Typing Marker，重要的信号通路筛选，药物相关的靶点，Cell-Cell Signaling Marker<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2015.36.02.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在5K panel的研发过程中，10x对不同的组织进行了测试；如果感兴趣的组织没有在这些tested tissue中，仍然是可以使用的<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2015.36.52.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="Xenium-panel的大小"><a href="#Xenium-panel的大小" class="headerlink" title="Xenium panel的大小"></a>Xenium panel的大小</h1><ul>
+<li>基准框fiducial frame：12✖️24mm</li>
+<li>组织的大小：不要超过10.5✖️22.5mm</li>
+</ul>
+<h1 id="Xenium样品"><a href="#Xenium样品" class="headerlink" title="Xenium样品"></a>Xenium样品</h1><h2 id="人肝癌样本"><a href="#人肝癌样本" class="headerlink" title="人肝癌样本"></a>人肝癌样本</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2015.53.27.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>Fresh Frozen样品，1✖️2cm</li>
+<li>在这个样品之中，发现了不同种类的细胞在空间上的分布是不同的，整个样品中得到了超过了100万的细胞，平均每个细胞捕捉到了不到1500条转录本，两张slides放满decode花了6天</li>
+</ul>
+<h2 id="肺癌的FFPE样本"><a href="#肺癌的FFPE样本" class="headerlink" title="肺癌的FFPE样本"></a>肺癌的FFPE样本</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2015.57.14.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>FFPE样品的质量不佳，DV200值只有39</li>
+<li>捕捉到的细胞数量和每个细胞捕捉到的转录本的数量都很低</li>
+<li>number of transcript per cell的值和组织中的细胞类型、平均的细胞大小和细胞的转录活跃程度、panel与组织中的细胞类型的相关程度等都有关，也和样本的讲解程度也有关联</li>
+</ul>
+<h2 id="FFPE的肝和乳腺样本"><a href="#FFPE的肝和乳腺样本" class="headerlink" title="FFPE的肝和乳腺样本"></a>FFPE的肝和乳腺样本</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.01.27.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>100平方微米的转录本数目是一个独立于组织细胞类型的指标，可以有效地反应组织的质量</li>
+<li>我们最后看到的信息都是transcript with cells segmented ，对于那些不在细胞中的转录本，会被我们直接作为背景忽略（除非感兴趣的是病毒的序列）</li>
+</ul>
+<h2 id="小的panel能满足实验设计就继续用"><a href="#小的panel能满足实验设计就继续用" class="headerlink" title="小的panel能满足实验设计就继续用"></a>小的panel能满足实验设计就继续用</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.06.47.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>可以使用小的panel结合新的cell segmentation method去实现更好的细胞分割效果</li>
+<li>但是，5K的大panel可以带来更多通路上的discovery</li>
+<li>使用5K的panel可以看到捕获的转录本的数量大大增加了（5倍），意味着可以覆盖的生物学通路数量大大增加了<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.23.33.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>上图是小鼠的肾脏样本，哪怕是纯转录本的图谱，也能一定程度上去重现组织和微环境当中的结构；合并了每个细胞的边界和生物学通路的信息，我们可以在这一堆生物学信号中去挖掘，组织微环境中有哪些细胞，这些细胞在干什么<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.27.38.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>上图是小鼠的结肠样本，我们看到DAPI+转录本的数据就已经足够重现小鼠肠道细胞的结构，展示了cell segmentation的方法是非常准确的，此外，transcript localization的精度也非常高，把这两个信息进行重叠后就可以对功能学进行进一步的注释和研究</li>
+</ul>
+<h1 id="在5k-panel中可以添加最多100个基因"><a href="#在5k-panel中可以添加最多100个基因" class="headerlink" title="在5k panel中可以添加最多100个基因"></a>在5k panel中可以添加最多100个基因</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.31.02.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>人和小鼠可以添加最多100个基因到5K的panel中</li>
+<li>其他物种stand-alone的panel定制支持480个gene</li>
+<li>高级定制<ul>
+<li>PDX</li>
+<li>外源的病毒序列</li>
+</ul>
+</li>
+<li>TCR&#x2F;BCR，SNV等暂时不太可用</li>
+</ul>
+<h1 id="Xenium支持各种FF和FFPE样本"><a href="#Xenium支持各种FF和FFPE样本" class="headerlink" title="Xenium支持各种FF和FFPE样本"></a>Xenium支持各种FF和FFPE样本</h1><ul>
+<li>我们可以把一个物种的不同组织放到一张片子上去进行拼片，增加效率同时减少一个样本的成本<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.34.21.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.37.56.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>Xenium的protocal对FFPE和FF都是标准化的手册，无需对特定的组织类型分别进行实验前的各种优化（除了骨组织去钙化）</li>
+</ul>
+<h1 id="Xenium样本支持各种后续处理"><a href="#Xenium样本支持各种后续处理" class="headerlink" title="Xenium样本支持各种后续处理"></a>Xenium样本支持各种后续处理</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.39.49.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>HE染色</li>
+<li>免疫荧光</li>
+<li>Visium CytAssist&#x2F;HD</li>
+</ul>
+<h1 id="预览Xenium分析数据：Xenium-Explorer"><a href="#预览Xenium分析数据：Xenium-Explorer" class="headerlink" title="预览Xenium分析数据：Xenium Explorer"></a>预览Xenium分析数据：Xenium Explorer</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.41.46.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>随着5K的comprehensive panel的推出，Xenium已经逐渐从中下游的验证技术，朝着single cell和全转录组的空间技术的方向移动了一大步</li>
+</ul>
+<h1 id="Xenium-Prime-Workfolow"><a href="#Xenium-Prime-Workfolow" class="headerlink" title="Xenium Prime Workfolow"></a>Xenium Prime Workfolow</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.48.46.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>样本的制备：切片、贴片（可以拼片），一次实验通量是两张玻璃片，所以能够获得非常多的数据</li>
+<li>FF样本：切片后固定和透化</li>
+<li>FFPE样本：脱蜡和解交联</li>
+<li>在探针杂交前，多了一步杂交的过程（将引物的寡聚核苷酸与样本进行交联），为了使5000个基因的探针更好的与样本准确结合</li>
+<li>可选的多模态染色（为了更准确的细胞分割）</li>
+<li>上机<ul>
+<li>500个基因的panel：最长不会超过3天，包含结果输出</li>
+<li>5000个基因的panel：最长不会超过1周</li>
+</ul>
+</li>
+</ul>
+<h2 id="10x官网提供了对应的workflow-protocal"><a href="#10x官网提供了对应的workflow-protocal" class="headerlink" title="10x官网提供了对应的workflow protocal"></a>10x官网提供了对应的workflow protocal</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.54.46.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="不同版本的Xenium实验需要不同的试剂"><a href="#不同版本的Xenium实验需要不同的试剂" class="headerlink" title="不同版本的Xenium实验需要不同的试剂"></a>不同版本的Xenium实验需要不同的试剂</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.55.59.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h1 id="Xenium实验样本的QC要求"><a href="#Xenium实验样本的QC要求" class="headerlink" title="Xenium实验样本的QC要求"></a>Xenium实验样本的QC要求</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.56.47.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>进行切片的DAPI染细胞核——查看细胞核的形态，细胞核的完整性和清晰度<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2016.59.46.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>HE染色和DV200(&gt;30%)同前</li>
+<li>如果是FF样本，可以把DV200换成RIN，去观察RNA的完整性，希望RIN&gt;7（新鲜），或RIN&gt;4（陈旧）</li>
+</ul>
+<h1 id="组织芯片-v-s-组织微阵列"><a href="#组织芯片-v-s-组织微阵列" class="headerlink" title="组织芯片 v.s. 组织微阵列"></a>组织芯片 v.s. 组织微阵列</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2017.03.55.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2017.05.32.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>10x官网提供教程如何制备Tissue Array，另外Xenium也兼容传统的TMA样本进行分析</li>
+<li>对于TA，需要每个样本都来自同一物种，也就是兼容同一panel，推荐每个tissue大小为2✖️8mm，这样一张玻片可以贴7片，贴片的时候要避开fiducial frame<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2017.07.34.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="选择与自定义panel"><a href="#选择与自定义panel" class="headerlink" title="选择与自定义panel"></a>选择与自定义panel</h1><ul>
+<li>官网提供panel定制的教程和工具<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2017.08.18.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2017.09.54.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>官网提供panel选择工具，输入自己感兴趣的基因就可以了<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2017.08.37.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>Xenium Panel定制工具已经升级到了3.0的版本<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2017.11.03.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><ul>
+<li>样本是FF还是FFPE很重要</li>
+<li>5K的panel（Xenium Primer）上可以额外增加最多100个定制基因</li>
+<li>Xenium Primer只能兼容人和小鼠的样本定制，如果换用V1版本的试剂，就兼容其他的物种了</li>
+<li>standard gene可以在官网进行自定义，但是如果是其他的基因类型，就要进入高级定制</li>
+<li>如果选择standard gene以外的内容，就要进入高级定制，需要用户先和销售进行商务合同的签订，然后和10x生信团队去与用户联系，进行高级的探针设计</li>
+</ul>
+</li>
+</ul>
+<h1 id="Xenium数据分析要用到的软件"><a href="#Xenium数据分析要用到的软件" class="headerlink" title="Xenium数据分析要用到的软件"></a>Xenium数据分析要用到的软件</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2017.21.41.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="仪器中自带的分析软件"><a href="#仪器中自带的分析软件" class="headerlink" title="仪器中自带的分析软件"></a>仪器中自带的分析软件</h2><ul>
+<li>也就是Xenium Onboard Analysis(XOA)</li>
+<li>运行完实验后就可以进行分析</li>
+</ul>
+<h2 id="Xenium-Explorer"><a href="#Xenium-Explorer" class="headerlink" title="Xenium Explorer"></a>Xenium Explorer</h2><ul>
+<li>分析和可视化Onboard Analysis得到的数据</li>
+<li>Windows和MacOS上都可以运行</li>
+</ul>
+<h2 id="Xenium-Ranger"><a href="#Xenium-Ranger" class="headerlink" title="Xenium Ranger"></a>Xenium Ranger</h2><ul>
+<li>Linux系统</li>
+<li>重新分析XOA得到的数据（比如细胞分割）</li>
+</ul>
+<h2 id="第三方工具"><a href="#第三方工具" class="headerlink" title="第三方工具"></a>第三方工具</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2017.27.23.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="软件兼容性"><a href="#软件兼容性" class="headerlink" title="软件兼容性"></a>软件兼容性</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2017.28.03.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>想做Primer的实验就一定要将实验室里的仪器软件升级到最新的版本，最新的版本仍然支持之前的V1的试剂</li>
+<li>最新版本的实验更新了更好的成像算法，对转录本的荧光检出会更加有效，但是不用担心批次效应，因为最新版本的软件也支持之前的分析算法</li>
+</ul>
+<h1 id="第三方工具-1"><a href="#第三方工具-1" class="headerlink" title="第三方工具"></a>第三方工具</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2017.39.33.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>新的细胞分割算法(basal,fictional)</li>
+<li>空闲分析<ul>
+<li>细胞互作</li>
+<li>轨迹</li>
+<li>富集分析</li>
+</ul>
+</li>
+</ul>
+<h1 id="示例：Xenium的5K淋巴结panel"><a href="#示例：Xenium的5K淋巴结panel" class="headerlink" title="示例：Xenium的5K淋巴结panel"></a>示例：Xenium的5K淋巴结panel</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.10xgenomics.com/datasets/preview-data-xenium-prime-gene-expression">数据来源在这里</a></li>
+<li>在这个panel中，使用的实际上只有4624个gene，在研发过程中设计的panel</li>
+<li>可以下载Output文件，然后通过Xenium Explorer进行打开和可视化<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2017.57.06.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>可以点击View Summary来了解这个样本的质量控制数据</li>
+<li>Summary页的样本关键信息<ul>
+<li>细胞数、中位转录本的数量，细胞核转录本的数量和总RNA检出数目<br>  <img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2018.02.56.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>展示出的样本面积是整个样本面积的不到1&#x2F;3，但已经获得了非常惊人的数量的细胞和转录本<br>  <img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2018.03.54.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+</li>
+<li>Decoding页面的关键信息：解码的转录本的信息<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2018.06.22.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><ul>
+<li>目标的基因的打分：越高越好</li>
+<li>解码的转录本的数量等参数，对照的阴性基因越低越好<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2018.07.52.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>各个基因的名称和检出的转录本的数量（从高到低排列）</li>
+</ul>
+</li>
+<li>Cell Segmentation页面<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2018.08.52.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><ul>
+<li>可以了解不同比例的分割channel分出的细胞的数量（希望DAPI核染外扩分出的细胞尽量小，因为不一定准）</li>
+<li>94.5%的转录本都在已经识别的分割的细胞内部</li>
+<li>统计图：细胞尺寸、细胞基因数和细胞转录本数<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.35.45.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.35.55.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.36.12.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+</li>
+<li>分析页面的结果<ul>
+<li>转录本分布的热图<br>  <img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.38.16.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>UMAP与非监督聚类的结果<br>  <img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.39.21.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>  <img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.39.44.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>每个cluster中的差异表达基因DEG的信息<blockquote>
+<p>来源：<a href=""></a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>Image QC页面<ul>
+<li>各个循环中样本成像的信息，帮助我们进行后续的修正<br>  <img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.41.17.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>  <img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.41.38.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>  <img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.42.00.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+</li>
+<li>可以把我们下载的文件通过Xenium Explorer打开，放大后可以发现是多模式（不局限于DAPI核染）的结果<img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.48.05.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.48.26.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>软件可以叠加HE染色或免疫荧光的结果，在图片第一次导入的时候，要自己进行对齐alignment，在对齐后Xenium会生成文件，供后续记录对齐结果使用<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.49.32.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们可以调整HE图片的透明度</li>
+<li>对于cell页面，我们可以观察到细胞分割的情况<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.55.36.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>也可以结合Images选项的Xenium形态学和HE染色结果去查看<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.56.31.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们也可以查看细胞核的边界，并对这些细胞进行Graph-Based Clustering和K-Means Clustering，其中K值同样从2-10，注意这样的clustering出来的结果是没有cell type的，我们可以通过第三方的工具注释了细胞后，产生对应的csv文件（要求见下图1），然后在groups旁边上传对应的csv文件以实现注释，这里展示上传后的结果如图2<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-26%2000.23.12.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-26%2000.23.40.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们还可以在Cell部分去探索细胞被分割出的方式，我们希望基于DAPI的分割越少越好<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-25%2023.58.31.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>对于转录本，我们可以探索不同的转录本在不同的细胞中的表达情况，也可以探索某一类细胞的marker gene在空间上的分布（比如下图）<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-26%2000.33.27.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们还可以上传自定义的csv文件，将不同的gene划分到细胞种类的group中，去用更加直观的方式预览基因的表达情况<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-26%2000.34.16.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>可以使用正上方的套索工具来选择感兴趣的区域，选择后Xenium系统会自动输出区域的信息，包括我们勾选的转录本的数量，细胞数量和种类，丰度等<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-26%2000.36.23.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/10x/2024.6.24%20Xenium%E7%BB%86%E8%83%9E%E5%88%86%E5%89%B2%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/10x/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">2024.6.24 Xenium细胞分割技术介绍</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/26</li>
+                <li>00:45</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/10x/2023.12.1%20%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/10x/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">2023.12.1 空间数据分析入门</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/24</li>
+                <li>00:14</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="Xenium技术可以解决两个维度的问题"><a rel="nofollow" class="trm-toc-link" href="#Xenium技术可以解决两个维度的问题"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">Xenium技术可以解决两个维度的问题</span></a></li><li class="trm-toc-item trm-toc-level-1" title="Xenium技术的工作流程"><a rel="nofollow" class="trm-toc-link" href="#Xenium技术的工作流程"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">Xenium技术的工作流程</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="Xenium技术的原理"><a rel="nofollow" class="trm-toc-link" href="#Xenium技术的原理"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">Xenium技术的原理</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Xenium数据的分析"><a rel="nofollow" class="trm-toc-link" href="#Xenium数据的分析"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">Xenium数据的分析</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="细胞位置的精确分割Cell Segmentation"><a rel="nofollow" class="trm-toc-link" href="#细胞位置的精确分割Cell-Segmentation"><span class="trm-toc-number">2.2.1.</span> <span class="trm-toc-text">细胞位置的精确分割Cell Segmentation</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Xenium 5K Pan Tissue &amp; Pathway"><a rel="nofollow" class="trm-toc-link" href="#Xenium-5K-Pan-Tissue-Pathway"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">Xenium 5K Pan Tissue &amp; Pathway</span></a></li><li class="trm-toc-item trm-toc-level-1" title="Xenium panel的大小"><a rel="nofollow" class="trm-toc-link" href="#Xenium-panel的大小"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">Xenium panel的大小</span></a></li><li class="trm-toc-item trm-toc-level-1" title="Xenium样品"><a rel="nofollow" class="trm-toc-link" href="#Xenium样品"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">Xenium样品</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="人肝癌样本"><a rel="nofollow" class="trm-toc-link" href="#人肝癌样本"><span class="trm-toc-number">5.1.</span> <span class="trm-toc-text">人肝癌样本</span></a></li><li class="trm-toc-item trm-toc-level-2" title="肺癌的FFPE样本"><a rel="nofollow" class="trm-toc-link" href="#肺癌的FFPE样本"><span class="trm-toc-number">5.2.</span> <span class="trm-toc-text">肺癌的FFPE样本</span></a></li><li class="trm-toc-item trm-toc-level-2" title="FFPE的肝和乳腺样本"><a rel="nofollow" class="trm-toc-link" href="#FFPE的肝和乳腺样本"><span class="trm-toc-number">5.3.</span> <span class="trm-toc-text">FFPE的肝和乳腺样本</span></a></li><li class="trm-toc-item trm-toc-level-2" title="小的panel能满足实验设计就继续用"><a rel="nofollow" class="trm-toc-link" href="#小的panel能满足实验设计就继续用"><span class="trm-toc-number">5.4.</span> <span class="trm-toc-text">小的panel能满足实验设计就继续用</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="在5k panel中可以添加最多100个基因"><a rel="nofollow" class="trm-toc-link" href="#在5k-panel中可以添加最多100个基因"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">在5k panel中可以添加最多100个基因</span></a></li><li class="trm-toc-item trm-toc-level-1" title="Xenium支持各种FF和FFPE样本"><a rel="nofollow" class="trm-toc-link" href="#Xenium支持各种FF和FFPE样本"><span class="trm-toc-number">7.</span> <span class="trm-toc-text">Xenium支持各种FF和FFPE样本</span></a></li><li class="trm-toc-item trm-toc-level-1" title="Xenium样本支持各种后续处理"><a rel="nofollow" class="trm-toc-link" href="#Xenium样本支持各种后续处理"><span class="trm-toc-number">8.</span> <span class="trm-toc-text">Xenium样本支持各种后续处理</span></a></li><li class="trm-toc-item trm-toc-level-1" title="预览Xenium分析数据：Xenium Explorer"><a rel="nofollow" class="trm-toc-link" href="#预览Xenium分析数据：Xenium-Explorer"><span class="trm-toc-number">9.</span> <span class="trm-toc-text">预览Xenium分析数据：Xenium Explorer</span></a></li><li class="trm-toc-item trm-toc-level-1" title="Xenium Prime Workfolow"><a rel="nofollow" class="trm-toc-link" href="#Xenium-Prime-Workfolow"><span class="trm-toc-number">10.</span> <span class="trm-toc-text">Xenium Prime Workfolow</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="10x官网提供了对应的workflow protocal"><a rel="nofollow" class="trm-toc-link" href="#10x官网提供了对应的workflow-protocal"><span class="trm-toc-number">10.1.</span> <span class="trm-toc-text">10x官网提供了对应的workflow protocal</span></a></li><li class="trm-toc-item trm-toc-level-2" title="不同版本的Xenium实验需要不同的试剂"><a rel="nofollow" class="trm-toc-link" href="#不同版本的Xenium实验需要不同的试剂"><span class="trm-toc-number">10.2.</span> <span class="trm-toc-text">不同版本的Xenium实验需要不同的试剂</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Xenium实验样本的QC要求"><a rel="nofollow" class="trm-toc-link" href="#Xenium实验样本的QC要求"><span class="trm-toc-number">11.</span> <span class="trm-toc-text">Xenium实验样本的QC要求</span></a></li><li class="trm-toc-item trm-toc-level-1" title="组织芯片 v.s. 组织微阵列"><a rel="nofollow" class="trm-toc-link" href="#组织芯片-v-s-组织微阵列"><span class="trm-toc-number">12.</span> <span class="trm-toc-text">组织芯片 v.s. 组织微阵列</span></a></li><li class="trm-toc-item trm-toc-level-1" title="选择与自定义panel"><a rel="nofollow" class="trm-toc-link" href="#选择与自定义panel"><span class="trm-toc-number">13.</span> <span class="trm-toc-text">选择与自定义panel</span></a></li><li class="trm-toc-item trm-toc-level-1" title="Xenium数据分析要用到的软件"><a rel="nofollow" class="trm-toc-link" href="#Xenium数据分析要用到的软件"><span class="trm-toc-number">14.</span> <span class="trm-toc-text">Xenium数据分析要用到的软件</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="仪器中自带的分析软件"><a rel="nofollow" class="trm-toc-link" href="#仪器中自带的分析软件"><span class="trm-toc-number">14.1.</span> <span class="trm-toc-text">仪器中自带的分析软件</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Xenium Explorer"><a rel="nofollow" class="trm-toc-link" href="#Xenium-Explorer"><span class="trm-toc-number">14.2.</span> <span class="trm-toc-text">Xenium Explorer</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Xenium Ranger"><a rel="nofollow" class="trm-toc-link" href="#Xenium-Ranger"><span class="trm-toc-number">14.3.</span> <span class="trm-toc-text">Xenium Ranger</span></a></li><li class="trm-toc-item trm-toc-level-2" title="第三方工具"><a rel="nofollow" class="trm-toc-link" href="#第三方工具"><span class="trm-toc-number">14.4.</span> <span class="trm-toc-text">第三方工具</span></a></li><li class="trm-toc-item trm-toc-level-2" title="软件兼容性"><a rel="nofollow" class="trm-toc-link" href="#软件兼容性"><span class="trm-toc-number">14.5.</span> <span class="trm-toc-text">软件兼容性</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="第三方工具"><a rel="nofollow" class="trm-toc-link" href="#第三方工具-1"><span class="trm-toc-number">15.</span> <span class="trm-toc-text">第三方工具</span></a></li><li class="trm-toc-item trm-toc-level-1" title="示例：Xenium的5K淋巴结panel"><a rel="nofollow" class="trm-toc-link" href="#示例：Xenium的5K淋巴结panel"><span class="trm-toc-number">16.</span> <span class="trm-toc-text">示例：Xenium的5K淋巴结panel</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

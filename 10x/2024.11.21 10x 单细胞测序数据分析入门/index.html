@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研10x产品介绍Chronium单细胞数据分析生信分析  单细胞实验简介单细胞数据可以回答什么生物学问题  研究样本里面，每一个基因类型特异性表达的基因是什么 所研究的样本里面有哪些细胞亚型，是否研究样本中存在新的或稀有的细胞亚群 在不同的细胞亚群中，有哪些信号通路被激活了？ 不同样本之间的差异（药物处理前后的） 通过trajectory分析，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024.11.21 10x 单细胞测序数据分析入门">
+<meta property="og:url" content="http://example.com/10x/2024.11.21%2010x%20%E5%8D%95%E7%BB%86%E8%83%9E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研10x产品介绍Chronium单细胞数据分析生信分析  单细胞实验简介单细胞数据可以回答什么生物学问题  研究样本里面，每一个基因类型特异性表达的基因是什么 所研究的样本里面有哪些细胞亚型，是否研究样本中存在新的或稀有的细胞亚群 在不同的细胞亚群中，有哪些信号通路被激活了？ 不同样本之间的差异（药物处理前后的） 通过trajectory分析，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-11-21T05:59:47.810Z">
+<meta property="article:modified_time" content="2024-11-21T05:59:47.810Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="10x">
+<meta property="article:tag" content="产品介绍">
+<meta property="article:tag" content="生信分析">
+<meta property="article:tag" content="Chronium单细胞">
+<meta property="article:tag" content="数据分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >2024.11.21 10x 单细胞测序数据分析入门</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-11-21 13:59:47"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/10x/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            2024.11.21 10x 单细胞测序数据分析入门
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        10x
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            11/21
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:59
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/10x/">10x</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/">产品介绍</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/Chronium%E5%8D%95%E7%BB%86%E8%83%9E/">Chronium单细胞</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%94%9F%E4%BF%A1%E5%88%86%E6%9E%90/">生信分析</a></p>
+</div>
+<h1 id="单细胞实验简介"><a href="#单细胞实验简介" class="headerlink" title="单细胞实验简介"></a>单细胞实验简介</h1><h2 id="单细胞数据可以回答什么生物学问题"><a href="#单细胞数据可以回答什么生物学问题" class="headerlink" title="单细胞数据可以回答什么生物学问题"></a>单细胞数据可以回答什么生物学问题</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.07.00.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>研究样本里面，每一个基因类型特异性表达的基因是什么</li>
+<li>所研究的样本里面有哪些细胞亚型，是否研究样本中存在新的或稀有的细胞亚群</li>
+<li>在不同的细胞亚群中，有哪些信号通路被激活了？</li>
+<li>不同样本之间的差异（药物处理前后的）</li>
+<li>通过trajectory分析，了解到发育或疾病发展过程中，细胞状态的变化</li>
+</ul>
+<h2 id="单细胞数据分析的流程"><a href="#单细胞数据分析的流程" class="headerlink" title="单细胞数据分析的流程"></a>单细胞数据分析的流程</h2><ul>
+<li>分析流程：<blockquote>
+<p>实际操作中，我们会在各个步骤中往复进行，也就是需要“来回横跳”，来获得更好的分析结果<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.07.58.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+<ul>
+<li>下机数据中得到的：原始的测序数据，通常是fastq文件</li>
+<li>对原始测序数据进行处理，并计算出每一个基因的表达量</li>
+<li>数据质控和细胞筛选</li>
+<li>数据整合</li>
+<li>聚类与可视化</li>
+<li>差异表达基因分析</li>
+<li>细胞注释分析</li>
+<li>更高阶的分析……</li>
+</ul>
+</li>
+</ul>
+<h1 id="单细胞分析的主要软件工具"><a href="#单细胞分析的主要软件工具" class="headerlink" title="单细胞分析的主要软件工具"></a>单细胞分析的主要软件工具</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.09.16.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="cell-ranger"><a href="#cell-ranger" class="headerlink" title="cell ranger"></a>cell ranger</h2><ul>
+<li>10x研发的软件集，用于处理10x的单细胞数据</li>
+</ul>
+<h2 id="Loupe-R-Loupe-Browser"><a href="#Loupe-R-Loupe-Browser" class="headerlink" title="Loupe R &amp; Loupe Browser"></a>Loupe R &amp; Loupe Browser</h2><ul>
+<li>Loupe R是一个R的软件包，可以把Seurat数据转换成Loupe Browser文件</li>
+<li>Loupe Browser是一个桌面软件，可以提供简单易用的界面，对10x的单细胞数据进行分析和可视化</li>
+</ul>
+<h2 id="有用的第三方软件工具"><a href="#有用的第三方软件工具" class="headerlink" title="有用的第三方软件工具"></a>有用的第三方软件工具</h2><ul>
+<li>以下简称“三方工具”，是一个意思</li>
+<li>独立运行的软件包</li>
+<li>虽然10x对这些第三方工具不提供技术支持，但是这些第三方软件大大拓宽了我们进行细胞分析的广度和深度</li>
+</ul>
+<h1 id="细致的单细胞分析流程"><a href="#细致的单细胞分析流程" class="headerlink" title="细致的单细胞分析流程"></a>细致的单细胞分析流程</h1><h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><ul>
+<li>首先，对原始测序数据的read进行预处理，用到的工具是cell ranger<img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.10.18.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><ul>
+<li>cell ranger可以获取细胞的barcode信息，并将read比对到参考基因组上，以此计算出每个barcode内，每个基因捕获的RNA数目，也就是UMI</li>
+<li>在这一步之后，我们可以得到一个feature barcode的矩阵，这个矩阵包含着每个barcode，每个基因对应的UMI数（也就是转录本的数目）</li>
+<li>但是，有一些barcode不一定包含细胞，而只是背景噪音而已</li>
+</ul>
+</li>
+</ul>
+<h2 id="质量控制与数据筛选"><a href="#质量控制与数据筛选" class="headerlink" title="质量控制与数据筛选"></a>质量控制与数据筛选</h2><ul>
+<li>对原始的feature barcode数据质控，过滤掉没有细胞的barcode<img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.10.58.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><ul>
+<li>cell ranger可以进行基本的质控分析，提供一些重要的指标，帮助分析样本和数据的质量，去掉没有细胞的barcode，剩下有细胞的barcode，并给出测序和比对等重要的质量指标</li>
+<li>Loupe browser可以去掉低质量细胞的barcode，过滤的标准包括每个barcode里面的基因总数，以及线粒体基因表达的百分比<blockquote>
+<p>在质控和过滤到低质量的barcode之后，我们将得到高质量的细胞群，进行下一步的数据分析</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="（可选）数据整合与去批次效应"><a href="#（可选）数据整合与去批次效应" class="headerlink" title="（可选）数据整合与去批次效应"></a>（可选）数据整合与去批次效应</h2><ul>
+<li>数据整合<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.11.44.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><ul>
+<li>当我们有很多样本的时候，通常我们可以考虑将这些样本整合起来，进行分析，这一步可以使用Cell Ranger，也可以使用三方软件</li>
+<li>目的：整合不同的样本得到的单细胞数据</li>
+<li>如果有批次效应（多种技术要素造成），还要去批次<br>  <img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.12.14.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>如果不同的样本间在tSNE或UMAP图上能显著的区分开（上图1），那就提示具有明显的批次效应，我们就需要对这两个样本进行去批次效应来整个分析</li>
+<li>批次效应是由多种技术因素造成的，如果对相同的生物样本使用相同的10x试剂，并同时处理，这样的批次效应可能就很小</li>
+<li>然而，如果样本是在不同的时间，由不同的人员进行处理，批次效应可能就比较显著</li>
+</ul>
+</li>
+</ul>
+<h2 id="聚类和可视化分析（tSNE和UMAP哪个更好没有定论）"><a href="#聚类和可视化分析（tSNE和UMAP哪个更好没有定论）" class="headerlink" title="聚类和可视化分析（tSNE和UMAP哪个更好没有定论）"></a>聚类和可视化分析（tSNE和UMAP哪个更好没有定论）</h2><ul>
+<li>根据细胞的基因表达谱对细胞进行分组，并在二维的图上进行数据的可视化（单细胞数据很复杂，我们需要降低维度，以便我们能在二维平面上看到单细胞数据）<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.13.11.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>常见的可视化方式是tSNE和UMAP，对于相同的样本，这两种方法可以提供略有不同的，集群群体的结构</li>
+<li>单细胞数据分析是一个非常活跃的领域，tSNE和UMAP到底哪一个可视化效果更好，还没有明确的结论，可以根据自己的数据和参考文献来选择分析方法</li>
+</ul>
+<h2 id="差异基因表达差异分析"><a href="#差异基因表达差异分析" class="headerlink" title="差异基因表达差异分析"></a>差异基因表达差异分析</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.13.51.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>对每个聚类进行差异基因表达分析，这个步骤可以在cell ranger的默认参数下进行，并且自动得到相应的结果</li>
+<li>也可以使用Loupe Browser和三方软件来实现同样的目的，使用这些软件进行差异基因表达的分析可以是高度定制化的</li>
+<li>在这个步骤中，我们经常要做的就是把每个cluster的细胞和其他cluster的细胞进行比较，然后找到他们之间的基因表达的差异，输出的结果是每个cluster中富集的基因列表，以及这些基因对应的倍数变化，还有调整后的p值</li>
+<li>在使用Loupe和三方软件的过程中，我们可以定制在两个特定的细胞群之间进行差异分析</li>
+</ul>
+<h2 id="细胞注释"><a href="#细胞注释" class="headerlink" title="细胞注释"></a>细胞注释</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.14.36.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>找到每个cluster，并且对每个cluster进行细胞注释</li>
+<li>进行这个步骤由很多选择，我们可以根据上一步发现的，每个cluster的marker基因进行手动注释，也可以用一些三方软件进行自动的细胞注释</li>
+<li>在这一步结束之后，所有的cluster都会被注释为特定的细胞类型</li>
+</ul>
+<h2 id="一些三方软件介绍"><a href="#一些三方软件介绍" class="headerlink" title="一些三方软件介绍"></a>一些三方软件介绍</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.16.10.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>非常流行、有用的分析工具：Seurat和Scanpy，都可以对单细胞数据进行分析和可视化</li>
+<li>更高阶的数据分析可以通过三方软件进行<ul>
+<li>信号通路分析，找到不同cluster中富集了哪些基因</li>
+<li>trajectory&#x2F;RNA速率分析，判断细胞状态之间的转变</li>
+</ul>
+</li>
+<li>可以通过scRNA-tools数据库来探索用于单细胞数据分析的工具目录</li>
+<li>10x的官网上也有不同主题的分析指南，包括single-cell, Visium（含HD）和Xenium，可以看<a target="_blank" rel="noopener" href="https://www.10xgenomics.com/cn/analysis-guides?query=&page=1">analysis guide</a>，这里有致力于解决高阶数据分析问题的内容，这些内容也将不断被丰富</li>
+</ul>
+<h2 id="Loupe-R"><a href="#Loupe-R" class="headerlink" title="Loupe R"></a>Loupe R</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.16.45.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>    * 虽然Loupe Browser提供了非常直观的分析界面和强大的分析功能，但一些高级分析，比如细胞的自动注释，或者批次矫正仍然无法在Loupe Browser中完成，而Seurat等三方工具可以完成这些分析<br>    * 现在，用户可以使用Loupe R这个软件包，将两个平台进行结合，Loupe R允许用户将Seurat数据转化为Loupe Browser文件<br>    * 比如，在使用Seurat进行批次矫正之后，我们可以使用Loupe Browser进行更多的下游的数据分析</p>
+<h1 id="各种软件的运行要求"><a href="#各种软件的运行要求" class="headerlink" title="各种软件的运行要求"></a>各种软件的运行要求</h1><h2 id="Cell-Ranger需要的技能"><a href="#Cell-Ranger需要的技能" class="headerlink" title="Cell Ranger需要的技能"></a>Cell Ranger需要的技能</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.17.42.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>Linux系统执行各种程序</li>
+<li>了解实验设计</li>
+<li>Linux系统中的命令行</li>
+<li>所在机构的数据管理系统</li>
+<li>Linux系统出现问题的时候，我们要联系谁</li>
+</ul>
+<h2 id="Loupe-R-Loupe-Browser-1"><a href="#Loupe-R-Loupe-Browser-1" class="headerlink" title="Loupe R &amp; Loupe Browser"></a>Loupe R &amp; Loupe Browser</h2><p>![](&lt;&#x2F;img&#x2F;10x&#x2F;&gt; 来源：<a href=""></a>&gt;)</p>
+<ul>
+<li>Loupe R：基本的R编程的语言</li>
+<li>Loupe Browser：苹果或微软操作系统</li>
+<li>实验设计与生物学知识</li>
+<li>诠释差异表达基因的结果</li>
+</ul>
+<h2 id="三方软件：例如Seurat和Scanpy"><a href="#三方软件：例如Seurat和Scanpy" class="headerlink" title="三方软件：例如Seurat和Scanpy"></a>三方软件：例如Seurat和Scanpy</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2014.18.27.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>实验设计与生物学知识</li>
+<li>R与python的编程能力</li>
+<li>软件包的默认参数</li>
+<li>诠释数据分析的结果</li>
+<li>10x support官网有更多说明</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/10x/2024.11.21%2010x%20%E5%8D%95%E7%BB%86%E8%83%9E%E6%95%B0%E6%8D%AE%E6%BC%94%E7%A4%BA/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/10x/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">2024.11.21 10x 单细胞数据演示</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/21</li>
+                <li>20:16</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/10x/2024.11.20%2010x%20%E5%8D%95%E7%BB%86%E8%83%9E%E6%B5%8B%E5%BA%8F/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/10x/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">2024.11.20 10x 单细胞测序</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/20</li>
+                <li>14:05</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="单细胞实验简介"><a rel="nofollow" class="trm-toc-link" href="#单细胞实验简介"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">单细胞实验简介</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="单细胞数据可以回答什么生物学问题"><a rel="nofollow" class="trm-toc-link" href="#单细胞数据可以回答什么生物学问题"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">单细胞数据可以回答什么生物学问题</span></a></li><li class="trm-toc-item trm-toc-level-2" title="单细胞数据分析的流程"><a rel="nofollow" class="trm-toc-link" href="#单细胞数据分析的流程"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">单细胞数据分析的流程</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="单细胞分析的主要软件工具"><a rel="nofollow" class="trm-toc-link" href="#单细胞分析的主要软件工具"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">单细胞分析的主要软件工具</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="cell ranger"><a rel="nofollow" class="trm-toc-link" href="#cell-ranger"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">cell ranger</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Loupe R &amp; Loupe Browser"><a rel="nofollow" class="trm-toc-link" href="#Loupe-R-Loupe-Browser"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">Loupe R &amp; Loupe Browser</span></a></li><li class="trm-toc-item trm-toc-level-2" title="有用的第三方软件工具"><a rel="nofollow" class="trm-toc-link" href="#有用的第三方软件工具"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">有用的第三方软件工具</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="细致的单细胞分析流程"><a rel="nofollow" class="trm-toc-link" href="#细致的单细胞分析流程"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">细致的单细胞分析流程</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="数据预处理"><a rel="nofollow" class="trm-toc-link" href="#数据预处理"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">数据预处理</span></a></li><li class="trm-toc-item trm-toc-level-2" title="质量控制与数据筛选"><a rel="nofollow" class="trm-toc-link" href="#质量控制与数据筛选"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">质量控制与数据筛选</span></a></li><li class="trm-toc-item trm-toc-level-2" title="（可选）数据整合与去批次效应"><a rel="nofollow" class="trm-toc-link" href="#（可选）数据整合与去批次效应"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">（可选）数据整合与去批次效应</span></a></li><li class="trm-toc-item trm-toc-level-2" title="聚类和可视化分析（tSNE和UMAP哪个更好没有定论）"><a rel="nofollow" class="trm-toc-link" href="#聚类和可视化分析（tSNE和UMAP哪个更好没有定论）"><span class="trm-toc-number">3.4.</span> <span class="trm-toc-text">聚类和可视化分析（tSNE和UMAP哪个更好没有定论）</span></a></li><li class="trm-toc-item trm-toc-level-2" title="差异基因表达差异分析"><a rel="nofollow" class="trm-toc-link" href="#差异基因表达差异分析"><span class="trm-toc-number">3.5.</span> <span class="trm-toc-text">差异基因表达差异分析</span></a></li><li class="trm-toc-item trm-toc-level-2" title="细胞注释"><a rel="nofollow" class="trm-toc-link" href="#细胞注释"><span class="trm-toc-number">3.6.</span> <span class="trm-toc-text">细胞注释</span></a></li><li class="trm-toc-item trm-toc-level-2" title="一些三方软件介绍"><a rel="nofollow" class="trm-toc-link" href="#一些三方软件介绍"><span class="trm-toc-number">3.7.</span> <span class="trm-toc-text">一些三方软件介绍</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Loupe R"><a rel="nofollow" class="trm-toc-link" href="#Loupe-R"><span class="trm-toc-number">3.8.</span> <span class="trm-toc-text">Loupe R</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="各种软件的运行要求"><a rel="nofollow" class="trm-toc-link" href="#各种软件的运行要求"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">各种软件的运行要求</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="Cell Ranger需要的技能"><a rel="nofollow" class="trm-toc-link" href="#Cell-Ranger需要的技能"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">Cell Ranger需要的技能</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Loupe R &amp; Loupe Browser"><a rel="nofollow" class="trm-toc-link" href="#Loupe-R-Loupe-Browser-1"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">Loupe R &amp; Loupe Browser</span></a></li><li class="trm-toc-item trm-toc-level-2" title="三方软件：例如Seurat和Scanpy"><a rel="nofollow" class="trm-toc-link" href="#三方软件：例如Seurat和Scanpy"><span class="trm-toc-number">4.3.</span> <span class="trm-toc-text">三方软件：例如Seurat和Scanpy</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

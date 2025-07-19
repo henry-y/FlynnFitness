@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研10x产品介绍Visium空间生信分析  什么是空间技术 NGS和单细胞测序的发展使得分子层面的信息获取达到了前所未有的水平，然而当我们去研究某个课题，需要去剖析组织的时候，大家可能会发现传统的组织成像和分子检测是完全两种不同的技术路线；我们需要用一张组织切片去成像，另外的切片去测序，这样就很难把基因表达和组织的形态学信息结合起来。 现在我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023.11.30 空间实验设计入门">
+<meta property="og:url" content="http://example.com/10x/2023.11.30%20%E7%A9%BA%E9%97%B4%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研10x产品介绍Visium空间生信分析  什么是空间技术 NGS和单细胞测序的发展使得分子层面的信息获取达到了前所未有的水平，然而当我们去研究某个课题，需要去剖析组织的时候，大家可能会发现传统的组织成像和分子检测是完全两种不同的技术路线；我们需要用一张组织切片去成像，另外的切片去测序，这样就很难把基因表达和组织的形态学信息结合起来。 现在我们">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-11-23T05:00:04.280Z">
+<meta property="article:modified_time" content="2024-11-23T05:00:04.280Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="10x">
+<meta property="article:tag" content="产品介绍">
+<meta property="article:tag" content="Visium空间">
+<meta property="article:tag" content="生信分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >2023.11.30 空间实验设计入门</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-11-23 13:00:04"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/10x/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            2023.11.30 空间实验设计入门
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        10x
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            11/23
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:00
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/10x/">10x</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/">产品介绍</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/Visium%E7%A9%BA%E9%97%B4/">Visium空间</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%94%9F%E4%BF%A1%E5%88%86%E6%9E%90/">生信分析</a></p>
+</div>
+<h1 id="什么是空间技术"><a href="#什么是空间技术" class="headerlink" title="什么是空间技术"></a>什么是空间技术</h1><ul>
+<li>NGS和单细胞测序的发展使得分子层面的信息获取达到了前所未有的水平，然而当我们去研究某个课题，需要去剖析组织的时候，大家可能会发现传统的组织成像和分子检测是完全两种不同的技术路线；我们需要用一张组织切片去成像，另外的切片去测序，这样就很难把基因表达和组织的形态学信息结合起来。</li>
+<li>现在我们已经有了最新的空间分析技术，它可以将传统的组织成像、空间以及高度复杂的分子信息结合起来，可以为大家提供更全面和灵活的方法来研究组织中细胞之间的相互作用。</li>
+</ul>
+<h2 id="几个例子"><a href="#几个例子" class="headerlink" title="几个例子"></a>几个例子</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2013.06.19.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>肿瘤组织中的细胞间的相互作用如何去影响肿瘤的微环境：比如说免疫细胞在肿瘤组织中的什么位置，是否处于浸润的状态；或者在浸润的过程中，免疫细胞处于的是激活的还是抑制的状态，以上的科学问题都是可以通过位置信息，以及相应的分子水平的信息去进行剖析的。</li>
+<li>对于免疫检查点治疗，促进或抑制免疫反应的条件是如何产生的</li>
+<li>细胞如何去进行组织发育中的分化过程，以及细胞如何将自己组成具有功能的组织。</li>
+<li>这些能够同时评估组织中的空间和分子水平的变化的方法，对于我们去改善人类健康和相关的研究是有非常大的帮助的</li>
+</ul>
+<h2 id="空间技术的种类"><a href="#空间技术的种类" class="headerlink" title="空间技术的种类"></a>空间技术的种类</h2><ul>
+<li>基于测序的方法：去了解到我们组织中不同的分子水平的一些信息，这个文章主要介绍的内容</li>
+<li>基于成像的方式：也就是我们常说的原位的分析方法</li>
+</ul>
+<h2 id="Visium分析可以把形态学信息和基因表达信息结合在一起"><a href="#Visium分析可以把形态学信息和基因表达信息结合在一起" class="headerlink" title="Visium分析可以把形态学信息和基因表达信息结合在一起"></a>Visium分析可以把形态学信息和基因表达信息结合在一起</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2013.22.32.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>我们可以看到这张人的乳腺导管原位癌的切片，经过了HE的染色，在病理学家的注释下我们已经能看到这张切片的结构的信息和形态学的信息。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2013.23.47.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>上图是通过商业化的Visium技术进行空间的分析，可以看到在这张切片上基因表达的状态和空间聚类的图谱<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2013.27.40.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>Visium的空间解决方案的强大之处就在于我们可以组合数据，把病理实验室中获得的形态学的图谱和分子水平上获得的基因表达的信息可以结合起来，从而对不同的细胞，以及细胞之间的相互作用去进行更深入的分析和研究。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2013.30.45.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>使用Visium时，我们可以获得具有形态学特征的基因表达谱，可以看到我们展示的样本是一整张切片，不需要预先选择感兴趣的区域，也就是拿到一张切片，只要是感兴趣的区域位于这张切片上，那直接拿这张切片去做实验就好了。</li>
+<li>对于UMI的数据，大家可以看中间这张图，每个点（55μm）可以检测到最多3万个转录本；基因的数量可以看右侧的热图，可以达到多达8000个基因</li>
+<li>这是我们测试的数据，针对不同质量的样本，我们可能会有不同的数据和结果的产出。</li>
+</ul>
+<h1 id="Visium产品特性"><a href="#Visium产品特性" class="headerlink" title="Visium产品特性"></a>Visium产品特性</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2013.48.18.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>兼容各种样本：现在Visium的空间技术可以对FFPE样本、新鲜冷冻组织、固定冷冻组织、组织微阵列（TMA的样本）进行全转录组的、空间水平上的分析</li>
+<li>高分辨率：55μm</li>
+<li>多组学分析：基于一张切片开展基因表达、蛋白表达和形态学三个维度的分析</li>
+<li>CyteAssist仪器平台：更高效的实验流程</li>
+</ul>
+<h2 id="单细胞和空间技术的价值"><a href="#单细胞和空间技术的价值" class="headerlink" title="单细胞和空间技术的价值"></a>单细胞和空间技术的价值</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2013.49.09.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>我们用NGS的方法可以得到一块组织中，平均的基因表达的信息</li>
+<li>单细胞的技术可以通过基因表达差异DEG的比较，对不同的细胞进行聚类</li>
+<li>今天介绍的空间技术可以探究组织中不同位置的基因表达信息，也就是二维的基因表达信息</li>
+<li>很多科学家会将单细胞和空间的数据进行整合，这样我们就可以更加清晰的看到每张组织切片中，不同细胞它的基因表达的位置<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2013.55.11.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>总结一下，我们可以通过Visium空间基因表达技术去全面了解疾病的复杂性、发现新的生物标志物，以及全面了解新的细胞的类型和状态、绘制细胞的图谱或者是空间组成，以及去识别时空基因表达模式等等。</li>
+</ul>
+<h1 id="示例：三级淋巴结构"><a href="#示例：三级淋巴结构" class="headerlink" title="示例：三级淋巴结构"></a>示例：三级淋巴结构</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2013.57.07.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>巴黎的Catherine和Wolf Redmond实验室，在FFPE样本中去应用Visium空间技术的例子，主要研究的方向是对三级淋巴结构（简称为TLS）的存在对于肿瘤预后的影响。</li>
+<li>TLS的存在已经被证明和良好的预后是相关的，但是TLS在B细胞成熟和免疫治疗反应中的作用是尚未得到证实的。在这项研究中，作者利用了Visium对FFPE样本的肾细胞癌的样本进行了分析</li>
+<li>这里只展示了FFPE样本的结果，但作者也对新鲜冷冻组织对应的样本做了分析</li>
+<li>通过FFPE的数据，我们可以看到HE染色的结果，虚线黄色的部分圈出了三级淋巴结构的区域</li>
+<li>在空间转录组图谱中，我们会发现基于TLS的marker，也就是红色和黄色结合的热图区域，也是三级淋巴结构的区域，并且对应的区域也有B细胞的marker</li>
+<li>总结来说，作者经过多方证实，发现富含TLS，也就是三级淋巴结构的肿瘤会富含B细胞的热点区域，并表明三级淋巴结构是B细胞向浆细胞成熟的位点，展示了空间技术在肿瘤研究中，可以促进对免疫微环境的研究。</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2014.25.33.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>Visium技术可以对一整张的组织切片进行形态学和全转录组分析，还有蛋白表达的分析。</li>
+<li>Visium技术在反应的区域会有非常多标有位置信息的barcode，可以帮助我们去锚定到每个转录本的位置信息</li>
+<li>Visium技术基于NGS测序的原理去获得相应的、带有空间位置信息的转录本，然后我们能知道转录本在空间位置上的</li>
+<li>Visium技术兼容的样本类型非常广泛，包括新鲜冷冻、固定冷冻和FFPE样本，以及组织微阵列，也就是TMA样本</li>
+</ul>
+<h1 id="Visium的工作流程和原理"><a href="#Visium的工作流程和原理" class="headerlink" title="Visium的工作流程和原理"></a>Visium的工作流程和原理</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2014.29.30.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>首先，我们需要根据组织的特点去选择相应的解决方案和工作的流程，FFPE和新鲜冷冻组织、固定冷冻组织在样本处理的过程中是有所不同的，需要根据自己所选用的组织去选择对应的工作流。</li>
+<li>对样本进行制备和成像，也就是对组织进行切片染色和成像，然后选择所要分析的切片，并且去获得它的形态学信息，这样有利于后面的数据分析和定位</li>
+<li>将选到的，已经贴在了标准玻璃载玻片上的样本，放置到我们的CytAssist仪器上，在仪器的盖子上方可以放置两张贴有切片的标准玻璃载玻片，在仪器的下方是带有捕获区域的Visium的玻片，当仪器盖子盖住的时候，带有转录本信息的探针就可以释放到对应的捕获区域中，从而去对相应的转录本去进行位置的标记。</li>
+<li>接着是建库测序以及数据分析的过程</li>
+</ul>
+<h2 id="捕获区的详细介绍"><a href="#捕获区的详细介绍" class="headerlink" title="捕获区的详细介绍"></a>捕获区的详细介绍</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2014.41.57.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>前面我们说到的捕获区，也就是Visium空间实验反应的载体，是由Visium基因表达的玻片来实现的；每个玻片会有两个捕获区域，捕获区域有两种不同的规格，一种是11毫米乘以11毫米大小的，另外一种是6.5毫米乘以6.5毫米大小，大家可以根据组织切片的大小去选择合适规格的捕获区域的玻片。</li>
+<li>我们以11毫米为例，在这个捕获区域中，一共有14000个带有标签的点每个点上它会有非常多的探针，每个点的直径是55微米</li>
+<li>这张图上也展示了探针的设计，一共有两种探针，分别用于捕获RNA和蛋白<ul>
+<li>对于捕获RNA的探针，我们可以看到它由四部分组成，包括用于建库的partial read one，用于去标记转录本位置信息的special barcode，用于转录本计数的UMI，还有就是去捕获带有PolyA尾的mRNA的Poly(dT)的序列</li>
+<li>对于蛋白捕获的探针：也由四部分组成，前面三部分是相同的，和RNA探针带有相同的空间的位置信息，最后一部分capture sequence可以去捕获和我们的组织进行反应的抗体所带有的探针的序列，也就是说针对组织切片，我们可以同时进行RNA和蛋白的分析。</li>
+</ul>
+</li>
+</ul>
+<h2 id="新鲜冰冻样本与FFPE样本的差异"><a href="#新鲜冰冻样本与FFPE样本的差异" class="headerlink" title="新鲜冰冻样本与FFPE样本的差异"></a>新鲜冰冻样本与FFPE样本的差异</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2014.57.32.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>对于空间技术，我们有两种主要的方法学，一种是基于PolyA的捕获，另外一种是基于探针的。</li>
+<li>对于新鲜冷冻组织，Visium的方案是基于透化的方式，在组织中的mRNA就会释放出来，被捕获区域中的Poly(dT)的序列捕获到，进行后续的空间的测序。</li>
+<li>对于FFPE样本，核酸的片段化比较严重，mRNA的polyA尾可能已经没有了，Visium的方案就基于探针的设计来实现全转录组的分析。现在所有CytAssist的仪器平台上的方案都是基于探针的原理去进行全转录组的捕获的。在透化之后，带有转录本信息的探针就会释放到捕获区域，然后被捕获到。</li>
+</ul>
+<h2 id="探针设计的原理"><a href="#探针设计的原理" class="headerlink" title="探针设计的原理"></a>探针设计的原理</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2015.05.14.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>针对基因中我们感兴趣的区域，10x设计了一对而不是一个探针，这一对探针包含左臂和右臂，只有左臂和右臂同时结合到我们感兴趣的区域以后，这个探针才可以释放出来，并且被这个捕获区域中的探针给捕获到。</li>
+<li>可以看到我们在右臂上，人为的加上了PolyA的序列，因此可以被捕获区域中的一段Poly(dT)的序列给捕获到，我们针对人的18000个基因和小鼠的20000个基因设计了相应的探针，去覆盖物种的全转录组的分析</li>
+</ul>
+<h2 id="实验流程的差异"><a href="#实验流程的差异" class="headerlink" title="实验流程的差异"></a>实验流程的差异</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2015.08.15.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>在现有的仪器平台Visium CytAssist可以兼容不同的样本类型，包括FFPE、固定冷冻和新鲜冷冻的样本。前面我们在工作流程的介绍的时候提到过，针对不同的样本，样本处理的过程中会有些许不一样，大家要根据自己的样本类型，去选择合适的样本制备的工作流程。</li>
+<li>对于FFPE样本，我们首先需要脱蜡-染色-解交联，而对于新鲜组织不需要解交联的步骤；后续的探针杂交-连接-延伸，以及建库的额不足后，是有相似的工作流程供大家参考的</li>
+<li>建完库，我们就需要到测序平台上进行测序，从而去获得带有空间位置信息的转RNA的或者是蛋白的表达信息。</li>
+</ul>
+<h2 id="测序深度如何确认"><a href="#测序深度如何确认" class="headerlink" title="测序深度如何确认"></a>测序深度如何确认</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2018.50.27.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>对于11✖️11mm的捕获区域，我们有14000个点；6.5✖️6.5mm我们有5000个点的捕获区域</li>
+<li>每个点最低的测序深度是25000个read pairs，我们先计算捕获区域中，我们的组织所占有的面积，然后计算出组织占有的spot，最后根据spot的数量计算出最低的测序深度就可以了。大家可以根据的计算方法去评估我们实际的样本所需要的测序量。</li>
+</ul>
+<h1 id="设计第一个空间分析实验"><a href="#设计第一个空间分析实验" class="headerlink" title="设计第一个空间分析实验"></a>设计第一个空间分析实验</h1><ul>
+<li>空间实验的流程<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2019.11.08.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h2 id="现有的空间平台"><a href="#现有的空间平台" class="headerlink" title="现有的空间平台"></a>现有的空间平台</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2019.18.12.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>手动的，直接贴片的方式，我们直接讲切片贴到Visium的捕获区域，去进行样本的制备-染色-成像，直接通过透化的方式将组织上的RNA去释放到捕获区域中，这种方式可以兼容新鲜冷冻和FFPE样本，这种方式基于测序</li>
+<li>基于仪器平台和探针的原理，新鲜冷冻，固定冷冻和FFPE样本，以及组织芯片TMA样本都可以用这种方法进行空间的分析</li>
+</ul>
+<h2 id="实验前需要考量的因素"><a href="#实验前需要考量的因素" class="headerlink" title="实验前需要考量的因素"></a>实验前需要考量的因素</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2019.26.24.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>科学问题&#x2F;科学发现的目标是什么</li>
+<li>我们的方案否有足够的分辨率去解决科学问题</li>
+<li>覆盖度是什么</li>
+<li>怎样的工作流程是合适的</li>
+<li>能否拿到相应的样本，并且通过合适的运输和储存的方法，对组织进行相应的保存和处理，才能去开展实验</li>
+<li>数据分析：我们在做完所有的实验后是否有足够的数据分析的能力，或者实验室有没有相应的数据分析的同事和学生，可以帮助我们去开展数据分析来获得相应的结果</li>
+</ul>
+<h2 id="怎样选择合适的实验方案"><a href="#怎样选择合适的实验方案" class="headerlink" title="怎样选择合适的实验方案"></a>怎样选择合适的实验方案</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2019.32.01.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>首先从实验物种开始，如果探究的是人或者是小鼠，那不管是基于polyA捕获的方式，还是探针捕获的方式都可以兼容；如果我们做的是非人或小鼠的物种，就只能选择基于polyA捕获的手动版本。</li>
+<li>对于样本类型：polyA捕获的方式只适用于新鲜冰冻样本，探针的捕获方式兼容各种样本（新鲜冷冻&#x2F;固定冷冻&#x2F;FFPE&#x2F;TMA）</li>
+<li>加做蛋白表达的分析：针对FFPE样本，选择选择Visium CytoAssist Gene and Protein Expression的panel，同时对一张FFPE切片去进行基因表达和蛋白表达的分析。</li>
+</ul>
+<h3 id="使用CytAssist仪器的好处"><a href="#使用CytAssist仪器的好处" class="headerlink" title="使用CytAssist仪器的好处"></a>使用CytAssist仪器的好处</h3><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2019.43.43.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>高效稳定的仪器可以帮助大家更加方便的开展实验，进行无偏离的这个全转录组的分析，并且可以覆盖整个所要分析的组织</li>
+<li>依托仪器平台，我们可以去实现之前手动贴片不能兼容的样本类型，对于已经归档的样本，或者是在标准玻璃载玻片上已经染色的样本可能就没有办法去实验了；现在我们可以直接将切片贴到标准载玻片上进行样本的制备，这样的方式更的简单，也可以进行HE或免疫荧光染色来获得形态学的信息</li>
+<li>目前我们有6.5毫米和11毫米两种捕获区域大小，大家可以根据样本的大小自由选择捕获区域的规格，并且可以进行多种组织来源的分析</li>
+<li>整个工作流程因为仪器的加持，变得更加简单和易于操作，有利于开展多中心实验，并且方便样本的运输，因为放在标准玻璃载玻片上的样本可以直接运输了。对于有些样本，没有办法直接将蜡块从病理实验室拿出来的，现在我们可以直接让病理的老师将我们的切片贴到标准的玻璃载玻片上，经过染色和病理老师的检验，如果病理老师觉得这是具有重要生物学意义的样本，我们就可以再继续进行后续的空间实验。</li>
+<li>仪器平台对于样本的质量的包容度更广，比如FFPE样本DV200大于30%，或者新鲜冷冻组织RIN大于4就可以开展实验了，相比于手动版本DV200需要大于50%又或RIN需要大于7才可以</li>
+<li>有了仪器平台，整个工作流程会更加简单，可以在病理实验室中完成病理实验室所需要做的工作，在分子实验室去做分子实验室要做的工作。</li>
+</ul>
+<h3 id="示例：组织芯片TMA进行Visium-CytAssist分析"><a href="#示例：组织芯片TMA进行Visium-CytAssist分析" class="headerlink" title="示例：组织芯片TMA进行Visium CytAssist分析"></a>示例：组织芯片TMA进行Visium CytAssist分析</h3><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2019.55.06.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>TMA是一种把多个不同样本的核心区域添加到单个捕获区域，从而增加研究规模的一种方法。CytAssist的工作流程使得TMA的测序过程变得更加的简单，因为TMA的样本可以去直接到普通的玻璃载玻片上，来进行样本的准备工作。需分析的核心区域的转录本信息可以直接被捕获区域给捕获到。 </li>
+<li>在上图中，我们将25个样本放到了11✖️11mm的Visium捕获区域中，对这25个小鼠的大脑和肾脏的组织的核心区域进行了空间图谱的分析</li>
+<li>上图右侧的每个核心区域都能看到空间的图谱，并且能区分组织的类型。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2022.27.40.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>10x官方测试了非常多的样本，这里列出了人和小鼠的FFPE组织，包括TMA的样本，还有更多的新鲜冷冻组织和是固定冷冻组织的数据都可以在官网上去找到相应的数据集。</li>
+</ul>
+<h3 id="结合空间转录组与免疫荧光分析"><a href="#结合空间转录组与免疫荧光分析" class="headerlink" title="结合空间转录组与免疫荧光分析"></a>结合空间转录组与免疫荧光分析</h3><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2022.28.55.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>另外，我们还可以将空间转录组分析与组织切片中的免疫荧光蛋白检测结合起来，通过共定位蛋白检测和基因表达分析，来更深入更全面的去了解组织的微环境。</li>
+<li>上图左侧是免疫荧光检测的结果，右侧是针对同一张组织进行空间的分析，也就是说我们可以将基因表达和蛋白分析结合在一起。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2022.33.49.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在上图在这张卵巢癌的组织切片中我们就结合了空间转录组和免疫荧光的结果，我们看到细胞簇1中有TOP2A和XPO1这两个癌基因的表达，这个细胞簇所处的区域正好与免疫荧光显示的肿瘤部分重叠，细胞簇4主要是和基质部分相互重叠，上图就是将基因表达和免疫荧光染色结合去应用的例子。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2022.39.40.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>如果只是通过免疫荧光去进行蛋白的分析，那最多只能去做5到6个蛋白表征；前面也介绍过，我们的捕获区域中可以同时捕获到蛋白的表达信息，这样捕获的蛋白表达信息是基于测序的原理，因此可以检测的蛋白数量会更多。</li>
+<li>现在，在一张切片中，我们已经可以真正意义上实现多组学，包括形态学、RNA维度，还有蛋白的维度；由于是基于测序的原理，10x会设计相应抗体的cocktail，这些抗癌可以和我们的组织进行反应；不同的抗体上会带有不同的序列，可以获得不同序列的位置信息，对应地我们就能知道蛋白、在组织中的定位。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2022.41.23.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>现在，我们可以在一张切片中就获得三个维度的信息，10x提供商业化的panel主要应用于人的免疫研究的方向，这个panel是已经经过验证的，即买即用；这个panel与免疫荧光染色的结果进行验证，发现两者的一致性是非常好的</li>
+<li>额外加入蛋白的分析不会影响到基因表达的结果，可以放心去进行多组学的分析；在数据分析上也会有相应的软件的更新，可以实现更好的多组学数据的解读。蛋白的方案主要兼容的样本是FFPE样本<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2023.22.44.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>上图展示了10x商业化的，人的免疫细胞分析的panel，里面一共有35种抗体，其中检测31个跟免疫细胞相关的marker，另外4种是作为control；如果想定制进行其他蛋白marker的分析，而这个marker不包含在上述的panel中，10x也支持定制，可以去联系合作商BioLegend公司去进行定制。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2023.25.27.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>上图展示了基于免疫荧光染色的蛋白检测结果和panel所做的，基于测序的原理进行的蛋白检测之间的比较，我们可以发现对于捕获区，无论是6.5mm规格还是11mm的规格，对于PCNA和CD8A这两个蛋白，两种实验方法得到的数据的一致性是非常好的。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2023.29.30.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>左图用Visium+人免疫panel去检测体外培养的细胞，我们看到CD3E主要在Jurkat细胞系中高表达，PAX5主要在Raji细胞系中会有高表达，可以体现出这两种蛋白的细胞特异性表达</li>
+<li>中间图：用TMA样本进行免疫marker的分析，我们可以看到四个不同的组织，包括心脏、脾脏、扁桃体和乳腺癌的样本，我们会发现不同的marker在不同的组织中会有高表达，比如PAX5在扁桃体来源的组织高表达，CD65在脾脏来源的组织中高表达，PDL1在心脏中有高表达，以及PANCK会在右下角的乳腺癌中会有较高的表达。</li>
+<li>右图是对整张组织去进行分析，发现CD3E（不管是在RNA还是蛋白层面）主要在非生发中心会有高表达；而对于PAX5，在生发中心和非生发中心都有表达，这些结果和我们的预期是相符的</li>
+</ul>
+<h3 id="方案选择的总结表格"><a href="#方案选择的总结表格" class="headerlink" title="方案选择的总结表格"></a>方案选择的总结表格</h3><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2023.38.31.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>参照上图进行实验的设计</li>
+</ul>
+<h1 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h1><h2 id="怎样判断FFPE样本是否适合进行Visium的分析"><a href="#怎样判断FFPE样本是否适合进行Visium的分析" class="headerlink" title="怎样判断FFPE样本是否适合进行Visium的分析"></a>怎样判断FFPE样本是否适合进行Visium的分析</h2><ul>
+<li>FFPE样本的质量主要取决于组织中的RNA的片段化的程度，其中样本的保存时间、组织类型、失血时间，以及来源是健康的组织还是患病的组织都可能会影响FFPE样本的质量。</li>
+<li>我们可以通过DV200作为预测值来预判组织的质，当然有可能某些样本非常珍贵，只有这个样本了，我们也可以直接去开展实验。</li>
+</ul>
+<h2 id="测序深度的计算：具体见前"><a href="#测序深度的计算：具体见前" class="headerlink" title="测序深度的计算：具体见前"></a>测序深度的计算：具体见前</h2><ul>
+<li>补充：如果我们要同时检测蛋白的表达，每个spot还需要额外加5000个read-pair的蛋白测序的数据</li>
+</ul>
+<h2 id="工作流程需要的时间"><a href="#工作流程需要的时间" class="headerlink" title="工作流程需要的时间"></a>工作流程需要的时间</h2><ul>
+<li>只进行基因表达分析，不包括测序和数据分析的时间是两天</li>
+<li>在上述基础上额外加上蛋白的分析，就对应需要额外一天的时间</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/10x/2023.12.1%20%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/10x/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">2023.12.1 空间数据分析入门</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/24</li>
+                <li>00:14</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/10x/2024.11.21%2010x%20%E5%8D%95%E7%BB%86%E8%83%9E%E6%95%B0%E6%8D%AE%E6%BC%94%E7%A4%BA/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/10x/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">2024.11.21 10x 单细胞数据演示</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/21</li>
+                <li>20:16</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="什么是空间技术"><a rel="nofollow" class="trm-toc-link" href="#什么是空间技术"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">什么是空间技术</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="几个例子"><a rel="nofollow" class="trm-toc-link" href="#几个例子"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">几个例子</span></a></li><li class="trm-toc-item trm-toc-level-2" title="空间技术的种类"><a rel="nofollow" class="trm-toc-link" href="#空间技术的种类"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">空间技术的种类</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Visium分析可以把形态学信息和基因表达信息结合在一起"><a rel="nofollow" class="trm-toc-link" href="#Visium分析可以把形态学信息和基因表达信息结合在一起"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">Visium分析可以把形态学信息和基因表达信息结合在一起</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Visium产品特性"><a rel="nofollow" class="trm-toc-link" href="#Visium产品特性"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">Visium产品特性</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="单细胞和空间技术的价值"><a rel="nofollow" class="trm-toc-link" href="#单细胞和空间技术的价值"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">单细胞和空间技术的价值</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="示例：三级淋巴结构"><a rel="nofollow" class="trm-toc-link" href="#示例：三级淋巴结构"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">示例：三级淋巴结构</span></a></li><li class="trm-toc-item trm-toc-level-1" title="总结"><a rel="nofollow" class="trm-toc-link" href="#总结"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">总结</span></a></li><li class="trm-toc-item trm-toc-level-1" title="Visium的工作流程和原理"><a rel="nofollow" class="trm-toc-link" href="#Visium的工作流程和原理"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">Visium的工作流程和原理</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="捕获区的详细介绍"><a rel="nofollow" class="trm-toc-link" href="#捕获区的详细介绍"><span class="trm-toc-number">5.1.</span> <span class="trm-toc-text">捕获区的详细介绍</span></a></li><li class="trm-toc-item trm-toc-level-2" title="新鲜冰冻样本与FFPE样本的差异"><a rel="nofollow" class="trm-toc-link" href="#新鲜冰冻样本与FFPE样本的差异"><span class="trm-toc-number">5.2.</span> <span class="trm-toc-text">新鲜冰冻样本与FFPE样本的差异</span></a></li><li class="trm-toc-item trm-toc-level-2" title="探针设计的原理"><a rel="nofollow" class="trm-toc-link" href="#探针设计的原理"><span class="trm-toc-number">5.3.</span> <span class="trm-toc-text">探针设计的原理</span></a></li><li class="trm-toc-item trm-toc-level-2" title="实验流程的差异"><a rel="nofollow" class="trm-toc-link" href="#实验流程的差异"><span class="trm-toc-number">5.4.</span> <span class="trm-toc-text">实验流程的差异</span></a></li><li class="trm-toc-item trm-toc-level-2" title="测序深度如何确认"><a rel="nofollow" class="trm-toc-link" href="#测序深度如何确认"><span class="trm-toc-number">5.5.</span> <span class="trm-toc-text">测序深度如何确认</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="设计第一个空间分析实验"><a rel="nofollow" class="trm-toc-link" href="#设计第一个空间分析实验"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">设计第一个空间分析实验</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="现有的空间平台"><a rel="nofollow" class="trm-toc-link" href="#现有的空间平台"><span class="trm-toc-number">6.1.</span> <span class="trm-toc-text">现有的空间平台</span></a></li><li class="trm-toc-item trm-toc-level-2" title="实验前需要考量的因素"><a rel="nofollow" class="trm-toc-link" href="#实验前需要考量的因素"><span class="trm-toc-number">6.2.</span> <span class="trm-toc-text">实验前需要考量的因素</span></a></li><li class="trm-toc-item trm-toc-level-2" title="怎样选择合适的实验方案"><a rel="nofollow" class="trm-toc-link" href="#怎样选择合适的实验方案"><span class="trm-toc-number">6.3.</span> <span class="trm-toc-text">怎样选择合适的实验方案</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="使用CytAssist仪器的好处"><a rel="nofollow" class="trm-toc-link" href="#使用CytAssist仪器的好处"><span class="trm-toc-number">6.3.1.</span> <span class="trm-toc-text">使用CytAssist仪器的好处</span></a></li><li class="trm-toc-item trm-toc-level-3" title="示例：组织芯片TMA进行Visium CytAssist分析"><a rel="nofollow" class="trm-toc-link" href="#示例：组织芯片TMA进行Visium-CytAssist分析"><span class="trm-toc-number">6.3.2.</span> <span class="trm-toc-text">示例：组织芯片TMA进行Visium CytAssist分析</span></a></li><li class="trm-toc-item trm-toc-level-3" title="结合空间转录组与免疫荧光分析"><a rel="nofollow" class="trm-toc-link" href="#结合空间转录组与免疫荧光分析"><span class="trm-toc-number">6.3.3.</span> <span class="trm-toc-text">结合空间转录组与免疫荧光分析</span></a></li><li class="trm-toc-item trm-toc-level-3" title="方案选择的总结表格"><a rel="nofollow" class="trm-toc-link" href="#方案选择的总结表格"><span class="trm-toc-number">6.3.4.</span> <span class="trm-toc-text">方案选择的总结表格</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="问答"><a rel="nofollow" class="trm-toc-link" href="#问答"><span class="trm-toc-number">7.</span> <span class="trm-toc-text">问答</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="怎样判断FFPE样本是否适合进行Visium的分析"><a rel="nofollow" class="trm-toc-link" href="#怎样判断FFPE样本是否适合进行Visium的分析"><span class="trm-toc-number">7.1.</span> <span class="trm-toc-text">怎样判断FFPE样本是否适合进行Visium的分析</span></a></li><li class="trm-toc-item trm-toc-level-2" title="测序深度的计算：具体见前"><a rel="nofollow" class="trm-toc-link" href="#测序深度的计算：具体见前"><span class="trm-toc-number">7.2.</span> <span class="trm-toc-text">测序深度的计算：具体见前</span></a></li><li class="trm-toc-item trm-toc-level-2" title="工作流程需要的时间"><a rel="nofollow" class="trm-toc-link" href="#工作流程需要的时间"><span class="trm-toc-number">7.3.</span> <span class="trm-toc-text">工作流程需要的时间</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

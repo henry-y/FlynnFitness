@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋生信全书测序  GEO数据库简介  GEO数据库链接：https:&#x2F;&#x2F;www.ncbi.nlm.nih.gov&#x2F;geo&#x2F;  GEO测序数据的存储类型原始数据original submitter-supplied records GPL （GEO Platform）：平台，由芯片或测序公司设计提供，包含对芯片或测序平台的描述信息；如果为芯">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生信全书 Lesson 6.1 GEO测序数据下载">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%206.1%20GEO%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋生信全书测序  GEO数据库简介  GEO数据库链接：https:&#x2F;&#x2F;www.ncbi.nlm.nih.gov&#x2F;geo&#x2F;  GEO测序数据的存储类型原始数据original submitter-supplied records GPL （GEO Platform）：平台，由芯片或测序公司设计提供，包含对芯片或测序平台的描述信息；如果为芯">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:26.920Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:26.920Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="解螺旋">
+<meta property="article:tag" content="生信全书">
+<meta property="article:tag" content="测序">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >生信全书 Lesson 6.1 GEO测序数据下载</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:26"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            生信全书 Lesson 6.1 GEO测序数据下载
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        解螺旋·生信全书
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/">生信全书</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E6%B5%8B%E5%BA%8F/">测序</a></p>
+</div>
+<h1 id="GEO数据库简介"><a href="#GEO数据库简介" class="headerlink" title="GEO数据库简介"></a>GEO数据库简介</h1><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2014.08.32.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>GEO数据库链接：<a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/geo/">https://www.ncbi.nlm.nih.gov/geo/</a></li>
+</ul>
+<h1 id="GEO测序数据的存储类型"><a href="#GEO测序数据的存储类型" class="headerlink" title="GEO测序数据的存储类型"></a>GEO测序数据的存储类型</h1><h2 id="原始数据original-submitter-supplied-records"><a href="#原始数据original-submitter-supplied-records" class="headerlink" title="原始数据original submitter-supplied records"></a>原始数据original submitter-supplied records</h2><ul>
+<li>GPL （GEO Platform）：平台，由芯片或测序公司设计提供，包含对芯片或测序平台的描述信息；如果为芯片数据，还包含芯片的注释信息。编号以GPL开头，如GPL570；每个平台内列出了使用该平台的所有样本和系列。</li>
+<li>GSM（GEO Sample）：样本，记录单个样本的生物学信息、处理流程以及该样本芯片或测序的原始数据。编号以GSM开头，如GSM18422；每个样本数据有且仅有一个对应平台。</li>
+<li>GSE （GEO Series）：系列，将一项研究中相关联的GSM数据集合在一起，并包含整个研究的名称、设计、概要信息等。编号以GSE开头，如GSE1145；一个系列可以包含多个平台和多个子系列，一个样本也可以出现在多个系列中。</li>
+</ul>
+<h2 id="精选整理的数据curated-records"><a href="#精选整理的数据curated-records" class="headerlink" title="精选整理的数据curated records"></a>精选整理的数据curated records</h2><ul>
+<li>GDS （GEO DataSet）：经挑选整理的数据集记录，GEO数据库的工作人员对部分GSE原始数据进行背景校正、均一化等处理后得到的数据。编号以GDS开头，如GDS2225；每个GDS的数据对应一个平台，使得数据在GDS内部具有直接的可比性。</li>
+<li>GEO Profile:Profile数据，来源于GDS数据，直观地以图表展示单个基因在一个GDS中所有样本的表达水平。</li>
+</ul>
+<h1 id="GEO测序数据的存储文件格式"><a href="#GEO测序数据的存储文件格式" class="headerlink" title="GEO测序数据的存储文件格式"></a>GEO测序数据的存储文件格式</h1><h2 id="主要文件格式"><a href="#主要文件格式" class="headerlink" title="主要文件格式"></a>主要文件格式</h2><ul>
+<li>SOFT（Simple Omnibus in Text Format）格式：一种紧凑、简单、基于行的ASCⅡ文本格式，包含实验数据和诠释数据，可以用excel打开</li>
+<li>MINiML（MIAME Notation in Markup Language, pronounced minimal）格式，与SOFT格式文件的包含信息相同，仅格式不同，为XML 格式。MIAME （Minimum Information About a Microarray Experiment）和MINSEQE （Minimum Information About a Next-generation Sequencing Experiment） 定义了上传的芯片或测序数据最起码需要包含的数据信息。</li>
+<li>Series Matrix files，以制表符分隔的包含每个样本具体数值的文本文件，以包含的GSM和GSE诠释数据开头。若来源于不同平台则分割为数个单独的文件。</li>
+<li>Supplementary files，即补充文件，列出GSM原始数据或上传者提供的如临床信息等相关文件；GEO数据库鼓励但不强制要求上传补充文件。</li>
+</ul>
+<h2 id="GPL数据存储格式以及示例"><a href="#GPL数据存储格式以及示例" class="headerlink" title="GPL数据存储格式以及示例"></a>GPL数据存储格式以及示例</h2><ul>
+<li>GPL、GSM、GSE、GDS数据，因数据类型不同，具体对应的文件格式有所不同</li>
+<li>GPL对应的文件格式<ul>
+<li>GPLxxx.annot.gz，基因序列的注释信息表格文件，不定期会有更新（将芯片探针名转换为基因名时需要用到这个文件）</li>
+<li>GPLxxx_family.xml.tgz，压缩的MINiML格式文件，包含使用该平台的所有GSM、GSE的信息（一般分析不会用到）</li>
+<li>GPLxxx_family.soft.gz，压缩的Soft格式文件，包含使用该平台的所有GSM、GSE的信息（一般分析不会用到）</li>
+<li>GPLxxx.xxX.gz，补充文件，部分数据无补充文件</li>
+<li>举例：GPL571，链接：<a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL571">https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL571</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="GSM对应的文件格式"><a href="#GSM对应的文件格式" class="headerlink" title="GSM对应的文件格式"></a>GSM对应的文件格式</h2><ul>
+<li>GSMxxxxxx.xxx.gz，是单个样本的gzip压缩文件，位于补充文件类别下</li>
+<li>通常包括原始的、未转换的数据，或原始图像文件；不是所有的样本都有补充文件；常见的GSM补充文件类型的包括.gpr、.cel或.tiff。</li>
+<li>GSM 原始数据文件格式与提供数据的平台有关，比如Affymetrix的芯片原始数据为CEL格式</li>
+<li>如 GSM18423_PA-D_132.cel.gz，表示为gzip压缩的CEL文件，GSM18423为样本编号，“PA-D_132”为该样本的简要描述信息，链接：<a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM18423">https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM18423</a></li>
+</ul>
+<h2 id="GSE对应的文件格式"><a href="#GSE对应的文件格式" class="headerlink" title="GSE对应的文件格式"></a>GSE对应的文件格式</h2><ul>
+<li>这是我们最常用到的数据类型</li>
+<li>GSExxx_series_matrix.txt.gz 或GSExxx-GPLxxx_series_matrix.txt.gz，包含该GSE的样本表达矩阵及简要样本、平台信息；若一个GSE内应用了多个平台则按平台分割为多个series matrix文本文件。</li>
+<li>GSExxx_family.soft.gz，SOFT格式，包含该GSE所涉及的所有样本及平台数据。</li>
+<li>GSExxx_family.xml.tgz，MINiML格式，包含该GSE所涉及的所有样本及平台数据。</li>
+<li>GSExxx_RAW.tar，该GSE所涉及的所有样本的原始数据，如所有样本的CEL压缩文件，或补充文件。</li>
+<li>如GSE1145，链接： <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE1145">https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE1145</a><br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2015.39.55.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h2 id="GDS对应的文件格式"><a href="#GDS对应的文件格式" class="headerlink" title="GDS对应的文件格式"></a>GDS对应的文件格式</h2><ul>
+<li>GDSxxx.soft.gz，该GDS来自于原始GSE数据，经过了GEO处理，具有了GDS内数值可比性的数据</li>
+<li>GDSxxx_full.soft.gz，也是SOFT格式，在GDSxxx.soft.gz的基础上，增加了该GDS对应平台的最新基因注释信息</li>
+<li>此外，GDS页面还会展示该GDS对应的GSE和GPL数据下载链接，如GDS2225，链接<a target="_blank" rel="noopener" href="https://https//www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2225">https://https://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2225</a></li>
+</ul>
+<h2 id="GEO-profile数据存储文件格式和示例"><a href="#GEO-profile数据存储文件格式和示例" class="headerlink" title="GEO profile数据存储文件格式和示例"></a>GEO profile数据存储文件格式和示例</h2><h3 id="profile-data-txt"><a href="#profile-data-txt" class="headerlink" title="profile_data.txt"></a>profile_data.txt</h3><ul>
+<li>包含所查询基因的信息，以及在各个样本中的表达值数据，文本文件，推荐用excel打开</li>
+<li>举例：如GDS2225中Herpud1基因的profile数据页面，链接：<a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/geoprofiles/28483590">https://www.ncbi.nlm.nih.gov/geoprofiles/28483590</a><br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2017.17.48.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="GEO测序数据的下载方式"><a href="#GEO测序数据的下载方式" class="headerlink" title="GEO测序数据的下载方式"></a>GEO测序数据的下载方式</h1><h2 id="通过网页直接下载"><a href="#通过网页直接下载" class="headerlink" title="通过网页直接下载"></a>通过网页直接下载</h2><ul>
+<li>最常见的，需要下载的数据类型：GSE和GPL</li>
+<li>通过相应的GEO数据网站页面内的链接直接点击下载：</li>
+<li>未确定数据编号，检索数据后，确定数据的编号后下载。</li>
+<li>已知GSE、GPL、GSM、GDS编号，GEO主页中直接输入编号，进入相应页面，点击页面下部或右侧相应的链接下载</li>
+</ul>
+<h2 id="构建ftp链接下载以及示例"><a href="#构建ftp链接下载以及示例" class="headerlink" title="构建ftp链接下载以及示例"></a>构建ftp链接下载以及示例</h2><ul>
+<li>GEO数据库数据存储的ftp站点：<a href="ftp://ftp.ncbi.nlm.nih.gov/geo/">ftp://ftp.ncbi.nlm.nih.gov/geo/</a></li>
+<li>GEO数据的存储文件的链接规则<ul>
+<li>4种数据类型的子目录：datasets&#x2F;,platforms&#x2F;,samples,series&#x2F;</li>
+<li>将数据编号的最后3位数字替换为nnn</li>
+</ul>
+</li>
+<li>举例<ul>
+<li><a href="ftp://ftp.ncbi.nlm.nih.gov/geo/datasets/GDS1nnn/GDS1001/">ftp://ftp.ncbi.nlm.nih.gov/geo/datasets/GDS1nnn/GDS1001/</a></li>
+<li><a href="ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE15nnn/GSE15701/">ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE15nnn/GSE15701/</a></li>
+<li><a href="ftp://ftp.ncbi.nlm.nih.gov/geo/platforms/GPLnnn/GPL96/">ftp://ftp.ncbi.nlm.nih.gov/geo/platforms/GPLnnn/GPL96/</a></li>
+<li><a href="ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM873nnn/GSM873566/">ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM873nnn/GSM873566/</a></li>
+</ul>
+</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%202.2%20Affymetrix%20%E8%8A%AF%E7%89%87/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">生信全书 Lesson 2.2 Affymetrix 芯片</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%204.2%20%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7NetworkAnalyst/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">生信全书 Lesson 4.2 在线工具NetworkAnalyst</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="GEO数据库简介"><a rel="nofollow" class="trm-toc-link" href="#GEO数据库简介"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">GEO数据库简介</span></a></li><li class="trm-toc-item trm-toc-level-1" title="GEO测序数据的存储类型"><a rel="nofollow" class="trm-toc-link" href="#GEO测序数据的存储类型"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">GEO测序数据的存储类型</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="原始数据original submitter-supplied records"><a rel="nofollow" class="trm-toc-link" href="#原始数据original-submitter-supplied-records"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">原始数据original submitter-supplied records</span></a></li><li class="trm-toc-item trm-toc-level-2" title="精选整理的数据curated records"><a rel="nofollow" class="trm-toc-link" href="#精选整理的数据curated-records"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">精选整理的数据curated records</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="GEO测序数据的存储文件格式"><a rel="nofollow" class="trm-toc-link" href="#GEO测序数据的存储文件格式"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">GEO测序数据的存储文件格式</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="主要文件格式"><a rel="nofollow" class="trm-toc-link" href="#主要文件格式"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">主要文件格式</span></a></li><li class="trm-toc-item trm-toc-level-2" title="GPL数据存储格式以及示例"><a rel="nofollow" class="trm-toc-link" href="#GPL数据存储格式以及示例"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">GPL数据存储格式以及示例</span></a></li><li class="trm-toc-item trm-toc-level-2" title="GSM对应的文件格式"><a rel="nofollow" class="trm-toc-link" href="#GSM对应的文件格式"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">GSM对应的文件格式</span></a></li><li class="trm-toc-item trm-toc-level-2" title="GSE对应的文件格式"><a rel="nofollow" class="trm-toc-link" href="#GSE对应的文件格式"><span class="trm-toc-number">3.4.</span> <span class="trm-toc-text">GSE对应的文件格式</span></a></li><li class="trm-toc-item trm-toc-level-2" title="GDS对应的文件格式"><a rel="nofollow" class="trm-toc-link" href="#GDS对应的文件格式"><span class="trm-toc-number">3.5.</span> <span class="trm-toc-text">GDS对应的文件格式</span></a></li><li class="trm-toc-item trm-toc-level-2" title="GEO profile数据存储文件格式和示例"><a rel="nofollow" class="trm-toc-link" href="#GEO-profile数据存储文件格式和示例"><span class="trm-toc-number">3.6.</span> <span class="trm-toc-text">GEO profile数据存储文件格式和示例</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="profile_data.txt"><a rel="nofollow" class="trm-toc-link" href="#profile-data-txt"><span class="trm-toc-number">3.6.1.</span> <span class="trm-toc-text">profile_data.txt</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="GEO测序数据的下载方式"><a rel="nofollow" class="trm-toc-link" href="#GEO测序数据的下载方式"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">GEO测序数据的下载方式</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="通过网页直接下载"><a rel="nofollow" class="trm-toc-link" href="#通过网页直接下载"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">通过网页直接下载</span></a></li><li class="trm-toc-item trm-toc-level-2" title="构建ftp链接下载以及示例"><a rel="nofollow" class="trm-toc-link" href="#构建ftp链接下载以及示例"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">构建ftp链接下载以及示例</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

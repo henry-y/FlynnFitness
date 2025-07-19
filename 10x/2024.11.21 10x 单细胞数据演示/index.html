@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研10x产品介绍Chronium单细胞数据分析生信分析   假设大家用GEM-X产生了一个测序文库，然后送去测序，测序送回来之后，我们通常会拿到我们的测序原始数据，比如fastq文件 这个时候，我们可以使用10x开发的Cell Ranger，去预处理原始的测序Reads，包括去提取细胞的信息，计算每个细胞中，每个基因的表达量，最终会获得一系列的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024.11.21 10x 单细胞数据演示">
+<meta property="og:url" content="http://example.com/10x/2024.11.21%2010x%20%E5%8D%95%E7%BB%86%E8%83%9E%E6%95%B0%E6%8D%AE%E6%BC%94%E7%A4%BA/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研10x产品介绍Chronium单细胞数据分析生信分析   假设大家用GEM-X产生了一个测序文库，然后送去测序，测序送回来之后，我们通常会拿到我们的测序原始数据，比如fastq文件 这个时候，我们可以使用10x开发的Cell Ranger，去预处理原始的测序Reads，包括去提取细胞的信息，计算每个细胞中，每个基因的表达量，最终会获得一系列的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-11-21T12:16:54.140Z">
+<meta property="article:modified_time" content="2024-11-21T12:16:54.140Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="10x">
+<meta property="article:tag" content="产品介绍">
+<meta property="article:tag" content="生信分析">
+<meta property="article:tag" content="Chronium单细胞">
+<meta property="article:tag" content="数据分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >2024.11.21 10x 单细胞数据演示</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-11-21 20:16:54"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/10x/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            2024.11.21 10x 单细胞数据演示
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        10x
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            11/21
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            20:16
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/10x/">10x</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/">产品介绍</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/Chronium%E5%8D%95%E7%BB%86%E8%83%9E/">Chronium单细胞</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%94%9F%E4%BF%A1%E5%88%86%E6%9E%90/">生信分析</a></p>
+</div>
+<ul>
+<li>假设大家用GEM-X产生了一个测序文库，然后送去测序，测序送回来之后，我们通常会拿到我们的测序原始数据，比如fastq文件</li>
+<li>这个时候，我们可以使用10x开发的Cell Ranger，去预处理原始的测序Reads，包括去提取细胞的信息，计算每个细胞中，每个基因的表达量，最终会获得一系列的Cell Ranger产生的文件</li>
+<li>在Cell Ranger产出的诸多文件中，有一个文件的后缀名叫cloupe，这个cloupe文件可以直接在Loupe Browser中打开</li>
+<li>Loupe Browser是10x研发的，免费的桌面工具，可以运行在Windows和MacOS上，目前最新的Loupe Browser的版本是8.1.2</li>
+<li>在用Loupe Browser打开单细胞数据后，首先看到的会是一个二维投射的结果，这个图中的每一个点都是一个细胞，不同聚类的细胞会被标记成不同的颜色，目前展示的是Graph-Based算法输出的聚类的结果<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2020.25.02.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>其他的聚类方法：比如K-Means，K值可以从2-10不等进行筛选<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.11.42.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="对页面的更多介绍"><a href="#对页面的更多介绍" class="headerlink" title="对页面的更多介绍"></a>对页面的更多介绍</h1><ul>
+<li>可以在左上角的”projection type”中选择二维投射的方法，比如tSNE或UMAP<img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.13.23.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>可以在正上方的”Split by”窗口选择细胞聚类展示的方法，比如”Graph-based”可以分开展示所有的亚群<img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.15.01.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>右上角有各种工具可以选择细胞，比如拉索&#x2F;矩形&#x2F;画笔工具可以去选择我们感兴趣的细胞群，然后把这些我们感兴趣的细胞分到一个新命名的组里面去<img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.15.58.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>如果我们对当前的tSNE&#x2F;UMAP图感兴趣，可以点击右上角的UMAP，把它导出成PNG或SVG的格式<img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.17.59.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们也可以把这张tSNE&#x2F;UMAP图上每个点（对应一个细胞）的坐标保存成CSV格式的文件</li>
+</ul>
+<h1 id="app左侧的功能栏"><a href="#app左侧的功能栏" class="headerlink" title="app左侧的功能栏"></a>app左侧的功能栏</h1><ul>
+<li>图片的左侧有不同的功能栏，其中cluster可以给我们展示细胞分群的结果，我们打开软件后看到的cluster是Cell Ranger自动生成的，也被自动地放入了cloupe文件中，我们之后也可以不断添加别的信息在这里面<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.19.38.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>第二个功能是features，在这里我们可以去展示我们感兴趣的基因在整个数据里面的表达情况<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.22.04.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>比如我们对CD3E这个基因比较感兴趣，那我们就会发现每个点被渲染上了不同的颜色，从浅红色到深红色，其中颜色越深说明细胞的表达量越高<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.23.29.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>上图中展示的是每个细胞内细胞的捕获数目做Log2的转换，如果想更加直观地看到每个细胞被捕获到的转录本的具体数值，可以选择Linear<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.24.51.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>如果想要比较不同细胞之间的，我们通常需要把整个捕获到的转录本进行均一化&#x2F;标准化，也就是Normalization，而LogNorm是一种标准化的形式，我们可以通过转化成LogNorm去直观地比较某个基因在不同细胞之间的表达差异</li>
+<li>Reanalyze可以用于简单的质量控制QC，见下<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.27.39.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>Advanced Selection：通过创建规则，去更准确地选择我们感兴趣的细胞</li>
+<li>V(D)J的数据：对于要关注免疫细胞的老师可以用到</li>
+<li>各种各样的表格，首先我们看到的是差异表达基因的表格，这里展示的是每个cluster的marker基因，是把所有cluster1的细胞和所有非cluster1的细胞进行比较的，然后计算出Cluster1里面到底富集了哪些细胞，可以对Log2FC和矫正后的P值进行排序。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.29.26.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们可以用热图的方式展示上面的表格，每一行是一个cluster，每一纵列是一个基因，颜色代表的是基因的表达差异倍数变化<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.33.45.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们也可以查看某一个基因在每个聚类的基因表达情况，这里展示的是CD3E基因，表达差异情况是LogNorm格式展示的，这里我们可以发现CD3E在Cluster1、4、6、7高表达，那我们就可以说Cluster1、4、6、7很有可能是T细胞<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.34.55.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>前面提到，我们可以通过QC去过滤掉低质量的细胞，我们点击Reanalyze来进入这个部分</li>
+<li>在点击了Reanalyze之后，我们可以看到新的窗口弹开，我们会在这个新的页面中进行QC<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.38.09.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在QC中，我们主要基于三个指标，分别是每个细胞内探查到的UMI数目（转录本数），每个细胞内的基因总数，以及每个细胞内的线粒体基因百分比，目前我们有10477个细胞被选中，在QC的过程中，细胞的数量会不断减少</li>
+<li>首先，我们会对细胞中的UMI总数进行QC，在这里请<strong>避免</strong>套用其他人的分析指标进行分析，比如Seurat的教程QC指标<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.43.07.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>QC的目的是去除那些离群的细胞，我们希望找到一个合适的区间，能让大部份的细胞都落在这个区间之中，不同的数据和样本中，这个区间的位置也会出现变化的，因此不可以使用别人的区间去套用在自己选择的数据上</li>
+<li>通常来说我们会建议大家观察整体的数据分布情况，比如每个细胞内的UMI数量是怎么样的，对于我们的数据去取上限和下限值</li>
+<li>可以看到Y轴是每个细胞内探测到的转录本总数，旁边是小提琴图取展示分布，我们可以对纵轴的数据进行Log2转换<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2022.46.29.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>这里是最新的GEM-X设备上产生的PBMC数据，之前版本的数据（比如3’-v3，5’-v2）通常不会看到双峰结构，不用担忧，这并不是展示的GEM-X的数据出现了问题，而是说明GEM-X的敏感性非常高，高到能把两种细胞亚群（髓系和淋系）明显地分开来。</li>
+<li>回到QC，我们希望把离群的，低于某个下限值的细胞去掉（这些细胞可能已经死了或快死了），同时也把多余某个上限值的细胞去掉（这种情况下可能一个液滴里有两个细胞），我们也可以手动输入某个值。</li>
+<li>接下来，我们针对每个细胞内捕获到的，总的基因数进行QC，我们也可以对纵轴数据（基因数）进行Log2转换，也能看到双峰结构，我们也可以通过之前说到的方法进行QC<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2023.38.27.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2023.39.12.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>最后，我们可以针对每个细胞内捕获到的线粒体基因的百分比进行QC，如果一个细胞处于将死状态，细胞膜破裂了，细胞内的RNA就会释放出来，对于这样的细胞，其总的RNA数目就会下降，但是相对之下，线粒体内的RNA是保留在线粒体的双层膜结构中的，线粒体的RNA保留会相对更好，也就是分母的总RNA数下降，而分子的线粒体RNA数目不变，总的百分比就上升了，这就是为什么高的线粒体基因百分比可能是一个不太好的指标。具体操作如下：</li>
+<li>首先我们要告诉Loupe Browser我们要研究的这群细胞的染色体基因名称，如果是研究人或者小鼠，Loupe Browser中就已经有内置的小鼠线粒体基因信息了，如果研究其他物种，可能需要准备自己的线粒体基因的名字<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2023.41.35.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们可以得到一样的图，但是图里面变成了线粒体基因的百分比，这一&gt; 来源：<a href=""></a>步我们会想去除那些线粒体基因占比过高的细胞，因为这些细胞是将死的细胞<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-21%2023.43.05.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在确定了线粒体基因的百分比上限为5%（手动确定，仅作示例，不构成参考，详见备注）之后，我们剩余的细胞还有10004个<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.03.40.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们对这些细胞重新计算tSNE和UMAP，重新计算cluster，我们把这10004个细胞重新命名为一个样本，比如postQC，在这个运行的过程中请不要关闭窗口<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.06.12.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在完成了QC后，我们可以发现在cluster页面出现了新的组别postQC<img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.10.07.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>投射结果也可以选择postQC的tSNE或UMAP<img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.10.41.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="细胞注释"><a href="#细胞注释" class="headerlink" title="细胞注释"></a>细胞注释</h1><h2 id="细胞注释的几种方式"><a href="#细胞注释的几种方式" class="headerlink" title="细胞注释的几种方式"></a>细胞注释的几种方式</h2><ul>
+<li>去计算每个cluster的marker基因，在这个过程中，我们会对每个cluster进行差异表达基因分析，找到每个cluster的marker gene是什么，点击”Run Differential Expression”，组别选择第二个”Between selected cluster(s) themselves”，然后就可以开始计算每个cluster里富集的marker gene是什么，通过观察每个cluster里富集的marker gene，我们就可以注释每个cluster的细胞类型，这种注释方法是所谓的“unbiased and unsupervised”（文献中常见）<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.14.16.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>第二种细胞注释：比如我们对自己的样本非常了解，样本中有哪些细胞类型早已烂熟于心，细胞类型的marker gene也很熟悉了，那我们就可以直接把marker gene罗列出来，看下每个marker gene在每个cluster里是怎么样的，比如在这个PBMC的case中，如果我们希望观察髓系的cluster，那我们可以输入CD14这样的marker gene，然后看看CD14在哪一些cluster中高表达<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.26.30.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在上图中，我们可以看到CD14在Cluster1、4、5、8、16中高表达，因此我们可以猜测这五个cluster可能是髓系来源的，我们这时可以在advanced selection里把这五个cluster进行选中<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.34.04.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们在选择的过程中，要注意鼠标上方的“逻辑开关”，把判定条件设为”OR”，这样我们就选出了自己感兴趣的5个cluster<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.35.01.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们可以把这些细胞进行保存，命名为一群新的细胞“髓系myeloid“，并且把数据分组归到新的组别”细胞注释cell annotation“中<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.35.57.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们可以通过这种方式，人工地通过对每个cluster已知的marker gene进行注释</li>
+<li>第三种方法是细胞自动注释，比如说我们研究的样本恰好是与前人研究过的某些类型相类似的，发表了文章，也有对应的单细胞数据和注释结果，我们可以“借用”他们的单细胞数据，然后自动地把我们的单细胞数据进行注释</li>
+<li>目前来说自动细胞注释在Loupe Browser中仍无法实现，需要用到一些三方软件，比如Seurat，这个工具中有label transfer的算法，通过铆定点的方式去transfer，实现自动的细胞注释<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.40.14.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="数据保存"><a href="#数据保存" class="headerlink" title="数据保存"></a>数据保存</h1><ul>
+<li>如果我们对QC后的数据比较满意，我们可以点击postQC组旁边的下载按钮，将数据以csv的格式保存在本地，注意选择”exclude unlabeled”来去除低质量的细胞<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.51.01.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.55.11.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>保留UMAP：右上角的Export按钮-“Export projection to CSV”<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.56.44.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2000.57.41.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="Loupe-R"><a href="#Loupe-R" class="headerlink" title="Loupe R"></a>Loupe R</h1><ul>
+<li>在经过了Seurat的自动注释后，我们可以通过Loupe R将注释后的Seurat数据转回cloupe文件，进行下一步的分析</li>
+<li>对于自动注释，我们要把Cell Ranger产生的细胞基因矩阵，也就是filtered_feature_bc_matrix.h5文件，这个文件可以自动被Seurat读取<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2001.06.14.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>把UMAP数据导入Seurat（下面还有把postQC的clustering结果导入Seurat）<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2011.28.22.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>利用Broad Institude的PBMC公共数据集进行自动的细胞注释，需要确保公共数据集的格式也是Seurat的文件格式，我们需要把这个文件下载在本地<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2011.36.00.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>之后，我们就可以开始准备用Seurat自带的LabelTransfer算法，自动地把公共数据集的single-cell数据注释转移到我们的single-cell上，就帮我们省去了自己找marker-解释marker的麻烦。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2012.38.40.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>用LoupeR的软件包，将Seurat注释完的数据转换成Loupe Browser的文件，我们可以直接用Loupe Browser打开转换好的cloupe文件<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2012.39.45.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>可以看到注释前后的数据，UMAP图是一样的，没有变化，下图展示的是经过自动注释后的UMAP图和clustering结果<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2012.42.45.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2012.43.21.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>每个细胞也已经被自动地注释为对应的细胞类型了（用Broad Institude的公共PBMC数据进行参考）<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2012.44.03.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="多样本的数据分析：pseudo-bulk"><a href="#多样本的数据分析：pseudo-bulk" class="headerlink" title="多样本的数据分析：pseudo-bulk"></a>多样本的数据分析：pseudo-bulk</h1><ul>
+<li>比如疾病组有3个样本，对照组有3个样本，这些样本中都有B细胞，我们想关注疾病组的B细胞与对照组的B细胞有哪些基因表达水平的差异</li>
+<li>推荐：pseudo-bulk的多样本分析，在Loupe Browser中就可用</li>
+<li>准备文件：含有（细胞barcode，donor(样本来源)，condition（样本供者的状态）的csv文件，文件的内容如下图所示，需要包含headers<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2013.58.18.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们需要上传准备好的csv文件到Loupe Browser，之后就能看到不同的Group，比如这里我们可以看到donor和condition这两个分组group<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2015.52.25.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2016.00.09.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2016.01.23.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>接下来，我们就可以准备好开始进行多样本的差异表达分析，比如如果我们想探究疾病组和对照组的B细胞有什么差异，我们可以点击app左下角的”Run Differential Expression”，然后在弹出来的对话框中选择”Across multiple samples”，然后”Start Analysis”<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2023.47.20.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>首先，我们要输入研究的细胞类型，这个信息在我们通过Seurat自动注释的细胞类型里面，也就是predicted.id，细胞类型选择B cell<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2023.49.45.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>接着，我们回答我们要研究的细胞在哪两个组之间进行比较，我们可以在condition中获得这些细胞的donor是否健康的信息，我们还可以确定样本的ID，之后就可以开始计算了<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2023.51.20.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="观察样本的转录本捕获情况"><a href="#观察样本的转录本捕获情况" class="headerlink" title="观察样本的转录本捕获情况"></a>观察样本的转录本捕获情况</h1><blockquote>
+<p>这部分的内容是在解释为什么PBMC的样本会出现</p>
+</blockquote>
+<ul>
+<li>进入Features界面，在Search genes&#x2F;features框中输入sum，然后选择Gene Expression Sum<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2023.57.19.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2023.57.37.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>这个时候，我们所看到的UMAP图展示的就是每个细胞的总的UMI数目了，可以看到淋系的细胞表达量会低一些，而髓系的细胞表达量会略高<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-22%2023.59.53.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2000.00.54.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>这样的双峰结构是由于GEM-X的捕获敏感度提高，在之前的技术中是看不到这样的结果的，下图展示了之前的技术的结果，分别是淋系7000左右，髓系9000左右<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-23%2000.10.46.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="补充Q-A"><a href="#补充Q-A" class="headerlink" title="补充Q&amp;A"></a>补充Q&amp;A</h1><h2 id="如何判断测序是否饱和"><a href="#如何判断测序是否饱和" class="headerlink" title="如何判断测序是否饱和"></a>如何判断测序是否饱和</h2><ul>
+<li>Cell Ranger：Web Summary文件可以给我们展示一个0-100%之间的测序饱和度值，和不同的测序深度对应的测序饱和度图，我们可以根据这两个指标来判断测序有没有到”sweet point”</li>
+</ul>
+<h2 id="Normalization"><a href="#Normalization" class="headerlink" title="Normalization"></a>Normalization</h2><ul>
+<li>推荐在观察某个基因在不同的cluster中的表达情况时，去展示标准化算法之后的值，比如LogNorm，去除technical variation而保留biological variation</li>
+</ul>
+<h2 id="数据整合"><a href="#数据整合" class="headerlink" title="数据整合"></a>数据整合</h2><ul>
+<li>在整合多个数据集进行分析的时候，有些数据集不是10x的标准文件格式，比如metadata和count文件，在整合分析时无法直接merge，对应的解决办法？</li>
+<li>用R把count文件读成一个表格的形式，然后把表格转化成sparse matrix，sparse matrix可以被Seurat阅读，产生对应的Seurat文件，Metadata也可以转入到中Seurat</li>
+<li>我们可以想办法先把多个样本的matrix放到一个Seurat数据里面，然后通过LoupeR把Seurat数据转换为Loupe Browser文件</li>
+</ul>
+<h2 id="不要乱用线粒体基因百分比去QC"><a href="#不要乱用线粒体基因百分比去QC" class="headerlink" title="不要乱用线粒体基因百分比去QC"></a>不要乱用线粒体基因百分比去QC</h2><ul>
+<li>不要看到Seurat教程中把5%线粒体基因作为上限，就照搬到自己的细胞上去，这个教程中用的是PBMC的数据，线粒体基因在这类细胞里面表达的比例<strong>本身就低</strong></li>
+<li>还是要根据<strong>自己的数据中，线粒体基因百分比的分布情况</strong>进行分析，然后根据自己的情况取上限值</li>
+<li>如果遇到UMI和线粒体基因百分比都偏高的细胞，我们对这样的细胞不建议去除，因为这些细胞的质量是OK的，只是它们可能需要大量进行呼吸作用</li>
+</ul>
+<h2 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h2><ul>
+<li>对一个project使用一台电脑，一个Seurat版本，让所有软件包的版本都统一</li>
+</ul>
+<h2 id="核糖体RNA做QC"><a href="#核糖体RNA做QC" class="headerlink" title="核糖体RNA做QC"></a>核糖体RNA做QC</h2><ul>
+<li>做是有意义的，但是不做也不一定会被审稿人argue</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/10x/2023.11.30%20%E7%A9%BA%E9%97%B4%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1%E5%85%A5%E9%97%A8/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/10x/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">2023.11.30 空间实验设计入门</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/23</li>
+                <li>13:00</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/10x/2024.11.21%2010x%20%E5%8D%95%E7%BB%86%E8%83%9E%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/10x/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">2024.11.21 10x 单细胞测序数据分析入门</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/21</li>
+                <li>13:59</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="对页面的更多介绍"><a rel="nofollow" class="trm-toc-link" href="#对页面的更多介绍"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">对页面的更多介绍</span></a></li><li class="trm-toc-item trm-toc-level-1" title="app左侧的功能栏"><a rel="nofollow" class="trm-toc-link" href="#app左侧的功能栏"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">app左侧的功能栏</span></a></li><li class="trm-toc-item trm-toc-level-1" title="细胞注释"><a rel="nofollow" class="trm-toc-link" href="#细胞注释"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">细胞注释</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="细胞注释的几种方式"><a rel="nofollow" class="trm-toc-link" href="#细胞注释的几种方式"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">细胞注释的几种方式</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="数据保存"><a rel="nofollow" class="trm-toc-link" href="#数据保存"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">数据保存</span></a></li><li class="trm-toc-item trm-toc-level-1" title="Loupe R"><a rel="nofollow" class="trm-toc-link" href="#Loupe-R"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">Loupe R</span></a></li><li class="trm-toc-item trm-toc-level-1" title="多样本的数据分析：pseudo-bulk"><a rel="nofollow" class="trm-toc-link" href="#多样本的数据分析：pseudo-bulk"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">多样本的数据分析：pseudo-bulk</span></a></li><li class="trm-toc-item trm-toc-level-1" title="观察样本的转录本捕获情况"><a rel="nofollow" class="trm-toc-link" href="#观察样本的转录本捕获情况"><span class="trm-toc-number">7.</span> <span class="trm-toc-text">观察样本的转录本捕获情况</span></a></li><li class="trm-toc-item trm-toc-level-1" title="补充Q&amp;A"><a rel="nofollow" class="trm-toc-link" href="#补充Q-A"><span class="trm-toc-number">8.</span> <span class="trm-toc-text">补充Q&amp;A</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="如何判断测序是否饱和"><a rel="nofollow" class="trm-toc-link" href="#如何判断测序是否饱和"><span class="trm-toc-number">8.1.</span> <span class="trm-toc-text">如何判断测序是否饱和</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Normalization"><a rel="nofollow" class="trm-toc-link" href="#Normalization"><span class="trm-toc-number">8.2.</span> <span class="trm-toc-text">Normalization</span></a></li><li class="trm-toc-item trm-toc-level-2" title="数据整合"><a rel="nofollow" class="trm-toc-link" href="#数据整合"><span class="trm-toc-number">8.3.</span> <span class="trm-toc-text">数据整合</span></a></li><li class="trm-toc-item trm-toc-level-2" title="不要乱用线粒体基因百分比去QC"><a rel="nofollow" class="trm-toc-link" href="#不要乱用线粒体基因百分比去QC"><span class="trm-toc-number">8.4.</span> <span class="trm-toc-text">不要乱用线粒体基因百分比去QC</span></a></li><li class="trm-toc-item trm-toc-level-2" title="设备管理"><a rel="nofollow" class="trm-toc-link" href="#设备管理"><span class="trm-toc-number">8.5.</span> <span class="trm-toc-text">设备管理</span></a></li><li class="trm-toc-item trm-toc-level-2" title="核糖体RNA做QC"><a rel="nofollow" class="trm-toc-link" href="#核糖体RNA做QC"><span class="trm-toc-number">8.6.</span> <span class="trm-toc-text">核糖体RNA做QC</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

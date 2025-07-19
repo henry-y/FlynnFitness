@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研生信分析Linux教程B站ID：Biomamba-生信基地   来源：BV1hT411F7r7   上一节课当中，我们比较详细地给大家介绍了计算机硬件的各部分组成和它们的基础运行方式，但是如果说一台电脑只有硬件系统，那只能说它拥有一副躯壳，是没有灵魂的，只有在装上了软件之后，这台设备才能够真正的被称为电脑。 关于计算机软件部分的组成，我们可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生信用Linux教程 Lesson 2 计算机软件组成 &amp; Linux">
+<meta property="og:url" content="http://example.com/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E7%94%9F%E4%BF%A1%E7%94%A8Linux%E6%95%99%E7%A8%8B%20Lesson%202%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6%E7%BB%84%E6%88%90%20&%20Linux/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研生信分析Linux教程B站ID：Biomamba-生信基地   来源：BV1hT411F7r7   上一节课当中，我们比较详细地给大家介绍了计算机硬件的各部分组成和它们的基础运行方式，但是如果说一台电脑只有硬件系统，那只能说它拥有一副躯壳，是没有灵魂的，只有在装上了软件之后，这台设备才能够真正的被称为电脑。 关于计算机软件部分的组成，我们可以">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:27.860Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:27.860Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="生信分析">
+<meta property="article:tag" content="B站ID：Biomamba-生信基地">
+<meta property="article:tag" content="Linux教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >生信用Linux教程 Lesson 2 计算机软件组成 & Linux</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:27"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/cover3.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            生信用Linux教程 Lesson 2 计算机软件组成 & Linux
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        B站ID：Biomamba-生信基地
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%94%9F%E4%BF%A1%E5%88%86%E6%9E%90/">生信分析</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/Linux%E6%95%99%E7%A8%8B/">Linux教程</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/">B站ID：Biomamba-生信基地</a></p>
+</div>
+<blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hT411F7r7/">BV1hT411F7r7</a></p>
+</blockquote>
+<ul>
+<li>上一节课当中，我们比较详细地给大家介绍了计算机硬件的各部分组成和它们的基础运行方式，但是如果说一台电脑只有硬件系统，那只能说它拥有一副躯壳，是没有灵魂的，只有在装上了软件之后，这台设备才能够真正的被称为电脑。<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2022.48.41.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>关于计算机软件部分的组成，我们可以看一下上面的示意图。计算机的软件部分主要由系统软件和应用程序这两方面组成。我们先介绍一下最外层的应用程序。</li>
+</ul>
+<h1 id="应用程序"><a href="#应用程序" class="headerlink" title="应用程序"></a>应用程序</h1><ul>
+<li>应用程序，也可以称之为应用软件；从定义上，它是针对用户的某种特殊的目的所撰写的计算机程序，也就是说应用程序是为了满足用户在不同领域、不同问题的应用需求而提供的软件应用。应用程序可以拓宽计算机系统的应用领域，并且放大硬件的功能。</li>
+<li>大家日常用到的微信、QQ、微软的office办公三件套，也就是excel、word和ppt，它们都属于应用程序；一些更专业的应用程序包括Photoshop、SPSS、GraphPad也都属于应用程序的范畴</li>
+<li>通过举例，大家可以看出应用程序基本上都是用户友好型的，不太需要各位具有专业的计算机知识就可以去上手应用，并且大部分的操作都是可以通过鼠标，或简单的键盘输入就可以完成的，应用程序主要是面向普通用户的。</li>
+</ul>
+<h1 id="系统软件"><a href="#系统软件" class="headerlink" title="系统软件"></a>系统软件</h1><ul>
+<li>介绍完应用程序之后，我们再来了解一下系统软件：系统软件是用于管理包括硬件资源和软件资源在内的，计算机的组成部分。</li>
+<li>系统软件是在用户和计算机之间的接口，它位于底层硬件和与用户交互的应用程序之间，可以去协调控制计算机以及它外部的硬件设备，并且支持应用软件的开发和运行。</li>
+<li>系统软件是可以说是一个无需用户干预的、各种程序的集合，主要的功能就是调度、监控和维护计算机系统，负责管理计算机系统中各种独立的硬件，使他们可以协调工作。系统软件当中就包括我们接下来要详细描述的操作系统。</li>
+</ul>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><ul>
+<li>操作系统是一组主管并控制计算机操作运行和软件资源，提供公共服务来组织用户交互的一种系统软件程序；</li>
+<li>计算机从物理的本质上，就是一个超级复杂的电路。计算机是比较笨和比较机械的，因为电路一般只有低电平和高电平两种状态，也就是俗称的“计算机只认识0和1”，最底层的计算机语言，的确只有0和1。虽然我们平时不能用0和1与计算机进行直接的交流，但是操作系统可以作为中介，操作系统当中包含的一些汇编语言，能够帮助我们用人类可读的方式与计算机进行交流，这也是操作系统存在的意义。</li>
+<li>操作系统当中，最流行的当然是大家比较熟识的Windows系统，其他还有DOS、MacOS以及UNIX&#x2F;Linux操作系统等等。我们一直说的Linux就是操作系统的一种。</li>
+</ul>
+<h2 id="Linux系统概述"><a href="#Linux系统概述" class="headerlink" title="Linux系统概述"></a>Linux系统概述</h2><h3 id="Windows与Linux系统的异同"><a href="#Windows与Linux系统的异同" class="headerlink" title="Windows与Linux系统的异同"></a>Windows与Linux系统的异同</h3><ul>
+<li>相同之处：<ul>
+<li>Windows和Linux的出发点相同，都是为用户提供操作系统服务，可以帮助用户在硬件和应用程序之间架设一个平台</li>
+<li>Windows和Linux一样都支持多种文件系统，都支持多种网络协议，都支持多种物理设备接口，以及支持多用户和多用户组的策略。</li>
+<li>支持多种文件系统：文件系统是操作系统中用于明确磁盘或分区上文件的方法和数据结构，也就是说在磁盘上组织文件的一种方式。Linux和Windows都支持多种文件系统。</li>
+<li>这样的好处是文件资源可以与其他的客户机分享，因为我们平时在用服务器，经常把自己Windows的文件上传到Linux，大家可以发现不同操作系统之间的文件是可以互相共享的，可以灵活的对各个独立的文件系统进行组织，并且也方便管理员来决定文件和文件系统在何处、以何种方式被访问。</li>
+<li>支持多设备的物理接口：Linux和Windows都支持很多的物理设备端口，比如并口、串口和USB接口；支持各种控制器，比如IDE和SCSI控制器。通俗点说，大家平时插的耳机、U盘、屏幕线的地方就是物理设备接口，Linux和Windows都是支持这些接口的。</li>
+<li>支持多种的网络协议：网络协议是为计算机网络中进行数据交换而建立的规则、标准或约定的集合；如果网络协议不同，显然相互之间就无法正常的通信了。目前，常见的协议有TCP&#x2F;IP，IPX&#x2F;SPX协议等等，Linux和Windows都支持多种类型的网络适配器，两者都具备通过网络共享资源的能力，也就是两者之间可以共享文件并且进行打印，这种网络共享能力正是大家在使用服务器，能够利用FileZilla或FinalShell向服务器当中传输文件的基础。</li>
+<li>支持多用户和组的策略：Linux和Windows都是多用户操作系统，这样的设计可以让同一台计算机上存在多个用户和组，Linux和Windows可以为每个用户提供单独的环境和资源，他们都可以以组的方式来控制资源的访问权限。这一点在Windows当中可能体现的不太明显，因为Windows很少涉及一些远程登录（其实也不是不行，关键词RDP），在你实际上用一台硬件的桌面（或说图形化界面GUI），Windows同时只能确实只能支持一个用户，但Linux下的权限规则与远程访问的方式，可以保证大家去使用一些共享的服务器。</li>
+</ul>
+</li>
+<li>不同之处：<ul>
+<li>最大的不同在于授权：Windows是收费系统，大家在买电脑一般会赠送，如果说自己去组装的一些硬件或机器，可能就需要额外去购买Windows系统。购买系统之后，源码是受到保护的，用户不能随意修改。包括很多软件，在Windows当中也是收费的。Windows系统会由微软官方提供一些重要的支持和服务。而Linux是一种免费的系统，它的源码也是开放的，用户可以对其进行修改。Linux的平台的软件大部分也都是开源的，用户可以去修改定制，然后再进行发布。因为Linux基本是处于免费的状态，没有资金去支持；发行的版本又比较多，所以可能存在部分软件的质量和体验有所欠缺，这些bug主要会由全球的Linux开发者和自由软件社区提供一些支持。</li>
+<li>开源与否：Linux的系统使用的是UNIX内核，而Windows系统用的是NT内核，显然Linux是开源的，而Windows是闭源的。</li>
+<li>易用性：Windows可视化的操作选项，包括Windows特殊的视窗系统，以及图标、鼠标等等形象化的操作方式，Windows的易用性对于大部分用户是比较高的；而Linux以命令行的界面为主，因此对于大部分的非专业人士，Linux的易用性可能不足，对于刚上手的朋友不是很友好</li>
+<li>安全性：相信大家都深于体会，Windows经常进行一些安全更新，大家可能已经有过一些被木马病毒攻击我们的电脑的经历，在这一点上Linux也会受到攻击，但Linux当中包含大量的网络管理、网络服务等方面的功能、尤其是Linux严格的权限系统，可以使用户很高效、很方便地建立起稳定的防火墙，因此Linux在安全性能方面要远远高于Windows</li>
+<li>稳定性：由于UNIX的内核比较高效和稳定，很多服务器选择使用Linux系统，除了Linux的开源的特性和模块化的内核设计之外，就是因为Linux在稳定性方面会有更好的表现。这一点不是Windows和Linux之间的差别造成的，个人觉得可能是因为Linux一般不具有桌面系统（也就是图形化界面），而Windows出于让用户获得友好体验的需求，还是设计了完善的桌面系统，一旦有了图形化界面的操作系统，一般都会造成稳定性的下降；大家一台电脑上使用了一定时间的Windows的过程当中，可能会觉得Windows有一点卡顿，这种现象桌面系统需要背超过一半的锅；而Linux的大部份发型版本都是没有桌面系统的，所以稳定性就这么被提高了。</li>
+<li>稳定性对于设备是非常关键的，要知道很多服务器的机房都设立在离程序员工作地很远的地方，那比如我平时调用的服务器在广州，而我本人在南京。如果服务器不能稳定运行，需要我去广州重启，显然这样的系统和服务器就不太适合我的应用了。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Linux系统的简单介绍"><a href="#Linux系统的简单介绍" class="headerlink" title="Linux系统的简单介绍"></a>Linux系统的简单介绍</h3><ul>
+<li>让我们从Linux的历史和起源说起，下图的企鹅，就是Linux的图标或说吉祥物。<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-07%2010.22.44.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-07%2010.23.50.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>Linux是由Unics发展而来的，在20世纪60年代现了一些交互式的操作系统，这种操作系统逐渐流行开来。1965年，贝尔实验室、麻省理工、以及美国通用电气公司共同研发出了一种可以安装在大型主机上、实现多人同时操作的系统，称为Multics系统，可以让主机达成300个终端的，也就是一台主机同时能被300人访问，但由于一些资金方面的因素，这种方案最终放弃了</li>
+<li>1969年4月，贝尔实验室的Thompson在B语言的基础上，开发出了名为UNIX的操作系统，但是Thompson觉得B语言的效率过低，因为用B语言做的系统，编程功能还不够强；因此他联合了Richard对B语言以及Unics系统，进行了改造；在1971年他们共同发明了C语言，并且他们用C语言重写了Unics系统，并把系统改名为UNIX，这时候UNIX可以靠24KB的虚拟内存，以及500K的磁盘空间，去玩一款Space Travel的这种游戏，打游戏其实是Thompson编写UNIX的初衷。</li>
+<li>从1971年到二十世纪九十年代，UNIX已经是大学当中的主流操作系统；但在1991年初，来自芬兰赫尔辛基大学的一个年轻人Linus，在接触到了UNIX操作系统之后，通过一些学习以及重开发，将自己的想法植入了UNIX的内核，并且把UNIX系统改写成了Linux，Linux这个词的意思是Linus的UNIX，自此Linux正式宣布诞生。上图的企鹅就是Linux的吉祥物，因为Linus是芬兰人。</li>
+<li>UNIX后续已经成为了一种收费的系统，而Linux是允许用户销售、拷贝、并且去改动程序的，只要你遵守同样的规则，让修改后的代码自由传递下去，也就是免费公开修改后的代码就可以了，所以我们认为Linux和Linus代表的是一种开源的精神。</li>
+</ul>
+<h1 id="Linux的现状以及目前的发行版本"><a href="#Linux的现状以及目前的发行版本" class="headerlink" title="Linux的现状以及目前的发行版本"></a>Linux的现状以及目前的发行版本</h1><p><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-07%2010.52.22.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>Linux的发行版本大体可以分为三类，一类是商业公司维护的发行版本，部分会收取一定的费用，以红帽Red Hat为代表；另一类是Linux社区组织发行的版本，比如Debian、Ubuntu等等；还有一类可以说是非主流的Linux系统，也包括一些我们国产的Linux系统。</li>
+<li>在三类发型版本中，红帽RedHat可以说是最主流的一类，因为它是一种企业级的Linux系统，比较稳定高效，主要用于服务器领域。红帽也是可以免费使用的，但是部分功能需要收费；并且故障解决以及系统维护也要支付一定的费用。红帽的更新频率会高一些，一般每18个月更新一次。</li>
+<li>CentOS也是一种普及度比较高的Linux发行版本，这也是一款企业级的Linux，主要是使用了红帽的企业级Linux当中的免费版本，相当于做了一个移植并且重新构建而成。这款重构版的红帽去掉了注册商标，以及一些Binary的程序包，做了一些细微的调整，其他部份与红帽的对应版本几乎完全一样，并且会跟随红帽同步更新。由于CentOS是免费的，所以深受互联网企业的偏爱。</li>
+<li>Debian运行起来也比较稳定，比较适用于服务器的搭建。Ubuntu是我们后面的各种教程主要应用的Linux系统，是Debian的一个衍生版本，并且也是开源免费的；更友好的一点是Ubuntu的某些发行版本是具有图形化界面GUI的，因此也深受开发人员的喜爱。此外，Ubuntu还有针对服务器的Ubuntu Server版本。</li>
+<li>值得一提的是，我国一直希望能够拥有自己的国产系统，目前我们也能看到一些中标麒麟、开放麒麟深度等等国产系统。</li>
+</ul>
+<h1 id="Linux系统的特点和优势"><a href="#Linux系统的特点和优势" class="headerlink" title="Linux系统的特点和优势"></a>Linux系统的特点和优势</h1><h2 id="模块化程度高"><a href="#模块化程度高" class="headerlink" title="模块化程度高"></a>模块化程度高</h2><ul>
+<li>Linux的模块化的程度非常高，内核设计非常轻巧，可以分成进程调度、内存管理、进程间通讯、虚拟文件的系统和网络接口等等。这些模块都可以根据用户的需要，实时从内核中插入或移走，这样可以使制作出的某一个Linux系统版本非常的小巧，适合嵌入式系统的需要。在用户需要的情况下，可以定制一些Linux的特殊版本。</li>
+</ul>
+<h2 id="源码公开"><a href="#源码公开" class="headerlink" title="源码公开"></a>源码公开</h2><ul>
+<li>由于Linux是源码公开的一种系统，任何人只要遵守了对应的条款，就可以自由使用Linux的源代码，这一点为用户提供了最大限度的自由，也方便了嵌入式系统的制作，因为对于嵌入系统，设计者往往需要针对具体的应用对应源代码进行修改和优化。并且，由于源码公开，Linux的软件资源非常的丰富。各种通用程序的软件，甚至他们的源码都可以直接在Linux当中获取，并且通用程序数量还在不断的增加。</li>
+</ul>
+<h2 id="广泛的硬件支持"><a href="#广泛的硬件支持" class="headerlink" title="广泛的硬件支持"></a>广泛的硬件支持</h2><ul>
+<li>Linux的另一个优势体现在广泛的硬件支持，能够支持x86、ARM等处理器，目前Linux已经成功的移植到数十种的硬件平台上，也就是说Linux系统可以运行在主流的处理器上。</li>
+<li>世界范围内有很多的开发者在为Linux的版图做扩充，Linux有着非常丰富的驱动资源，可以支持很多主流的硬件设备和最新的硬件技术。</li>
+</ul>
+<h2 id="稳定性和安全性"><a href="#稳定性和安全性" class="headerlink" title="稳定性和安全性"></a>稳定性和安全性</h2><ul>
+<li>同前，略。</li>
+</ul>
+<h2 id="配备优秀的开发工具"><a href="#配备优秀的开发工具" class="headerlink" title="配备优秀的开发工具"></a>配备优秀的开发工具</h2><ul>
+<li>Linux系统中提供了一些优秀的开发工具，一个比较有名的例子是SAE，这可以为开发节省很多的开发费用；Linux系统提供了一套完整的工具链，能够帮助开发者从操作系统到应用软件，很方便地完成各个级别的调试。</li>
+</ul>
+<h2 id="网络支持与文件系统支持"><a href="#网络支持与文件系统支持" class="headerlink" title="网络支持与文件系统支持"></a>网络支持与文件系统支持</h2><ul>
+<li>Linux自诞生之日起就与互联网密不可分，Linux系统可以支持各种的标准的网络协议，并且有助于移植到嵌入式的系统当中。</li>
+</ul>
+<h2 id="与UNIX高度兼容"><a href="#与UNIX高度兼容" class="headerlink" title="与UNIX高度兼容"></a>与UNIX高度兼容</h2><ul>
+<li>Linux系统与此前的UNIX系统之间是完全兼容的状态，通过Linux基本可以完成UNIX的所有的主要功能</li>
+</ul>
+<h1 id="为什么学生信要用Linux"><a href="#为什么学生信要用Linux" class="headerlink" title="为什么学生信要用Linux"></a>为什么学生信要用Linux</h1><h2 id="学生信的系统需要长期稳定"><a href="#学生信的系统需要长期稳定" class="headerlink" title="学生信的系统需要长期稳定"></a>学生信的系统需要长期稳定</h2><ul>
+<li>用过Windows系统的同学可能知道，Windows系统很多时候容易卡顿，甚至有可能崩溃；一旦系统崩溃，就可能会导致系统的核心受损，一些文件也有一定概率丢失。</li>
+<li>相较之下，Linux系统会更稳定，甚至可以数年不必关机和重启。</li>
+</ul>
+<h2 id="一些生信分析的软件只有Linux版本"><a href="#一些生信分析的软件只有Linux版本" class="headerlink" title="一些生信分析的软件只有Linux版本"></a>一些生信分析的软件只有Linux版本</h2><ul>
+<li>尤其是一些处理生物大数据方面的软件基本上就只有Linux的发行版；比如对于基因组比对、组装，还有绘图的软件，一些高通量测序获得的原始数据，比如fastq文件，在Windows系统当中根本就没有合适的编辑器。</li>
+<li>另一个Windows系统对生信分析的限制是，即使本地的电脑配置很充足，但是Windows有对软件能调用的数据和占用的系统资源的上限，这些限制会阻止你去开启一些巨大的文件。</li>
+</ul>
+<h2 id="软件使用、内核定制与系统组件的灵活选择"><a href="#软件使用、内核定制与系统组件的灵活选择" class="headerlink" title="软件使用、内核定制与系统组件的灵活选择"></a>软件使用、内核定制与系统组件的灵活选择</h2><ul>
+<li>Linux是开源的，Linux系统下的软件使用、内核定制和系统的组件都是比较灵活的，方便大家去按照自己的需求DIY。</li>
+<li>并且，由于以上的Linux的特点，Linux系统非常适合用作免费、高安全性能的网络服务器的操作系统</li>
+</ul>
+<h2 id="利用Bash命令去简化繁琐的操作，特别是重复性工作"><a href="#利用Bash命令去简化繁琐的操作，特别是重复性工作" class="headerlink" title="利用Bash命令去简化繁琐的操作，特别是重复性工作"></a>利用Bash命令去简化繁琐的操作，特别是重复性工作</h2><ul>
+<li>用写循环语句的方式，去避免一些重复性高的、非常机械的工作。</li>
+</ul>
+<h1 id="为什么生信分析推荐使用服务器"><a href="#为什么生信分析推荐使用服务器" class="headerlink" title="为什么生信分析推荐使用服务器"></a>为什么生信分析推荐使用服务器</h1><h2 id="服务器不用关机"><a href="#服务器不用关机" class="headerlink" title="服务器不用关机"></a>服务器不用关机</h2><ul>
+<li>很多软件或函数在运行时，可能会花费比较长的时间，那比如大家在做转录因子预测时，可能会需要数以周计的时间；如果我们用自己的电脑，在本地进行这样的分析，在这期间电脑不幸遇到断电或断网的问题，很可能运行中的任务就付之一炬了，需要重新运行。而服务器因为设立在机房，一般是可以稳定运行的。只有出现法律意义上“不可抗力”的因素，才真正会出现问题。</li>
+<li>在服务器执行任务时，无论是挂载在Linux的后台，还是在R Studio Server当中运行一些程序，即使本地的电脑掉线或关机，服务器当中依然可以继续执行任务，这也意味着大家完全不需要守着自己的电脑。</li>
+</ul>
+<h2 id="网速快"><a href="#网速快" class="headerlink" title="网速快"></a>网速快</h2><ul>
+<li>服务器的网速一般比较快，服务器通常会拥有企业级的带宽，并且还可能有专业的、国际网络的备案，这意味着即使访问一些境外的数据库依旧可以达到一个足够快的速度，大家使用最简单的wget命令就可以去进行极高速度的下载；即使是用作一个网盘，个人体验到的速度也要比百度云这种商业网盘更有优势。</li>
+</ul>
+<h2 id="性价比高"><a href="#性价比高" class="headerlink" title="性价比高"></a>性价比高</h2><ul>
+<li>服务器的性价比一般是比较高的，目前市面上共享服务器的费用差不多与一年的百度云的会员，或与一个16GB的内存条，或与一个1T的固态硬盘的价格相当。这种共享的服务器的费用一般是两三百个GB的内存（注意不是存储）起步，也就是说同样的价格，但更多的功能和性能。</li>
+<li>上述信息来自一般的共享服务器，而不是华为云、阿里云等共享的服务，这些服务的价格还是会比较高的。大家与其花重金升级自己的电脑，个人觉得租用一台低价服务器可能更适合学习。</li>
+</ul>
+<h2 id="几乎不存在损耗问题"><a href="#几乎不存在损耗问题" class="headerlink" title="几乎不存在损耗问题"></a>几乎不存在损耗问题</h2><ul>
+<li>电脑在进行一些高负载的工作时，这些高负载的工作其实对电脑硬件会有损耗。大家自己在用电脑做计算时，可能感受过机器的风扇在嗡嗡作响。倘若电脑硬件不堪重负，出现了一些故障，在一块主板上，应该除了风扇，其他的零件无论去更换哪一个，可能这个话费都会比服务器的租金要高一些。</li>
+</ul>
+<h2 id="服务器中有真正的Linux系统"><a href="#服务器中有真正的Linux系统" class="headerlink" title="服务器中有真正的Linux系统"></a>服务器中有真正的Linux系统</h2><ul>
+<li>无论是在Windows下运行Linux子系统，还是通过虚拟机或其他的方式模拟，这样的环境总归与Linux的环境是有所区别的；在自己的主机上装Linux的双系统比较麻烦，在Windows下环境又不能（与Windows）同时调用，而服务器当中装的Linux系统一般是原汁原味的，可以帮助大家在真正的Linux系统环境当中学习生信</li>
+</ul>
+<h1 id="Linux在其他行业中的应用"><a href="#Linux在其他行业中的应用" class="headerlink" title="Linux在其他行业中的应用"></a>Linux在其他行业中的应用</h1><h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><p><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-07%2014.50.38.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>服务器是Linux应用领域的核心，如今的服务器可以说是Linux、Unix、Windows三分天下，Linux系统作为后起之秀，尤其是近年来，服务器端在IT行业的市场份额不断扩大，每年的增长势头非常的迅猛，Linux系统占所有服务器系统的比例接近80%，而Windows只有12.8%。</li>
+<li>Linux作为企业级的服务器系统，它的应用范围十分广泛。利用Linux做企业级的架构的WWW服务器，以及其他的数据库服务器等，不但降低了企业的运营成本，同时Linux系统自带的高稳定性和可靠性，以及无需考虑商业版权的问题等等优点，都是Linux系统受到电信、金融、教育、银行、石油等等各个行业欢迎，互联网行业的“大厂”，比如百度、新浪、淘宝、阿里等广泛使用Linux系统作为服务端的程序运行平台的原因。</li>
+</ul>
+<h2 id="嵌入式设备"><a href="#嵌入式设备" class="headerlink" title="嵌入式设备"></a>嵌入式设备</h2><ul>
+<li>Linux系统在嵌入式设备中也独具优势，具体略。</li>
+</ul>
+<h2 id="个人桌面"><a href="#个人桌面" class="headerlink" title="个人桌面"></a>个人桌面</h2><ul>
+<li>虽然说Linux的个人桌面系统还不错，并且支持的已经比较广泛，但是在桌面市场端的份额还是远远落后于Windows的。这其中的最大的问题可能不在于Linux桌面系统与Windows桌面系统本身的差异，而是与一些用户的使用观念，操作习惯等息息相关。</li>
+</ul>
+<h2 id="移动端设备"><a href="#移动端设备" class="headerlink" title="移动端设备"></a>移动端设备</h2><ul>
+<li>简单介绍，移动端的常见系统，比如iOS&#x2F;iPadOS&#x2F;Android&#x2F;鸿蒙系统，其内核都是Linux，或者说类UNIX系统。</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E7%94%9F%E4%BF%A1%E7%94%A8Linux%E6%95%99%E7%A8%8B%20Lesson%201%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/cover3.jpg">
+                </span>
+                <h6 class="trm-op-title">生信用Linux教程 Lesson 1 计算机硬件组成</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E5%8D%95%E7%BB%86%E8%83%9E%E6%B5%8B%E5%BA%8F%E6%A6%82%E8%BF%B0/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/cover2.jpg">
+                </span>
+                <h6 class="trm-op-title">单细胞测序概述</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="应用程序"><a rel="nofollow" class="trm-toc-link" href="#应用程序"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">应用程序</span></a></li><li class="trm-toc-item trm-toc-level-1" title="系统软件"><a rel="nofollow" class="trm-toc-link" href="#系统软件"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">系统软件</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="操作系统"><a rel="nofollow" class="trm-toc-link" href="#操作系统"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">操作系统</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Linux系统概述"><a rel="nofollow" class="trm-toc-link" href="#Linux系统概述"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">Linux系统概述</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="Windows与Linux系统的异同"><a rel="nofollow" class="trm-toc-link" href="#Windows与Linux系统的异同"><span class="trm-toc-number">2.2.1.</span> <span class="trm-toc-text">Windows与Linux系统的异同</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Linux系统的简单介绍"><a rel="nofollow" class="trm-toc-link" href="#Linux系统的简单介绍"><span class="trm-toc-number">2.2.2.</span> <span class="trm-toc-text">Linux系统的简单介绍</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Linux的现状以及目前的发行版本"><a rel="nofollow" class="trm-toc-link" href="#Linux的现状以及目前的发行版本"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">Linux的现状以及目前的发行版本</span></a></li><li class="trm-toc-item trm-toc-level-1" title="Linux系统的特点和优势"><a rel="nofollow" class="trm-toc-link" href="#Linux系统的特点和优势"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">Linux系统的特点和优势</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="模块化程度高"><a rel="nofollow" class="trm-toc-link" href="#模块化程度高"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">模块化程度高</span></a></li><li class="trm-toc-item trm-toc-level-2" title="源码公开"><a rel="nofollow" class="trm-toc-link" href="#源码公开"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">源码公开</span></a></li><li class="trm-toc-item trm-toc-level-2" title="广泛的硬件支持"><a rel="nofollow" class="trm-toc-link" href="#广泛的硬件支持"><span class="trm-toc-number">4.3.</span> <span class="trm-toc-text">广泛的硬件支持</span></a></li><li class="trm-toc-item trm-toc-level-2" title="稳定性和安全性"><a rel="nofollow" class="trm-toc-link" href="#稳定性和安全性"><span class="trm-toc-number">4.4.</span> <span class="trm-toc-text">稳定性和安全性</span></a></li><li class="trm-toc-item trm-toc-level-2" title="配备优秀的开发工具"><a rel="nofollow" class="trm-toc-link" href="#配备优秀的开发工具"><span class="trm-toc-number">4.5.</span> <span class="trm-toc-text">配备优秀的开发工具</span></a></li><li class="trm-toc-item trm-toc-level-2" title="网络支持与文件系统支持"><a rel="nofollow" class="trm-toc-link" href="#网络支持与文件系统支持"><span class="trm-toc-number">4.6.</span> <span class="trm-toc-text">网络支持与文件系统支持</span></a></li><li class="trm-toc-item trm-toc-level-2" title="与UNIX高度兼容"><a rel="nofollow" class="trm-toc-link" href="#与UNIX高度兼容"><span class="trm-toc-number">4.7.</span> <span class="trm-toc-text">与UNIX高度兼容</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="为什么学生信要用Linux"><a rel="nofollow" class="trm-toc-link" href="#为什么学生信要用Linux"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">为什么学生信要用Linux</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="学生信的系统需要长期稳定"><a rel="nofollow" class="trm-toc-link" href="#学生信的系统需要长期稳定"><span class="trm-toc-number">5.1.</span> <span class="trm-toc-text">学生信的系统需要长期稳定</span></a></li><li class="trm-toc-item trm-toc-level-2" title="一些生信分析的软件只有Linux版本"><a rel="nofollow" class="trm-toc-link" href="#一些生信分析的软件只有Linux版本"><span class="trm-toc-number">5.2.</span> <span class="trm-toc-text">一些生信分析的软件只有Linux版本</span></a></li><li class="trm-toc-item trm-toc-level-2" title="软件使用、内核定制与系统组件的灵活选择"><a rel="nofollow" class="trm-toc-link" href="#软件使用、内核定制与系统组件的灵活选择"><span class="trm-toc-number">5.3.</span> <span class="trm-toc-text">软件使用、内核定制与系统组件的灵活选择</span></a></li><li class="trm-toc-item trm-toc-level-2" title="利用Bash命令去简化繁琐的操作，特别是重复性工作"><a rel="nofollow" class="trm-toc-link" href="#利用Bash命令去简化繁琐的操作，特别是重复性工作"><span class="trm-toc-number">5.4.</span> <span class="trm-toc-text">利用Bash命令去简化繁琐的操作，特别是重复性工作</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="为什么生信分析推荐使用服务器"><a rel="nofollow" class="trm-toc-link" href="#为什么生信分析推荐使用服务器"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">为什么生信分析推荐使用服务器</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="服务器不用关机"><a rel="nofollow" class="trm-toc-link" href="#服务器不用关机"><span class="trm-toc-number">6.1.</span> <span class="trm-toc-text">服务器不用关机</span></a></li><li class="trm-toc-item trm-toc-level-2" title="网速快"><a rel="nofollow" class="trm-toc-link" href="#网速快"><span class="trm-toc-number">6.2.</span> <span class="trm-toc-text">网速快</span></a></li><li class="trm-toc-item trm-toc-level-2" title="性价比高"><a rel="nofollow" class="trm-toc-link" href="#性价比高"><span class="trm-toc-number">6.3.</span> <span class="trm-toc-text">性价比高</span></a></li><li class="trm-toc-item trm-toc-level-2" title="几乎不存在损耗问题"><a rel="nofollow" class="trm-toc-link" href="#几乎不存在损耗问题"><span class="trm-toc-number">6.4.</span> <span class="trm-toc-text">几乎不存在损耗问题</span></a></li><li class="trm-toc-item trm-toc-level-2" title="服务器中有真正的Linux系统"><a rel="nofollow" class="trm-toc-link" href="#服务器中有真正的Linux系统"><span class="trm-toc-number">6.5.</span> <span class="trm-toc-text">服务器中有真正的Linux系统</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Linux在其他行业中的应用"><a rel="nofollow" class="trm-toc-link" href="#Linux在其他行业中的应用"><span class="trm-toc-number">7.</span> <span class="trm-toc-text">Linux在其他行业中的应用</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="服务器"><a rel="nofollow" class="trm-toc-link" href="#服务器"><span class="trm-toc-number">7.1.</span> <span class="trm-toc-text">服务器</span></a></li><li class="trm-toc-item trm-toc-level-2" title="嵌入式设备"><a rel="nofollow" class="trm-toc-link" href="#嵌入式设备"><span class="trm-toc-number">7.2.</span> <span class="trm-toc-text">嵌入式设备</span></a></li><li class="trm-toc-item trm-toc-level-2" title="个人桌面"><a rel="nofollow" class="trm-toc-link" href="#个人桌面"><span class="trm-toc-number">7.3.</span> <span class="trm-toc-text">个人桌面</span></a></li><li class="trm-toc-item trm-toc-level-2" title="移动端设备"><a rel="nofollow" class="trm-toc-link" href="#移动端设备"><span class="trm-toc-number">7.4.</span> <span class="trm-toc-text">移动端设备</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

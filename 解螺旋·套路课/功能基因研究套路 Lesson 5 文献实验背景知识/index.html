@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋套路课  GSEA介绍 ﻿﻿Gene Set Enrichment Analysi，即基因富集分析 博劳德研究所（Broad Institute）开发的，针对全基因组表达谱芯片数据进行分析的工具 综合了现有的，对基因的定位，性质，功能和生物学意义等信息的基础上，构建的分子标签数据库（MSigDB，molecular signature">
+<meta property="og:type" content="article">
+<meta property="og:title" content="功能基因研究套路 Lesson 5 文献实验背景知识">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E5%8A%9F%E8%83%BD%E5%9F%BA%E5%9B%A0%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%205%20%E6%96%87%E7%8C%AE%E5%AE%9E%E9%AA%8C%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋套路课  GSEA介绍 ﻿﻿Gene Set Enrichment Analysi，即基因富集分析 博劳德研究所（Broad Institute）开发的，针对全基因组表达谱芯片数据进行分析的工具 综合了现有的，对基因的定位，性质，功能和生物学意义等信息的基础上，构建的分子标签数据库（MSigDB，molecular signature">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:27.210Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:27.210Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="解螺旋">
+<meta property="article:tag" content="套路课">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >功能基因研究套路 Lesson 5 文献实验背景知识</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:27"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            功能基因研究套路 Lesson 5 文献实验背景知识
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        解螺旋·套路课
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E5%A5%97%E8%B7%AF%E8%AF%BE/">套路课</a></p>
+</div>
+<h1 id="GSEA介绍"><a href="#GSEA介绍" class="headerlink" title="GSEA介绍"></a>GSEA介绍</h1><ul>
+<li>﻿﻿Gene Set Enrichment Analysi，即基因富集分析</li>
+<li>博劳德研究所（Broad Institute）开发的，针对全基因组表达谱芯片数据进行分析的工具</li>
+<li>综合了现有的，对基因的定位，性质，功能和生物学意义等信息的基础上，构建的分子标签数据库（MSigDB，molecular signature database），在该数据库内，设置了多个功能基因数据的子集</li>
+<li>在对全基因组表达谱芯片数据进行表达分析分析的时候，首先确定分析的目标，然后从MSigDB中，选择一个或多个功能基因集进行分析，再将经过标准化处理的数据进行表达值大小排序，最后比较这些基因与选择的功能基因的子集的符合程度，从而发现研究的目标基因表达谱数据，是否在选定的功能基因子集中有某种共同表达的趋势，最后给出富集分数</li>
+<li>可以考虑让专业的数据公司帮我们完成GSEA数据分析的内容，“让专业的人做专业的事”，但通常需要额外收费</li>
+</ul>
+<h2 id="GSEA分析的特点"><a href="#GSEA分析的特点" class="headerlink" title="GSEA分析的特点"></a>GSEA分析的特点</h2><ul>
+<li>﻿﻿分析的是基因集合而不是单个基因（GO）or 少数基因（Pathway），可以获得的信息更加接近细胞内的，真实的生物学状况</li>
+<li>﻿﻿将基因与预定义的基因集合（MSigDB）进行比较</li>
+<li>﻿﻿富集分析</li>
+</ul>
+<h2 id="GSEA预先设定的基因子集"><a href="#GSEA预先设定的基因子集" class="headerlink" title="GSEA预先设定的基因子集"></a>GSEA预先设定的基因子集</h2><h3 id="H-Hallmark-Gene-Sets"><a href="#H-Hallmark-Gene-Sets" class="headerlink" title="H-Hallmark Gene Sets"></a>H-Hallmark Gene Sets</h3><ul>
+<li>特征基因集合</li>
+</ul>
+<h3 id="C1-Positional-Gene-Sets"><a href="#C1-Positional-Gene-Sets" class="headerlink" title="C1-Positional Gene Sets"></a>C1-Positional Gene Sets</h3><h3 id="C2-Curated-Gene-Sets"><a href="#C2-Curated-Gene-Sets" class="headerlink" title="C2-Curated Gene Sets"></a>C2-Curated Gene Sets</h3><ul>
+<li>共识基因集合，数据来源主要是信号通路，文献报道的信息</li>
+</ul>
+<h3 id="C3-Motif-Gene-Sets"><a href="#C3-Motif-Gene-Sets" class="headerlink" title="C3-Motif Gene Sets"></a>C3-Motif Gene Sets</h3><h3 id="C4-Computational-Gene-Sets"><a href="#C4-Computational-Gene-Sets" class="headerlink" title="C4-Computational Gene Sets"></a>C4-Computational Gene Sets</h3><ul>
+<li>计算基因集合</li>
+<li>主要研究生物信息学的小伙伴会用的非常频繁</li>
+</ul>
+<h3 id="C5-GO-Gene-Sets"><a href="#C5-GO-Gene-Sets" class="headerlink" title="C5-GO Gene Sets"></a>C5-GO Gene Sets</h3><ul>
+<li>就是GO分析</li>
+</ul>
+<h3 id="C6-Oncogenic-Gene-Sets"><a href="#C6-Oncogenic-Gene-Sets" class="headerlink" title="C6-Oncogenic Gene Sets"></a>C6-Oncogenic Gene Sets</h3><ul>
+<li>癌症特征基因集合</li>
+<li>直接来源于肿瘤相关的microarray的数据</li>
+</ul>
+<h3 id="C7-Immunologic-Gene-Sets"><a href="#C7-Immunologic-Gene-Sets" class="headerlink" title="C7-Immunologic Gene Sets"></a>C7-Immunologic Gene Sets</h3><h2 id="GSEA分析的关键参数"><a href="#GSEA分析的关键参数" class="headerlink" title="GSEA分析的关键参数"></a>GSEA分析的关键参数</h2><h3 id="ES值：富集分数"><a href="#ES值：富集分数" class="headerlink" title="ES值：富集分数"></a>ES值：富集分数</h3><ul>
+<li>GSEA分析得到的原始结果，反映了把全部的杂交数据排序之后，在此序列的前部或者后部，一个功能基因子集的富集程度</li>
+<li>扫描排序序列时，当出现一个功能基因子集的基因时，ES值上升，反之下降，所以ES值是一个动态变化的数值，在一般的数据图片中，是不会标注ES值的，如果一定要标注，那图片中只会标注出最大ES值<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2010.27.27.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>上图中绿色的线就是ES值的标准变化曲线，ES值在不同的位置，数值是不一样的</li>
+<li>对于一张完整的GSEA数据图片，图片的上半部份可以看到是一条ES曲线，中间部份有一根根竖线，这些是这条信号通路当中，出现在芯片数据子集的基因所处的位置，整张图片最下面的部份是杂交数据的排序序列，总共三张图组成</li>
+</ul>
+<h3 id="NES值"><a href="#NES值" class="headerlink" title="NES值"></a>NES值</h3><ul>
+<li>normalized enrichment score，标准化的富集分数</li>
+<li>在比较芯片数据集在不同功能基因子集的富集程度时，需要对ES进行标准化处理，NES是一个数值，是不变的</li>
+</ul>
+<h3 id="FDR"><a href="#FDR" class="headerlink" title="FDR"></a>FDR</h3><ul>
+<li>False Discovery Rate，错误发现率</li>
+<li>描述的是估算的可能性，也就是当一个功能基因子集的NES确定之后，判断其中包含的，错误的阳性发现率</li>
+<li>举例：FDR&#x3D;25%表示在特定的ES值下，四次当中就可能出现一次错误</li>
+<li>在GSEA分析中，越小越好</li>
+</ul>
+<h3 id="p值"><a href="#p值" class="headerlink" title="p值"></a>p值</h3><ul>
+<li>只是名义上的统计显著性</li>
+<li>通常关注的是p&lt;0.05，但是在GSEA分析中，只看p值会有很大的问题，因为FDR进行了功能子集基因大小，以及多重检验的矫正，而这些矫正在p值中是没有进行的，所以p值仅仅称作名义p值</li>
+<li>特殊情况：p值很低，FDR值很高，这说明和其他功能基因子集相比，着重研究的基因的富集程度没有想象中那么高<ul>
+<li>基因芯片数据的样本量太小</li>
+<li>杂交信号弱</li>
+<li>所选的功能基因子集没能很好反映样本的生物学意义</li>
+</ul>
+</li>
+</ul>
+<h1 id="Anchorage-independent-Growth-Assay"><a href="#Anchorage-independent-Growth-Assay" class="headerlink" title="Anchorage-independent Growth Assay"></a>Anchorage-independent Growth Assay</h1><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2010.45.09.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>非贴壁生长实验&#x2F;非依赖锚定的增殖实验</li>
+<li>从原理上讲，就是传统的克隆形成实验的”3D培养版本”</li>
+<li>对于传统的克隆形成实验，就是把肿瘤细胞的密度种得很低，使细胞和细胞间没有黏附，也没有信号传导，这样单个肿瘤细胞形成的克隆就可以计数，可以评估肿瘤细胞形成克隆的能力</li>
+<li>肿瘤细胞和正常细胞存在区别：肿瘤细胞可以不依赖黏附就形成增殖，而正常细胞必须依赖黏附，为了区分肿瘤细胞和正常细胞对于黏附的依赖程度，所以就就依赖于传统的克隆形成实验，开发了这种锚定非依赖的克隆形成实验</li>
+<li>琼脂的特性：比较高的温度下融化，比较低的温度下凝固，1%琼脂区域在凝固后，可以形成比较坚固的结构，为整个实验提到支撑的作用</li>
+<li>0.3%琼脂的培养基：浓度比较低的培养基，这种培养条件下琼脂呈现出半流质的状态，可以让肿瘤细胞在这种环境中生长、增殖，而且氧气在这种浓度的琼脂培养基内很容易发生渗透，为肿瘤细胞的存活、生长和增殖提供养分</li>
+</ul>
+<h1 id="BrdU染色实验"><a href="#BrdU染色实验" class="headerlink" title="BrdU染色实验"></a>BrdU染色实验</h1><ul>
+<li>BrdU是胸腺嘧啶衍生物，在结构上与胸腺嘧啶是非常类似的，在细胞分裂时，BrdU可以替代胸腺嘧啶T，被整合到新合成的DNA链中，并存留在基因组中<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2010.50.39.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><ul>
+<li>在随后的实验中，可以通过抗BrdU抗体，识别这些新合成的，且有BrdU渗入的基因组，最后通过荧光检测，统计BrdU阳性的细胞，提示这些细胞发生过增殖和分裂</li>
+</ul>
+</li>
+</ul>
+<h1 id="荧光素酶报告基因实验Luciferase-Assay"><a href="#荧光素酶报告基因实验Luciferase-Assay" class="headerlink" title="荧光素酶报告基因实验Luciferase Assay"></a>荧光素酶报告基因实验Luciferase Assay</h1><ul>
+<li>在这个实验中，首先要构建一个质粒，质粒中含有荧光素酶基因，基因的上游是克隆一段想要探究的转录因子的结合域，在本篇paper中，克隆的是FOXO基因的结合域FOXO Binding Domain，FOXO转录因子可以结合在这段序列上，启动下游的基因转录</li>
+<li>这样，细胞内就产生了荧光素酶蛋白，这个酶可以催化底物的降解，产生的荧光的强度可以通过酶标仪读出，通过荧光的强度来反映细胞内FOXO和FOXO binding domain结合与调控的强弱<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-11%2011.02.10.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>对于荧光素酶实验，除了用来研究转录的强弱之外，还可以用来研究microRNA</li>
+<li>对于microRNA研究而言，研究也从构建质粒开始，但是这个质粒的结构与前面的转录因子研究有差异</li>
+<li>Luciferase mRNA的上游是普通启动子，但下游要把miRNA的潜在靶点3’-UTR序列克隆到荧光素酶基因的下游</li>
+<li>在没有miRNA的情况下，启动子的启动可以正常开始Luciferase基因的转录和翻译，产生Luciferase蛋白，进而产生荧光；如果细胞内存在miRNA的过表达，Luciferase的mRNA可以正常产生，但其可能被对应miRNA抑制功能或直接分解（因为这条mRNA上有miRNA对应的3’-UTR序列），不管是哪一种机制，都会导致Luciferase蛋白的含量显著降低，导致酶促反映的荧光读值降低，证明miRNA可以与我们引入的某个基因的3’-UTR区域发生特异性结合</li>
+<li>如果要设计这个实验的rescue实验，就可以把miRNA结合的3’-UTR的序列做几个点突变，让miRNA不能再识别，如果实验作出来荧光的强度恢复了，那么就说明miRNA与target 3’-UTR直接的结合是特异性的</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E5%8A%9F%E8%83%BD%E5%9F%BA%E5%9B%A0%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%204%20%E5%8A%9F%E8%83%BD%E5%9F%BA%E5%9B%A0%E9%80%89%E9%A2%98%E6%80%9D%E8%B7%AF/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">功能基因研究套路 Lesson 4 功能基因选题思路</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E5%8A%9F%E8%83%BD%E5%9F%BA%E5%9B%A0%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%203%20%E9%80%9A%E7%94%A8%E7%A0%94%E7%A9%B6%E8%AE%BE%E8%AE%A1%E6%A1%86%E6%9E%B6/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">功能基因研究套路 Lesson 3 通用研究设计框架</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="GSEA介绍"><a rel="nofollow" class="trm-toc-link" href="#GSEA介绍"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">GSEA介绍</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="GSEA分析的特点"><a rel="nofollow" class="trm-toc-link" href="#GSEA分析的特点"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">GSEA分析的特点</span></a></li><li class="trm-toc-item trm-toc-level-2" title="GSEA预先设定的基因子集"><a rel="nofollow" class="trm-toc-link" href="#GSEA预先设定的基因子集"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">GSEA预先设定的基因子集</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="H-Hallmark Gene Sets"><a rel="nofollow" class="trm-toc-link" href="#H-Hallmark-Gene-Sets"><span class="trm-toc-number">1.2.1.</span> <span class="trm-toc-text">H-Hallmark Gene Sets</span></a></li><li class="trm-toc-item trm-toc-level-3" title="C1-Positional Gene Sets"><a rel="nofollow" class="trm-toc-link" href="#C1-Positional-Gene-Sets"><span class="trm-toc-number">1.2.2.</span> <span class="trm-toc-text">C1-Positional Gene Sets</span></a></li><li class="trm-toc-item trm-toc-level-3" title="C2-Curated Gene Sets"><a rel="nofollow" class="trm-toc-link" href="#C2-Curated-Gene-Sets"><span class="trm-toc-number">1.2.3.</span> <span class="trm-toc-text">C2-Curated Gene Sets</span></a></li><li class="trm-toc-item trm-toc-level-3" title="C3-Motif Gene Sets"><a rel="nofollow" class="trm-toc-link" href="#C3-Motif-Gene-Sets"><span class="trm-toc-number">1.2.4.</span> <span class="trm-toc-text">C3-Motif Gene Sets</span></a></li><li class="trm-toc-item trm-toc-level-3" title="C4-Computational Gene Sets"><a rel="nofollow" class="trm-toc-link" href="#C4-Computational-Gene-Sets"><span class="trm-toc-number">1.2.5.</span> <span class="trm-toc-text">C4-Computational Gene Sets</span></a></li><li class="trm-toc-item trm-toc-level-3" title="C5-GO Gene Sets"><a rel="nofollow" class="trm-toc-link" href="#C5-GO-Gene-Sets"><span class="trm-toc-number">1.2.6.</span> <span class="trm-toc-text">C5-GO Gene Sets</span></a></li><li class="trm-toc-item trm-toc-level-3" title="C6-Oncogenic Gene Sets"><a rel="nofollow" class="trm-toc-link" href="#C6-Oncogenic-Gene-Sets"><span class="trm-toc-number">1.2.7.</span> <span class="trm-toc-text">C6-Oncogenic Gene Sets</span></a></li><li class="trm-toc-item trm-toc-level-3" title="C7-Immunologic Gene Sets"><a rel="nofollow" class="trm-toc-link" href="#C7-Immunologic-Gene-Sets"><span class="trm-toc-number">1.2.8.</span> <span class="trm-toc-text">C7-Immunologic Gene Sets</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="GSEA分析的关键参数"><a rel="nofollow" class="trm-toc-link" href="#GSEA分析的关键参数"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">GSEA分析的关键参数</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="ES值：富集分数"><a rel="nofollow" class="trm-toc-link" href="#ES值：富集分数"><span class="trm-toc-number">1.3.1.</span> <span class="trm-toc-text">ES值：富集分数</span></a></li><li class="trm-toc-item trm-toc-level-3" title="NES值"><a rel="nofollow" class="trm-toc-link" href="#NES值"><span class="trm-toc-number">1.3.2.</span> <span class="trm-toc-text">NES值</span></a></li><li class="trm-toc-item trm-toc-level-3" title="FDR"><a rel="nofollow" class="trm-toc-link" href="#FDR"><span class="trm-toc-number">1.3.3.</span> <span class="trm-toc-text">FDR</span></a></li><li class="trm-toc-item trm-toc-level-3" title="p值"><a rel="nofollow" class="trm-toc-link" href="#p值"><span class="trm-toc-number">1.3.4.</span> <span class="trm-toc-text">p值</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Anchorage-independent Growth Assay"><a rel="nofollow" class="trm-toc-link" href="#Anchorage-independent-Growth-Assay"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">Anchorage-independent Growth Assay</span></a></li><li class="trm-toc-item trm-toc-level-1" title="BrdU染色实验"><a rel="nofollow" class="trm-toc-link" href="#BrdU染色实验"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">BrdU染色实验</span></a></li><li class="trm-toc-item trm-toc-level-1" title="荧光素酶报告基因实验Luciferase Assay"><a rel="nofollow" class="trm-toc-link" href="#荧光素酶报告基因实验Luciferase-Assay"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">荧光素酶报告基因实验Luciferase Assay</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

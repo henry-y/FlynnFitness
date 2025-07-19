@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋三十六策   三元变量的套路在五分以下可以说通行无阻，只玩间接机制也够用，只要能把Rescue搞懂。在基础研究中，分子交互作用模式不仅形式上无穷无尽，在文章的套路里作用也是无穷无尽。5分往上文章能发到多高其实就看三个因素：思路的创新、分子机制的深度以及通讯作者的影响力。在机制的认识上，如何从无穷的变化中找到不变的规律， 这就是 36 策">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三十六策 Lesson 19 等量齐观">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2019%20%E7%AD%89%E9%87%8F%E9%BD%90%E8%A7%82/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋三十六策   三元变量的套路在五分以下可以说通行无阻，只玩间接机制也够用，只要能把Rescue搞懂。在基础研究中，分子交互作用模式不仅形式上无穷无尽，在文章的套路里作用也是无穷无尽。5分往上文章能发到多高其实就看三个因素：思路的创新、分子机制的深度以及通讯作者的影响力。在机制的认识上，如何从无穷的变化中找到不变的规律， 这就是 36 策">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:26.710Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:26.710Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="解螺旋">
+<meta property="article:tag" content="三十六策">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >三十六策 Lesson 19 等量齐观</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:26"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/cover2.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            三十六策 Lesson 19 等量齐观
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        解螺旋·三十六策
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/">三十六策</a></p>
+</div>
+<blockquote>
+<p>三元变量的套路在五分以下可以说通行无阻，只玩间接机制也够用，只要能把Rescue搞懂。<br>在基础研究中，分子交互作用模式不仅形式上无穷无尽，在文章的套路里作用也是无穷无尽。5分往上文章能发到多高其实就看三个因素：思路的创新、分子机制的深度以及通讯作者的影响力。在机制的认识上，如何从无穷的变化中找到不变的规律， 这就是 36 策要破解的谜题了。</p>
+</blockquote>
+<h1 id="复习：rescue回复实验的设计思路"><a href="#复习：rescue回复实验的设计思路" class="headerlink" title="复习：rescue回复实验的设计思路"></a>复习：<a target="_blank" rel="noopener" href="http://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/%E6%96%87%E7%8C%AE%E4%B8%80%E7%82%B9%E9%80%9A%20Lesson%203/">rescue回复实验的设计思路</a></h1><ul>
+<li>另一个搞清楚怎么设计回复&#x2F;rescue实验的方法：画图，好记性不是烂笔头</li>
+<li>把变量按上下游顺序一个个排好，用箭头表示正向调控，用一横一竖的T字形横过来表示负向调控，把全部变量的关系从上游到下游标注清楚，只要我们把图画出来，逻辑自然就理顺了。</li>
+</ul>
+<h1 id="直接作用机制"><a href="#直接作用机制" class="headerlink" title="直接作用机制"></a>直接作用机制</h1><ul>
+<li>直接作用机制，顾名思义就是两个分子之间是要有相互结合的。（在这里请大家自行回忆名侦探柯南的内容），当柯南说出“凶手就在这个屋子里”的时候，，故事才刚讲到一半，接下来还有很多推理的过程。最后说出凶手就是谁谁谁，才是真相大白，一集可以结束了。我们发SCI文章也是一样，凶手在这里屋子里就相当于间接作用机制，知道了研究的靶分子跟某某通路有关，或者调控某个明星分子，但这些都只是个线索， 还没把谜全部解开。这时候去投文章，因为故事只讲了一半，影响因子也只能打个对折。</li>
+<li>直接作用机制，就是直接指出来凶手是谁，悬念都揭开了，这一篇该翻过去了，所以分子机制做到直接作用是大结局。找到凶手，也就是找到有直接作用的靶分子，一篇文章含金量最高的就是这个地方。筛分子猜分子难吗?难，人品不好的时候做几个分子都是阴性结果。但凡是能发SCI的，表型有阳性结果是个基本要求，能不能导演一场破解真相的好戏，呈现一个完整的有深度的研究story，才是高低分的分水岭。</li>
+</ul>
+<h2 id="之前的课程中涉及的分子交互研究策略"><a href="#之前的课程中涉及的分子交互研究策略" class="headerlink" title="之前的课程中涉及的分子交互研究策略"></a>之前的课程中涉及的分子交互研究策略</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2016%20%E7%A7%89%E8%BD%B4%E6%8C%81%E9%92%A7/">三十六策 Lesson 16</a>和<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2017%20%E7%94%B2%E5%86%A0%E5%A4%A9%E4%B8%8B/">三十六策 Lesson 17</a> 中，我们讨论过往上游推因变量的三种逻辑：分析启动子甲基化位点，然后找甲基化、去甲基化的酶；或者跳过这一步,直接找转录因子；更好的是结合这两步，从甲基化位点找相关转录因子作为上游驱动因子，这些内容都已经踏入了直接作用机制的范畴。这种逻辑推演在细致程度上已经远胜于知其然不知其所以然的间接机制：间接机制在 表现形式上只是观察下游明星分子的表达变化或者是磷酸化等修饰变化，验证完调控关系就完了，而直接机制除了调控关系，还有分子是否结合的问题，需要进一步提供更多实验证据。 </li>
+<li>在转录因子靶基因验证的时候，复习<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2016%20%E7%A7%89%E8%BD%B4%E6%8C%81%E9%92%A7/">三十六策 Lesson 16</a>的内容：需要我们做荧光素酶报告基因实验，加上ChIP或者EMSA二选一，这是个标准套餐。</li>
+<li>同样是荧光素酶报告基因实验，换一个报告基因载体和实验设计方法，在<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2011%20%E8%A7%81%E5%BE%AE%E7%9F%A5%E8%91%97/">三十六策 Lesson 11</a>中miRNA靶基因验证也要用到，注意<strong>miRNA找靶基因也是直接作用机制</strong>。</li>
+</ul>
+<h2 id="分析分子交互"><a href="#分析分子交互" class="headerlink" title="分析分子交互"></a>分析分子交互</h2><h3 id="五大层次"><a href="#五大层次" class="headerlink" title="五大层次"></a>五大层次</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2015%20%E4%B8%80%E5%85%83%E4%B8%89%E5%BD%A2/">三十六策 Lesson 15</a>中提到过<ul>
+<li>基因水平，对DNA的调控</li>
+<li>转录水平，对RNA的调控</li>
+<li>翻译水平，对蛋白的调控</li>
+<li>转录后修饰</li>
+<li>翻译后修饰</li>
+</ul>
+</li>
+</ul>
+<h3 id="分子类型（2✖️3）"><a href="#分子类型（2✖️3）" class="headerlink" title="分子类型（2✖️3）"></a>分子类型（2✖️3）</h3><ul>
+<li>（RNA+蛋白）✖️（DNA、RNA和蛋白）<blockquote>
+<p>主变量的分子类型决定了搭配什么因变量合适，这是有客观规律的，记住这些规律，科研就会简单很多。</p>
+</blockquote>
+</li>
+<li>如果要进一步简化<ul>
+<li>蛋白结合DNA-转录因子</li>
+<li>蛋白结合蛋白</li>
+<li>RNA结合RNA&#x2F;DNA-碱基互补配对</li>
+<li>蛋白质与RNA相互结合（研究方法是相似的，这俩都能做主变量）</li>
+</ul>
+</li>
+</ul>
+<h1 id="四种二元交互"><a href="#四种二元交互" class="headerlink" title="四种二元交互"></a>四种二元交互</h1><h2 id="蛋白结合DNA"><a href="#蛋白结合DNA" class="headerlink" title="蛋白结合DNA"></a>蛋白结合DNA</h2><ul>
+<li>代表是转录因子，转录因子的特征是蛋白具有与DNA结合的结构域， 这个蛋白有能识别启动子DNA序列的motif。</li>
+<li>当我们研究的主变量是蛋白，一查数据库里的信息注释， 发现有跟DNA结合的结构域，那么我们就可以合理推测它有转录调节的作用。转录因子能直接结合启动子，还有其他与转录调节相关的蛋白可能不直接结合DNA，却能结合转录因子，这里面的作用模式就包含了蛋白与蛋白的结合，还有蛋白与DNA的结合，形成了多元的直接调控关系。</li>
+<li>总结来说，调节转录过程是蛋白结合 DNA 这一种分子交互模式的核心剧情。编码蛋白的基因有启动子，非编码RNA像miRNA、LncRNA和circRNA也有对应的启动子。</li>
+<li>这个模式反过来，当转录因子是上游的因变量时，主变量是不限分子类型的，转录因子可以调节任何类型分子的转录过程，包括编码基因和非编码RNA。</li>
+<li>甲基化涉及甲基化酶和去甲基化酶对DNA的调节，因此也可以归入蛋白与DNA的结合类型中，这里注意不要把组蛋白甲基化修饰当成蛋白-蛋白互作。组蛋白甲基化确实涉及蛋白-蛋白互作，但最终的生物学效应是落在调节基因的转录上的， 所以会被我们归纳在蛋白调节DNA的范畴。</li>
+</ul>
+<h2 id="蛋白结合蛋白"><a href="#蛋白结合蛋白" class="headerlink" title="蛋白结合蛋白"></a>蛋白结合蛋白</h2><ul>
+<li>一些经典示例：激酶催化底物、多个蛋白形成复合体、受体与配体相互结合、抗原抗体反应等</li>
+<li>我们在<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2010%20%E4%B8%BE%E4%B8%80%E5%8F%8D%E4%B8%89/">三十六策 Lesson 10</a>中介绍过蛋白的各种修饰方式，<strong>蛋白修饰同样需要验证蛋白-蛋白相互作用，因为修饰首先需要发生接触</strong>。涉及蛋白修饰的具体类型有一大堆， 我们完全可以放在一起归类理解，它们在实验策略上有很多相似的地方。</li>
+</ul>
+<h2 id="补充：蛋白修饰应该看作表型还是机制"><a href="#补充：蛋白修饰应该看作表型还是机制" class="headerlink" title="补充：蛋白修饰应该看作表型还是机制"></a>补充：蛋白修饰应该看作表型还是机制</h2><ul>
+<li>在<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/tags/%E4%BA%8C%E5%8D%81%E5%9B%9B%E5%9E%8B/">解螺旋·二十四型的课程</a>里， 有涉及蛋白修饰作为表型的内容，比如蛋白的磷酸化和泛素化。分子修饰是表型吗?它难到不应该是一种直接作用<strong>机制</strong>吗?在<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2017%20%E7%94%B2%E5%86%A0%E5%A4%A9%E4%B8%8B/">三十六策 Lesson 17</a>中，DNA甲基化的部份是归入到直接机制的范畴的，分子修饰到底是表型还是机制呢?</li>
+</ul>
+<h3 id="在我们刚开始接触基础科研的时候，可以把分子修饰当作表型来处理"><a href="#在我们刚开始接触基础科研的时候，可以把分子修饰当作表型来处理" class="headerlink" title="在我们刚开始接触基础科研的时候，可以把分子修饰当作表型来处理"></a>在我们刚开始接触基础科研的时候，可以把分子修饰当作表型来处理</h3><blockquote>
+<p>这样比较容易理解一些课题的逻辑结构，因为修饰作为一种是生物学过程，研究它在某种疾病中的作用，理解成表型逻辑上是通顺的。</p>
+</blockquote>
+<h3 id="实际上，分子修饰是基础科研中高分文章才涉及的内容"><a href="#实际上，分子修饰是基础科研中高分文章才涉及的内容" class="headerlink" title="实际上，分子修饰是基础科研中高分文章才涉及的内容"></a>实际上，分子修饰是基础科研中高分文章才涉及的内容</h3><ul>
+<li>我们应当注意，在基础科研中研究分子修饰的情况，绝大多数属于探究直接作用机制，是比较高分的文章才会涉及的内容。</li>
+<li>只有一种情况我们可以把修饰看成是表型，那就是研究的主变量本身是参与修饰的酶或者其他调控分子，主变量直接调控修饰过程可以把修饰看成是一种表型，其他情况一概以机制进行逻辑归类。</li>
+<li>分子修饰的重要性：一个分子修饰前与修饰后就像大力水手吃没吃菠菜，完全是两种状态。有些情况下修饰后是活化状态，也有修饰是抑制活性的，需要具体情况具体分析，不能产生思维定式。</li>
+<li>去发现一个分子新的修饰形式不太适合医生来研究，这是科学家们感兴趣的话题。我们在研究中涉及修饰的问题往往出现在选定了一个主变量，表型确认完，想解释机制的时候，查阅文献发现它有某些修饰形式，然后顺藤摸瓜，把这些已经报道过的修饰位点在自己的体系中进行验证，主要是在探索主变量相关的上游机制。</li>
+</ul>
+<h3 id="分子修饰的研究深度"><a href="#分子修饰的研究深度" class="headerlink" title="分子修饰的研究深度"></a>分子修饰的研究深度</h3><ul>
+<li>在一些文章里作者只是检测了修饰位点的变化，不再往上推测和验证修饰的施行对象，也就是对具体谁来修饰的避而不谈，这种策略我在<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2017%20%E7%94%B2%E5%86%A0%E5%A4%A9%E4%B8%8B/">三十六策 Lesson 17</a> 提到过：只检测甲基化的位点，不去验证DNA甲基化的酶，文章也算有机制，只是并不完整。</li>
+<li>这种直接机制做一半的科研深度，我把它称之为“半套直接机制”，研究深度约等于间接机制，比直接机制的含金量差了一截。半套机制是研究分子修饰时特有的机制研究策略，DNA水平的修饰、RNA水平的修饰和蛋白水平的修饰都可以采取半套机制的做法。凡是研究对象的这个分子存在吃菠菜和不吃菠菜两种状态，分子机制的研究可以只揭开分子修饰状态的变化而不详细解释变化的原因，也是“不知其所以然”，形式上跟二元变量的调控关系的间接机制略有区别，但研究深度是可以划等号的。</li>
+<li>我们做间接机制不是不知道直接机制好，而是因为直接机制做起来难，同样做半套机制，是因为做全套难</li>
+</ul>
+<h2 id="RNA结合DNA-RNA"><a href="#RNA结合DNA-RNA" class="headerlink" title="RNA结合DNA&#x2F;RNA"></a>RNA结合DNA&#x2F;RNA</h2><ul>
+<li>研究模式是核酸之间的互补结合，这种搭配的主变量是现在流行的非编码RNA。</li>
+<li>以miRNA为例，当主变量是miRNA，其那miRNA的靶基因，也就是研究的因变量应该是一个RNA分子，可以是编码蛋白的mRNA的 3’-UTR，也可以是另外一个非编码RNA（比如LncRNA或CircRNA）。用来预测miRNA靶基因的网站，也可以用来预测miRNA与非编码RNA的结合，所以无论miRNA调控的对象具体是什么分子类型，它结合的一定是RNA。</li>
+<li>另外，当主变量是LncRNA或者CircRNA的时候，因变量也可以是 miRNA。</li>
+<li>总结，RNA结合RNA的研究，主要就是非编码RNA在唱戏。LncRNA和circRNA都可以参与调控转录的过程，可以竞争性结合启动子DNA序列，由此阻碍转录因子的结合，这种RNA与DNA的交互，可以归结入同一类套路，模式相似。</li>
+</ul>
+<h2 id="RNA与蛋白相互作用"><a href="#RNA与蛋白相互作用" class="headerlink" title="RNA与蛋白相互作用"></a>RNA与蛋白相互作用</h2><ul>
+<li>当主变量是LncRNA时，还有一种经典分子机制模式，就是LncRNA结合蛋白，也就是RNA-蛋白相互作用。</li>
+<li>LncRNA功能很全，蛋白能介导的功能它基本都能参与。至于是RNA结合蛋白还是蛋白结合 RNA， 谁主谁次就看谁来担当创新的任务。谁新谁做主变量，反正它们研究策略差不多，都有一系列相似的筛选验证手段，和原理相通的实验设计。</li>
+<li><strong>蛋白结合RNA的模式在4种分子交互类型中研究难度最大，但逼格也最高</strong>。</li>
+</ul>
+<h1 id="两种三元交互"><a href="#两种三元交互" class="headerlink" title="两种三元交互"></a>两种三元交互</h1><ul>
+<li>二元变量不是机制的顶点，直接作用机制也有三元组合的</li>
+<li>关于间接机制的三元组合，我们在<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2014%20%E4%B8%89%E6%89%8D%E5%90%88%E4%B8%80/">三十六策 Lesson 14</a>重点讲解了药物+分子+通路，<a target="_blank" rel="noopener" href="https://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2015%20%E4%B8%80%E5%85%83%E4%B8%89%E5%BD%A2/">三十六策 Lesson 15</a>中介绍了分子+分子+分子的两种典型。直接机制的常见三元组合我们介绍下面2种。</li>
+</ul>
+<h2 id="ceRNA-RNA-RNA-RNA"><a href="#ceRNA-RNA-RNA-RNA" class="headerlink" title="ceRNA&#x2F;RNA-RNA-RNA"></a>ceRNA&#x2F;RNA-RNA-RNA</h2><ul>
+<li>由RNA与RNA结合发展而来。</li>
+<li>我们知道miRNA并不专一，一条miRNA可以同时结合多个靶基因，这些被结合的靶基因也存在一条RNA结合多个 miRNA的现象，两者间形成一个网络状的调控关系。</li>
+<li>当一个miRNA同时结合两个靶基因的时候，这两个靶基因之间是存在一种竞争关系的，同一时间与miRNA配对的只能是一条，这样的调控模式叫竞争性内源RNA。英文术语 competitive(或competing) endogenous RNA， 意思一样，缩写为ceRNA。</li>
+<li>ceRNA不是一种分子类型，是一套机制模式。RNA结合RNA本来模式上就不复杂，RNA的三元属于三元直接机制里面最简单的一种类型，看起来华丽，做起来并不难。非编码RNA估计还会一直热下去，这种套路当然长期会有一席之地。</li>
+</ul>
+<h2 id="RNA-蛋白-DNA-蛋白"><a href="#RNA-蛋白-DNA-蛋白" class="headerlink" title="RNA-蛋白-DNA&#x2F;蛋白"></a>RNA-蛋白-DNA&#x2F;蛋白</h2><ul>
+<li>这种套路来自RNA与蛋白的交互作用升级，主变量限定在非编码RNA，且主要是LncRNA。</li>
+<li>LncRNA的特点：没有翻译蛋白的任务，所以就比较自由，偶尔可以充当一些类似于“分子伴侣” 的功能。</li>
+<li>基础科研中分子伴侣的概念：一些蛋白家族比如热休克蛋白家族， 它们介导其它蛋白的正确折叠、装配、转运，但自己不成为最后功能结构中的一个组分。类似这样的机制还有转录调节过程中的转录调节因子，它们不直接结合DNA，但是结合转录因子，对转录因子调节转录过程至关重要。</li>
+<li>分子伴侣是个专门的生物学概念，我们把一个分子对于另外一个分子发挥功能必不可少，而且不会成为那个功能分子的组组成部份，定义为：“伴侣分子”，这是本课程赋予的一个特殊名称，便于大家理解。</li>
+<li>当LncRNA作为伴侣分子，参与到第一种二元结构，也就是蛋白-DNA的相互作用，就能形成了一种三元结构，这个story讲的是一条LncRNA对于某个转录因子调控靶基因是不可或缺的，一手牵两头起到了引导的作用。LncRNA还可以作为伴侣分子，参与到第二种蛋白-蛋白的相互作用，对于两个蛋白结合起到分子骨架的作用，这也是不可或缺的。</li>
+<li>LncRNA参与蛋白-DNA交互或蛋白-蛋白交互，核心的研究手段是研究RNA与蛋白相互作用，以LncRNA为主变量，蛋白为因变量，我们研究的是主变量与因变量的结合， 实际上是第四种最难的二元直接套路的进一步升级。</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E6%88%AA%E5%B1%8F2024-07-12%2016.41.30.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2021%20%E8%9D%B6%E4%BD%BF%E8%9C%82%E5%AA%92/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/cover2.jpg">
+                </span>
+                <h6 class="trm-op-title">三十六策 Lesson 21 蝶使蜂媒</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2020%20%E5%B7%A6%E5%8F%B3%E9%80%A2%E6%BA%90/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/cover2.jpg">
+                </span>
+                <h6 class="trm-op-title">三十六策 Lesson 20 左右逢源</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="复习：rescue回复实验的设计思路"><a rel="nofollow" class="trm-toc-link" href="#复习：rescue回复实验的设计思路"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">复习：rescue回复实验的设计思路</span></a></li><li class="trm-toc-item trm-toc-level-1" title="直接作用机制"><a rel="nofollow" class="trm-toc-link" href="#直接作用机制"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">直接作用机制</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="之前的课程中涉及的分子交互研究策略"><a rel="nofollow" class="trm-toc-link" href="#之前的课程中涉及的分子交互研究策略"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">之前的课程中涉及的分子交互研究策略</span></a></li><li class="trm-toc-item trm-toc-level-2" title="分析分子交互"><a rel="nofollow" class="trm-toc-link" href="#分析分子交互"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">分析分子交互</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="五大层次"><a rel="nofollow" class="trm-toc-link" href="#五大层次"><span class="trm-toc-number">2.2.1.</span> <span class="trm-toc-text">五大层次</span></a></li><li class="trm-toc-item trm-toc-level-3" title="分子类型（2✖️3）"><a rel="nofollow" class="trm-toc-link" href="#分子类型（2✖️3）"><span class="trm-toc-number">2.2.2.</span> <span class="trm-toc-text">分子类型（2✖️3）</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="四种二元交互"><a rel="nofollow" class="trm-toc-link" href="#四种二元交互"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">四种二元交互</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="蛋白结合DNA"><a rel="nofollow" class="trm-toc-link" href="#蛋白结合DNA"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">蛋白结合DNA</span></a></li><li class="trm-toc-item trm-toc-level-2" title="蛋白结合蛋白"><a rel="nofollow" class="trm-toc-link" href="#蛋白结合蛋白"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">蛋白结合蛋白</span></a></li><li class="trm-toc-item trm-toc-level-2" title="补充：蛋白修饰应该看作表型还是机制"><a rel="nofollow" class="trm-toc-link" href="#补充：蛋白修饰应该看作表型还是机制"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">补充：蛋白修饰应该看作表型还是机制</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="在我们刚开始接触基础科研的时候，可以把分子修饰当作表型来处理"><a rel="nofollow" class="trm-toc-link" href="#在我们刚开始接触基础科研的时候，可以把分子修饰当作表型来处理"><span class="trm-toc-number">3.3.1.</span> <span class="trm-toc-text">在我们刚开始接触基础科研的时候，可以把分子修饰当作表型来处理</span></a></li><li class="trm-toc-item trm-toc-level-3" title="实际上，分子修饰是基础科研中高分文章才涉及的内容"><a rel="nofollow" class="trm-toc-link" href="#实际上，分子修饰是基础科研中高分文章才涉及的内容"><span class="trm-toc-number">3.3.2.</span> <span class="trm-toc-text">实际上，分子修饰是基础科研中高分文章才涉及的内容</span></a></li><li class="trm-toc-item trm-toc-level-3" title="分子修饰的研究深度"><a rel="nofollow" class="trm-toc-link" href="#分子修饰的研究深度"><span class="trm-toc-number">3.3.3.</span> <span class="trm-toc-text">分子修饰的研究深度</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="RNA结合DNA&#x2F;RNA"><a rel="nofollow" class="trm-toc-link" href="#RNA结合DNA-RNA"><span class="trm-toc-number">3.4.</span> <span class="trm-toc-text">RNA结合DNA&#x2F;RNA</span></a></li><li class="trm-toc-item trm-toc-level-2" title="RNA与蛋白相互作用"><a rel="nofollow" class="trm-toc-link" href="#RNA与蛋白相互作用"><span class="trm-toc-number">3.5.</span> <span class="trm-toc-text">RNA与蛋白相互作用</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="两种三元交互"><a rel="nofollow" class="trm-toc-link" href="#两种三元交互"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">两种三元交互</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="ceRNA&#x2F;RNA-RNA-RNA"><a rel="nofollow" class="trm-toc-link" href="#ceRNA-RNA-RNA-RNA"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">ceRNA&#x2F;RNA-RNA-RNA</span></a></li><li class="trm-toc-item trm-toc-level-2" title="RNA-蛋白-DNA&#x2F;蛋白"><a rel="nofollow" class="trm-toc-link" href="#RNA-蛋白-DNA-蛋白"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">RNA-蛋白-DNA&#x2F;蛋白</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="总结"><a rel="nofollow" class="trm-toc-link" href="#总结"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">总结</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

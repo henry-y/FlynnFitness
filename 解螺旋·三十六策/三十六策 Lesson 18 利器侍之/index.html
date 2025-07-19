@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋三十六策数据库   生物信息学工具用好了可以大幅提高研究效率 工具不是越多越好，增加选择负担 生物信息学工具给人的错觉是：拥有了这些工具，就能统治科研数据的世界，很遗憾，这一定是假象。 生信是一门独立的学科，能力有三种境界 专业级选手：研究各种算法和架构数据模型的，精通至少一种编程语言，比如现在比较流行的 Python 语言，他们的工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三十六策 Lesson 18 利器侍之">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2018%20%E5%88%A9%E5%99%A8%E4%BE%8D%E4%B9%8B/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋三十六策数据库   生物信息学工具用好了可以大幅提高研究效率 工具不是越多越好，增加选择负担 生物信息学工具给人的错觉是：拥有了这些工具，就能统治科研数据的世界，很遗憾，这一定是假象。 生信是一门独立的学科，能力有三种境界 专业级选手：研究各种算法和架构数据模型的，精通至少一种编程语言，比如现在比较流行的 Python 语言，他们的工作">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-24T05:07:26.690Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:26.690Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="解螺旋">
+<meta property="article:tag" content="三十六策">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+
+
+<title >三十六策 Lesson 18 利器侍之</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:26"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            三十六策 Lesson 18 利器侍之
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        解螺旋·三十六策
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/">三十六策</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></p>
+</div>
+<ul>
+<li>生物信息学工具用好了可以大幅提高研究效率</li>
+<li>工具不是越多越好，增加选择负担</li>
+<li>生物信息学工具给人的错觉是：拥有了这些工具，就能统治科研数据的世界，很遗憾，这一定是假象。</li>
+<li>生信是一门独立的学科，能力有三种境界<ul>
+<li>专业级选手：研究各种算法和架构数据模型的，精通至少一种编程语言，比如现在比较流行的 Python 语言，他们的工作状态跟程序员很接近，光靠编程就可以有一碗饭吃</li>
+<li>生信的资深爱好者：其进入条件是必须掌握R语言。R是专门用于统计分析和作图的语言，比编程语言要简单。把R玩好了，统计软件和作图工具就不用学其他的了，而且因为用得人多又是开源软件，有很多现成的扩展插件， 俗称为“包package”，即一套数据处理的工作流程，人家把代码都写好了，我们只要拿过来调一下参数就可以用，非常的高效。R的难点也恰恰在于包太多了，对新手而言像天书一样，拿到手也不会用。不管怎么说，R 是数据挖掘的基础，这一层境界是医生在业余时间刻苦学习可以达到的。学习周期大概半年到一年，如果你统计学得比较好，上手就快。 </li>
+<li>要想仅用生信手段就发paper，R语言是必学的。</li>
+<li>如果不想专门耗费大量时间学R，那么所谓的生信分析仅仅是用用现有的在线数据库和软件工具而已，这是第三层境界，叫业余水 平。业余选手是希望点点鼠标就把数据分析给做了，但好的工具都是收费的，收费的用不起，免费的功能又有限。这么一来，人家数据挖掘是挖个大洞，我们的就只是刨个小坑，输出的数据层次上会比较单薄，单薄到必须要与细胞、分子、动物的数据相配合，才能形成完整的story。</li>
+<li>其实，对绝大多数搞基础科研的人来说业余水平够用了，生信分析只是一种辅助手段，掌握一点生信技能可升级成为一个“干湿结合”的双修科研选手。近几年干湿结合已经成为基础科研的一种常规配置，生信数据分析加上生物学实验验证可以发高水平的paper。</li>
+</ul>
+</li>
+<li>生信技能配合基础研究主要有两种应用场景<ul>
+<li>其一是解决筛、猜获取新变量，也就是Candidates的问题。当变量代入恒量找研究靶分子的时候，我们可以通过在线的数据库，对 别人用过的高通量数据进行二次挖掘，实现数据的再利用。</li>
+<li>筛或者猜机制的时候，工具和数据库也可以帮助预测，指引研究的分子跟哪些通路、哪些下游分子可能有关联。 如果下游有很多分子都发生变化，还可以构建调控网络，把复杂的信息可视化变成一张信号通路图。</li>
+<li>实际上，在整个课题展开的过程中，有且只有两个环节需要筛猜——找主变量以及已知主变量，找机制的因变量。</li>
+<li>两步关键的动作都可以加入生信工具辅助，所以就算不发展到学编程语言这一步，掌握一些必要的数据库和软件使用也是当前形势下做基础科研的基本功。</li>
+</ul>
+</li>
+<li>一些其他的必须使用的工具<ul>
+<li>整理文献——Endnote</li>
+<li>查找文献——Pubmed</li>
+<li>序列对比分析——blast</li>
+<li>PCR引物设计</li>
+</ul>
+</li>
+</ul>
+<h1 id="信息数据库"><a href="#信息数据库" class="headerlink" title="信息数据库"></a>信息数据库</h1><blockquote>
+<p>凡是跟基因、非编码RNA分子序列或者功能注释相关的数据库，统称为信息数据库<br>就跟公安局存个人身份证信息、户籍信息一样，这些数据库中存储的是分子的特征信息。<br>当我们启动一个课题， 面对大量分子需要选择的时候，或者已经有一个确定分子需要检测它表达水平的时候，信息 数据库是我们最早用到的一批工具，同时这一类也是使用上最简单的数据库</p>
+</blockquote>
+<ul>
+<li>NCBI的Genebank、Nucleotide，查基因信息的Genecards，查miRNA序列的miRBase，查LncRNA的noncode，还有UCSC、Ensenbl查启动子区域信息，ORF Finder分析一段序列是否编码蛋白，CpG Finder找CpG岛的位置等等。</li>
+</ul>
+<h1 id="通路数据库"><a href="#通路数据库" class="headerlink" title="通路数据库"></a>通路数据库</h1><blockquote>
+<p>这类数据库主要功能是聚类，把相关的分子归为一类。<br>他们把分子按照功能表型进行了特征归类，当我们手上有一份高通量数据输入进去，就可以告诉我们研究中变化的分子跟哪些已知的特征比较相关，并且可以根据已知的分子间调控关系构建调控网络，然后告诉我们哪些分子位于关键的节点。<br>这个节点，术语Hub gene，翻译成枢纽分子或者叫节点分子，换句话说就是提示应该围绕哪些关键分子进行干预，可以有的放矢。通路网络的信息非常复杂，在手握高通量数据要进行整体性分析时，这些工具必不可少。</p>
+</blockquote>
+<ul>
+<li>最经典的有三个：KEGG，DAVID和GSEA</li>
+</ul>
+<h1 id="分子互作数据库"><a href="#分子互作数据库" class="headerlink" title="分子互作数据库"></a>分子互作数据库</h1><blockquote>
+<p>主要用在预测分子与分子间相互作用，也就是直接作用机制<br>一旦涉及分子交互作用的预测，一般同样的功能会有不同科学家开发好几个数据库，背后的算法逻辑和用法都有些差别，一个个研究是很花时间的。<br>凡是我们课程里推荐的，那都是公认好用的，是前人的经验和口碑，没必要神农尝百草。</p>
+</blockquote>
+<ul>
+<li>miRNA预测靶基因的Targetscan</li>
+<li>预测转录因子靶基因的JASPAR和TRANSFAC</li>
+<li>预测LncRNA与miRNA结合的Starbase</li>
+<li>蛋白与蛋白相互作用预测的String</li>
+<li>一些商业公司的网站往往也提供一些工具，QIAGEN公司提供了CHIP实验后qPCR验证的预设计引物，每个基因可能结合的转录因子都预测好了，连结合位点的预测结果都有，我是在Genecards数据库给的产品链接里发现的。</li>
+<li>SIGMA公司把所有基因的shRNA序列都给设计好了，并且是免费公开的，搞得设计siRNA这么一个有难度的活顿时没了技术含量。</li>
+</ul>
+<h1 id="样本数据库"><a href="#样本数据库" class="headerlink" title="样本数据库"></a>样本数据库</h1><blockquote>
+<p>生信分析可以用别人的数据发自己的文章，别人的数据不是从文献一个个去找，而是有现成的数据中心，就是样本数据库。</p>
+</blockquote>
+<ul>
+<li>GEO是NCBI的一个子数据库，全称叫Gene Expression Omnibus。这个数据库存储了全世界最大、最全面的基因表达谱数据，是个数据仓库。允许研究者上传自己的数据，也可以免费下载别人的高通量检测原始数据</li>
+<li>各种常见疾病还有自己的样本数据库，比如做肿瘤的还有TCGA、Oncomine、SEER等，都允许我们根据自己感兴趣的问题下载高通量数据，经过二次分析产生新的结论，发表论文。</li>
+</ul>
+<h1 id="搜寻数据库的方法"><a href="#搜寻数据库的方法" class="headerlink" title="搜寻数据库的方法"></a>搜寻数据库的方法</h1><ul>
+<li>牛津大学出版社的核酸研究杂志（Nucleic Acids Research，NAR）， 每年发布的数据库特辑（database issue）；NAR database issue提供了15 个分类的数据库目录，其中有一个就涉及按疾病找数据库</li>
+<li>数据库索引网站，叫Omictools (<a target="_blank" rel="noopener" href="https://omictools.com/)%EF%BC%8C%E8%BF%99%E4%B8%AA%E7%AB%99%E7%82%B9%E7%9B%B4%E6%8E%A5%E6%8F%90%E4%BE%9B%E5%85%B3%E9%94%AE%E8%AF%8D%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%EF%BC%8C%E7%94%A8%E8%B5%B7%E6%9D%A5%E5%BE%88%E6%96%B9%E4%BE%BF%EF%BC%8C%E4%B9%9F%E5%8F%AF%E4%BB%A5%E6%8C%89%E5%88%86%E7%B1%BB%E6%90%9C%EF%BC%8C%E6%AF%8F%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93%E9%83%BD%E6%9C%89%E7%BD%91%E5%9D%80%E5%92%8C%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E3%80%82">https://omictools.com/)，这个站点直接提供关键词搜索功能，用起来很方便，也可以按分类搜，每个数据库都有网址和简单介绍。</a></li>
+<li>数据库数量众多，很多作者发了文章之后没有维护基本就等于废了，如果有超过5年没有更新，是不是可用大家要加点小心</li>
+</ul>
+<h1 id="生信分析与统计方法的关系"><a href="#生信分析与统计方法的关系" class="headerlink" title="生信分析与统计方法的关系"></a>生信分析与统计方法的关系</h1><ul>
+<li>在数据挖掘的过程中，统计方法可谓如影随形。</li>
+<li>一般的流程，研究者会先通过高通量数据分析筛选出差异基因，然后会根据临床资料进行单因素、多因素和生存预后等分析操作。</li>
+<li>在一些文章中，作者会把多个靶标根据评分组成多维度的分子预测模型，这种套路里样本数据至少会随机分成两份，一份75%和一份25%，或者七三分。多的那份数据集用来建立预测模型，或者称为Training set 训练集，少的数据集测试模型，称为testing set测试集。有些文章里还有第三份样本或者是自己的样本做外部独立验证，叫validation set验证集，由此证明模型的有效性。</li>
+<li>除了建立多靶标的统计预测模型，还可以把有一定相关性的一组分子进行聚类分析，做分子网络，这里就用到DAVID、KEGG和GSEA。</li>
+<li>纯生信套路本质上是利用数据库下载的高通量结果，自己进行统计分析处理，再来点交互网络点缀的数据套路，各种分析手段需要融会贯通。</li>
+</ul>
+<h1 id="生信分析的研究策略"><a href="#生信分析的研究策略" class="headerlink" title="生信分析的研究策略"></a>生信分析的研究策略</h1><ul>
+<li>第一个是系统搜索资料和荟萃分析的方法，如果我们学过META，那这个思路是一样的。针对某一个问题，把所有已有的高通量数据META在一起，多份数据合并，这时候往往要求入组的数据采用同一个技术平台，或者用统计手段把它们的表达值标准化，让不同研究项目之间的数据可以进行整合比较。从单研究上升到多研究数据整合，其严谨性能得到提高</li>
+<li>把数据库里下载的数据做差异分析，这里最好懂点 R 语言，会用一些软件。无论是自己做高通量筛选还是用别人的数据，用到的技能是一样的，需要从芯片或者测序的原始数据转换到差异分子列表</li>
+<li>临床相关性的统计分析，主要是单因素，多因素，COX、logistic 回归， Pearson、spearman相关系数等等，说起来简单，做起来需要注意很多细节，这些统计方法临床研究中也频繁要用到，必须要学</li>
+<li>最后是通路分析工具，跟差异分析差不多，是用一些现成工具，可以出一些炫酷的图<blockquote>
+<p>不做湿实验，发干文章灌灌水已经毫无问题了。 不过都这么强大了，只是发点灌水文章有点亏吧?后面加上干湿结合，有生物学实验验证， 我们可以飞得更高。干湿结合是说在你通过生信分析获得一组靶标的时候，不仅局限在临床相关性的统计分析，进一步可以选择其中有创新性的一个或多个，进行细胞、动物实验的表型验证。Gain of function，loss of function，证明这些分子之所以有表达差异，也有临床意义， 是因为它具有某种影响疾病、表型的功能。接下来继续探讨分子机制，下游通路、靶点，找上游驱动因素，甚至直接筛选和验证相互作用的分子，这样逐步深入发展成一个多元变量的高水平文章。</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="从文章数据的角度分析生信的意义"><a href="#从文章数据的角度分析生信的意义" class="headerlink" title="从文章数据的角度分析生信的意义"></a>从文章数据的角度分析生信的意义</h1><ul>
+<li>当一个课题满足单变量有表型，有数据有细胞也有动物，这就是个毛坯，想文章发得更高有3个方面的加分项可选</li>
+<li>第一，加生信分析，给这个分子套上一个怎么获得的理由， 找数据库里的样本资料给实验的结果做佐证，这可以加分。也就是说干湿结合并不一定就是从干的分析到湿的验证，有些人恰恰是先有了功能分子，然后反向往上找数据库验证，增加数据的说服力。</li>
+<li>第二，可以结合临床资料进行分层分析，有生存预后数据可以显著提升 项目的临床意义，对文章的价值影响不小，也是医生做科研的一个优势。</li>
+<li>第三个加分项是在机制上，特别是分子相互作用上精雕细琢，要知其然知其所以然。想象一下，一篇文章上来 会有数据库前人研究的数据挖掘指明一个方向，然后会有自己样本的一系列验证，还有临床相关性的统计分析结果，提出临床意义，接下来是细胞动物表型和分子机制的实验结果，做通路或者分子调控的时候用一些数据库预测和进行网络构建，除了间接机制还有直接靶点， 靶点预测也会用到数据库再加上经典实验验证，这样的文章无疑有满汉全席的味道。</li>
+<li>干湿结合之所以成为一种科研的趋势，是因为它确实给基础研究带来了解构问题的全面角度。分析预测和实验验证是密不可分的整体，一般来说机制做得强的实验室生信能力并不一定也强， 反之生信厉害的人一般做实验能力很弱，背后的原因是这些技能都需要花时间去修炼，你并没有比别人多出来的时间，所以两种技能都精通的人是稀缺的。文章到了一定档次，常规的套路大家都会，不会的也有合作伙伴来补位，发顶级期刊还是需要提出具有颠覆性的创新观点才行</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2017%20%E7%94%B2%E5%86%A0%E5%A4%A9%E4%B8%8B/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/cover2.jpg">
+                </span>
+                <h6 class="trm-op-title">三十六策 Lesson 17 甲冠天下</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%2015%20%E4%B8%80%E5%85%83%E4%B8%89%E5%BD%A2/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">三十六策 Lesson 15 一元三形</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="信息数据库"><a rel="nofollow" class="trm-toc-link" href="#信息数据库"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">信息数据库</span></a></li><li class="trm-toc-item trm-toc-level-1" title="通路数据库"><a rel="nofollow" class="trm-toc-link" href="#通路数据库"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">通路数据库</span></a></li><li class="trm-toc-item trm-toc-level-1" title="分子互作数据库"><a rel="nofollow" class="trm-toc-link" href="#分子互作数据库"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">分子互作数据库</span></a></li><li class="trm-toc-item trm-toc-level-1" title="样本数据库"><a rel="nofollow" class="trm-toc-link" href="#样本数据库"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">样本数据库</span></a></li><li class="trm-toc-item trm-toc-level-1" title="搜寻数据库的方法"><a rel="nofollow" class="trm-toc-link" href="#搜寻数据库的方法"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">搜寻数据库的方法</span></a></li><li class="trm-toc-item trm-toc-level-1" title="生信分析与统计方法的关系"><a rel="nofollow" class="trm-toc-link" href="#生信分析与统计方法的关系"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">生信分析与统计方法的关系</span></a></li><li class="trm-toc-item trm-toc-level-1" title="生信分析的研究策略"><a rel="nofollow" class="trm-toc-link" href="#生信分析的研究策略"><span class="trm-toc-number">7.</span> <span class="trm-toc-text">生信分析的研究策略</span></a></li><li class="trm-toc-item trm-toc-level-1" title="从文章数据的角度分析生信的意义"><a rel="nofollow" class="trm-toc-link" href="#从文章数据的角度分析生信的意义"><span class="trm-toc-number">8.</span> <span class="trm-toc-text">从文章数据的角度分析生信的意义</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋套路课   如果我也要做一样的研究，数据、模版和套路应该是怎么样的？   学习一篇顶尖的paper，一大半设计都可以临摹  论文的数据来源  如果我们自己开展课题，也可以从这四个方面进行功能基因表达水平的检测和分析 只要做的疾病是有人的组织和样品的，这套模式就适用；就算没有专门的疾病数据库，也可以从别人做的高通量文章里面去查目的基因表达">
+<meta property="og:type" content="article">
+<meta property="og:title" content="功能基因研究套路 Lesson 3 通用研究设计框架">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E5%8A%9F%E8%83%BD%E5%9F%BA%E5%9B%A0%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%203%20%E9%80%9A%E7%94%A8%E7%A0%94%E7%A9%B6%E8%AE%BE%E8%AE%A1%E6%A1%86%E6%9E%B6/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋套路课   如果我也要做一样的研究，数据、模版和套路应该是怎么样的？   学习一篇顶尖的paper，一大半设计都可以临摹  论文的数据来源  如果我们自己开展课题，也可以从这四个方面进行功能基因表达水平的检测和分析 只要做的疾病是有人的组织和样品的，这套模式就适用；就算没有专门的疾病数据库，也可以从别人做的高通量文章里面去查目的基因表达">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:27.200Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:27.200Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="解螺旋">
+<meta property="article:tag" content="套路课">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >功能基因研究套路 Lesson 3 通用研究设计框架</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:27"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            功能基因研究套路 Lesson 3 通用研究设计框架
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        解螺旋·套路课
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E5%A5%97%E8%B7%AF%E8%AF%BE/">套路课</a></p>
+</div>
+<blockquote>
+<p>如果我也要做一样的研究，数据、模版和套路应该是怎么样的？</p>
+</blockquote>
+<ul>
+<li>学习一篇顶尖的paper，一大半设计都可以临摹</li>
+</ul>
+<h1 id="论文的数据来源"><a href="#论文的数据来源" class="headerlink" title="论文的数据来源"></a>论文的数据来源</h1><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2013.32.43.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>如果我们自己开展课题，也可以从这四个方面进行功能基因表达水平的检测和分析</li>
+<li>只要做的疾病是有人的组织和样品的，这套模式就适用；就算没有专门的疾病数据库，也可以从别人做的高通量文章里面去查目的基因表达的情况，只要我们能取到组织，就一定有我们以外的人会去做筛选</li>
+<li>如果蛋白是分泌型蛋白，那我们就可以考虑从血液&#x2F;尿液等地方获取到标本，体液中的检测是可以作为疾病的biomarker的，有临床意义<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2013.51.51.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2013.54.26.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>过表达+细胞干扰看表型，这是一个功能基因研究必不可少的核心内容</li>
+<li>基础研究主要关注的就是细胞和分子，没有细胞模型&#x3D;巧妇无米之炊</li>
+<li>过表达+干扰和细胞模型+动物模型双重验证，都是基本套路<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2013.55.35.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>机制的内容，是围绕表型服务的，用来解释为什么分子具有这种功能的原因，只要开始做机制，就具备了发IF&#x3D;3以上的文章的潜力</li>
+<li>检测下游通路明星分子的变化——miRNA用qPCR，蛋白用western，注意这种时候要以通量换概率，甚至可以用通路芯片筛</li>
+<li>高级一点，就是所谓的“狙击”，与其关注目的基因能调控一堆明星分子，不如说清楚目的基因对一个分子的调控作用；入门的“狙击”可以从做rescue验证开始，用通路抑制剂二次验证</li>
+</ul>
+<h1 id="标签化的数据来源"><a href="#标签化的数据来源" class="headerlink" title="标签化的数据来源"></a>标签化的数据来源</h1><h2 id="生信分析"><a href="#生信分析" class="headerlink" title="生信分析"></a>生信分析</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2014.01.00.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>TCGA分析基因表达的差异</li>
+<li>GSEA分析分子表达的差异与通路的相关性，为机制研究提供方向</li>
+</ul>
+<h2 id="检测组织标本中CISD2的表达情况"><a href="#检测组织标本中CISD2的表达情况" class="headerlink" title="检测组织标本中CISD2的表达情况"></a>检测组织标本中CISD2的表达情况</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2014.02.11.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="细胞功能和动物表型"><a href="#细胞功能和动物表型" class="headerlink" title="细胞功能和动物表型"></a>细胞功能和动物表型</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2014.02.48.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="机制实验"><a href="#机制实验" class="headerlink" title="机制实验"></a>机制实验</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2014.05.50.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>机制研究也是细胞水平展开</li>
+<li>如果在做细胞表型验证的时候，把做了过表达和RNAi的样品留下来，再进行下游信号通路关键分子的检测，用同一批样品可以更好地保证结果的可靠性</li>
+</ul>
+<h1 id="自己的课题怎么设计"><a href="#自己的课题怎么设计" class="headerlink" title="自己的课题怎么设计"></a>自己的课题怎么设计</h1><ul>
+<li>想简单做机制——western，数据质量高一些可以加上通路抑制剂的rescue实验，再深入的部份就要回答分子具体怎么调节另外一个分子的问题，这个见后</li>
+<li>没有自己的样本——数据分析+细胞动物实验</li>
+<li>不想做动物——细胞表型+机制就投稿</li>
+<li>细胞动物机制都没有——有很多临床样本+好好分析，说不定也能投</li>
+<li><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96/%E4%B8%89%E5%8D%81%E5%85%AD%E7%AD%96%20Lesson%209%20%E5%9B%A0%E6%9D%90%E6%96%BD%E6%95%99/">三十六策Lesson 9中有功能基因研究的基本的五步骤</a><br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2014.21.39.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><ul>
+<li>基础表达检测：细胞和组织的，也包括从数据库里做表达的差异分析，目标是得到表达差异和临床相关性的证据</li>
+<li>制备基因操作工具<ul>
+<li>质粒、病毒</li>
+<li>siRNA</li>
+<li>一般交给公司来做</li>
+</ul>
+</li>
+<li>验证过表达和沉默的效率（qPCR和western）</li>
+<li>功能表型实验：筛的时候去找多一点的表型，确认了之后针对一个表型去做更加深入的，二次实验验证</li>
+<li>如果希望文章有更高的IF，可以用两株细胞相互佐证，一个表型至少要有2种实验相互佐证，这样严谨性会更好，rescue也能更好</li>
+</ul>
+</li>
+</ul>
+<h1 id="数据库部份值得学习的地方"><a href="#数据库部份值得学习的地方" class="headerlink" title="数据库部份值得学习的地方"></a>数据库部份值得学习的地方</h1><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2014.25.38.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>我们自己设计课题，数据库部份也要尽量能回答这四个问题</li>
+<li>先学这么一套，后面学数据怎么根据临床问题分层分析</li>
+<li>文章不足的地方：机制里做了p-AKT，题目里也提了AKT pathway，但是AKT的变化在标本中没有验证，如果能在人的标本中，把CISD2的高表达和AKT的表达情况做相关性分析，对于整个文章提出的科学假设，说服力会更高</li>
+</ul>
+<h1 id="细胞实验值得学习的地方"><a href="#细胞实验值得学习的地方" class="headerlink" title="细胞实验值得学习的地方"></a>细胞实验值得学习的地方</h1><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2014.40.29.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>多株细胞的基础表达检测，后面可以选择表达高的细胞干扰，表达低的细胞过表达</li>
+<li>在基因操作上，文章有过表达和RNAi一正一反的验证，这也很好</li>
+<li>大部份作者的常规简化处理方式：选择促进疾病发展的因素（目的基因在疾病发展中高表达）去做RNAi，选择保护性的因素（目的基因在疾病发展中低表达）去做过表达，把RNAi省略掉</li>
+<li>这篇文章的操作：两株细胞，两个靶点，多个表型实验平行验证，没有刻意去省工作量</li>
+<li>机制研究：rescue验证</li>
+</ul>
+<h1 id="动物实验"><a href="#动物实验" class="headerlink" title="动物实验"></a>动物实验</h1><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2014.40.12.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>这篇文章仅仅验证了增殖的表型，而且只做了RNAi的方向，省掉了一半的工作量</li>
+<li>对于下游的Akt以及通路蛋白变化，以及抑制剂的rescue表型，作者没有验证，随风飘过了</li>
+<li>想发更高水平的文章，体外实验当中的主要结论在体内模型中都是要验证的，这样才更加有严谨性</li>
+</ul>
+<h1 id="实验设计框架——填空题"><a href="#实验设计框架——填空题" class="headerlink" title="实验设计框架——填空题"></a>实验设计框架——填空题</h1><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2014.41.14.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>第一部份是组织水平水平的内容——样本资源</li>
+<li>输出三表一图这种标准数据</li>
+<li>细胞实验（略）</li>
+<li>机制实验：文章做了间接作用机制，没有找到CISD2的直接调控靶分子，如果想要更高的IF，就要往PPI的方向去探索了</li>
+<li>动物实验：工作量可多可少，最基本是把表型做重复，更好一点机制也要做重复，有些文章还可以有先成瘤，再打病毒的“基因治疗”验证，能够进一步提高临床的临床应用价值</li>
+<li>预算情况（大概是半包的预算，细胞表型需要自己摸索和重复），总计预算10-15万，差不多是青年基金的样子，不推荐把核心实验外包，因为很少有重复<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-05-10%2014.45.07.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>一个推测的时间周期：一年半文章见刊，实验是8-12个月</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E5%8A%9F%E8%83%BD%E5%9F%BA%E5%9B%A0%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%205%20%E6%96%87%E7%8C%AE%E5%AE%9E%E9%AA%8C%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">功能基因研究套路 Lesson 5 文献实验背景知识</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B%20Lesson%206%20%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">R语言教程 Lesson 6 分支结构</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="论文的数据来源"><a rel="nofollow" class="trm-toc-link" href="#论文的数据来源"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">论文的数据来源</span></a></li><li class="trm-toc-item trm-toc-level-1" title="标签化的数据来源"><a rel="nofollow" class="trm-toc-link" href="#标签化的数据来源"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">标签化的数据来源</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="生信分析"><a rel="nofollow" class="trm-toc-link" href="#生信分析"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">生信分析</span></a></li><li class="trm-toc-item trm-toc-level-2" title="检测组织标本中CISD2的表达情况"><a rel="nofollow" class="trm-toc-link" href="#检测组织标本中CISD2的表达情况"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">检测组织标本中CISD2的表达情况</span></a></li><li class="trm-toc-item trm-toc-level-2" title="细胞功能和动物表型"><a rel="nofollow" class="trm-toc-link" href="#细胞功能和动物表型"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">细胞功能和动物表型</span></a></li><li class="trm-toc-item trm-toc-level-2" title="机制实验"><a rel="nofollow" class="trm-toc-link" href="#机制实验"><span class="trm-toc-number">2.4.</span> <span class="trm-toc-text">机制实验</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="自己的课题怎么设计"><a rel="nofollow" class="trm-toc-link" href="#自己的课题怎么设计"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">自己的课题怎么设计</span></a></li><li class="trm-toc-item trm-toc-level-1" title="数据库部份值得学习的地方"><a rel="nofollow" class="trm-toc-link" href="#数据库部份值得学习的地方"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">数据库部份值得学习的地方</span></a></li><li class="trm-toc-item trm-toc-level-1" title="细胞实验值得学习的地方"><a rel="nofollow" class="trm-toc-link" href="#细胞实验值得学习的地方"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">细胞实验值得学习的地方</span></a></li><li class="trm-toc-item trm-toc-level-1" title="动物实验"><a rel="nofollow" class="trm-toc-link" href="#动物实验"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">动物实验</span></a></li><li class="trm-toc-item trm-toc-level-1" title="实验设计框架——填空题"><a rel="nofollow" class="trm-toc-link" href="#实验设计框架——填空题"><span class="trm-toc-number">7.</span> <span class="trm-toc-text">实验设计框架——填空题</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋生信全书富集分析  富集分析基本介绍 随着高通量技术的发展，生物医学相关研究领域进入了组学时代，单个基因的研究已经不能满足研究人员的需要。 然而，如此庞大的数据给信息的有效提取和分析带来了新的挑战。以测序数据为例，测序结果分析往往会得到差异表达的基因或蛋白列表。但对许多研究人员来说，将这一长串基因或蛋白与某个待研究的生物学现象及其潜在机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生信全书 Lesson 9 富集分析基础知识">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%209%20%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋生信全书富集分析  富集分析基本介绍 随着高通量技术的发展，生物医学相关研究领域进入了组学时代，单个基因的研究已经不能满足研究人员的需要。 然而，如此庞大的数据给信息的有效提取和分析带来了新的挑战。以测序数据为例，测序结果分析往往会得到差异表达的基因或蛋白列表。但对许多研究人员来说，将这一长串基因或蛋白与某个待研究的生物学现象及其潜在机">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:26.980Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:26.980Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="解螺旋">
+<meta property="article:tag" content="生信全书">
+<meta property="article:tag" content="富集分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >生信全书 Lesson 9 富集分析基础知识</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:26"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            生信全书 Lesson 9 富集分析基础知识
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        解螺旋·生信全书
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/">生信全书</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/">富集分析</a></p>
+</div>
+<h1 id="富集分析基本介绍"><a href="#富集分析基本介绍" class="headerlink" title="富集分析基本介绍"></a>富集分析基本介绍</h1><ul>
+<li>随着高通量技术的发展，生物医学相关研究领域进入了组学时代，单个基因的研究已经不能满足研究人员的需要。</li>
+<li>然而，如此庞大的数据给信息的有效提取和分析带来了新的挑战。以测序数据为例，测序结果分析往往会得到差异表达的基因或蛋白列表。但对许多研究人员来说，将这一长串基因或蛋白与某个待研究的生物学现象及其潜在机制联系起来是很困难的。</li>
+<li>应对这一挑战的一种方法就是将基因或者蛋白列表分成多个部分，从而减少分析的复杂度。研究人员为了解决分成哪些类，开发了多个注释数据库。</li>
+<li>为了解决怎么分成不同种类，研究者通常会对基因功能进行富集分析, 期望发现在生物学过程中起关键作用的生物通路, 从而揭示和理解生物学过程的基本分子机制，并且在这实现过程中开发了多种软件。</li>
+<li>功能富集分析，可以将成百上千个基因、蛋白或者其他分子分到不同的通路中，以减少分析的复杂度。我们常说的基因集富集分析，英文名Gene Sets Enrichment Analysis，主要目的就是用各种方法去获得所得基因列表的生物学解释，无论这个基因列表你是通过实验获得的还是从相关公共数据库上得到的</li>
+<li>经过富集分析之后，研究人员们寻找到一组有用的基因，以及这组基因集合共享的生物学意义的属性解释，比如说它们都属于某个基因的本体范畴，或者同为染色体某个臂的一部分，或者单纯就是由研究人员人为定义的一个有意义的基因集合。</li>
+<li>在过表达或敲减等不同实验条件下筛选出来的通路，比单一条件筛选得到的基因或蛋白列表更有说服力。</li>
+<li>基因集富集分析，其主要目的就是用各种方法去获得所得基因列表的生物学解释。通常是将获取的基因列表与数据库里的种属生物学背景进行比对，之后赋予输出结果相关的生物学意义。</li>
+</ul>
+<h1 id="富集分析方法介绍"><a href="#富集分析方法介绍" class="headerlink" title="富集分析方法介绍"></a>富集分析方法介绍</h1><ul>
+<li>四种主流的富集分析方法<ul>
+<li>ORA：Over-Representation Analysis：过代表分析<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-22%2017.36.26.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>FCS：Functional Class Scoring：功能集打分<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-22%2017.37.10.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>PT：Pathway Topology 通路拓扑结构分析<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-22%2017.37.25.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>NT：Network Topology 网络拓扑结构分析</li>
+</ul>
+</li>
+</ul>
+<h2 id="4大富集分析类别以及大致流程"><a href="#4大富集分析类别以及大致流程" class="headerlink" title="4大富集分析类别以及大致流程"></a>4大富集分析类别以及大致流程</h2><h3 id="得到基因数据作为富集分析的输入数据来源"><a href="#得到基因数据作为富集分析的输入数据来源" class="headerlink" title="得到基因数据作为富集分析的输入数据来源"></a>得到基因数据作为富集分析的输入数据来源</h3><ul>
+<li>以下图为例，来自于筛选，结果表示为基因列表或者基因表达谱<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-22%2016.55.56.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>以下图为例，来自于功能注释数据库，例如GO、KEGG、MSigDB等<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-22%2016.56.39.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h3 id="过代表分析ORA"><a href="#过代表分析ORA" class="headerlink" title="过代表分析ORA"></a>过代表分析ORA</h3><ul>
+<li>先计数基因列表与基因功能集共同的基因, 并利用2×2列联表, 进行Fisher 精确检验<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-22%2016.59.23.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h3 id="功能分类打分FCS"><a href="#功能分类打分FCS" class="headerlink" title="功能分类打分FCS"></a>功能分类打分FCS</h3><ul>
+<li>以GSEA为例</li>
+<li>首先，对基因表达谱中的所有基因按照与表型的差异表达程度排序, 再利用KS检验对待测功能基因集打分, 利用随机重排得到背景分布, 找出有显著富集的功能基因集<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-22%2017.01.00.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h3 id="基于通路拓扑结构PT"><a href="#基于通路拓扑结构PT" class="headerlink" title="基于通路拓扑结构PT"></a>基于通路拓扑结构PT</h3><ul>
+<li>以Pathway-Express为例</li>
+<li>根据上下游关系对通路进行打分，上游通路的影响因子较大</li>
+<li>对待测基因的功能集根据影响因子进行打分，然后根据统计检验模型计算显著程度<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-22%2017.04.17.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h3 id="基于网络的拓扑结构NT"><a href="#基于网络的拓扑结构NT" class="headerlink" title="基于网络的拓扑结构NT"></a>基于网络的拓扑结构NT</h3><ul>
+<li>以NEA为例</li>
+<li>将基因列表或基因表达谱和待测基因功能集放入生物网络中，计算感兴趣的基因与待测基因功能集在网络之间的最短距离</li>
+<li>通过对网络重调得到背景分布，找出显著富集的基因功能集<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-22%2017.04.35.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h2 id="四大富集分析类别的优缺点"><a href="#四大富集分析类别的优缺点" class="headerlink" title="四大富集分析类别的优缺点"></a>四大富集分析类别的优缺点</h2><h3 id="过代表分析ORA-1"><a href="#过代表分析ORA-1" class="headerlink" title="过代表分析ORA"></a>过代表分析ORA</h3><ul>
+<li>优点：有比较完备的统计学理论，输出结果稳健而可靠</li>
+<li>缺点<ul>
+<li>需要人为去设置阈值，不太客观</li>
+<li>忽略差异不显著的基因，可能会丢失显著性较低但比较关键的基因</li>
+<li>忽视了基因在通路内部生物学意义的不同，以及基因间复杂的相互作用</li>
+<li>假设通路与通路间是独立的，这是不太准确的</li>
+</ul>
+</li>
+</ul>
+<h3 id="功能分类打分FCS-1"><a href="#功能分类打分FCS-1" class="headerlink" title="功能分类打分FCS"></a>功能分类打分FCS</h3><ul>
+<li>优点<ul>
+<li>考虑到了基因表达值的属性信息问题；</li>
+<li>以待测基因功能集为对象来进行检验，使得检验结果更加灵敏以及更有针对性</li>
+</ul>
+</li>
+<li>缺点（基本同ORA）<ul>
+<li>独立分析每一条通路，但同一个基因可能涉及多条通路</li>
+<li>忽略了基因的生物学属性和基因间的复杂相互作用关系</li>
+</ul>
+</li>
+</ul>
+<h3 id="基于通路拓扑结构PT-1"><a href="#基于通路拓扑结构PT-1" class="headerlink" title="基于通路拓扑结构PT"></a>基于通路拓扑结构PT</h3><ul>
+<li>优点：对于研究一些比较完善、拓扑结构完整的通路会有更加强的显著性</li>
+<li>缺点：对于研究较少、信息不完善的通路时，稳定性较差</li>
+</ul>
+<h3 id="基于网络拓扑结构NT"><a href="#基于网络拓扑结构NT" class="headerlink" title="基于网络拓扑结构NT"></a>基于网络拓扑结构NT</h3><ul>
+<li>优点：加入了系统层面的基因重要程度，以及关联信息等属性数据，使得预测结果更加准确可靠</li>
+<li>缺点：算法过于复杂，计算速度比较慢，实现难度也更大，也需要更好的硬件水平</li>
+</ul>
+<h1 id="GO-KEGG富集分析原理和实现手段"><a href="#GO-KEGG富集分析原理和实现手段" class="headerlink" title="GO&#x2F;KEGG富集分析原理和实现手段"></a>GO&#x2F;KEGG富集分析原理和实现手段</h1><h2 id="简单介绍GO和KEGG"><a href="#简单介绍GO和KEGG" class="headerlink" title="简单介绍GO和KEGG"></a>简单介绍GO和KEGG</h2><h3 id="GO"><a href="#GO" class="headerlink" title="GO"></a>GO</h3><ul>
+<li>GO的全称是Gene Ontology，即基因本体论</li>
+<li>科研人员创建GO的初衷是希望提供一个能对基因和基因产物特性相关的术语或词义进行描绘及解释的工作平台，从而使生物信息学研究者对基因和基因产物的数据能够进行统一的归纳、处理、解释和共享，便于我们理解和沟通</li>
+<li>基因本体涉及的基因词汇和基因产物词汇分为3大类，涵盖生物学的3个方面<ul>
+<li>细胞组分cellular component：细胞的每个部份和细胞外环境</li>
+<li>分子功能molecular function：可以描述为分子水平的活性activity，如催化catalytic和结合binding</li>
+<li>生物过程biological process：由一个或多个分子功能有序组合而产生的系列事件，一般一个过程由多个不同的步骤组成</li>
+</ul>
+</li>
+<li>在这三个基因本体层次下面可以独立出不同的亚层次，层层向下构成一个gene ontologies的树型分支结构，如下图以生物过程为例的GO树状分支结构，我们把GO理解成生物学的统一化工具，是一套统一的描述生物学行为的语言就可以了<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-22%2017.57.43.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h3 id="KEGG"><a href="#KEGG" class="headerlink" title="KEGG"></a>KEGG</h3><ul>
+<li>引入KEGG的目的：对富集结果进行生物学解释</li>
+<li>KEGG是一个整合了基因组、化学和系统功能信息的，基因组破译相关的数据库，可以对更高层次和更复杂的细胞活动和生物体行为作出计算推测<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-22%2018.19.30.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>KEGG 的系统信息中PATHWAY数据库整合当前在分子互动网络，存储了一些更高级的功能信息，包括了细胞生化过程如代谢、膜转运、信号传递、细胞周期，还包括同系保守的子通路等信息通道</li>
+<li>KEGG的基因组信息中GENES、SSDB、KO数据库可以提供关于在基因组计划中发现的基因和蛋白质的相关知识，其中基因组信息存储在 KEGG 的 GENES数据库里，包括完整和部分测序的基因组序列，而 KO这个系统通过把分子网络的相关信息连接到基因组中，从而发展和促进了跨物种注释流程，实现了跨物种分析基因信息；KEGG的化学信息中COMPOUND、GLYCAN、REACTION等数据库则提供生化复合物及反应方面的知识</li>
+<li>KEGG还有几个补充数据库，其中一个叫LIGAND，里面还包含有化学物质、酶分子、酶反应等信息。</li>
+<li>把从已经完整测序的基因组中得到的基因目录与更高级别的细胞、物种和生态系统水平的系统功能关联起来是KEGG数据库的特色之一</li>
+<li>KEGG利用图形而不是繁缛的文字来介绍众多的代谢途径以及各途径之间的关系，这样可以使研究者能够对其所要研究的代谢途径有一个直观全面的了解。而我们可以将 GO富集分析的数据结果录入 KEGG不同的次级数据库中进行分析，也许可以得到不同维度的结果信息，使我们能够挖掘更多的数据信息，</li>
+<li>KEGG还提供了Java的图形工具来访问基因组图谱，比较基因组图谱和操作表达图谱，以及其它序列比较、图形比较和通路计算的工具，这个是可以免费获取的。</li>
+</ul>
+<h2 id="GO-KEGG富集分析原理以及实现手段"><a href="#GO-KEGG富集分析原理以及实现手段" class="headerlink" title="GO&#x2F;KEGG富集分析原理以及实现手段"></a>GO&#x2F;KEGG富集分析原理以及实现手段</h2><ul>
+<li>典型的ORA研究类型的套路</li>
+</ul>
+<h3 id="使用GO富集分析工具"><a href="#使用GO富集分析工具" class="headerlink" title="使用GO富集分析工具"></a>使用GO富集分析工具</h3><h3 id="输出解释结果表"><a href="#输出解释结果表" class="headerlink" title="输出解释结果表"></a>输出解释结果表</h3><h3 id="富集分析结果输出"><a href="#富集分析结果输出" class="headerlink" title="富集分析结果输出"></a>富集分析结果输出</h3><h3 id="KEGG分析"><a href="#KEGG分析" class="headerlink" title="KEGG分析"></a>KEGG分析</h3><h1 id="数据要求"><a href="#数据要求" class="headerlink" title="数据要求"></a>数据要求</h1><ul>
+<li>一列基因名&#x2F;基因ID序列<ul>
+<li>在进行测序数据下游分析时，我们常常需要用到不同的数据库，而这些数据库的分析的输入文件经常是各有区别，因此我们常常需要将各类ID，如ensamble ID、Entrez ID、gene symbol等进行转换。</li>
+</ul>
+</li>
+<li>其他基因属性信息<ul>
+<li>时间相关的基因表达值</li>
+<li>实验组、对照组、背景比较</li>
+<li>其他</li>
+</ul>
+</li>
+</ul>
+<h2 id="ORA类数据"><a href="#ORA类数据" class="headerlink" title="ORA类数据"></a>ORA类数据</h2><ul>
+<li>以DAVID为例：要求为一列基因ID，一行一个，不区分大小写</li>
+<li>一列芯片ID，也可以转换成gene symbol&#x2F;ensembl_gene_ID等等，这时select identifier也要做对应的改变<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-22%2018.34.27.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h2 id="FCS类数据"><a href="#FCS类数据" class="headerlink" title="FCS类数据"></a>FCS类数据</h2><ul>
+<li>以GSEA为例：每个基因一行，每个基因需要我们输入3部份<ul>
+<li>基因的ID</li>
+<li>基因描述（不重要但必须有）</li>
+<li>不同样本的表达值（打分的关键），如果缺失也是允许的</li>
+</ul>
+</li>
+<li>不同的上传格式，缺失值的表达方式是不同的<ul>
+<li>PCL: Stanford cDNA file format的excel表格 cDNA 相关的，出现缺失值，那一个位置就空着</li>
+<li>如果是GCT: Gene Cluster Text file format基因聚类的，缺失则需要在那一格中注释 NA或NULL</li>
+</ul>
+</li>
+</ul>
+<h1 id="ID转换数据库"><a href="#ID转换数据库" class="headerlink" title="ID转换数据库"></a>ID转换数据库</h1><ul>
+<li>基因名向基因ID的转换<ul>
+<li>bioDBnet</li>
+<li>g:Profiler</li>
+<li>bioMart</li>
+</ul>
+</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%2010.1%20%E5%8D%95%E5%9F%BA%E5%9B%A0GO-KEGG%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">生信全书 Lesson 10.1 单基因GO-KEGG富集分析</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%208.3%20%E5%9F%BA%E5%9B%A0ID%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">生信全书 Lesson 8.3 基因ID转换工具</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="富集分析基本介绍"><a rel="nofollow" class="trm-toc-link" href="#富集分析基本介绍"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">富集分析基本介绍</span></a></li><li class="trm-toc-item trm-toc-level-1" title="富集分析方法介绍"><a rel="nofollow" class="trm-toc-link" href="#富集分析方法介绍"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">富集分析方法介绍</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="4大富集分析类别以及大致流程"><a rel="nofollow" class="trm-toc-link" href="#4大富集分析类别以及大致流程"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">4大富集分析类别以及大致流程</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="得到基因数据作为富集分析的输入数据来源"><a rel="nofollow" class="trm-toc-link" href="#得到基因数据作为富集分析的输入数据来源"><span class="trm-toc-number">2.1.1.</span> <span class="trm-toc-text">得到基因数据作为富集分析的输入数据来源</span></a></li><li class="trm-toc-item trm-toc-level-3" title="过代表分析ORA"><a rel="nofollow" class="trm-toc-link" href="#过代表分析ORA"><span class="trm-toc-number">2.1.2.</span> <span class="trm-toc-text">过代表分析ORA</span></a></li><li class="trm-toc-item trm-toc-level-3" title="功能分类打分FCS"><a rel="nofollow" class="trm-toc-link" href="#功能分类打分FCS"><span class="trm-toc-number">2.1.3.</span> <span class="trm-toc-text">功能分类打分FCS</span></a></li><li class="trm-toc-item trm-toc-level-3" title="基于通路拓扑结构PT"><a rel="nofollow" class="trm-toc-link" href="#基于通路拓扑结构PT"><span class="trm-toc-number">2.1.4.</span> <span class="trm-toc-text">基于通路拓扑结构PT</span></a></li><li class="trm-toc-item trm-toc-level-3" title="基于网络的拓扑结构NT"><a rel="nofollow" class="trm-toc-link" href="#基于网络的拓扑结构NT"><span class="trm-toc-number">2.1.5.</span> <span class="trm-toc-text">基于网络的拓扑结构NT</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="四大富集分析类别的优缺点"><a rel="nofollow" class="trm-toc-link" href="#四大富集分析类别的优缺点"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">四大富集分析类别的优缺点</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="过代表分析ORA"><a rel="nofollow" class="trm-toc-link" href="#过代表分析ORA-1"><span class="trm-toc-number">2.2.1.</span> <span class="trm-toc-text">过代表分析ORA</span></a></li><li class="trm-toc-item trm-toc-level-3" title="功能分类打分FCS"><a rel="nofollow" class="trm-toc-link" href="#功能分类打分FCS-1"><span class="trm-toc-number">2.2.2.</span> <span class="trm-toc-text">功能分类打分FCS</span></a></li><li class="trm-toc-item trm-toc-level-3" title="基于通路拓扑结构PT"><a rel="nofollow" class="trm-toc-link" href="#基于通路拓扑结构PT-1"><span class="trm-toc-number">2.2.3.</span> <span class="trm-toc-text">基于通路拓扑结构PT</span></a></li><li class="trm-toc-item trm-toc-level-3" title="基于网络拓扑结构NT"><a rel="nofollow" class="trm-toc-link" href="#基于网络拓扑结构NT"><span class="trm-toc-number">2.2.4.</span> <span class="trm-toc-text">基于网络拓扑结构NT</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="GO&#x2F;KEGG富集分析原理和实现手段"><a rel="nofollow" class="trm-toc-link" href="#GO-KEGG富集分析原理和实现手段"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">GO&#x2F;KEGG富集分析原理和实现手段</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="简单介绍GO和KEGG"><a rel="nofollow" class="trm-toc-link" href="#简单介绍GO和KEGG"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">简单介绍GO和KEGG</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="GO"><a rel="nofollow" class="trm-toc-link" href="#GO"><span class="trm-toc-number">3.1.1.</span> <span class="trm-toc-text">GO</span></a></li><li class="trm-toc-item trm-toc-level-3" title="KEGG"><a rel="nofollow" class="trm-toc-link" href="#KEGG"><span class="trm-toc-number">3.1.2.</span> <span class="trm-toc-text">KEGG</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="GO&#x2F;KEGG富集分析原理以及实现手段"><a rel="nofollow" class="trm-toc-link" href="#GO-KEGG富集分析原理以及实现手段"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">GO&#x2F;KEGG富集分析原理以及实现手段</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="使用GO富集分析工具"><a rel="nofollow" class="trm-toc-link" href="#使用GO富集分析工具"><span class="trm-toc-number">3.2.1.</span> <span class="trm-toc-text">使用GO富集分析工具</span></a></li><li class="trm-toc-item trm-toc-level-3" title="输出解释结果表"><a rel="nofollow" class="trm-toc-link" href="#输出解释结果表"><span class="trm-toc-number">3.2.2.</span> <span class="trm-toc-text">输出解释结果表</span></a></li><li class="trm-toc-item trm-toc-level-3" title="富集分析结果输出"><a rel="nofollow" class="trm-toc-link" href="#富集分析结果输出"><span class="trm-toc-number">3.2.3.</span> <span class="trm-toc-text">富集分析结果输出</span></a></li><li class="trm-toc-item trm-toc-level-3" title="KEGG分析"><a rel="nofollow" class="trm-toc-link" href="#KEGG分析"><span class="trm-toc-number">3.2.4.</span> <span class="trm-toc-text">KEGG分析</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="数据要求"><a rel="nofollow" class="trm-toc-link" href="#数据要求"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">数据要求</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="ORA类数据"><a rel="nofollow" class="trm-toc-link" href="#ORA类数据"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">ORA类数据</span></a></li><li class="trm-toc-item trm-toc-level-2" title="FCS类数据"><a rel="nofollow" class="trm-toc-link" href="#FCS类数据"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">FCS类数据</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="ID转换数据库"><a rel="nofollow" class="trm-toc-link" href="#ID转换数据库"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">ID转换数据库</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

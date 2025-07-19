@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研单细胞测序UCSF   来源：BV1q34y1m7FC  讲者介绍 什么是单细胞测序（主要讨论RNA的测序）为什么要做单细胞测序 假如你正在研究一份血液样本，想看看血液成份的表达谱，血液是许多不同类型细胞的复杂混合物，比如B细胞、T细胞、巨噬细胞和中性粒细胞，但是如果直接测血液内的RNA含量，显然是极为困难的（因为各种细胞都混在一起了）就像一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单细胞测序概述">
+<meta property="og:url" content="http://example.com/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E5%8D%95%E7%BB%86%E8%83%9E%E6%B5%8B%E5%BA%8F%E6%A6%82%E8%BF%B0/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研单细胞测序UCSF   来源：BV1q34y1m7FC  讲者介绍 什么是单细胞测序（主要讨论RNA的测序）为什么要做单细胞测序 假如你正在研究一份血液样本，想看看血液成份的表达谱，血液是许多不同类型细胞的复杂混合物，比如B细胞、T细胞、巨噬细胞和中性粒细胞，但是如果直接测血液内的RNA含量，显然是极为困难的（因为各种细胞都混在一起了）就像一">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:27.860Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:27.860Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="单细胞测序">
+<meta property="article:tag" content="UCSF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >单细胞测序概述</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:27"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/cover2.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            单细胞测序概述
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        B站ID：Biomamba-生信基地
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E5%8D%95%E7%BB%86%E8%83%9E%E6%B5%8B%E5%BA%8F/">单细胞测序</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/UCSF/">UCSF</a></p>
+</div>
+<blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1q34y1m7FC/">BV1q34y1m7FC</a></p>
+</blockquote>
+<h1 id="讲者介绍"><a href="#讲者介绍" class="headerlink" title="讲者介绍"></a>讲者介绍</h1><p><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-05%2013.50.27.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h1 id="什么是单细胞测序（主要讨论RNA的测序）"><a href="#什么是单细胞测序（主要讨论RNA的测序）" class="headerlink" title="什么是单细胞测序（主要讨论RNA的测序）"></a>什么是单细胞测序（主要讨论RNA的测序）</h1><h2 id="为什么要做单细胞测序"><a href="#为什么要做单细胞测序" class="headerlink" title="为什么要做单细胞测序"></a>为什么要做单细胞测序</h2><blockquote>
+<p>假如你正在研究一份血液样本，想看看血液成份的表达谱，血液是许多不同类型细胞的复杂混合物，比如B细胞、T细胞、巨噬细胞和中性粒细胞，但是如果直接测血液内的RNA含量，显然是极为困难的（因为各种细胞都混在一起了）<br>就像一杯混合水果果汁一样，水果果汁里面有树莓、橙子、菠萝、香蕉、草莓五种水果，而你只对树莓和橙子感兴趣；在直接喝果汁的情况下，显然是很难去确定哪些味道是来自于树莓的</p>
+</blockquote>
+<h2 id="单细胞测序可以区分出细胞的种类"><a href="#单细胞测序可以区分出细胞的种类" class="headerlink" title="单细胞测序可以区分出细胞的种类"></a>单细胞测序可以区分出细胞的种类</h2><p><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-05%2014.05.47.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>上图展示了一个来自血液样本的数据，在这张图中，成千上万的单个细胞被并行处理，每个单细胞的转录本都进行了测序和分析，可以检测到存在于人类基因组中的2万个以上的不同的基因。</li>
+<li>然而，从2万个维度去描述数据是非常困难的，所以我们需要对这些数据进行降维处理，使用一些方法把它们压缩成二维的数据，我们有很多选择（比如PCA、tSNE、UMAP等），最终会得到上面的图</li>
+<li>上面的图中，每一个小点代表了一个细胞，对于聚在一起的小点（细胞），它们距离越小，彼此之间的相似程度就越高，我们把这种图称为细胞群图，每个群代表了不同种类的细胞</li>
+<li>这张图的意义：这张图本身的意义不大，能让我们知道我们的样本中有哪几种细胞类型，但你没办法知道他们具体是什么<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-05%2014.11.53.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>当然，我们可以对数据进行深入研究，比如我们可以针对某一群细胞，去探究他们具体在哪个转录本上有差异（使得两个亚群的细胞可以被区分开），我们对许多基因这样做了之后，就可以用这些信息（某一群细胞表达某些基因、而不表达另一些基因）来把细胞们分成不同的集群，就像下图这样<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-05%2014.17.56.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>我们会通过观察每一群细胞的转录谱，来识别和观察很多不同的细胞类型</li>
+</ul>
+<h2 id="流式细胞学v-s-单细胞测序"><a href="#流式细胞学v-s-单细胞测序" class="headerlink" title="流式细胞学v.s.单细胞测序"></a>流式细胞学v.s.单细胞测序</h2><ul>
+<li>流式细胞学也可以获得相同的结果，那么为什么我们还要进行单细胞测序呢？</li>
+<li>其中一个原因是这些细胞群可以进一步细分，通过不同的基因进行重新组合分析，因此，我们可以对可能存在于样本中的多达2万个差异表达的基因进行再次度量，而使用流式细胞学和质谱流式细胞学可能使得我们受限于几十个标记中<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-05%2014.21.43.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>举例，如果我们要细分上图中这个绿色的圈里的细胞群，忽略其他的细胞，并且把这群细胞的特点分得再详细一点，放大这些特点并且重新归类，我们会把这群绿色的细胞单独拿出来，然后根据他们之间的差异，将他们进一步、更细致地重新分群<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-05%2014.23.45.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>这个过程其实可以无限重复下去，如果我们找到了感兴趣的细胞，就可以深入研究一下，看看这群细胞中是否有明显的基因表达特征，可以进一步细分亚群，这才是单细胞测序真正的力量，我们可以得到一组非常高纬度的数据，这是其他方法无法获得的</li>
+</ul>
+<h2 id="单细胞测序在过去的10年使用得越来越多"><a href="#单细胞测序在过去的10年使用得越来越多" class="headerlink" title="单细胞测序在过去的10年使用得越来越多"></a>单细胞测序在过去的10年使用得越来越多</h2><p><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-05%2014.27.31.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>2009年，世界上第一次有人进行了单细胞测序，他测序了1个细胞</li>
+<li>多年来，在不同的研究中，细胞的数量呈现指数级的增长，上图里的每一个圈都对应着不同的出版物和分析的细胞数量</li>
+</ul>
+<h1 id="平板法plate-based-methods"><a href="#平板法plate-based-methods" class="headerlink" title="平板法plate-based methods"></a>平板法plate-based methods</h1><ul>
+<li>把每个细胞分到平板的不同孔中，对每个细胞单独建库，然后进行测序</li>
+<li>这种方法也可以叫基于平板的SMART-seq计数，plate-based SMART-seq<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-05%2015.24.55.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>使用流式细胞仪对意向细胞进行分类，把一个细胞放到96或者384孔板的每个孔中，然后裂解细胞，再使用SMART-seq进行逆转录反应建库</li>
+<li>在这种建库方法中，我们有一个oligo-dT（多聚T重复的寡核苷酸），用于引发逆转录反应（与有poly-A尾的mRNA），oligo-dT的尾端有一个把手（oligo-dG）</li>
+<li>逆转录酶使用RNA作为模版合成DNA，这种合成的DNA末端会在酶的作用下，添加几个非模版的C碱基，这些C碱基会被用来与末端带有G的模版转换寡核苷酸结合</li>
+<li>接下来，当我们在反应体系中加入模版转换用的oligo-dG上，逆转录酶就能使用这种模版转录核苷酸作为进一步聚合的模版，最后我们就得到了两边都有PCR把手的cDNA<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-05%2015.50.35.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>接着，我们进行PCR反应后，每种cDNA就可以得到很多很多个拷贝，然后我们可以开始进入样品制备，这个方法叫Nextera DNA文库制备法<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-05%2015.51.37.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>最下面的DNA链实际有两条</li>
+<li>Nextera转座酶会将cDNA片段化为更小的片段，添加部份的illumina接头，然后通过PCR扩增这些物质，并完成文库的准备过程</li>
+<li>这种方法的上限是几百和几千个样本，但这会有很多工作量，因为每个细胞都要分别处理，有大量的移液、加样、点样的过程，这些过程都是手动的；而且，其实这种方法相当昂贵，因为相当于每个细胞都要进行单独的DNA库样品制备</li>
+</ul>
+<h1 id="微流体法microfluid-based-methods"><a href="#微流体法microfluid-based-methods" class="headerlink" title="微流体法microfluid-based methods"></a>微流体法microfluid-based methods</h1><h2 id="Dropseq"><a href="#Dropseq" class="headerlink" title="Dropseq"></a>Dropseq</h2><ul>
+<li>本质是使用微流体芯片，或者说非常小的液滴，并在这些液滴中进行分子生物学过程<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-05%2015.55.05.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在芯片（反应场所）中，磁珠beads从左边流入，细胞从第一个连接处进入，这时细胞和磁珠会有不均匀的混合，混合物在下一个入口会遇到流入的油，油的加入会使水流截断并形成乳液，也就是油包水，水里可能有磁珠和&#x2F;或细胞</li>
+<li>我们最终会得到很多液滴，这些液滴中大部份是空的，有些液滴会包含有磁珠，有些液滴会包含细胞，<strong>一小部份液滴中</strong>会同时有一个磁珠和一个细胞</li>
+<li>磁珠的特别之处1：磁珠表面含有大量的oligo-dT，这些oligo-dT可以用于捕获和磁珠在一个液滴中的细胞的mRNA</li>
+<li>磁珠的特别之处2：每个磁珠的oligo-dT后会含有特殊的一段序列，被称为bardode</li>
+<li>接着RNA被捕获到磁珠上，我们会把液滴打破，然后进行逆转录反应（下图1到下图2），这样每个磁珠上逆转录出的cDNA都会有相同的barcode<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2000.51.23.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2001.01.35.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>接着，我们可以准备DNA测序库，对所有转录本的末端进行测序；由于我们已经对每一个转录本都做了对应的标记，而且都带着用于对应一个细胞的barcode </li>
+<li>用这种方法，我们可以去并行处理很多很多管细胞，可以处理上千甚至上万的细胞</li>
+</ul>
+<h3 id="这种方法的缺点"><a href="#这种方法的缺点" class="headerlink" title="这种方法的缺点"></a>这种方法的缺点</h3><ul>
+<li>只有液滴中的一少部份含有磁珠，绝大部分液滴都不含有任何物质</li>
+<li>细胞和磁珠是随机封装在这些液滴中的，所以也会有一个液滴里封装了2+个细胞和&#x2F;或磁珠的情况，而且这种情况会随着你增加细胞和磁珠的浓度来而增加，而且没有办法将它们在测序的过程中区分开来<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2002.17.44.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>总结来说，在使用这种方法时，我们还是要使用比较低的细胞和磁珠浓度，来避免同一个液滴里封装了2+个细胞的情况。</li>
+</ul>
+<h2 id="10✖️-Genomics"><a href="#10✖️-Genomics" class="headerlink" title="10✖️ Genomics"></a>10✖️ Genomics</h2><p><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2002.38.23.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>和上面一家公司的操作差不多，有从侧面流入的，含有barcode的磁珠，细胞和试剂首先与磁珠混合，然后油进入，产生乳液</li>
+<li>在上图中，大多数磁珠都只含有一个细胞，这是因为这家公司设计了特别的微流体装置和磁珠，在这些特殊的设备作用下，90%的液滴会包含一颗磁珠，而且只含有一颗磁珠，这大大提高了效率</li>
+<li>这种技术的另一个不同：在液滴中不仅可以捕获细胞，而且可以进行逆转录</li>
+<li>在逆转录反应结束后，我们在单管中打破乳液，提取cDNA并且进行扩增，然后在单管中构建测序库<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2003.00.52.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>一个芯片的每个通道上可以测25,000个细胞，一个芯片有8个通道，所以是合计20万个细胞（理论上），而这个过程可以在一天之内完成。</li>
+</ul>
+<h2 id="微孔法microwells"><a href="#微孔法microwells" class="headerlink" title="微孔法microwells"></a>微孔法microwells</h2><ul>
+<li>无需液滴的平行单细胞测序</li>
+<li>我们有非常小的微孔阵列，每个微孔可能只有几十到几百微米，有一些公司，比如SeqWell、Celsee、BD在做这样的产品</li>
+<li>工作原理：微孔阵列中放入磁珠，这些磁珠经过特殊设计，以至于一个微孔中只能放进一颗磁珠，在放入磁珠后这个混合物会有点像一板单独隔开的磁珠，然后把细胞铺在这个板上<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2011.34.07.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'> </li>
+<li>比如在上图中，有细胞的部份被标记为红色，有磁珠的区域是蓝色，细胞会落入有磁珠的孔中</li>
+<li>接着，我们去裂解细胞，然后进行所有酶促反应-建库</li>
+<li>这种方法的通量会更高，可以有数十万个孔，甚至是数百万个孔在一个芯片上</li>
+</ul>
+<h1 id="组合索引法combinational-indexing-methods"><a href="#组合索引法combinational-indexing-methods" class="headerlink" title="组合索引法combinational indexing methods"></a>组合索引法combinational indexing methods</h1><ul>
+<li>进行非常多的原位反应（使用微孔作为隔间）</li>
+<li>进行多轮的barcoding和混合，因为多轮的barcode会生成不同的混合，最终会获得单个细胞的数据<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2012.03.15.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>图片的最左边，我们会看到固定和透化(permeabilized)的细胞，以便试剂可以流入和流出细胞</li>
+<li>平板的每个孔中仍然有很多个细胞，每个孔中有不同barcode的oligo-dT引物，在第一轮逆转录PCR之后，你会筛选出图中的三个孔中的细胞（分别用红色、绿色和蓝色标记），我们将这些细胞混合在一起，或者将它们打乱，然后随机分配，加到一组新的96孔板中</li>
+<li>第二次混合时，我们会将逆转录出的cDNA提取出，用特殊的引物去添加第二个barcode，进行PCR</li>
+<li>对于两轮反应：我们有96✖️96，大概10000种选择，比如说如果我们要测序1000个细胞，那我们就不太可能遇到两个细胞出现在一个孔中的情况<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2012.15.12.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>最终的产物如上图所示</li>
+<li>这种技术的魅力：非常高的通量，可以有接近15万个细胞（而且在现实研究中，使用多达384孔板实际上并不常见<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2013.35.02.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="其他单细胞测序法（非RNA）"><a href="#其他单细胞测序法（非RNA）" class="headerlink" title="其他单细胞测序法（非RNA）"></a>其他单细胞测序法（非RNA）</h1><h2 id="利用CITE-seq技术量化蛋白质"><a href="#利用CITE-seq技术量化蛋白质" class="headerlink" title="利用CITE-seq技术量化蛋白质"></a>利用CITE-seq技术量化蛋白质</h2><ul>
+<li>使用抗体与目标蛋白结合（这个抗体与用于流式细胞学的抗体类似），这个抗体不会连着一个荧光基团（用于流式读取），或是同位素（例如CyTOF），而是结合在DNA barcode上<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2013.37.03.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>就像上图a所示，我们可以看到抗体的C段连着一个用于启示PCR反应的PCR handle，然后连着一段用于鉴定这个抗体信息的barcode，最后是poly-A尾（就像mRNA上的poly-A尾一样，允许这段DNA序列被单细胞测序方法捕获）</li>
+<li>有大概100种左右的抗体可以和单细胞测序结合使用，很厉害的一点是我们不仅可以获得蛋白质丰度（对于有抗体的蛋白质），同时还可以获得这个细胞转录组的情况</li>
+<li>也就是说，这种测序方法本质是一种多组学方法，可以同时分析蛋白质和mRNA</li>
+</ul>
+<h3 id="技术的局限：上样浓度loading-concentration"><a href="#技术的局限：上样浓度loading-concentration" class="headerlink" title="技术的局限：上样浓度loading concentration"></a>技术的局限：上样浓度loading concentration</h3><p><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2013.48.15.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2013.53.23.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>和上面我们说过的内容一样，我们希望使用液滴法的时候，磁珠和细胞的浓度都不希望太高，以避免一个液滴中出现两个以上细胞（和&#x2F;或磁珠）</li>
+<li>我们确实可以使用一些计算的方法，来将一液滴复数细胞（和&#x2F;或磁珠）从我们的数据分析中删除</li>
+</ul>
+<h2 id="demuxlet"><a href="#demuxlet" class="headerlink" title="demuxlet"></a>demuxlet</h2><p><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2014.07.29.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>demuxlet技术会使用双重barcode，在细胞上有一条barcode（多样本上样进一个芯片，然后在样本处理阶段引入第一条barcode，即细胞barcode），然后在测序阶段引入第二条barcode（磁珠barcode），然后进行测序</li>
+<li>在测序的阶段，如果我们发现了一个液滴中含有两个细胞（在这种情况下，一个液滴中的两个细胞通常是不同来源的，也就是带有不同的细胞barcode），那这样我们就可以在数据分析阶段，通过相同的磁珠barcode+不同的细胞barcode，来剔除这部份数据</li>
+</ul>
+<h2 id="非遗传的的multiplexing策略"><a href="#非遗传的的multiplexing策略" class="headerlink" title="非遗传的的multiplexing策略"></a>非遗传的的multiplexing策略</h2><ul>
+<li>non-genetic multiplexing strategies</li>
+<li>multiplexing：笔者的理解是多样本单次检测，节省成本的同时提高通量</li>
+</ul>
+<h3 id="基于抗体的multiplexing策略"><a href="#基于抗体的multiplexing策略" class="headerlink" title="基于抗体的multiplexing策略"></a>基于抗体的multiplexing策略</h3><ul>
+<li>demuxlet的方法存在局限性，具体来说，我们会使用细胞barcode来区分来源不同细胞的基因组，但是，如果每个细胞的基因组都是一致的，这种方法就不再有效了<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2014.17.35.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>这种技术是由开发了前面说过的CITE-seq技术的人开发出来的</li>
+<li>思路是通过使用与细胞表面某种通用抗原结合的抗体，将一大份抗体分成几等分，然后每个部份给对应的一个barcode，然后每个barcode抗体加入不同来源的样本，然后上机测序。</li>
+<li>这种方法也能解决单一液滴中复数细胞的问题，如果你在一个液滴中检测到了复数barcode的样品，你就会知道你的样品混入了两个不同来源的细胞，进而将它们剔除</li>
+</ul>
+<h3 id="基于杂合DNA的multiplexing策略"><a href="#基于杂合DNA的multiplexing策略" class="headerlink" title="基于杂合DNA的multiplexing策略"></a>基于杂合DNA的multiplexing策略</h3><ul>
+<li>使用嵌入细胞膜的脂化DNA<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-06%2014.55.11.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在每个样本池中加入不同的barcode，然后将它们汇集在一起</li>
+<li>在上图的例子中，我们可以标记96种不同的样本，将它们汇集在一起，同时还能区分一个液滴内含有复数中细胞的情况。</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="各种各样的单细胞测序方法"><a href="#各种各样的单细胞测序方法" class="headerlink" title="各种各样的单细胞测序方法"></a>各种各样的单细胞测序方法</h2><ul>
+<li>DNA、RNA、蛋白质</li>
+<li>染色质可及性</li>
+<li>……</li>
+<li>每隔几周就会有新的方法</li>
+</ul>
+<h2 id="单细胞测序会产生高维度数据"><a href="#单细胞测序会产生高维度数据" class="headerlink" title="单细胞测序会产生高维度数据"></a>单细胞测序会产生高维度数据</h2><ul>
+<li>特别是在研究RNA时，我们实际上在探究一个细胞内所有2万种不同基因的数量或表达水平</li>
+</ul>
+<h2 id="单细胞测序技术的缺点"><a href="#单细胞测序技术的缺点" class="headerlink" title="单细胞测序技术的缺点"></a>单细胞测序技术的缺点</h2><ul>
+<li>相比于流式细胞学或质谱流式细胞学</li>
+<li>产量较低</li>
+<li>价格较高</li>
+</ul>
+<h2 id="不基于单细胞的测序方法"><a href="#不基于单细胞的测序方法" class="headerlink" title="不基于单细胞的测序方法"></a>不基于单细胞的测序方法</h2><ul>
+<li>seqFISH、MERFISH、CODEX</li>
+<li>基于显微镜</li>
+<li>更低的产量，但是会带有空间信息</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E7%94%9F%E4%BF%A1%E7%94%A8Linux%E6%95%99%E7%A8%8B%20Lesson%202%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6%E7%BB%84%E6%88%90%20&%20Linux/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/cover3.jpg">
+                </span>
+                <h6 class="trm-op-title">生信用Linux教程 Lesson 2 计算机软件组成 &amp; Linux</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E5%8D%95%E7%BB%86%E8%83%9E%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90%20Lesson%201%20%E6%A6%82%E8%BF%B0/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">单细胞转录组分析 Lesson 1 概述</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="讲者介绍"><a rel="nofollow" class="trm-toc-link" href="#讲者介绍"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">讲者介绍</span></a></li><li class="trm-toc-item trm-toc-level-1" title="什么是单细胞测序（主要讨论RNA的测序）"><a rel="nofollow" class="trm-toc-link" href="#什么是单细胞测序（主要讨论RNA的测序）"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">什么是单细胞测序（主要讨论RNA的测序）</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="为什么要做单细胞测序"><a rel="nofollow" class="trm-toc-link" href="#为什么要做单细胞测序"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">为什么要做单细胞测序</span></a></li><li class="trm-toc-item trm-toc-level-2" title="单细胞测序可以区分出细胞的种类"><a rel="nofollow" class="trm-toc-link" href="#单细胞测序可以区分出细胞的种类"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">单细胞测序可以区分出细胞的种类</span></a></li><li class="trm-toc-item trm-toc-level-2" title="流式细胞学v.s.单细胞测序"><a rel="nofollow" class="trm-toc-link" href="#流式细胞学v-s-单细胞测序"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">流式细胞学v.s.单细胞测序</span></a></li><li class="trm-toc-item trm-toc-level-2" title="单细胞测序在过去的10年使用得越来越多"><a rel="nofollow" class="trm-toc-link" href="#单细胞测序在过去的10年使用得越来越多"><span class="trm-toc-number">2.4.</span> <span class="trm-toc-text">单细胞测序在过去的10年使用得越来越多</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="平板法plate-based methods"><a rel="nofollow" class="trm-toc-link" href="#平板法plate-based-methods"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">平板法plate-based methods</span></a></li><li class="trm-toc-item trm-toc-level-1" title="微流体法microfluid-based methods"><a rel="nofollow" class="trm-toc-link" href="#微流体法microfluid-based-methods"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">微流体法microfluid-based methods</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="Dropseq"><a rel="nofollow" class="trm-toc-link" href="#Dropseq"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">Dropseq</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="这种方法的缺点"><a rel="nofollow" class="trm-toc-link" href="#这种方法的缺点"><span class="trm-toc-number">4.1.1.</span> <span class="trm-toc-text">这种方法的缺点</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="10✖️ Genomics"><a rel="nofollow" class="trm-toc-link" href="#10✖️-Genomics"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">10✖️ Genomics</span></a></li><li class="trm-toc-item trm-toc-level-2" title="微孔法microwells"><a rel="nofollow" class="trm-toc-link" href="#微孔法microwells"><span class="trm-toc-number">4.3.</span> <span class="trm-toc-text">微孔法microwells</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="组合索引法combinational indexing methods"><a rel="nofollow" class="trm-toc-link" href="#组合索引法combinational-indexing-methods"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">组合索引法combinational indexing methods</span></a></li><li class="trm-toc-item trm-toc-level-1" title="其他单细胞测序法（非RNA）"><a rel="nofollow" class="trm-toc-link" href="#其他单细胞测序法（非RNA）"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">其他单细胞测序法（非RNA）</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="利用CITE-seq技术量化蛋白质"><a rel="nofollow" class="trm-toc-link" href="#利用CITE-seq技术量化蛋白质"><span class="trm-toc-number">6.1.</span> <span class="trm-toc-text">利用CITE-seq技术量化蛋白质</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="技术的局限：上样浓度loading concentration"><a rel="nofollow" class="trm-toc-link" href="#技术的局限：上样浓度loading-concentration"><span class="trm-toc-number">6.1.1.</span> <span class="trm-toc-text">技术的局限：上样浓度loading concentration</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="demuxlet"><a rel="nofollow" class="trm-toc-link" href="#demuxlet"><span class="trm-toc-number">6.2.</span> <span class="trm-toc-text">demuxlet</span></a></li><li class="trm-toc-item trm-toc-level-2" title="非遗传的的multiplexing策略"><a rel="nofollow" class="trm-toc-link" href="#非遗传的的multiplexing策略"><span class="trm-toc-number">6.3.</span> <span class="trm-toc-text">非遗传的的multiplexing策略</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="基于抗体的multiplexing策略"><a rel="nofollow" class="trm-toc-link" href="#基于抗体的multiplexing策略"><span class="trm-toc-number">6.3.1.</span> <span class="trm-toc-text">基于抗体的multiplexing策略</span></a></li><li class="trm-toc-item trm-toc-level-3" title="基于杂合DNA的multiplexing策略"><a rel="nofollow" class="trm-toc-link" href="#基于杂合DNA的multiplexing策略"><span class="trm-toc-number">6.3.2.</span> <span class="trm-toc-text">基于杂合DNA的multiplexing策略</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="总结"><a rel="nofollow" class="trm-toc-link" href="#总结"><span class="trm-toc-number">7.</span> <span class="trm-toc-text">总结</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="各种各样的单细胞测序方法"><a rel="nofollow" class="trm-toc-link" href="#各种各样的单细胞测序方法"><span class="trm-toc-number">7.1.</span> <span class="trm-toc-text">各种各样的单细胞测序方法</span></a></li><li class="trm-toc-item trm-toc-level-2" title="单细胞测序会产生高维度数据"><a rel="nofollow" class="trm-toc-link" href="#单细胞测序会产生高维度数据"><span class="trm-toc-number">7.2.</span> <span class="trm-toc-text">单细胞测序会产生高维度数据</span></a></li><li class="trm-toc-item trm-toc-level-2" title="单细胞测序技术的缺点"><a rel="nofollow" class="trm-toc-link" href="#单细胞测序技术的缺点"><span class="trm-toc-number">7.3.</span> <span class="trm-toc-text">单细胞测序技术的缺点</span></a></li><li class="trm-toc-item trm-toc-level-2" title="不基于单细胞的测序方法"><a rel="nofollow" class="trm-toc-link" href="#不基于单细胞的测序方法"><span class="trm-toc-number">7.4.</span> <span class="trm-toc-text">不基于单细胞的测序方法</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

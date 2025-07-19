@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋套路课miRNA外泌体   使用的文献：Hypoxic lung cancer-secreted exosomal miR-23a increased angiogenesis and vascular permeability by targeting prolyl hydroxylase and tight junction pro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="外泌体-miRNA研究套路 Lesson 11 血管新生实验及数据统计">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/%E5%A4%96%E6%B3%8C%E4%BD%93-miRNA%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%2011%20%E8%A1%80%E7%AE%A1%E6%96%B0%E7%94%9F%E5%AE%9E%E9%AA%8C%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋套路课miRNA外泌体   使用的文献：Hypoxic lung cancer-secreted exosomal miR-23a increased angiogenesis and vascular permeability by targeting prolyl hydroxylase and tight junction pro">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:27.650Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:27.650Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="解螺旋">
+<meta property="article:tag" content="套路课">
+<meta property="article:tag" content="miRNA">
+<meta property="article:tag" content="外泌体">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >外泌体-miRNA研究套路 Lesson 11 血管新生实验及数据统计</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:27"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            外泌体-miRNA研究套路 Lesson 11 血管新生实验及数据统计
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        解螺旋·套路课2
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E5%A5%97%E8%B7%AF%E8%AF%BE/">套路课</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/miRNA/">miRNA</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E5%A4%96%E6%B3%8C%E4%BD%93/">外泌体</a></p>
+</div>
+<blockquote>
+<p>使用的文献：<a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/28436951/">Hypoxic lung cancer-secreted exosomal miR-23a increased angiogenesis and vascular permeability by targeting prolyl hydroxylase and tight junction protein ZO-1</a><br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/%E6%88%AA%E5%B1%8F2024-08-14%2013.03.37.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+<ul>
+<li>在接下来的两讲内容中，我们将围绕着内皮细胞相关的实验及技术进行讲解。</li>
+</ul>
+<h1 id="肿瘤血管新生背景复习"><a href="#肿瘤血管新生背景复习" class="headerlink" title="肿瘤血管新生背景复习"></a>肿瘤血管新生背景复习</h1><ul>
+<li>可以参考<a target="_blank" rel="noopener" href="http://blog.flynn2059.top/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E4%BA%8C%E5%8D%81%E5%9B%9B%E5%9E%8B/%E4%BA%8C%E5%8D%81%E5%9B%9B%E5%9E%8B%20Lesson%204%20%E8%A1%80%E7%AE%A1%E6%96%B0%E7%94%9F/">这节课的内容</a><br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/%E6%88%AA%E5%B1%8F2024-09-17%2023.01.12.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>肿瘤血管的生成是极其复杂的过程，一般包括血管内皮基质降解、内皮细胞移行、增殖、内皮细胞管道化分支形成血管环、形成新的基底膜等等步骤。由于肿瘤组织新生血管结构及功能的异常，且血管基质的不完善，微血管容易发生渗漏，因此肿瘤细胞不需要经过复杂的侵袭过程就能直接穿透血管，进入到血流并向远处的部位形成转移。</li>
+<li>越来越多的研究表明，良性肿瘤血管生成稀少，血管生长缓慢，而大多数的恶性肿瘤血管生成密集且生长迅速，因此血管生成在肿瘤发生转移过程中起着非常重要的作用，抑制这一过程就能够明显地抑制肿瘤组织的发展和扩散。</li>
+<li>体外的血管生成实验能够很好的模拟肿瘤血管发生过程，探讨血管发生的机制，是发现促进或抑制血管生成药物的重要研究工具。</li>
+</ul>
+<h1 id="血管生成实验的材料和基本的步骤"><a href="#血管生成实验的材料和基本的步骤" class="headerlink" title="血管生成实验的材料和基本的步骤"></a>血管生成实验的材料和基本的步骤</h1><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/%E6%88%AA%E5%B1%8F2024-09-17%2023.02.40.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>材料主要是内皮细胞和基质胶，步骤我们在这里把它分为三个部分：</li>
+</ul>
+<h2 id="制备基质胶"><a href="#制备基质胶" class="headerlink" title="制备基质胶"></a>制备基质胶</h2><ul>
+<li>首先是制胶，关于基质胶的注意事项会在下一张ppt中进行比较详细的介绍。</li>
+<li>我们在这里首先要将分装好的基质胶化冻，采用的是4°C冰浴过夜的方式，化好的基质胶呈液体状，再使用提前预冷好的枪头将液体状的基质胶铺在孔板中，一般是96孔板孔每个孔铺50微升的基质胶。</li>
+<li>基质胶可以按照1比1的比例稀释，也可以直接使用原液，需要大家的预实验看胶的凝固效果。</li>
+<li>最后我们将孔板放入到37度的孵箱内，孵育30到60分钟，等待胶凝固后，这样我们的第一步就完成了。</li>
+</ul>
+<h2 id="接种细胞"><a href="#接种细胞" class="headerlink" title="接种细胞"></a>接种细胞</h2><ul>
+<li>接种细胞，一般是2万到3万个细胞，这也是需要我们设置细胞梯度摸索浓度的。</li>
+<li>成管的时间与细胞浓度相关，一般2到6h就会有成管现象，整个观察时间一般不会超过24h，24h后形成的血管环有可能出现崩解。</li>
+</ul>
+<h2 id="图像的采集处理和分析"><a href="#图像的采集处理和分析" class="headerlink" title="图像的采集处理和分析"></a>图像的采集处理和分析</h2><ul>
+<li>倒置显微镜下采集图像，使用ImageJ或者IPP分析图像</li>
+<li>主要的记录指标有成管长度，成环数量，交叉点数，以及细胞覆盖面积。</li>
+</ul>
+<h1 id="实验的注意事项"><a href="#实验的注意事项" class="headerlink" title="实验的注意事项"></a>实验的注意事项</h1><h2 id="Matrigel基质胶"><a href="#Matrigel基质胶" class="headerlink" title="Matrigel基质胶"></a>Matrigel基质胶</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/%E6%88%AA%E5%B1%8F2024-09-17%2023.13.37.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>基质胶最早是BD的产品，这两年被康宁收购了。基质胶是BD采用专利技术，从富含胞外基质蛋白的EHS小鼠肿瘤中分离出来的。主要的成分由层粘连蛋白、Ⅳ型胶原、潮蛋白、硫酸肝素糖蛋白等组成，还包含了生长因子和基质金属蛋白酶等等。</li>
+<li>每个批次的基质胶的浓度都不同，当我们的实验要根据基质胶的浓度进行配置时，我们要根据批次号查询一下该批次基质胶的浓度。</li>
+<li>商品化的基质胶有不同的配方，除了最基本的配方以外，也有经过不同处理的，类似于有低生长因子的、有去除酚红的、也有的专门高浓度的基质胶。</li>
+<li>在成管实验中，如果我们后续还要对细胞进行荧光染色、观察成管情况的话，建议选择去除酚红的、可以有效的减低背景。当我们要看药物处理对成管现象的影响的时候，也要选择低生长因子的基质胶。</li>
+<li>另外，基质胶在室温或37°C时会很快凝固，因此，我们在分装基质胶时，一定要注意把枪头、分装管预冷，而且也要在冰上进行分装。分装后，尽快放入-20°C或-80°C的冰箱里。</li>
+<li>做成管实验铺胶时，要使用无血清的基础培养剂对基质胶进行稀释，最多的稀释比例不能超过2倍，稀释太多会不成管，影响实验。</li>
+<li>铺胶的手法需要训练，胶面不平，混入气泡，都会影响我们的拍照效果。在这里分享一下，我们可以选择24孔板进行铺胶，效果稍微会好一些。</li>
+<li>做成管实验时，选用的耗材一般会选择比较一般的细胞培养板，如果实验室经费预算充足的话，推荐使用德国的ibidi，采用这个方法可以减少基质胶的用量，也可以防止使用孔板铺胶时不可避免的凹液面。</li>
+</ul>
+<h2 id="内皮细胞"><a href="#内皮细胞" class="headerlink" title="内皮细胞"></a>内皮细胞</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/%E6%88%AA%E5%B1%8F2024-09-17%2023.19.32.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>在做血管生成实验时，我们第二个要注意的是内皮细胞。</li>
+<li>我们选择的内皮细胞可以是自己分的奇静脉内皮细胞，也可以是买的商品化内皮细胞。细胞要选择7代以内的，最好是使用3-5代的细胞最为合适。</li>
+<li>一般培养内皮细胞时，我们会用专用的内皮细胞培养基，或者是自己添加细胞因子配置的。在这里我分享一种内皮细胞的培养方式，小伙伴们可以参考一下。基础培养基选择的是M199，加入10%的FBS，再加入1纳克每毫升的内皮细胞生长添加物，再加入10个单位每毫升的肝素，还有1.25微克每毫升的胸苷。采用这个方法培养内皮细胞成本比较低，而且内皮细胞的状态维持的也比较好。</li>
+<li>我们在做试验的时候要注意降低培养液中的营养成分，这样将有助于我们成管。</li>
+<li>再有就是前面也提到过的细胞数量，一般会选择2万到3万个细胞为宜，需要我们进行预实验来摸索条件。</li>
+<li>在做成管实验的时候，可以添加VEGF等细胞因子，将有助于我们的细胞成管。</li>
+</ul>
+<h2 id="拍照时间"><a href="#拍照时间" class="headerlink" title="拍照时间"></a>拍照时间</h2><ul>
+<li>拍照的时间点要把握好，一般在2到6h就会有成管，12h基本已经可以形成明显的管状结构，24h以后管状结构就会崩解，所以一般拍照时间不会超过24h，大部分是在12到18h以内即可完成。</li>
+<li>因此我们在拍照设计时间点时一定要注意相对密集些，记录下照片。</li>
+</ul>
+<h2 id="成管后的染色"><a href="#成管后的染色" class="headerlink" title="成管后的染色"></a>成管后的染色</h2><ul>
+<li>常用的染料有两种，一种是钙黄氯素，是亲脂性染料，可以透过细胞膜发出绿色的荧光。另外一种是DL，是一种亲脂性膜染料，进入到细胞膜后会激发出很强的红色荧光。</li>
+</ul>
+<h2 id="血管生成抑制剂，"><a href="#血管生成抑制剂，" class="headerlink" title="血管生成抑制剂，"></a>血管生成抑制剂，</h2><p>常用的药物是苏拉明，可以抑制细胞成管。</p>
+<h2 id="图像的采集、处理和数据分析"><a href="#图像的采集、处理和数据分析" class="headerlink" title="图像的采集、处理和数据分析"></a>图像的采集、处理和数据分析</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/%E6%88%AA%E5%B1%8F2024-09-17%2023.25.42.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>采集的图像可以是黑白的相差图，也可以是荧光图像。如果是荧光图像，我们要将图像转化成灰度图进行分析。</li>
+<li>我们要分析的指标有：成管的长度、成环的数量、交叉点数和细胞覆盖面积。</li>
+</ul>
+<h3 id="网上的付费方式"><a href="#网上的付费方式" class="headerlink" title="网上的付费方式"></a>网上的付费方式</h3><ul>
+<li>Wimasis图像分析在线平台，是一个付费的细胞实验图像分析平台，我们只需要将细胞实验后获取的大量图像，通过简单的上传就能获得图像分析的结果。</li>
+<li>这个方式的优点是，简化了繁琐的图像分析流程，而且能够得到标准化且可靠的实验图像分析数据。我们可以根据自己要分析图像的数量，选择不同的打包价格，当然，这个价格也非常不菲。</li>
+</ul>
+<h3 id="ImageJ进行图像分析"><a href="#ImageJ进行图像分析" class="headerlink" title="ImageJ进行图像分析"></a>ImageJ进行图像分析</h3><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/%E6%88%AA%E5%B1%8F2024-09-17%2023.28.45.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>我们再来介绍一下比较经济的方法，采用ImageJ进行图像分析。推荐ImageJ，相对Ipp更简单一些。</li>
+<li>第一步，我们先要打开分析的图片。</li>
+<li>第二步，打开血管生成的分析软件。</li>
+<li>第三步，我们再选择菜单栏里网格状这个选项，跳出的下拉菜单后选择奇静脉相差图像分析，等待两分钟，就会自动跳出分析好的图像和分析结果。</li>
+<li>第四步，我们再将结果保存即可</li>
+</ul>
+<h2 id="图像分析结果解读"><a href="#图像分析结果解读" class="headerlink" title="图像分析结果解读"></a>图像分析结果解读</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/%E6%88%AA%E5%B1%8F2024-09-17%2023.31.53.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>最后，让我们再来看图像分析的结果。我们先来弄懂这些参数的意思。</li>
+<li>结合图片看，图标1是节点，也就是小叉的位置。</li>
+<li>图标2是交叉点，在图中是这个红色的点，顾名思义是形成的管状交叉的点。这是我们作为统计的重要的观察指标之一，反映的是血管新生的能力。</li>
+<li>图标3是主干长度，也有人会把主干长度作为成管的长度。</li>
+<li>图标4是分支长度，图标5是游离分支的长度。我们要统计的成管长度一般是主干长度加上分支长度的。</li>
+<li>图标6，我们圈起来的地方表示网眼，也就是成环的数量和面积。</li>
+<li>在实际过程中，由于实验设计，可能很难形成像图片中比较好的血管环。这里也是介绍了相对比较基本的统计数据。我们在实际操作中要具体问题，具体分析。</li>
+<li>最后，我们采用软件分析，分析的结果是像素。如果我们需要得到微米长度单位的话，是需要进行标尺校正的。</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/%E5%A4%96%E6%B3%8C%E4%BD%93-miRNA%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%2010%20%E5%A4%96%E6%B3%8C%E4%BD%93%E7%9A%84%E9%89%B4%E5%AE%9A%E6%96%B9%E6%B3%95/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">外泌体-miRNA研究套路 Lesson 10 外泌体的鉴定方法</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/%E5%A4%96%E6%B3%8C%E4%BD%93-miRNA%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%209%20%E5%A4%96%E6%B3%8C%E4%BD%93%E5%88%86%E7%A6%BB%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE2/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">外泌体-miRNA研究套路 Lesson 9 外泌体分离方法解析</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="肿瘤血管新生背景复习"><a rel="nofollow" class="trm-toc-link" href="#肿瘤血管新生背景复习"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">肿瘤血管新生背景复习</span></a></li><li class="trm-toc-item trm-toc-level-1" title="血管生成实验的材料和基本的步骤"><a rel="nofollow" class="trm-toc-link" href="#血管生成实验的材料和基本的步骤"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">血管生成实验的材料和基本的步骤</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="制备基质胶"><a rel="nofollow" class="trm-toc-link" href="#制备基质胶"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">制备基质胶</span></a></li><li class="trm-toc-item trm-toc-level-2" title="接种细胞"><a rel="nofollow" class="trm-toc-link" href="#接种细胞"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">接种细胞</span></a></li><li class="trm-toc-item trm-toc-level-2" title="图像的采集处理和分析"><a rel="nofollow" class="trm-toc-link" href="#图像的采集处理和分析"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">图像的采集处理和分析</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="实验的注意事项"><a rel="nofollow" class="trm-toc-link" href="#实验的注意事项"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">实验的注意事项</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="Matrigel基质胶"><a rel="nofollow" class="trm-toc-link" href="#Matrigel基质胶"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">Matrigel基质胶</span></a></li><li class="trm-toc-item trm-toc-level-2" title="内皮细胞"><a rel="nofollow" class="trm-toc-link" href="#内皮细胞"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">内皮细胞</span></a></li><li class="trm-toc-item trm-toc-level-2" title="拍照时间"><a rel="nofollow" class="trm-toc-link" href="#拍照时间"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">拍照时间</span></a></li><li class="trm-toc-item trm-toc-level-2" title="成管后的染色"><a rel="nofollow" class="trm-toc-link" href="#成管后的染色"><span class="trm-toc-number">3.4.</span> <span class="trm-toc-text">成管后的染色</span></a></li><li class="trm-toc-item trm-toc-level-2" title="血管生成抑制剂，"><a rel="nofollow" class="trm-toc-link" href="#血管生成抑制剂，"><span class="trm-toc-number">3.5.</span> <span class="trm-toc-text">血管生成抑制剂，</span></a></li><li class="trm-toc-item trm-toc-level-2" title="图像的采集、处理和数据分析"><a rel="nofollow" class="trm-toc-link" href="#图像的采集、处理和数据分析"><span class="trm-toc-number">3.6.</span> <span class="trm-toc-text">图像的采集、处理和数据分析</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="网上的付费方式"><a rel="nofollow" class="trm-toc-link" href="#网上的付费方式"><span class="trm-toc-number">3.6.1.</span> <span class="trm-toc-text">网上的付费方式</span></a></li><li class="trm-toc-item trm-toc-level-3" title="ImageJ进行图像分析"><a rel="nofollow" class="trm-toc-link" href="#ImageJ进行图像分析"><span class="trm-toc-number">3.6.2.</span> <span class="trm-toc-text">ImageJ进行图像分析</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="图像分析结果解读"><a rel="nofollow" class="trm-toc-link" href="#图像分析结果解读"><span class="trm-toc-number">3.7.</span> <span class="trm-toc-text">图像分析结果解读</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

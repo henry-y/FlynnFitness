@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋套路课转录因子   使用的文献：Thyroid transcription factor 1 enhances cellular statin sensitivity via perturbing cholesterol metabolism   在这一节以及下一节内容当中，我们会介绍和转录因子相关的数据库的使用方法，并进行演示。  一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="转录因子研究套路 Lesson 11 转录因子结构分析和转录因子结合位点">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E8%BD%AC%E5%BD%95%E5%9B%A0%E5%AD%90%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%2011%20%E8%BD%AC%E5%BD%95%E5%9B%A0%E5%AD%90%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90%E5%92%8C%E8%BD%AC%E5%BD%95%E5%9B%A0%E5%AD%90%E7%BB%93%E5%90%88%E4%BD%8D%E7%82%B9/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋套路课转录因子   使用的文献：Thyroid transcription factor 1 enhances cellular statin sensitivity via perturbing cholesterol metabolism   在这一节以及下一节内容当中，我们会介绍和转录因子相关的数据库的使用方法，并进行演示。  一">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:27.420Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:27.420Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="解螺旋">
+<meta property="article:tag" content="套路课">
+<meta property="article:tag" content="转录因子">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >转录因子研究套路 Lesson 11 转录因子结构分析和转录因子结合位点</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:27"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/cover3.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            转录因子研究套路 Lesson 11 转录因子结构分析和转录因子结合位点
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        解螺旋·套路课
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E5%A5%97%E8%B7%AF%E8%AF%BE/">套路课</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%BD%AC%E5%BD%95%E5%9B%A0%E5%AD%90/">转录因子</a></p>
+</div>
+<blockquote>
+<p>使用的文献：<a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/29551766/">Thyroid transcription factor 1 enhances cellular statin sensitivity via perturbing cholesterol metabolism</a><br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-07-12%2017.00.58.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+<ul>
+<li>在这一节以及下一节内容当中，我们会介绍和转录因子相关的数据库的使用方法，并进行演示。</li>
+</ul>
+<h1 id="一些基础概念"><a href="#一些基础概念" class="headerlink" title="一些基础概念"></a>一些基础概念</h1><h2 id="DNA结合结构域以及转录因子结合位点"><a href="#DNA结合结构域以及转录因子结合位点" class="headerlink" title="DNA结合结构域以及转录因子结合位点"></a>DNA结合结构域以及转录因子结合位点</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-07-23%2016.05.37.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>DNA结合结构域，DNA binding domain,DBD是一个很重要的概念。转录因子的结构特征之一，就是转录因子可以通过DNA结合结构域和DNA发生结合。有些蛋白分子也可以参与转录的调控，但是分子内部没有DBD，<strong>这样的分子只能算作是转录调控因子而不是转录因子</strong>。</li>
+<li>和DBD相对应的一个概念是转录因子结合位点，Transcription Factor Binding Site,TFBS。转录因子结合位点是转录因子结合在DNA上的区域，一般这段DNA序列很短长度通常在6到12个bp，有些转录因子的结合位点可能会长一些，一般也不会超过20个bp。而且，某个特定转录因子的结合位点并不是完全固定的，有一些位点具有保守性，而在另一些位点上具有一定的冗余性。</li>
+<li>如果只是通过生物信息学分析，会发现转录因子可以结合在基因组的任何区域。但是，实际上转录因子只有结合在基因的启动子区域，才能有生物学的意义。DBD只存在于转录因子序列上，而TFBS只存在于DNA序列上。转录因子通过DBD和DNA序列上的TFBS相互结合，因此，DNA结合结构与DBD和转录因子结合位点TFBS是两个很重要的概念。这两个概念既有联系，又有区别。</li>
+</ul>
+<h2 id="DNA序列上的转录因子结合位点TFBS有多种表示方式"><a href="#DNA序列上的转录因子结合位点TFBS有多种表示方式" class="headerlink" title="DNA序列上的转录因子结合位点TFBS有多种表示方式"></a>DNA序列上的转录因子结合位点TFBS有多种表示方式</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-07-23%2016.18.05.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>一致性序列consensus sequence：指的是将与同一个转录因子结合的所有DNA片段按照对应位置进行排列，在每个位置上选择最可能出现的碱基，然后把它们组成该转录因子结合位点的一致性序列。在一致性序列中，除了A、T、C、G之外还会出现兼并码，它们代表某个位置上可能出现的碱基组合。一致性序列的优点是此种方法简明易懂，但缺点是不能够反映每个位置上不同碱基出现的概率。</li>
+<li>序列标识图：在序列标识图中依次汇出Motif中各个位置上可能出现的碱基，每个位置上所有碱基字母的高度总和会反映出该位置上碱基的一致性。每个碱基字母的大小与碱基在该位置上出现的频率成正比。</li>
+<li>位置频率矩阵Position Frequency Matrix,PFM：实际上位置频率矩阵是转录因子结合位点所使用的序列模体矩阵的一种类型，所谓的序列模体矩阵是根据一系列功能位点的多重比对排列结果，对每一个位置的碱基给出相应的得分值。在位置频率矩阵的表示方式中，假设每一个位置上碱基出现的频率是相互独立，不存在相互影响和干扰，然后通过位置频率矩阵反映出每一个位置上不同碱基出现的概率，矩阵的行表示转录因子结合位点序列上的位置信息，矩阵每一列表示模体相应位置上四种碱基出现的概率。位置频率矩阵可以有两种表示方式一种是数学上的集合论表示方式，另一种是可视化二维表格的表达方式。</li>
+</ul>
+<h2 id="常用的转录因子预测网站"><a href="#常用的转录因子预测网站" class="headerlink" title="常用的转录因子预测网站"></a>常用的转录因子预测网站</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E6%88%AA%E5%B1%8F2024-07-23%2016.31.06.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>能够进行转录因子预测的网站还是有一些的，但是能直接进行上游转录因子预测的网站数目不算很多。在上图中仅列出了其中一部分较为出名的网站，还有一部分网站可以提供chipseq这些数据的下载，后续的分析预测需要比较专业的生物信息学基础，因此没有在网站中列出来。即便是已经在上图当中列出的网站，它们都是拿已经收录在自己数据库内转录因子去分析去预测，如果想要预测数据库中没有收录的新的转录因子，这些网站都不太合适使用。不过好在这些数据库经过那么多年的积累，转录因子的数据库信息比较庞大，常见转录因子都已经包含在内了。由于转录因子相关的数据库比较多，套路课中主要介绍最常用的Jasper数据库以及UCSC数据库的使用。</li>
+</ul>
+<h2 id="数据库预测的潜在问题"><a href="#数据库预测的潜在问题" class="headerlink" title="数据库预测的潜在问题"></a>数据库预测的潜在问题</h2><ul>
+<li>转录因子结合位点预测的原理是基于热力学上的亲和力，而非实际发生在具体细胞内的结合。因此会存在大量假阳性预测位点，也就是说虽然网站预测到了序列上会存在某些转录因子A的结合位点，但在实验当中却完全无法验证。这是目前数据库预测转录因子结合位点所带来的最大的问题，<strong>如果对于预测结果不加筛选，直接进行实验验证，往往事倍功半</strong>。</li>
+<li>其次，转录因子结合位点不是完全单一化的序列，而是序列中很多位点包含冗余性；再加上转录因子结合位点预测时允许碱基的错配和冗余性的发生，更加导致了直接预测的结果内存在大量假阳性预测位点。</li>
+<li>转录因子发挥作用时，它不是一个因子在战斗，而是需要很多转录调控因子，或者组成转录因子复合物的其他分子的协同作用。但是，使用网站预测的时候，算法是没有办法把这些因素考虑在内的。</li>
+<li>染色体的结构，尤其是组蛋白的乙酰化修饰，会极大的影响转录因子的结合以及下游基因的转录，这也是转录因子预测网站在设计算法时没有办法考虑到的因素。</li>
+<li><h2 id="一些优化改良的方法"><a href="#一些优化改良的方法" class="headerlink" title="一些优化改良的方法"></a>一些优化改良的方法</h2></li>
+<li>由于转录因子往往和受到调控的基因具有表达上的显著相关性，因此转录因子结合位点的预测，和转录因子和靶基因之间的表达相关性数据可以进行联合分析，这样会排除很多假阳性的结果。</li>
+<li>由于不同的网站采用不同的预测算法，虽然每一种算法都会有缺陷，但是如果采用多个网站的不同算法，然后取交集而获得的转录因子预测结果，可以在一定程度上比只采用单个网站的预测结果更加理想。</li>
+<li>由于转录因子往往会形成转录复合物而发挥作用，而且通常情况下一个转录复合物内会含有多个转录因子，因此如果一个基因的启动子含有的序列可以和同一个转录复合物内包含的不同转录因子都有结合的存在，也可以提高预测的准确性。</li>
+</ul>
+<h1 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h1><ul>
+<li>我们会在本节内容以及下一节内容当中演示：<ul>
+<li>如何获得转录因子内相关结构域的结构信息</li>
+<li>如何通过Jasper网站获得转录因子结合位点的相关信息</li>
+<li>如何通过UCSC联合Jasper预测把基因启动子区域内的候选转录因子</li>
+</ul>
+</li>
+<li>我们首先演示的是如何获得转录因子相关结构域的结构信息，有两个常用的网站都可以帮助我们获得这些信息。这两个网站分别是NCBI GENE数据库，以及Uniprot数据库。</li>
+<li>首先我们进入NCBI主页，然后在标签栏内找到GENE这个标签，随后在搜索栏内输入NKX2-1，也就是TTF1转录因子的正式的基因名称，点击搜索。在这里我要特别强调一下，不要在检索框内输入TTF-1，因为有一个分子名叫Transcription Termination Factor 1，也就是转录中止因子1，它的基因正式名称也是TTF-1。所以如果你在GENE数据库当中输入TTF-1，找到的基因其实是转录中止因子1，而不是NKX2-1，在这里的话会误导你的检索结果。</li>
+<li>为了获得转录因子的结构域信息，我们找到NCBI RefSequence一栏，在网页的右侧有导航栏，直接点击即可。可以看到NKX2-1有两个异构体，Isoform1和Isoform2，我们分别点击两个Isoform的蛋白序列，请大家注意NM开头的是mRNA序列，NP开头的才是蛋白序列。</li>
+<li>我们先看Isoform1的蛋白序列，其中CDS就是Coding Sequence编码区，是Isoform1蛋白的全序列，这个蛋白长度是401个氨基酸Region就是NKX2-1蛋白中的结构域，点击Region，相应的区域就会进入高亮的状态，这样就很容易获得Region区域的序列。同时，网站还给出了Region的相关信息，这个结构域的名字是Homeo box它也是介导了NKX2-1和DNA相互结合的结构域。</li>
+<li>类似的，我们也能够获得Isoform2的蛋白序列和相应的结构域信息，NKX2-1的Isoform2全长是371个氨基酸同样含有一个Homeo box，从NCBI数据库上查询这些信息比较容易，但是相对而言，NCBI对于蛋白序列的数据整合度做得不算太好，如果只想知道一些和蛋白结构域相关的简单信息，NCBI可能就够了。但是，如果想要了解更深入的信息，NCBI不合适，相反，Uniprot数据库更加符合要求。</li>
+<li>我们先登录Uniprot数据库，检索栏直接输入NKX2-1进行检索，找到人的NKX2-1并点击进入相关的页面，在NKX2-1的页面当中首先会对分子的功能做简单的介绍，然后紧接着就是region相关的信息，在这里需要大家注意，因为NKX2-1有两个isoform，Uniprot这里列出的这个region对应的是哪一个isoform需要大家点击进入相应的页面才能够确定。点击Positions进入新的页面，找到Sequence Feature这一栏，然后才能确定是针对371个氨基酸NKX2-1 isoform的。在Uniprot网页当中也有Sequence这一项，在这一栏内同样展示了NKX2-1的两个isoform，但是命名不一样。一个叫isoform1，全长371个氨基酸；而另一个叫isoform3，全长401个氨基酸。<strong>其实Uniprot提供的信息和NCBI提供的信息是一样的，只是对于分子的命名不同</strong>，不要因为命名的问题就以为它们是不同的异构体。</li>
+<li>通过Uniprot网站我们所要获取的信息是：NKX2-1关键结构域的结构信息，所以我们要在网站上找到Structure以及3D Structure Databases。</li>
+<li>我们介绍3D结构的数据库以Protein Model Portal作为一个示例首先点击进入网站，在网页的最上方是Summary，最长的这条暗红色的长条它表示的是371个氨基酸长度的NKX2-1分子，它的下面有很多条线段，鼠标移动到线段之上，相应的数据条就会高亮，比如绿色线条表示大鼠的TTF-1分子的Homeo Domain，再比如深蓝色的线段表示的是来源于SwissModel数据库的3D结构数据。</li>
+<li>由于3D数据库有好几个，究竟怎么选关键看Sequence Identity，可以把这个参数理解为序列的保守性，大鼠和人的NKX2-1的Homeo Domain序列保守性是100%完全相同，说明物种间的保守性还是比较高的，再看不同的数据库，来源于Swiss Model的Sequence Identity同样也是100%，那么当然我们就更愿意选择Swiss Model的数据库，点击Show按钮。</li>
+<li>在新的网页中，3D结构图就出现了。这张3D结构的图片可以通过鼠标滚轮放大或者缩小，长按鼠标左键可以拖动，然后就可以360度随意翻转结构。点击鼠标右键可以下载3D结构图，把鼠标移到图片上还可以看具体的氨基酸信息，这些信息都会显示在图片的右下角</li>
+<li>如果想要了解更多的信息，可以点击图片左侧的Swiss Model按钮，直接进入Swiss Model网站。<strong>Swiss Model网站的图形化和界面的友好度是非常让人赞叹的</strong>。</li>
+<li>首先在Swiss Model网站上通过鼠标滚轮可以放大缩小，拖动图形可以360度全景展示和翻转，包括鼠标移到相应的图形上会显示具体氨基酸的信息，这些功能都和Protein Model Portal是一样的，因为本身Protein Model Portal就是引用的Swiss Model的数据。我们再介绍一些Swiss Model独有的特色，首先整个分子画成一个圆，在这个圆形上还有一段彩色的线段，这段彩色线段就是Homeo Domain结构域；在分子的下方还有相应的氨基酸序列，除了这个彩色线段之外，另外有一段紫色的线段和一段蓝色的线段，外加几个橙色的小竖条，大家可以参考右侧的Sequence Features，紫色表示介导蛋白蛋白相互作用的结构域，蓝色表示介导DNA结合的结构域，橙色的小竖条表示自然存在的序列突变。</li>
+<li>网页的右侧有Homeo Domain的3D结构域，结构图显示Homeo Domain包含了三个α螺旋，而且这个3D结构域的图形也是彩色的，3D的色彩和左侧分子上的线段的彩色是一致的，所以结构域的N-末端就用蓝色表示，结构域的C-末端就用红色表示。这样通过色彩的不同，我们就可以分辨3D结构域的方向，我们也可以选择其他形式表示结构域的3D形态，比如我们选择Lines就是使用线图的方式表示结构域的3D结构，也可以根据需要选择其他的展示形式；还有一个非常有用的功能就是播放键，点击播放键3D结构开始旋转，在旋转的过程中，还可以通过鼠标拖动的方式调整分子的角度，从而获得更好的展示效果。</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E8%BD%AC%E5%BD%95%E5%9B%A0%E5%AD%90%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%2012%20%E9%9D%B6%E5%9F%BA%E5%9B%A0%E5%90%AF%E5%8A%A8%E5%AD%90%E5%8C%BA%E5%9F%9F%E7%9A%84%E6%BD%9C%E5%9C%A8%E8%BD%AC%E5%BD%95%E5%9B%A0%E5%AD%90%E7%BB%93%E5%90%88%E5%88%86%E6%9E%90/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/cover3.jpg">
+                </span>
+                <h6 class="trm-op-title">转录因子研究套路 Lesson 12 靶基因启动子区域的潜在转录因子结合分析</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/%E8%BD%AC%E5%BD%95%E5%9B%A0%E5%AD%90%E7%A0%94%E7%A9%B6%E5%A5%97%E8%B7%AF%20Lesson%209%20%E6%96%87%E7%AB%A0%E6%95%B0%E6%8D%AE%E8%AF%A6%E8%A7%A3/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E5%A5%97%E8%B7%AF%E8%AF%BE/cover3.jpg">
+                </span>
+                <h6 class="trm-op-title">转录因子研究套路 Lesson 9 文章数据详解解读</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="一些基础概念"><a rel="nofollow" class="trm-toc-link" href="#一些基础概念"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">一些基础概念</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="DNA结合结构域以及转录因子结合位点"><a rel="nofollow" class="trm-toc-link" href="#DNA结合结构域以及转录因子结合位点"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">DNA结合结构域以及转录因子结合位点</span></a></li><li class="trm-toc-item trm-toc-level-2" title="DNA序列上的转录因子结合位点TFBS有多种表示方式"><a rel="nofollow" class="trm-toc-link" href="#DNA序列上的转录因子结合位点TFBS有多种表示方式"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">DNA序列上的转录因子结合位点TFBS有多种表示方式</span></a></li><li class="trm-toc-item trm-toc-level-2" title="常用的转录因子预测网站"><a rel="nofollow" class="trm-toc-link" href="#常用的转录因子预测网站"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">常用的转录因子预测网站</span></a></li><li class="trm-toc-item trm-toc-level-2" title="数据库预测的潜在问题"><a rel="nofollow" class="trm-toc-link" href="#数据库预测的潜在问题"><span class="trm-toc-number">1.4.</span> <span class="trm-toc-text">数据库预测的潜在问题</span></a></li><li class="trm-toc-item trm-toc-level-2" title="一些优化改良的方法"><a rel="nofollow" class="trm-toc-link" href="#一些优化改良的方法"><span class="trm-toc-number">1.5.</span> <span class="trm-toc-text">一些优化改良的方法</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="演示"><a rel="nofollow" class="trm-toc-link" href="#演示"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">演示</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

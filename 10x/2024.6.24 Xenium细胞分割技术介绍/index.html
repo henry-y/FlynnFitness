@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研10x产品介绍Xenium原位细胞分割数据分析生信分析   正如各位老师知道的那样，准确的细胞分割对于准确的将转录组分配到细胞中至关重要。在今年上半年的时候，10x Xenium多模态细胞分割的产品。在这个产品中，10x使用了7种相互补充的细胞marker，10x将7种细胞marker分配到4个不同的channel中，如下图所示 在这些细胞m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024.6.24 Xenium细胞分割技术介绍">
+<meta property="og:url" content="http://example.com/10x/2024.6.24%20Xenium%E7%BB%86%E8%83%9E%E5%88%86%E5%89%B2%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研10x产品介绍Xenium原位细胞分割数据分析生信分析   正如各位老师知道的那样，准确的细胞分割对于准确的将转录组分配到细胞中至关重要。在今年上半年的时候，10x Xenium多模态细胞分割的产品。在这个产品中，10x使用了7种相互补充的细胞marker，10x将7种细胞marker分配到4个不同的channel中，如下图所示 在这些细胞m">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-11-25T16:45:34.160Z">
+<meta property="article:modified_time" content="2024-11-25T16:45:34.160Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="10x">
+<meta property="article:tag" content="产品介绍">
+<meta property="article:tag" content="生信分析">
+<meta property="article:tag" content="Xenium原位">
+<meta property="article:tag" content="数据分析">
+<meta property="article:tag" content="细胞分割">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >2024.6.24 Xenium细胞分割技术介绍</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-11-26 00:45:34"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/10x/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            2024.6.24 Xenium细胞分割技术介绍
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        10x
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            11/26
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            00:45
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/10x/">10x</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/">产品介绍</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/Xenium%E5%8E%9F%E4%BD%8D/">Xenium原位</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%BB%86%E8%83%9E%E5%88%86%E5%89%B2/">细胞分割</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%94%9F%E4%BF%A1%E5%88%86%E6%9E%90/">生信分析</a></p>
+</div>
+<ul>
+<li>正如各位老师知道的那样，准确的细胞分割对于准确的将转录组分配到细胞中至关重要。在今年上半年的时候，10x Xenium多模态细胞分割的产品。在这个产品中，10x使用了7种相互补充的细胞marker，10x将7种细胞marker分配到4个不同的channel中，如下图所示<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2012.19.07.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在这些细胞marker中，10x选去了标记细胞边界和细胞内部的marker，这些marker的区别将是10x今天讨论的重点话题。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2013.46.22.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>上图是几个几个比较简单的例子，展示了Xenium多模态细胞分割产品对多种细胞组织和多种细胞类型都有良好的支持。上图这些像荧光显微镜一样的彩色图片，就是10x在4个channel中使用的多种的细胞marker。图中的边界是10x算法所产生出的细胞分割的边界。下面的内容会详细介绍10x的算法是如何得出这些细胞边界的。</li>
+</ul>
+<h1 id="传统算法与局限性"><a href="#传统算法与局限性" class="headerlink" title="传统算法与局限性"></a>传统算法与局限性</h1><ul>
+<li>首先介绍传统的算法，如下图所示<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2014.04.15.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在近些年来常见的细胞分割方法中，最常见的方法就是所谓“一步到位的模型+分割所有细胞”的方法。这种方法主要运用全监督学习训练出的深度学习模型。一张细胞的图片会被输入这个模型。一般来说，输入的图片会包含两个channel，分别是DAPI，也就是细胞核channel，另一个channel是细胞marker的图片，之后模型会直接输出这张图片中所有细胞的细胞边界。</li>
+<li>当这张图片中所有细胞的清晰边界都可以被看到的时候，这个方法是没有任何问题的。换句话说，这种方法的设计要求就包含了在这张图片中，所有细胞的清晰的边界都有出现。</li>
+<li>但是，在现实中，能够完美地标记出所有样品组织中的所有细胞类型的marker是不存在的，这就导致了这种一步到位的这种模型去分割全部细胞的方法，有两个非常重要的局限性。</li>
+</ul>
+<h2 id="局限性1：传统算法对于没有清晰边界的细胞表现差"><a href="#局限性1：传统算法对于没有清晰边界的细胞表现差" class="headerlink" title="局限性1：传统算法对于没有清晰边界的细胞表现差"></a>局限性1：传统算法对于没有清晰边界的细胞表现差</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2014.15.40.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>“一步到位”算法的第一个局限性，在于当细胞marker无法清晰展示出细胞所有的边界的时候，算法不能够非常透明的处理这种情况。</li>
+<li>在现实生活中，如果marker不能清晰标记细胞的完整边界，那么，这些marker往往会标记出细胞的内部，也就是marker存在于细胞的内部，所谓的”marker is (located) interior to the cell”，或者我们简化称为interior stain。</li>
+<li>上述情况发生时，由于模型被要求一步就必须要分割出所有的细胞，哪怕这张图片中存在的信息并不足以完整标记出细胞的边界，模型仍然需要想办法去“凭空发明”出来细胞的边界。</li>
+<li>要解释这张图片，我们可以参考上图中偏下部分的三张图片。左图是用DAPI染料去染出细胞核的结果，中间是一组染料尝试去染出细胞边界的结果，我们可以看到中间图片的数据是比较模糊的，因为我们虽然能分清细胞内和细胞外的区域，但是不能分清细胞之间的边界。</li>
+<li>右图是左图和中间的图片融合的结果，红色的信息是人工标记出的细胞边界，也就是所谓的”ground truth”，但是这张图中的某些细胞边界的确定是找不到对应的参考信息的（各位老师能看出这张图中所有的细胞边界吗），也就是说即使是人工标记细胞的边界，也是在猜。</li>
+<li>更糟糕的是，这张照片并不是人工智能生成的细胞边界数据，而是用来训练人工智能的“教材”，这就让经典模型输出的结果变得更加不可信的（因为在训练数据集中就人为引入了猜测的内容）</li>
+<li>在过去的一段时间，ChatGPT是科研人员间非常流行的话题，对于包括ChatGPT在内的生成式模型generative model，一个很大的问题是hallucination，具体来说模型在进行运算的时候，有可能会“非常自信”地输出包含错误在内的结果，就好像模型出现了幻觉一样。上图展示的结果，甚至不是模型在hallucinate而是人工标注者在hallucinate。</li>
+<li>尽管我们可以理解，如果人工标注者们因为无法看到清晰的细胞边界，就对于这一类的细胞完全不标注，那么训练出来的模型就完全无法对这些细胞进行分割。</li>
+<li>可以想象，当用户使用了包含hallucination的数据训练出来的模型，用户拿到了几十万甚至上百万的细胞分割的结果之后，是无法知道在所有的细胞分割结果中，有多少细胞分割结果是由hallucination的方法来产生的，说到底，这种边界的产生就非常不透明。</li>
+<li>上述的例子向各位老师清晰地展示了，这种基于深度学习的“一步到位”的算法所共有的局限性，这种局限性的根源来自细胞marker的局限性，现实中根本就并不存在一个或一组marker，使得能够在各种情况下，对所有组织的所有细胞类型，都能够清晰标注出细胞边界。只要现实中的局限性依然存在，“一步到位”的细胞分割算法的这个局限性就是不可能消失的。</li>
+</ul>
+<h2 id="局限性2：传统算法不能增加输入信息的数量-channel"><a href="#局限性2：传统算法不能增加输入信息的数量-channel" class="headerlink" title="局限性2：传统算法不能增加输入信息的数量(channel)"></a>局限性2：传统算法不能增加输入信息的数量(channel)</h2><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2014.51.45.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>第二个局限性在于，“一步到位”的算法限制了输入图片的channel数量，也就是说在处理multiplex（或者说复数个channel）的数据时不够灵活。各位老师可以设想一下，假设我们已经训练了一个非常好的模型来进行细胞分割，这个模型需要输入两个channel，分别是DAPI和细胞marker的channel。</li>
+<li>这时，各位老师意识到正在使用的细胞marker对于一些细胞不能够很清晰的标记出所有的边界，老师们做了更多的实验，发现了另一些细胞marker可以弥补之前的缺陷，也就是通过增加一个channel的数据就能实现对更多细胞边界的标记了，但是这时我们是不能直接把三个channel得信息直接输入到我们之前训练好的模型中的，这是因为模型在训练的时候已经确定只能接受输入两个channel的图片。</li>
+<li>如果我们想解决channel数量的问题，一个可能的解决方法是再训练一个接受3个chanel作为输入的模型，各位老师可能了解，如果想训练出一个全监督学习的模型，其中花费的很大一部分时间和努力都要落在对新的三个channel的数据进行标注上。</li>
+<li>如果对于另一个不同种类&#x2F;不同细胞类型的样品，老师们需要更多channel的细胞marker（组合），上述方法的灵活性就非常差了，因为不能简单的拓展规模，英文是scalable。</li>
+<li>另一种解决方法是使用某种“融合魔法”，把两个channel的数据融合在一个channel中，无论是使用基于算法的方法，还是基于实验的方法，将更多channel的数据又重新变回两个channel。</li>
+<li>这种解决思路的问题是，在我们把多个细胞marker融合在一起时，要保证它们彼此之间互不影响，也就是一种marker不会让另一种marker对细胞的标记的有效性降低，是非常有挑战性的。尤其是当各位老师引入的细胞marker数量不断增加时，marker间相互“打架”导致总体的有效性降低的情况是非常常见的。</li>
+<li>一句话总结，“一步到位”的方法不能灵活地解决多个细胞marker数据的问题。</li>
+</ul>
+<h1 id="Xenium算法简介"><a href="#Xenium算法简介" class="headerlink" title="Xenium算法简介"></a>Xenium算法简介</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2015.00.46.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>正是这两种局限性，促使了10x研发多模态细胞分割的算法。10x的目标是要开发出一种更加透明和更加灵活的算法。</li>
+<li>对于透明性的解释：当细胞marker不能很清晰地标记出细胞边界的时候，10x开发的算法不能去凭空“发明”细胞边界，而是用更简单和更可解释的方法试图推断细胞的边界。同时，10x要告诉用户，在所有的细胞分割的结果中，有多少细胞是通过推断的方法分割出来的。</li>
+<li>此外，10x希望开发出的算法系统能够更灵活和方便得使用多种不同的细胞marker的数据。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2015.17.02.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>上图是关于在Xenium多模态细胞分割中，当10x开发的算法遇到了interior stain的情况是如何处理的。</li>
+<li>上图中展示的黄色的信号是细胞marker的信号，那蓝色是DAPI染料染的细胞核。可以看到左图中的细胞marker可以标记出一些边界的，比如外围的边界与细胞内和细胞外的边界，但是无法标记出这两个细胞之间的边界。</li>
+<li>遇到这种情况的时候，Xenium多模态细胞分割会将细胞核在interior stain的内部进行扩张。这种扩张在遇到清晰的interior stain边界的时候就会停止；此外，扩张只会应用到marker能够看到的细胞边界，而对于清晰边界不可兼得时候，扩张算法会平分中间的interior stain的区域。同时10x也会要求，扩张的距离不能非常远，远到不合理的程度。最后，所有用扩张算法产生出的细胞分割的结果在Xenium Explorer中都是可见的。</li>
+<li>上面介绍的，更透明的处理interior stain的方法，是10x整个细胞分割算法系统里面的一步。下面的示意图解释了10x开发的算法系统中大致有哪些步骤。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2015.24.53.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>示意图中展示了三种不同的细胞marker可能出现的情况。</li>
+<li>粉色是细胞膜染色，这种细胞marker可以清晰标记出整个细胞完整的边界。黄色的细胞marker是interior stain，这种marker可以标记出一些边界，但当细胞的距离非常近，甚至是紧挨在一起的时候，这种marker就无法标记出一个细胞与相邻细胞的边界。还有一种情况，对某个细胞可能他没有被任何的细胞marker所标记。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2015.30.30.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>10x开发的算法会首先关注到边界marker（或者说细胞膜marker）指示出的细胞，边界marker是ATP1A1，CD45和E-cadherin。由于这些细胞的边界是清晰可见的，算法会直接输出细胞分割的结果。此外，由于这些细胞的边界是清晰可见的，算法也会注意到没有细胞核的细胞和有多个细胞核的细胞。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2015.31.39.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>接下来，对于那些没有清晰的细胞边界，也就是处在interior state之中的细胞，算法会对细胞核进行在interior state区域中的扩张。interior state是由核糖体18S亚基的染色去确定的。</li>
+<li>算法的扩张会在interior state的边界处停止，也会在已经分割好的细胞的边界处停止。</li>
+<li>目前发布的算法版本中，interior state的扩张只支持使用18S的信号，在未来的软件与算法更新中，会逐渐加入对Vimentin和alphaSMA的支持。（目前已经支持，只是本期教学视频录制的时候尚未支持）<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2015.44.29.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>最后，对于那些没有任何细胞marker所标记的细胞核，10x会进行最多5μm的均匀扩张。当扩张触碰到某个已经被分割好的细胞边界时，这个扩张也会停止。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2015.49.49.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="一个实例展示Xenium的算法工作流程"><a href="#一个实例展示Xenium的算法工作流程" class="headerlink" title="一个实例展示Xenium的算法工作流程"></a>一个实例展示Xenium的算法工作流程</h1><ul>
+<li>上图是一个真实的例子，我们会Step-by-step地展示10x的算法系统中更多的细节。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2015.51.24.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>首先，如上图所示，10x算法的整体的输入，包含了三种类型的图片。分别是DAPI染色，也就是细胞核的图片；接着是Boundary Channel，也就是ATP1A1、E-cadherin和CD45染色的结果，最后是interior channel的图片，也就是目前核糖体18SRNA和未来加入的Vimentin和alphaSMA染色的结果。（目前已经支持对Vimentin和alphaSMA染色的分析，只是本期教学视频录制的时候尚未支持）<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2015.57.46.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>算法中包含了三个深度学习的模型。分别是对细胞核进行分割的模型（这个算法与10x上一代的细胞核分割的算法基本是一致的），对细胞进行分割的模型和对interior state所在的区域进行分割的模型（以下称为interior segmentation模型）。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2015.58.56.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>算法首先把细胞核的图片输入到细胞核分割模型，之后细胞核分割模型会产生出所有细胞核的分割结果。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.01.33.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>接着，算法会把细胞核图片和Boundary Channel图片，输入给细胞分割模型。这时，对于能够从Boundary Channel中看到清晰边界的细胞，将会被细胞分割模型直接分割出来，如下图所示。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.01.56.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>也就是说，对于能从细胞marker中看到比较清晰的边界的细胞，细胞分割模型就会直接输出这些细胞分割的结果。但是，对于细胞边界染色不能看到细胞边界的，细胞分割模型就会忽略这个区域的细胞。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.04.36.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>接着，如上图所示，算法会把细胞核的图片和interior channel得图片一起输入interior segmentation的模型中。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.06.56.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>interior segmentation模型会输出interior state所处在的区域。这个模型本身的输出其实相对复杂的，这里为了简化讨论，老师使用了binary image来简单展示这个模型的输出。这张binary image涵盖的信息在于，白色的位置就是算法中观察到了interior state所在的位置，而黑色的位置是没有interior state的位置。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.09.38.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>接着，算法会比较已经分割好的所有的细胞核图像，和利用清晰的细胞边界染色得到的细胞图像。算法将会发现，对于某些细胞核，已经能够找到与之相对应的分割好的细胞边界，那么对于这些配对了的细胞和细胞核来说，细胞分割任务到这里就已经结束了。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.22.09.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>但是，对于那些算法找不到对应的细胞位置的细胞核，算法又发现这些细胞核处在interior state当中的，算法会选出这些细胞核。换一种方法理解，算法会选出那些没有对应的细胞分割结果，但是处在interior state之中的细胞核，然后运行扩张算法，如上图所示。</li>
+<li>对于上面介绍的，处在interior state中的细胞核进行扩张的算法，其实是有一定水平的简化处理的，因为算法细节本身也有一定的具有。</li>
+<li>最后，对于那些既没有准确的细胞边界可以指派，又不处在interior state中的细胞核，算法会对细胞核会进行均匀的扩张，这种扩张最多为5μm，且如果在扩张中碰到了之前已经确定的细胞边界（无论是清晰的细胞边界还是interior state扩张的结果），都会提前结束，这个步骤在展示图中没有显示出来。<br>  <img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.25.58.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>最后，算法会将用清晰的边界分割出的细胞和用interior state扩张的方法分割的细胞组合在一起，加上均匀扩张细胞核的算法得到的结果，就成为了最终输出所有的细胞分割的结果。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.34.44.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>如上图所示，在Xenium Export当中，如果老师们选择用Segmentation Method对细胞进行上色，老师就会发现，所有用细胞边界来分割的细胞，都会呈现出粉红色的边界，如果是用interior state扩张确定的细胞，就会展示出黄色的边界。如果是用核直接扩张算法确定的细胞，就会展示出蓝色的边界；所以各位老师可以非常清晰地看到每个细胞和使用的分割算法，相比于之前的“一次性算法”产生的结果准确性和透明性都高了很多。</li>
+</ul>
+<h1 id="如何评价Xenium算法输出结果的质量"><a href="#如何评价Xenium算法输出结果的质量" class="headerlink" title="如何评价Xenium算法输出结果的质量"></a>如何评价Xenium算法输出结果的质量</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.38.07.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>接着，让我们来讨论一下如何衡量Xenium多模态细胞分割结果的好坏。这是一个比较难以回答的问题，困难的来源在于没有人工标记的”ground truth”来与Xenium算法产生的结果进行比较。因此，作为替代，10x推荐下面的几种方法来对细胞分割的结果进行评估。</li>
+</ul>
+<h2 id="方法1：观察细胞核扩张方法获得的细胞边界的比例"><a href="#方法1：观察细胞核扩张方法获得的细胞边界的比例" class="headerlink" title="方法1：观察细胞核扩张方法获得的细胞边界的比例"></a>方法1：观察细胞核扩张方法获得的细胞边界的比例</h2><ul>
+<li>首先，各位老师可以在web summary中观察使用细胞核直接扩张的算法猜测出的细胞的比例，10x的预期这个比例应该是比较小的，这是因为，10x的预期绝大部分的细胞都至少会被一种细胞marker所覆盖。那些没有被任何细胞marker所覆盖的，均匀扩张的细胞所占的比例是比较小的。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.43.42.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>如上图所示，各位老师可以在web summary-cell segmentation中找到cell segmentation methods，然后关注”cell segmented by nucleus expansion (5.0 μm)”这一行展示出的比例，在10x的实验中的一般这个数据会小于10%。</li>
+</ul>
+<h2 id="方法2：基于形态学进行判断"><a href="#方法2：基于形态学进行判断" class="headerlink" title="方法2：基于形态学进行判断"></a>方法2：基于形态学进行判断</h2><ul>
+<li>第二种判断细胞分割准确度的方法，是在Xenium Explorer当中，请病理学家用肉眼来观察算法产生出来的边界和图片本身展示出的边界的吻合程度是否足够好。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.46.59.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>上图是一个简单的例子，当中的左边一栏是样本细胞核染色的图片，中间一栏是10x基于细胞核扩张算法（就是把每一个捕捉到的细胞核都直接向外扩张最多5μm）得到的结果，以白色边界的方式去展示，右边的三张图是用最新的多模态算法得到的细胞核分割结果。</li>
+<li>各位老师可以看到，中间的细胞边界算法得到的结果与粉色染料（ATP1A1，CD45和E-cadherin）指示出的边界其实是不吻合的，也就是说这种细胞分割的方法得出的结果是不够准确的。相对的，右边这一栏，是用10x的多模态细胞分割算法分割出来的细胞，这种算法得出的细胞边界与细胞marker的边界有更好的吻合。</li>
+</ul>
+<p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.54.22.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>在Xenium Explorer中，我们可以通过用细胞分割方法对细胞进行染色<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2016.55.49.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>如上图所示，对于仅使用细胞边界染色就能确定边界的细胞，Xenium Explorer会用粉红色的细胞边界加以展示，对于使用了细胞内容物marker（也就是18SRNA，Vimentin和alphaSMA）和扩张算法得到的细胞边界，Xenium Explorer会使用黄色（或者说绿色）的细胞边界加以展示，最后，对于仅使用细胞核扩张算法得到的细胞边界，Xenium Explorer会用蓝色的边界加以展示。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2017.02.37.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>如果各位老师想评价基于细胞膜边界算法勾勒出的细胞边界，可以在Images-Xenium Morphology中只选择DAPI和Boundary Channel，这样就可以根据形态学对算法产生的结果进行评估了。</li>
+</ul>
+<h2 id="方法3：基于生物学知识判断-来源："><a href="#方法3：基于生物学知识判断-来源：" class="headerlink" title="方法3：基于生物学知识判断&gt; 来源："></a>方法3：基于生物学知识判断&gt; 来源：<a href=""></a></h2><ul>
+<li>最后一种衡量细胞分割算法质量的方法，是使用一些已知的生物学的知识来判断算法得出的结果是否是符合各位老师的预期。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2017.06.54.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>在上图中，如果只使用细胞核扩张的算法，各位老师可以看到图中指示的细胞被归类为了pancreatic islet cell，也就是胰岛细胞，但是在使用了新一代的多模态细胞分割算法后，这个细胞被归类到了fibroblast中，而fibroblast与这个细胞的形态学类型更加相符。</li>
+<li>类似的，各位老师也可以用您的知识来判断这个细胞分割算法结果的好与坏。</li>
+</ul>
+<h1 id="算法的局限性"><a href="#算法的局限性" class="headerlink" title="算法的局限性"></a>算法的局限性</h1><p><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2017.10.32.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>10x的算法目前有两个局限性</li>
+<li>首先，现在的算法还不能分割细胞体积非常大的，直径接近于上百个微米的细胞。一个常见的例子是肌肉细胞，上图左展示的就是肌肉细胞尝试运行细胞分割算法的结果，可以看到分割出的结果基本是比较破碎的细胞，此外，有很多细胞都用到的都是用直接扩张细胞核的方法来进行分割的。</li>
+<li>其次，当细胞聚集的非常紧密，导致DAPI染料和算法都无法清晰地判断出细胞核的边界时，细胞核的分割将会遇到非常大的困难，如果同样的区域还没有非常清晰的细胞的边界的标记，那么对应区域的细胞分割就就会不是很理想。</li>
+<li>10x的团队正在非常积极地解决这两个问题，也会在之后的软件升级中将这个算法升级包裹进去。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2017.27.24.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>当10x有新的算法软件的升级，有需要的老师就可以使用10x所开发的Xenium Ranger重新对您之前的数据进行细胞分割和分析，重新分析的结果也可以在Xenium Explorer中看到。<br><img src="/img/10x/%E6%88%AA%E5%B1%8F2024-11-29%2017.29.26.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>此外，Xenium Ranger也支持对第三方的细胞分割的结果进行输入来帮助您分析。</li>
+<li>时至今日，细胞分割仍然是非常具有挑战性的任务，也是非常热的科研领域。10x并不认为有一个“金标准”方法可以解决掉所有的细胞分割的问题。上图列举了一些第三方开发的软件和方法供大家参考，这些方法一般可以分为两大类，一类是基于图片来进行细胞分割的，还有基于转录组来进行细胞分割。</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/10x/2023.11.17%20Xenium%20panel%E8%AE%BE%E8%AE%A1/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/10x/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">2023.11.17 Xenium panel设计</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/26</li>
+                <li>00:49</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/10x/2024.7.2%20Xenium%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/10x/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">2024.7.2 Xenium技术介绍</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/11/25</li>
+                <li>12:57</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="传统算法与局限性"><a rel="nofollow" class="trm-toc-link" href="#传统算法与局限性"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">传统算法与局限性</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="局限性1：传统算法对于没有清晰边界的细胞表现差"><a rel="nofollow" class="trm-toc-link" href="#局限性1：传统算法对于没有清晰边界的细胞表现差"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">局限性1：传统算法对于没有清晰边界的细胞表现差</span></a></li><li class="trm-toc-item trm-toc-level-2" title="局限性2：传统算法不能增加输入信息的数量(channel)"><a rel="nofollow" class="trm-toc-link" href="#局限性2：传统算法不能增加输入信息的数量-channel"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">局限性2：传统算法不能增加输入信息的数量(channel)</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Xenium算法简介"><a rel="nofollow" class="trm-toc-link" href="#Xenium算法简介"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">Xenium算法简介</span></a></li><li class="trm-toc-item trm-toc-level-1" title="一个实例展示Xenium的算法工作流程"><a rel="nofollow" class="trm-toc-link" href="#一个实例展示Xenium的算法工作流程"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">一个实例展示Xenium的算法工作流程</span></a></li><li class="trm-toc-item trm-toc-level-1" title="如何评价Xenium算法输出结果的质量"><a rel="nofollow" class="trm-toc-link" href="#如何评价Xenium算法输出结果的质量"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">如何评价Xenium算法输出结果的质量</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="方法1：观察细胞核扩张方法获得的细胞边界的比例"><a rel="nofollow" class="trm-toc-link" href="#方法1：观察细胞核扩张方法获得的细胞边界的比例"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">方法1：观察细胞核扩张方法获得的细胞边界的比例</span></a></li><li class="trm-toc-item trm-toc-level-2" title="方法2：基于形态学进行判断"><a rel="nofollow" class="trm-toc-link" href="#方法2：基于形态学进行判断"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">方法2：基于形态学进行判断</span></a></li><li class="trm-toc-item trm-toc-level-2" title="方法3：基于生物学知识判断&gt; 来源："><a rel="nofollow" class="trm-toc-link" href="#方法3：基于生物学知识判断-来源："><span class="trm-toc-number">4.3.</span> <span class="trm-toc-text">方法3：基于生物学知识判断&gt; 来源：</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="算法的局限性"><a rel="nofollow" class="trm-toc-link" href="#算法的局限性"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">算法的局限性</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

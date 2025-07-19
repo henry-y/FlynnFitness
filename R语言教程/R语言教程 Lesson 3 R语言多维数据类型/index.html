@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研R语言生信分析   来源：BV1td4y1r7mL 人话R语言教程  R多维数据类型简介 向量Vector：线性的数据类型 矩阵matrix：有行row和列column组成 Data Frame&#x2F;Table：直接用来处理统计学数据，每一列代指一个变量，一行代表了一个样本 阵列Array：可以理解为矩阵Matrix的扩展，一般来说用的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R语言教程 Lesson 3 R语言多维数据类型">
+<meta property="og:url" content="http://example.com/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B%20Lesson%203%20R%E8%AF%AD%E8%A8%80%E5%A4%9A%E7%BB%B4%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研R语言生信分析   来源：BV1td4y1r7mL 人话R语言教程  R多维数据类型简介 向量Vector：线性的数据类型 矩阵matrix：有行row和列column组成 Data Frame&#x2F;Table：直接用来处理统计学数据，每一列代指一个变量，一行代表了一个样本 阵列Array：可以理解为矩阵Matrix的扩展，一般来说用的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:27.160Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:27.160Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="生信分析">
+<meta property="article:tag" content="R语言">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >R语言教程 Lesson 3 R语言多维数据类型</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:27"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            R语言教程 Lesson 3 R语言多维数据类型
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        R语言教程
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/R%E8%AF%AD%E8%A8%80/">R语言</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%94%9F%E4%BF%A1%E5%88%86%E6%9E%90/">生信分析</a></p>
+</div>
+<blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1td4y1r7mL/">BV1td4y1r7mL</a> 人话R语言教程</p>
+</blockquote>
+<h1 id="R多维数据类型简介"><a href="#R多维数据类型简介" class="headerlink" title="R多维数据类型简介"></a>R多维数据类型简介</h1><ul>
+<li>向量Vector：线性的数据类型<br><img src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/%E6%88%AA%E5%B1%8F2024-04-26%2019.31.13.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>矩阵matrix：有行row和列column组成<br><img src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/%E6%88%AA%E5%B1%8F2024-04-26%2019.42.15.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>Data Frame&#x2F;Table：直接用来处理统计学数据，每一列代指一个变量，一行代表了一个样本<br><img src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/%E6%88%AA%E5%B1%8F2024-04-26%2019.43.35.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>阵列Array：可以理解为矩阵Matrix的扩展，一般来说用的比较少<br><img src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/%E6%88%AA%E5%B1%8F2024-04-26%2019.45.29.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>List：前面各种数据的组合形式<br><img src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/%E6%88%AA%E5%B1%8F2024-04-26%2019.47.34.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="向量Vector"><a href="#向量Vector" class="headerlink" title="向量Vector"></a>向量Vector</h1><ul>
+<li>种类：3种，同<a target="_blank" rel="noopener" href="http://blog.flynn2059.top/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B%20Lesson%202%20R%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">基础数据类型</a>，即numeric型，character型和logical型</li>
+</ul>
+<h2 id="Vector型变量的赋值"><a href="#Vector型变量的赋值" class="headerlink" title="Vector型变量的赋值"></a>Vector型变量的赋值</h2><p>  <img src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/%E6%88%AA%E5%B1%8F2024-04-26%2019.50.38.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>对Vector型变量赋值，需要构建函数，c(a,b,c,….)，其中括号外面的c是不能改变的</li>
+<li>c(1:3)的效果和c(1,2,3)是一样的</li>
+<li>混合使用”,”和”:”：比如c(1,8:20)的效果和c(1,8,9,…,19,20)是一样的</li>
+<li>向量也可以通过混合变量来构建，比如c&lt;-c(a,b)</li>
+<li>判定vector的长度：length()函数</li>
+</ul>
+<h2 id="对vector型变量取值"><a href="#对vector型变量取值" class="headerlink" title="对vector型变量取值"></a>对vector型变量取值</h2><ul>
+<li>变量名[ 要取的位数 ]，其中方括号内可以是值，可以是numeric变量，可以是向量，也可以是另一个数值型vector变量</li>
+<li>举例：<ul>
+<li>取一个值：d[3]或者d[a]，其中a是一个简单</li>
+<li>如果想取两个或以上，要在方括号内放向量，例如d[c(2,4)]，不能d[2,4]，因为d[2,4]是用来取matrix&#x2F;dataframe格式的变量的</li>
+</ul>
+</li>
+</ul>
+<h2 id="Vector的值的替换"><a href="#Vector的值的替换" class="headerlink" title="Vector的值的替换"></a>Vector的值的替换</h2><ul>
+<li>举例：d&lt;-(1,2,3,4)，那么d[3]&#x3D;3</li>
+<li>如果想要替换一个值，那么可以令d[3] &lt;- 6</li>
+<li>如果想要替换两个或以上，同样地，要在方括号内放向量，后面的赋值也要对应地赋向量，例如d[c(1,2,4)] &lt;- c(3,3,3)，嵌套变量也是可以的，例如c &lt;- c(1,2) d[c] &lt;- c(1,2)</li>
+<li>如果要判断嵌套的变量&#x2F;函数的长度，可以使用length()函数，例如length(d[c])，输出的结果是2</li>
+<li>Vector通过logical取值<ul>
+<li>举例：d&lt;-c(1,2,3,4)</li>
+<li>d[c(T,F,T,F)]，这个函数会取出所有T的位数的值，替换值也是一样的道理</li>
+<li>在使用logical对vector取值时，有特殊的要求，[]内的向量的长度，要和括号外的向量的length一样</li>
+</ul>
+</li>
+</ul>
+<h1 id="矩阵Matrix"><a href="#矩阵Matrix" class="headerlink" title="矩阵Matrix"></a>矩阵Matrix</h1><h2 id="Matrix型变量的赋值"><a href="#Matrix型变量的赋值" class="headerlink" title="Matrix型变量的赋值"></a>Matrix型变量的赋值</h2><ul>
+<li>赋值使用的函数就是matrix本身，举例matrix1&lt;-matrix(,…,,)</li>
+<li>函数中要填入的第一个变量必须是一个vector，比如c(1:50)</li>
+<li>然后需要指定第二个变量，是矩阵的行的数量，用nrow&#x3D;一个数字来表示，比如nrow&#x3D;5</li>
+<li>第三个变量是可选的，byrow&#x3D;TRUE或FALSE，默认为FALSE，也就是说如果byrow&#x3D;true，那么数据是按照行递增的，例如下图2是没有byrow&#x3D;False的，下图三byrow&#x3D;True<br>  <img src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/%E6%88%AA%E5%B1%8F2024-04-27%2011.10.08.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>  <img src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/%E6%88%AA%E5%B1%8F2024-04-27%2011.16.12.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>  <img src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/%E6%88%AA%E5%B1%8F2024-04-27%2011.16.34.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>matrix也可以用含有vector的变量来赋值，比如a100&lt;-(1:100)，matrix3&lt;-matrix(a100,nrow&#x3D;10)</li>
+</ul>
+<h2 id="matrix型变量的取值"><a href="#matrix型变量的取值" class="headerlink" title="matrix型变量的取值"></a>matrix型变量的取值</h2><ul>
+<li>取一个值：变量[要取的行,要取的列]，比如matrix1[1,2]</li>
+<li>取同一行&#x2F;列的n个值：变量[要取的n行&#x2F;同一行,要取的n列&#x2F;同一列]</li>
+<li>当然，[]中的内容用对应种类的变量来替代是可以的</li>
+<li>还可以用length函数看看能取出多少个值，以及用赋值的方式改变它们的值</li>
+<li>取多行多列（取出来的也是个matrix），也可以替换，当然要用对应类型的值来替换，举例：matrix[1:3,2:3]&lt;-matrix(c(1:6),nrow&#x3D;3)</li>
+<li>如果取值时我们在某一个区域不填写，则说明这个区域的全部都要，比如说matrix[,2:3]，表示的含义是只要2-3列的内容</li>
+<li>要确定一个matrix，或者从一个matrix中取出一个matrix的行，或者是列的数量，我们可以用nrow函数（行）和ncol函数（列），示例：nrow(matrix3[1:3,2:3]),nrow(matrix3[1:3,2:3])</li>
+<li>如果要通过logic取值，那我们也需要通过构建和matrix的行，和&#x2F;或列一样长的，由logical型变量组成的matrix，其中T表示取，F表示不取</li>
+</ul>
+<h2 id="matrix的运算"><a href="#matrix的运算" class="headerlink" title="matrix的运算"></a>matrix的运算</h2><ul>
+<li>简单的：matrix的每个值都做一样的处理，比如matrix3+1，就是matrix中所有的值都+1，用”+””-“” * “”&#x2F;“都是可以的</li>
+<li>matrix与vector相乘<ul>
+<li>对matrix的要求：ncol(matrix)&#x3D;length vector</li>
+<li>相乘的语法：matrix的第n行的每个值，都会乘上vector中的第n个值</li>
+</ul>
+</li>
+<li>matrix与matrix之间的运算<ul>
+<li>要求：nrow(matrix1)&#x3D;nrow(matrix2)，ncol(matrix1)&#x3D;ncol(matrix2)</li>
+</ul>
+</li>
+<li>求某一matrix中所有值的和：用sum()函数</li>
+<li>求某一matrix中某一行&#x2F;列的所有值的和：用apply()函数<ul>
+<li>apply()函数语法：(matrix变量的名字,1&#x2F;2,要做的操作)</li>
+<li>1——对行操作；2——对列操作</li>
+</ul>
+</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B%20Lesson%202%20R%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">R语言教程 Lesson 2 R语言数据类型</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B%20Lesson%201%20%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0R%E8%AF%AD%E8%A8%80/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/R%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">R语言教程 Lesson 1 如何学习R语言</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="R多维数据类型简介"><a rel="nofollow" class="trm-toc-link" href="#R多维数据类型简介"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">R多维数据类型简介</span></a></li><li class="trm-toc-item trm-toc-level-1" title="向量Vector"><a rel="nofollow" class="trm-toc-link" href="#向量Vector"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">向量Vector</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="Vector型变量的赋值"><a rel="nofollow" class="trm-toc-link" href="#Vector型变量的赋值"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">Vector型变量的赋值</span></a></li><li class="trm-toc-item trm-toc-level-2" title="对vector型变量取值"><a rel="nofollow" class="trm-toc-link" href="#对vector型变量取值"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">对vector型变量取值</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Vector的值的替换"><a rel="nofollow" class="trm-toc-link" href="#Vector的值的替换"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">Vector的值的替换</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="矩阵Matrix"><a rel="nofollow" class="trm-toc-link" href="#矩阵Matrix"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">矩阵Matrix</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="Matrix型变量的赋值"><a rel="nofollow" class="trm-toc-link" href="#Matrix型变量的赋值"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">Matrix型变量的赋值</span></a></li><li class="trm-toc-item trm-toc-level-2" title="matrix型变量的取值"><a rel="nofollow" class="trm-toc-link" href="#matrix型变量的取值"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">matrix型变量的取值</span></a></li><li class="trm-toc-item trm-toc-level-2" title="matrix的运算"><a rel="nofollow" class="trm-toc-link" href="#matrix的运算"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">matrix的运算</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

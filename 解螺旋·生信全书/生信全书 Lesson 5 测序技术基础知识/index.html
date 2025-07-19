@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋生信分析测序  测序技术预备知识 中心法则 常见组学 DNA层面的是基因组学 Genomics DNA的甲基化、组蛋白修饰层面的是表观遗传组学epigenomics RNA层面的是转录组学transcriptomics 蛋白质层面的叫做蛋白质组学proteomics 代谢组学：对体内的代谢产物同时进行定性和定量分析的研究，主要针对的是分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生信全书 Lesson 5 测序技术基础知识">
+<meta property="og:url" content="http://example.com/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%205%20%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研解螺旋生信分析测序  测序技术预备知识 中心法则 常见组学 DNA层面的是基因组学 Genomics DNA的甲基化、组蛋白修饰层面的是表观遗传组学epigenomics RNA层面的是转录组学transcriptomics 蛋白质层面的叫做蛋白质组学proteomics 代谢组学：对体内的代谢产物同时进行定性和定量分析的研究，主要针对的是分">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-24T05:07:26.930Z">
+<meta property="article:modified_time" content="2024-10-24T05:07:26.930Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="生信分析">
+<meta property="article:tag" content="解螺旋">
+<meta property="article:tag" content="测序">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >生信全书 Lesson 5 测序技术基础知识</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-24 13:07:26"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/cover.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            生信全书 Lesson 5 测序技术基础知识
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        解螺旋·生信全书
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/24
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:07
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E8%A7%A3%E8%9E%BA%E6%97%8B/">解螺旋</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%94%9F%E4%BF%A1%E5%88%86%E6%9E%90/">生信分析</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E6%B5%8B%E5%BA%8F/">测序</a></p>
+</div>
+<h1 id="测序技术预备知识"><a href="#测序技术预备知识" class="headerlink" title="测序技术预备知识"></a>测序技术预备知识</h1><ul>
+<li>中心法则<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2000.41.19.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><ul>
+<li>常见组学<ul>
+<li>DNA层面的是基因组学 Genomics</li>
+<li>DNA的甲基化、组蛋白修饰层面的是表观遗传组学epigenomics</li>
+<li>RNA层面的是转录组学transcriptomics</li>
+<li>蛋白质层面的叫做蛋白质组学proteomics</li>
+<li>代谢组学：对体内的代谢产物同时进行定性和定量分析的研究，主要针对的是分子量 1000以内小分子物质</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="测序原理"><a href="#测序原理" class="headerlink" title="测序原理"></a>测序原理</h1><h2 id="一些基础概念："><a href="#一些基础概念：" class="headerlink" title="一些基础概念："></a>一些基础概念：</h2><ul>
+<li>读长：测序反应所能测得序列的长度，不同的测序平台所能获得目的序列的长度各不相同，当待测序列的长度超过测序仪的最大读长时，得到的结果准确性会大幅降低。</li>
+<li>通量：单位时间内所能产生的数据量。</li>
+<li>接头（Adaptor）：特定的一段DNA序列，在构建测序文库时连接在片段化的DNA末端，与测序槽中固定的接头序列匹配，从而固定待测序列在测序槽中的位置。</li>
+<li>测序文库：高通量测序技术具有测序读长的限制，因此在进行测序之前，需要将提取得到的样品DNA打断成为符合测序仪器读长的小片段，经过片段长度筛选、添加接头和定量，即构成了能够用于高通量测序的DNA文库。</li>
+<li>单端测序（Single-end）：在构建DNA文库时，将测序引物连接在DNA片段的一端，然后在末端添加接头序列，在进行上机测序时只能从序列的一端开始进行测序。</li>
+<li>双端测序（Paired-end）：在构建DNA文库时，在DNA片段的两端均连接测序引物和接头，在进行上机测序时可以分别从序列的两端进行测序，从而使得测序读长增加为原本的两倍左右。</li>
+<li>测序深度：测序得到的总数据量与待测基因组大小的比值，假设待测基因组大小为100Mb，测序深度为30X，那么最终得到的数据量为3G。</li>
+<li>质量控制：按照指定的标准对测序得到的序列进行筛选，去除不合格序列的过程。</li>
+<li>Raw data：测序仪下机得到的原始数据。</li>
+<li>Clean data： 原始数据经过质量控制后，得到的可以用于后续分析的数据</li>
+</ul>
+<h2 id="一代测序：Sanger测序法"><a href="#一代测序：Sanger测序法" class="headerlink" title="一代测序：Sanger测序法"></a>一代测序：Sanger测序法</h2><ul>
+<li>原理：链终止DNA测序法</li>
+<li>实验步骤<ul>
+<li>DNA碎片化</li>
+<li>PCR扩增与体外克隆</li>
+<li>ddNTP法循环测序</li>
+<li>凝胶电泳获得序列</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>读长较长，600-700bp</li>
+<li>准确率高，99.9%+</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>成本高</li>
+<li>通量低</li>
+</ul>
+</li>
+</ul>
+<h2 id="二代测序"><a href="#二代测序" class="headerlink" title="二代测序"></a>二代测序</h2><ul>
+<li>原理<ul>
+<li>Roche&#x2F;454的焦磷酸测序</li>
+<li>ABI&#x2F;SOLiD的连接法测序法</li>
+<li>Illumina&#x2F;Solexa的边合成边测序</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>通量高</li>
+<li>成本低</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>读长较短：原因在于测序长度越长，杂信号越多</li>
+<li>PCR富集序列过程中可能丢失序列或者引入错配碱基</li>
+</ul>
+</li>
+<li>常用的二代测序种类<ul>
+<li>全基因组测序（Whole Genome Sequencing, WGS）：全部基因进行高通量测序</li>
+<li>全基因组关联分析（Genome wide association study,GWAS）：研究某一特定人群中研究遗传突变和表型之间的相关性。</li>
+<li>全外显子测序（Whole-exome sequencing, WES）：全部外显子区域的总和进行高通量测序</li>
+<li>转录组测序（RNA sequencing, RNA-seq）：所有的RNA进行的高通量测序</li>
+<li>ATAC-seq（Assay for Targeting Accessible-Chromatin with high-throughout sequencing）：处于开放状态的染色质区域进行的高通量测序</li>
+<li>ChIP-seq（Chromatin Immunoprecipitation sequencing）：研究体内蛋白质与DNA的相互作用单细胞测序（Single-cell sequencing）：单个细胞水平上对基因组进行扩增和测序</li>
+</ul>
+</li>
+</ul>
+<h3 id="全基因组测序"><a href="#全基因组测序" class="headerlink" title="全基因组测序"></a>全基因组测序</h3><ul>
+<li>概念：对个体进行全基因组范围的高通量测序，并在个体或群体水平上进行差异性分析的方法。</li>
+<li>用途：在全基因组水平上全面挖掘DNA水平的遗传变异，包括单核苷酸变异（SNV）、插入&#x2F;缺失（InDel）、拷贝数变异（CNV）和结构变异（SV）等多种全面的突变信息，包括编码区和非编码区，<strong>可用于：常见疾病易感基因检测、遗传病基因检测、肿瘤基因组检测、个性化用药检测等。</strong></li>
+<li>优势<ul>
+<li>数据量大，全面扫描基因组上的变异信息，一次性挖掘大量的生物标记物，</li>
+<li>准确性高、可重复性好、定位精确，已被广泛应用于疾病、癌症的基因组研究。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>测序会获得大量无效信息，需要进一步挖掘分析，</li>
+<li>主要是基因组层面的信息，不包含转录组。</li>
+</ul>
+</li>
+<li>大致价格（以公司报价为准）：8千-1万</li>
+</ul>
+<h3 id="全基因组相关分析Genome-wide-association-study-GWAS"><a href="#全基因组相关分析Genome-wide-association-study-GWAS" class="headerlink" title="全基因组相关分析Genome wide association study,GWAS"></a>全基因组相关分析Genome wide association study,GWAS</h3><ul>
+<li>概念：研究某一特定人群中研究遗传突变和表型之间的相关性，比如研究单核苷酸多态性（SNPs）与主要疾病等性状之间的关联。</li>
+<li>用途：常用于病例对照研究，将患者的全基因组范围内检测出的SNP位点与对照组进行比较，找出所有的变异等位基因频率，为复杂疾病研究提供更多线索。</li>
+<li>优势：GWAS分析建立在单碱基水平，速度快，节约时间</li>
+<li>缺点<ul>
+<li>基于严格的统计水准，可能损失潜在易感位点</li>
+<li>目前主要关注SNPs，忽略了其他的遗传变异，对低频率的SNP发现不足（可以通过加大样本量和meta分析来解决）</li>
+<li>着重发现新的位点，忽略了生物学功能研究</li>
+<li>SNP数据库不全，有赖于深度测序研究</li>
+</ul>
+</li>
+<li>大致价格（以公司报价为准）：2千-5千</li>
+</ul>
+<h3 id="全外显子测序Whole-exome-sequencing-WES"><a href="#全外显子测序Whole-exome-sequencing-WES" class="headerlink" title="全外显子测序Whole-exome sequencing, WES"></a>全外显子测序Whole-exome sequencing, WES</h3><ul>
+<li>概念：针对全部外显子区域的总和进行高通量测序（外显子组约占全基因组的1-2%）。</li>
+<li>用途：主要用于识别和研究与疾病相关的编码区的基因组变异，可以更好地排除无害突变及解释变异信息之间的关联和致病机理。</li>
+<li>优势：<ul>
+<li>直接对蛋白编码序列进行测序，找出影响蛋白结构的变异；</li>
+<li>高深度测序，可发现常见变异、低频变异及罕见变异；</li>
+<li>性价比高，有效降低费用，周期和工作量。</li>
+</ul>
+</li>
+<li>缺点：数据量远不如全基因组测序</li>
+<li>大致价格（以公司报价为准）：2千-5千</li>
+</ul>
+<h3 id="转录组测序RNA-sequencing-RNA-seq"><a href="#转录组测序RNA-sequencing-RNA-seq" class="headerlink" title="转录组测序RNA sequencing, RNA-seq"></a>转录组测序RNA sequencing, RNA-seq</h3><ul>
+<li>概念：针对特定组织或细胞在某一发育阶段或功能状态下转录出来的所有RNA的集合进行的高通量测序，主要包括mRNA和非编码RNA。</li>
+<li>用途：观察基因剪接转录、转录后修饰、基因融合、突变&#x2F;snp和基因表达随时间的变化，或不同组间的基因表达差异。RNA-Seq的最新进展还可用于单细胞测序。</li>
+<li>优势：<ul>
+<li>任意物种的全基因组分析，无需特异性引物</li>
+<li>﻿﻿检测范围广，敏感性高，无需技术重复</li>
+<li>﻿﻿性价比高</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>存在误差，可以通过增加生物学重复来减少误差</li>
+<li>分析结果需要实验验证(几乎所有生物信息学得到结果所必须的)</li>
+</ul>
+</li>
+<li>大致价格（以公司报价为准）：1千-3千</li>
+</ul>
+<h3 id="ATAC-seq"><a href="#ATAC-seq" class="headerlink" title="ATAC-seq"></a>ATAC-seq</h3><ul>
+<li>全称：Assay for Targeting Accessible-Chromatin with high-throughout sequencing，通过转座酶Tn5容易结合在开放染色质的特性，对Tn5酶捕获到的DNA序列进行高通量测序。<ul>
+<li>开放染色质（open chromatin）是指DNA的致密高级结构变为松散的状态。 开放染色质有足够的区域允许一些调控蛋白（比如转录因子）与之相结合。DNA复制，基因转录都发生在开放染色质。</li>
+</ul>
+</li>
+<li>用途：全基因组范围内检测染色质的开放程度，可以得到全基因组范围内的蛋白质可能结合的位点信息，一般用于不知道特定的转录因子，用此方法与其他方法结合筛查感兴趣的特定调控因子。<br>优势：<ul>
+<li>样本量需求少，500-5万，比其他实验百万级别的需要量要小很多</li>
+<li>对测序深度要求更低，性价比更高</li>
+<li>一次性获得全基因组上的染色质开放区域缺点：适用面较窄</li>
+</ul>
+</li>
+<li>大致价格（以公司报价为准）：1万-2万</li>
+</ul>
+<h3 id="ChIP-seq"><a href="#ChIP-seq" class="headerlink" title="ChIP-seq"></a>ChIP-seq</h3><ul>
+<li>全称：Chromatin Immunoprecipitation sequencing</li>
+<li>概念：ChIP实验 （Chromatin immunoprecipitation）即染色质免疫沉淀，根据DNA与蛋白质相互作用的原理，分离富集与感兴趣的蛋白相互作用的DNA。ChIP-Seq即对分离得到的DNA扩增测序。</li>
+<li>用途：明确知道感兴趣的转录因子是什么，根据感兴趣的转录因子设计抗体去做ChIP实验拉DNA，验证感兴趣的转录因子是否与DNA存在相互作用。</li>
+<li>优势：揭示特定转录因子或蛋白复合物的在DNA上的结合区域，实际是研究DNA和蛋白质的相互作用，利用抗体将蛋白质和DNA一起富集，并对富集到的DNA进行测序。</li>
+<li>缺点：ChIP需要专门的抗体，数据的质量依赖于抗体的质量。</li>
+<li>大致价格（以公司报价为准）：2千-5千</li>
+</ul>
+<h3 id="单细胞测序Single-cell-sequencing"><a href="#单细胞测序Single-cell-sequencing" class="headerlink" title="单细胞测序Single-cell sequencing"></a>单细胞测序Single-cell sequencing</h3><ul>
+<li>概念：对单一细胞的基因组或转录组进行测序，可以理解为单细胞水平上的测序。</li>
+<li>用途：传统测序方法所展示的信息也是在多细胞水平上的平均信息，而单细胞水平上的测序则完全可以反应同一个细胞群里不同细胞的基因组和转录组状况。还可以分析稀有的细胞，特别是特定时空环境下的细胞。比如从环境中取样的微生物、受精胚胎、循环肿瘤细胞等。</li>
+<li>优势：从细胞群体的研究到单个细胞的研究，可用于单细胞多组学研究和单细胞的功能状态研究，创建细胞发育谱系的分子图谱。</li>
+<li>缺点：成本较高。</li>
+<li>大致价格（以公司报价为准）：2万-5万</li>
+</ul>
+<h2 id="三代测序"><a href="#三代测序" class="headerlink" title="三代测序"></a>三代测序</h2><ul>
+<li>第三代测序在 DNA测序时，不需要经过 PCR扩增，实现了对每一条 DNA分子的单独测序，具有更长的读长</li>
+<li>第三代测序技术仍处于研发阶段，目前费用相对高昂，应用面较窄，可以用于ctDNA测序、单细胞测序等。</li>
+<li>特点：单分子测序+更长的读长长度</li>
+<li>优点<ul>
+<li>读长更长</li>
+<li>避免了PCR扩增引入错误</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>准确率相对低，需重复测序以纠错</li>
+<li>成本较高</li>
+<li>生信软件较少</li>
+</ul>
+</li>
+</ul>
+<h1 id="代表性检验平台"><a href="#代表性检验平台" class="headerlink" title="代表性检验平台"></a>代表性检验平台</h1><ul>
+<li>主要介绍二代平台</li>
+</ul>
+<h2 id="二代测序平台"><a href="#二代测序平台" class="headerlink" title="二代测序平台"></a>二代测序平台</h2><h3 id="GS-FLX-454"><a href="#GS-FLX-454" class="headerlink" title="GS FLX 454"></a>GS FLX 454</h3><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2011.41.10.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>454 Life Sciences&#x2F; Roche于2004年推出了GS FLX system，是第一款商业型NGS测序仪器，现在已经淡出一线了</li>
+<li>基本原理：一个片段&#x3D;一个磁珠&#x3D;一条读长，DNA片段无需进行荧光标记，无需电泳，边合成变测序，碱基在加入到序列中时，会脱掉一个焦磷酸，通过检测焦磷酸来识别碱基，因此也被称为焦磷酸测序。</li>
+<li>扩增方式：常规PCR</li>
+<li>测序方式：Pyrosequencing（焦磷酸测序）</li>
+</ul>
+<h3 id="Illumina"><a href="#Illumina" class="headerlink" title="Illumina"></a>Illumina</h3><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2011.42.01.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>Illumina最早于2006年推出了测序仪器Solexa和Hiseq系列，现在是使用最广泛的测序平台</li>
+<li>扩增方式：桥式PCR</li>
+<li>测序方式：Sequencing by Synthesis，即边合成边测序</li>
+</ul>
+<h3 id="SOLiD"><a href="#SOLiD" class="headerlink" title="SOLiD"></a>SOLiD</h3><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2011.45.41.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>SOLiD是ABL公司最早于2007年推出的测序仪</li>
+<li>扩增方式：乳液PCR</li>
+<li>测序方式：Sequencing by Ligation，连接法测序</li>
+</ul>
+<h3 id="Life-Technologies"><a href="#Life-Technologies" class="headerlink" title="Life Technologies"></a>Life Technologies</h3><ul>
+<li>Ion Torrent系列是Life Technologies公司最早于2010年推出的测序仪器</li>
+<li>扩增方式：常规PCR</li>
+<li>测序方式：离子半导体测序ISS</li>
+<li>这个技术使用了一种布满小孔的高密度半导体芯片，在芯片上，一个小孔就是一个测序反应池。当 DNA 聚合酶把核苷酸聚合到延伸中的 DNA链上时，会释放出一个氢离子，反应池中的 PH发生改变，位于池下的离子感受器感受到氢离子信号，将氢离子信号直接转化为数字信号，从而读出DNA序列。这个方法的通量并不高，适合小基因组和外显子验证的测序。<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2012.00.01.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h2 id="三代测序平台"><a href="#三代测序平台" class="headerlink" title="三代测序平台"></a>三代测序平台</h2><ul>
+<li>单分子测序</li>
+<li>测序过程不需要进行PCR扩增</li>
+</ul>
+<h3 id="PacBio-SMRT"><a href="#PacBio-SMRT" class="headerlink" title="PacBio SMRT"></a>PacBio SMRT</h3><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2012.09.40.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>原理：边合成边测序，并且以SMRT芯片作为测序的载体</li>
+<li>优点<ul>
+<li>读长很长</li>
+<li>测序速度快</li>
+</ul>
+</li>
+<li>缺点：错误率较高，需要通过多次测序来纠正错误</li>
+</ul>
+<h3 id="Oxford-Nanopore"><a href="#Oxford-Nanopore" class="headerlink" title="Oxford Nanopore"></a>Oxford Nanopore</h3><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2012.11.19.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>原理：纳米孔+电流检测技术</li>
+<li>优点<ul>
+<li>读长很长</li>
+<li>数据可以实时被读取</li>
+<li>通量很高</li>
+<li>样品制备简单而便宜</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>错误率较高（1-5%），精准度较低</li>
+<li>使用了水解测序法，不能重复测序</li>
+</ul>
+</li>
+</ul>
+<h2 id="常见测序平台的对比"><a href="#常见测序平台的对比" class="headerlink" title="常见测序平台的对比"></a>常见测序平台的对比</h2><p><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2012.12.33.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h1 id="序列文件简介"><a href="#序列文件简介" class="headerlink" title="序列文件简介"></a>序列文件简介</h1><h2 id="FASTA格式"><a href="#FASTA格式" class="headerlink" title="FASTA格式"></a>FASTA格式</h2><ul>
+<li>原始序列文件（如ab1、SRR、BCL等）通常首先转换成FASTA&#x2F;FASTQ文件进行后续的处理，seq格式文件可以直接用软件分析，但是文件本身的信息准确性较差</li>
+<li>FASTA格式是BLAST组织数据的基本格式，无论是数据库还是查询序列，大多数情况都使用FASTA格式，后缀名一般是.fa</li>
+<li>通常第一行以”&gt;”开头，相当于注释，可以添加任意文本，通常标明样品编号，出处（数据库）等</li>
+<li>第二行开始是序列正文，既可以是DNA序列，也可以是氨基酸序列，惯例使用大写，而且每行不超过80个字符，不符合规定的字符会被忽视</li>
+<li>有时以” * “结尾</li>
+<li>FASTA格式允许将多段信息合并到一个FASTA文件中，各段序列凭借序列前的”&gt;”行区分开<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2012.20.53.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h2 id="FASTQ格式"><a href="#FASTQ格式" class="headerlink" title="FASTQ格式"></a>FASTQ格式</h2><ul>
+<li>保存测序仪得到的核酸序列，以及其测序质量信息的标准格式，每条序列由4行文件组成</li>
+<li>第一行由“@” 字符开头，其后是（Ilumina，NCB&#x2F;等）序列ID，再后与FASTA文件第一行相同，是补充描述</li>
+<li>第二行序列正文。其中无法判断的碱基用N表示</li>
+<li>第三行以“+”字符开头，其后可跟序列ID，或直接省略内容</li>
+<li>第四行按与序列正文对应的顺序，标记各碱基测序质量，按照以下符号按照从左到右的顺序标志，由低到高的质量得分<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/Pasted%20image%2020240419122601.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>一些举例的测序图片<br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2012.26.26.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E6%88%AA%E5%B1%8F2024-04-19%2012.26.41.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h2 id="SAM-BAM"><a href="#SAM-BAM" class="headerlink" title="SAM&#x2F;BAM"></a>SAM&#x2F;BAM</h2><ul>
+<li>SAM（Sequence Alignment Map）是一种用来存储从reads到参考序列的比对信息的文件格式，是得到序列文件（FASTA&#x2F;FASTQ）后继续进行数据分析时会涉及到的一种数据类型。SAM 文件由注释头和比对结果两部分组成。</li>
+<li>比对结果：每一行是一个read，包含11个必须字段和任意多个可选字段，字段间用制表符（tab）隔开。<ul>
+<li>前11个字段所包含信息为</li>
+<li>QNAME： 比对片段的read name，通常包括测序平台等信息。</li>
+<li>FLAG：位标识，一个数字表征一种template mapping情况。</li>
+<li>RNAMW：参考序列的编号。</li>
+<li>POS：比对到的位置（从1开始计数；若无匹配记为O）。</li>
+<li>MAPQ:mapping的质量打分，越高说明read的mapping越特异。</li>
+<li>CIGAR：简要比对信息表达式。</li>
+<li>RNEXT：配对的reads比对到的参考序列名称。</li>
+<li>PNEXT：配对的reads比对到的位置。</li>
+<li>TLEN: reads与配对reads组成的片段的长度。</li>
+<li>SEQ：reads序列。</li>
+<li>QUAL:reads质量值（格式同FASTQ一样）。</li>
+</ul>
+</li>
+<li>BAM （Binary Alignment Map）是将SAM信息转换为二进制格式存储的文件，对存储空间的要求更小，检索更快。</li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%202.4%20Agilent%20%E8%A1%A8%E8%BE%BE%E8%B0%B1%E8%8A%AF%E7%89%87/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">生信全书 Lesson 2.4 Agilent 表达谱芯片</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6%20Lesson%202.2%20Affymetrix%20%E8%8A%AF%E7%89%87/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/%E8%A7%A3%E8%9E%BA%E6%97%8B%C2%B7%E7%94%9F%E4%BF%A1%E5%85%A8%E4%B9%A6/cover.jpg">
+                </span>
+                <h6 class="trm-op-title">生信全书 Lesson 2.2 Affymetrix 芯片</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="测序技术预备知识"><a rel="nofollow" class="trm-toc-link" href="#测序技术预备知识"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">测序技术预备知识</span></a></li><li class="trm-toc-item trm-toc-level-1" title="测序原理"><a rel="nofollow" class="trm-toc-link" href="#测序原理"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">测序原理</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="一些基础概念："><a rel="nofollow" class="trm-toc-link" href="#一些基础概念："><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">一些基础概念：</span></a></li><li class="trm-toc-item trm-toc-level-2" title="一代测序：Sanger测序法"><a rel="nofollow" class="trm-toc-link" href="#一代测序：Sanger测序法"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">一代测序：Sanger测序法</span></a></li><li class="trm-toc-item trm-toc-level-2" title="二代测序"><a rel="nofollow" class="trm-toc-link" href="#二代测序"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">二代测序</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="全基因组测序"><a rel="nofollow" class="trm-toc-link" href="#全基因组测序"><span class="trm-toc-number">2.3.1.</span> <span class="trm-toc-text">全基因组测序</span></a></li><li class="trm-toc-item trm-toc-level-3" title="全基因组相关分析Genome wide association study,GWAS"><a rel="nofollow" class="trm-toc-link" href="#全基因组相关分析Genome-wide-association-study-GWAS"><span class="trm-toc-number">2.3.2.</span> <span class="trm-toc-text">全基因组相关分析Genome wide association study,GWAS</span></a></li><li class="trm-toc-item trm-toc-level-3" title="全外显子测序Whole-exome sequencing, WES"><a rel="nofollow" class="trm-toc-link" href="#全外显子测序Whole-exome-sequencing-WES"><span class="trm-toc-number">2.3.3.</span> <span class="trm-toc-text">全外显子测序Whole-exome sequencing, WES</span></a></li><li class="trm-toc-item trm-toc-level-3" title="转录组测序RNA sequencing, RNA-seq"><a rel="nofollow" class="trm-toc-link" href="#转录组测序RNA-sequencing-RNA-seq"><span class="trm-toc-number">2.3.4.</span> <span class="trm-toc-text">转录组测序RNA sequencing, RNA-seq</span></a></li><li class="trm-toc-item trm-toc-level-3" title="ATAC-seq"><a rel="nofollow" class="trm-toc-link" href="#ATAC-seq"><span class="trm-toc-number">2.3.5.</span> <span class="trm-toc-text">ATAC-seq</span></a></li><li class="trm-toc-item trm-toc-level-3" title="ChIP-seq"><a rel="nofollow" class="trm-toc-link" href="#ChIP-seq"><span class="trm-toc-number">2.3.6.</span> <span class="trm-toc-text">ChIP-seq</span></a></li><li class="trm-toc-item trm-toc-level-3" title="单细胞测序Single-cell sequencing"><a rel="nofollow" class="trm-toc-link" href="#单细胞测序Single-cell-sequencing"><span class="trm-toc-number">2.3.7.</span> <span class="trm-toc-text">单细胞测序Single-cell sequencing</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="三代测序"><a rel="nofollow" class="trm-toc-link" href="#三代测序"><span class="trm-toc-number">2.4.</span> <span class="trm-toc-text">三代测序</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="代表性检验平台"><a rel="nofollow" class="trm-toc-link" href="#代表性检验平台"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">代表性检验平台</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="二代测序平台"><a rel="nofollow" class="trm-toc-link" href="#二代测序平台"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">二代测序平台</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="GS FLX 454"><a rel="nofollow" class="trm-toc-link" href="#GS-FLX-454"><span class="trm-toc-number">3.1.1.</span> <span class="trm-toc-text">GS FLX 454</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Illumina"><a rel="nofollow" class="trm-toc-link" href="#Illumina"><span class="trm-toc-number">3.1.2.</span> <span class="trm-toc-text">Illumina</span></a></li><li class="trm-toc-item trm-toc-level-3" title="SOLiD"><a rel="nofollow" class="trm-toc-link" href="#SOLiD"><span class="trm-toc-number">3.1.3.</span> <span class="trm-toc-text">SOLiD</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Life Technologies"><a rel="nofollow" class="trm-toc-link" href="#Life-Technologies"><span class="trm-toc-number">3.1.4.</span> <span class="trm-toc-text">Life Technologies</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="三代测序平台"><a rel="nofollow" class="trm-toc-link" href="#三代测序平台"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">三代测序平台</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="PacBio SMRT"><a rel="nofollow" class="trm-toc-link" href="#PacBio-SMRT"><span class="trm-toc-number">3.2.1.</span> <span class="trm-toc-text">PacBio SMRT</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Oxford Nanopore"><a rel="nofollow" class="trm-toc-link" href="#Oxford-Nanopore"><span class="trm-toc-number">3.2.2.</span> <span class="trm-toc-text">Oxford Nanopore</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="常见测序平台的对比"><a rel="nofollow" class="trm-toc-link" href="#常见测序平台的对比"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">常见测序平台的对比</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="序列文件简介"><a rel="nofollow" class="trm-toc-link" href="#序列文件简介"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">序列文件简介</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="FASTA格式"><a rel="nofollow" class="trm-toc-link" href="#FASTA格式"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">FASTA格式</span></a></li><li class="trm-toc-item trm-toc-level-2" title="FASTQ格式"><a rel="nofollow" class="trm-toc-link" href="#FASTQ格式"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">FASTQ格式</span></a></li><li class="trm-toc-item trm-toc-level-2" title="SAM&#x2F;BAM"><a rel="nofollow" class="trm-toc-link" href="#SAM-BAM"><span class="trm-toc-number">4.3.</span> <span class="trm-toc-text">SAM&#x2F;BAM</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

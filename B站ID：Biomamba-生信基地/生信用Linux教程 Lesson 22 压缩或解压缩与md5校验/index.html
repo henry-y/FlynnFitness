@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研生信分析Linux教程B站ID：Biomamba-生信基地   来源：BV1hT411F7r7   上一节课我们介绍的软链接与硬链接可以帮助大家节省写代码所需要的时间，并且还可以节省一部分硬盘的储存空间；如果想让我们的文件在硬盘中占据的空间再少一些，这就可以用到我们这节课介绍的文件压缩与解压缩命令。 在我们熟悉的Windows系统中，有许多软">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生信用Linux教程 Lesson 22 压缩或解压缩与md5校验">
+<meta property="og:url" content="http://example.com/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E7%94%9F%E4%BF%A1%E7%94%A8Linux%E6%95%99%E7%A8%8B%20Lesson%2022%20%E5%8E%8B%E7%BC%A9%E6%88%96%E8%A7%A3%E5%8E%8B%E7%BC%A9%E4%B8%8Emd5%E6%A0%A1%E9%AA%8C/index.html">
+<meta property="og:site_name" content="Flynn&#39;s Blog">
+<meta property="og:description" content="TIP这些是本篇文章的标签，来发现更多感兴趣的内容吧科研生信分析Linux教程B站ID：Biomamba-生信基地   来源：BV1hT411F7r7   上一节课我们介绍的软链接与硬链接可以帮助大家节省写代码所需要的时间，并且还可以节省一部分硬盘的储存空间；如果想让我们的文件在硬盘中占据的空间再少一些，这就可以用到我们这节课介绍的文件压缩与解压缩命令。 在我们熟悉的Windows系统中，有许多软">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-10-25T08:48:46.040Z">
+<meta property="article:modified_time" content="2024-10-25T08:48:46.040Z">
+<meta property="article:author" content="Flynn">
+<meta property="article:tag" content="科研">
+<meta property="article:tag" content="生信分析">
+<meta property="article:tag" content="B站ID：Biomamba-生信基地">
+<meta property="article:tag" content="Linux教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >生信用Linux教程 Lesson 22 压缩或解压缩与md5校验</title>
+
+<!-- Favicon -->
+
+    <link href='/img/16.svg?v=2.1.13' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/32.svg?v=2.1.13' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Flynn","root":"/","typed_text":null,"theme_version":"2.1.13","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"img/200.svg","icon16":"img/16.svg","icon32":"img/32.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!","apple_touch_icon":"img/200.svg"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"2024-02-09 17:00","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"},"covers":["/img/banner.jpg","/img/avatar.jpg"],"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"result_placeholder":"testing..","path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-25 16:48:46"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.13" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/200.svg">
+    
+    
+        <div class="trm-logo-text">
+            Flynn<span>姜</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    主页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于我
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/cover3.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            生信用Linux教程 Lesson 22 压缩或解压缩与md5校验
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        B站ID：Biomamba-生信基地
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/flynn.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Flynn
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                广州/深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                24
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:240443192@qq.com" class="trm-btn">
+            Contact Me
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/25
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            16:48
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Flynn
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <div class="trm-note tip"><div class="trm-note-title">TIP</div><p>这些是本篇文章的标签，来发现更多感兴趣的内容吧<br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%A7%91%E7%A0%94/">科研</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/%E7%94%9F%E4%BF%A1%E5%88%86%E6%9E%90/">生信分析</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/Linux%E6%95%99%E7%A8%8B/">Linux教程</a><br><a target="_blank" rel="noopener" href="http://blog.flynn2059.top/tags/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/">B站ID：Biomamba-生信基地</a></p>
+</div>
+<blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hT411F7r7/">BV1hT411F7r7</a></p>
+</blockquote>
+<ul>
+<li>上一节课我们介绍的软链接与硬链接可以帮助大家节省写代码所需要的时间，并且还可以节省一部分硬盘的储存空间；如果想让我们的文件在硬盘中占据的空间再少一些，这就可以用到我们这节课介绍的文件压缩与解压缩命令。</li>
+<li>在我们熟悉的Windows系统中，有许多软件可以用于进行文件压缩或解压缩，比如7-zip，WinRAR等</li>
+<li>对于文本文件，通常压缩后的体积只占到压缩前的20%，这样就可以极大地节省硬盘的空间。</li>
+<li>对于要处理高通量测序数据的各位同学，文件的压缩显得尤为重要，通常在文件压缩的过程中，我们还会进行一定程度的打包教程，这样可以保证文件传输的过程顺利进行，避免受到文件数量的影响；打包结束后，我们可以使用md5校验去检查文件的完整性。</li>
+</ul>
+<h1 id="查看硬盘空间"><a href="#查看硬盘空间" class="headerlink" title="查看硬盘空间"></a>查看硬盘空间</h1><ul>
+<li>在生物信息学的分析过程中，我们通常会预留数据大小10倍以上的空间来用于数据的后续分析</li>
+</ul>
+<h2 id="使用df命令查看可用磁盘空间"><a href="#使用df命令查看可用磁盘空间" class="headerlink" title="使用df命令查看可用磁盘空间"></a>使用df命令查看可用磁盘空间</h2><ul>
+<li>df命令是disk free的简称，显示的是<strong>还没有被使用的剩余硬盘空间</strong></li>
+<li>推荐加上-h选项，这样显示出来的空间会以MB、GB、TB等比较好理解的方式展示<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h 要查看的目录（可选）</span><br></pre></td></tr></table></figure></li>
+<li>如果不加想要查看的目录，那命令就会返回计算机中所有挂载的硬盘的空间信息</li>
+</ul>
+<h2 id="使用du命令查看已用硬盘空间"><a href="#使用du命令查看已用硬盘空间" class="headerlink" title="使用du命令查看已用硬盘空间"></a>使用du命令查看已用硬盘空间</h2><ul>
+<li>du命令和dh命令的语法基本一致，只不过返回的内容是<strong>已经使用了的硬盘空间</strong></li>
+<li>推荐加上-h选项，这样显示出来的空间会以MB、GB、TB等比较好理解的方式展示<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dh -h 要查看的目录（可选）</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="简单的文件压缩命令：gzip"><a href="#简单的文件压缩命令：gzip" class="headerlink" title="简单的文件压缩命令：gzip"></a>简单的文件压缩命令：gzip</h1><ul>
+<li>gzip命令的语法：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip 选项 需要被压缩的文件名</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：gzip命令只能压缩文件，不能压缩文件夹</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="gzip命令的选项"><a href="#gzip命令的选项" class="headerlink" title="gzip命令的选项"></a>gzip命令的选项</h2><h3 id="gzip-c"><a href="#gzip-c" class="headerlink" title="gzip -c"></a>gzip -c</h3><ul>
+<li>-c：保留原文件，会直接把压缩后的文件作为标准输出打印在终端；我们不推荐进行这样的操作，因为压缩后的内容会以二进制的方式被展示在终端，而这种二进制是不可读的，会出现终端的乱码</li>
+<li>避免上述情况：在使用-c参数时，把标准输出重定向到本地的文件中，比如使用下面的命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -c Flynn.txt &gt; Flynn.txt.gz</span><br></pre></td></tr></table></figure></li>
+<li>如果不使用-c选项和提示符，直接运行gzip+需要压缩的命令，那原文件会消失，同时出现一个压缩好的，.gz格式的文件，就像下面这样<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip Flynn.txt</span><br></pre></td></tr></table></figure></li>
+<li>要查看.gz格式的文件，可以使用zcat命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zcat Flynn.txt.gz | <span class="built_in">head</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="gzip-d"><a href="#gzip-d" class="headerlink" title="gzip -d"></a>gzip -d</h3><ul>
+<li>-d选项会帮我们解压缩对应的文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -d Flynn.txt.gz</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="gzip-v"><a href="#gzip-v" class="headerlink" title="gzip -v"></a>gzip -v</h3><ul>
+<li>-v选项可以显示文件的压缩率<br><img src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E6%88%AA%E5%B1%8F2024-10-24%2013.27.27.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>对于单细胞测序动辄100GB的文件来说，压缩后的文件通常不会大于20GB，这样就节省了大量的存储空间</li>
+<li>实际的压缩率往往取决于文件的格式，对于图片和视频这种原本就是二进制的文件，压缩能起到的减小体积的作用是极为有限的</li>
+</ul>
+<h2 id="gunzip：另一种解压缩命令"><a href="#gunzip：另一种解压缩命令" class="headerlink" title="gunzip：另一种解压缩命令"></a>gunzip：另一种解压缩命令</h2><ul>
+<li>可以加上-c选项，如果加了这个选项，系统会把解压缩以后的结果输出在终端，而对原本的.gz格式的压缩文件没有任何调整</li>
+<li>如果不带任何选项，直接运行gzip+需要解压的文件命令，那就可以实现原文件的删除和被解压的文件的出现</li>
+<li>gunzip命令的语法：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gunzip 选项 需要解压的文件</span><br></pre></td></tr></table></figure></li>
+<li>示例：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gunzip -c Flynn.txt</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="zip命令"><a href="#zip命令" class="headerlink" title="zip命令"></a>zip命令</h1><ul>
+<li>zip命令的语法<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip 选项 压缩后的文件名 需要压缩的文件名</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>与gzip命令不同，zip命令是可以对文件夹进行操作的</p>
+</blockquote>
+</li>
+<li>如果想要对文件夹进行操作，输入的时候可以写文件名.dir，或者写绝对路径</li>
+<li>在对文件夹进行压缩时，请<strong>记得加上-r选项</strong></li>
+<li>zip命令的解压缩：unzip命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip 需要解压的文件</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="bzip2命令"><a href="#bzip2命令" class="headerlink" title="bzip2命令"></a>bzip2命令</h1><ul>
+<li>这个命令与gzip命令基本相同，<strong>都不能处理文件夹</strong>，需要注意的是-k选项代表的是保留原文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bzip2 -k Flynn.txt</span><br></pre></td></tr></table></figure></li>
+<li>bzip2文件的解压：使用bunzip2命令<blockquote>
+<p>注意：zcat只能应对输入为.gz格式，也就是使用gzip命令压缩的文件，对于zip命令和bzip2命令压缩的文件，zcat命令是无法处理的</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="万能的压缩命令：tar命令"><a href="#万能的压缩命令：tar命令" class="headerlink" title="万能的压缩命令：tar命令"></a>万能的压缩命令：tar命令</h1><ul>
+<li>tar命令非常强力，不仅支持对文件夹的压缩，而且支持使用不同的压缩命令进行压缩<blockquote>
+<p>可以说掌握了tar命令的话，前面的命令看看就好，真的忘记了也是没有关系的</p>
+</blockquote>
+</li>
+<li>tar命令的语法：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar 选项 需要压缩的文件</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="tar命令的常用选项"><a href="#tar命令的常用选项" class="headerlink" title="tar命令的常用选项"></a>tar命令的常用选项</h2><ul>
+<li>-c：create的缩写，建立新的文件（打包）<ul>
+<li>如果生成了新的文件，那tar命令应该写成下面这种形式<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -c 新生成的文件（通常以.tar.gz结尾） 需要压缩的文件</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>-x：解包</li>
+<li>-v：会把压缩了哪些文件输出在屏幕上，熟练用户可以不敲</li>
+<li>-f：指定文件（默认加）</li>
+<li>-z：使用gzip进行压缩&#x2F;解压缩</li>
+<li>-j：使用bzip2进行压缩&#x2F;解压缩</li>
+</ul>
+<h2 id="tar命令的常见用法"><a href="#tar命令的常见用法" class="headerlink" title="tar命令的常见用法"></a>tar命令的常见用法</h2><ul>
+<li>简单打包：-cvf<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf 新生成的文件（通常以.tar结尾） 需要打包的若干文件</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：简单打包不涉及对文件的压缩，文件的体积不太会发生变化</p>
+</blockquote>
+</li>
+<li>打包的同时压缩为-gz文件：-czf<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -czf 新生成的文件（通常以.tar.gz结尾） 需要打包的若干文件</span><br></pre></td></tr></table></figure></li>
+<li>打包的同时压缩为.bz2文件：-cjf<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cjf 新生成的文件（通常以.tar.bz2结尾） 需要打包的若干文件</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在使用不同方式压缩文件时，需要注意修改对应的新生成文件名，避免解压缩时出现可能的报错</p>
+</blockquote>
+</li>
+<li>解压：使用-x选项，同时使用了什么方法压缩，就要使用对应的选项解包，比如对于使用gzip方式压缩的文件，我们要使用<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzf Flynn.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li>对于使用了bzip2方式压缩的文件，我们要使用<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xjf Flynn.tar.bz2</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用tar命令在解压缩的时候，是不会删除压缩文件的</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="md5校验"><a href="#md5校验" class="headerlink" title="md5校验"></a>md5校验</h1><ul>
+<li>MD5是一种密码相关函数，其功能在于对生成的文件进行摘要的细节提取</li>
+<li>通过对MD5的比对，我们可以知道这些文件是否完整，有没有损坏。</li>
+</ul>
+<h2 id="生成md5值：使用md5sum命令"><a href="#生成md5值：使用md5sum命令" class="headerlink" title="生成md5值：使用md5sum命令"></a>生成md5值：使用md5sum命令</h2><ul>
+<li>md5sum命令的语法：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">md5sum</span> 需要处理的文件</span><br></pre></td></tr></table></figure></li>
+<li>我们可以把md5sum命令输出的结果写入一个txt文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">md5sum</span> 需要处理的文件 &gt; Flynn.md5.txt</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="使用md5值检验文件：加上-c选项"><a href="#使用md5值检验文件：加上-c选项" class="headerlink" title="使用md5值检验文件：加上-c选项"></a>使用md5值检验文件：加上-c选项</h2><ul>
+<li>md5sum -c命令的语法<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">md5sum</span> -c 记载有md5值的txt文件</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E7%94%9F%E4%BF%A1%E7%94%A8Linux%E6%95%99%E7%A8%8B%20Lesson%2023%20%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/cover3.jpg">
+                </span>
+                <h6 class="trm-op-title">生信用Linux教程 Lesson 23 文件查看命令</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/25</li>
+                <li>16:48</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/%E7%94%9F%E4%BF%A1%E7%94%A8Linux%E6%95%99%E7%A8%8B%20Lesson%2021%20%E8%BD%AF%E9%93%BE%E6%8E%A5%E4%B8%8E%E7%A1%AC%E9%93%BE%E6%8E%A5/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/B%E7%AB%99ID%EF%BC%9ABiomamba-%E7%94%9F%E4%BF%A1%E5%9F%BA%E5%9C%B0/cover3.jpg">
+                </span>
+                <h6 class="trm-op-title">生信用Linux教程 Lesson 21 软链接与硬链接</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/24</li>
+                <li>13:07</li>
+                <li>科研</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.13
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        Article table of contents
+				<span id="post-toc-top">
+					TOP
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="查看硬盘空间"><a rel="nofollow" class="trm-toc-link" href="#查看硬盘空间"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">查看硬盘空间</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="使用df命令查看可用磁盘空间"><a rel="nofollow" class="trm-toc-link" href="#使用df命令查看可用磁盘空间"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">使用df命令查看可用磁盘空间</span></a></li><li class="trm-toc-item trm-toc-level-2" title="使用du命令查看已用硬盘空间"><a rel="nofollow" class="trm-toc-link" href="#使用du命令查看已用硬盘空间"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">使用du命令查看已用硬盘空间</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="简单的文件压缩命令：gzip"><a rel="nofollow" class="trm-toc-link" href="#简单的文件压缩命令：gzip"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">简单的文件压缩命令：gzip</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="gzip命令的选项"><a rel="nofollow" class="trm-toc-link" href="#gzip命令的选项"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">gzip命令的选项</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="gzip -c"><a rel="nofollow" class="trm-toc-link" href="#gzip-c"><span class="trm-toc-number">2.1.1.</span> <span class="trm-toc-text">gzip -c</span></a></li><li class="trm-toc-item trm-toc-level-3" title="gzip -d"><a rel="nofollow" class="trm-toc-link" href="#gzip-d"><span class="trm-toc-number">2.1.2.</span> <span class="trm-toc-text">gzip -d</span></a></li><li class="trm-toc-item trm-toc-level-3" title="gzip -v"><a rel="nofollow" class="trm-toc-link" href="#gzip-v"><span class="trm-toc-number">2.1.3.</span> <span class="trm-toc-text">gzip -v</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="gunzip：另一种解压缩命令"><a rel="nofollow" class="trm-toc-link" href="#gunzip：另一种解压缩命令"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">gunzip：另一种解压缩命令</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="zip命令"><a rel="nofollow" class="trm-toc-link" href="#zip命令"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">zip命令</span></a></li><li class="trm-toc-item trm-toc-level-1" title="bzip2命令"><a rel="nofollow" class="trm-toc-link" href="#bzip2命令"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">bzip2命令</span></a></li><li class="trm-toc-item trm-toc-level-1" title="万能的压缩命令：tar命令"><a rel="nofollow" class="trm-toc-link" href="#万能的压缩命令：tar命令"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">万能的压缩命令：tar命令</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="tar命令的常用选项"><a rel="nofollow" class="trm-toc-link" href="#tar命令的常用选项"><span class="trm-toc-number">5.1.</span> <span class="trm-toc-text">tar命令的常用选项</span></a></li><li class="trm-toc-item trm-toc-level-2" title="tar命令的常见用法"><a rel="nofollow" class="trm-toc-link" href="#tar命令的常见用法"><span class="trm-toc-number">5.2.</span> <span class="trm-toc-text">tar命令的常见用法</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="md5校验"><a rel="nofollow" class="trm-toc-link" href="#md5校验"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">md5校验</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="生成md5值：使用md5sum命令"><a rel="nofollow" class="trm-toc-link" href="#生成md5值：使用md5sum命令"><span class="trm-toc-number">6.1.</span> <span class="trm-toc-text">生成md5值：使用md5sum命令</span></a></li><li class="trm-toc-item trm-toc-level-2" title="使用md5值检验文件：加上-c选项"><a rel="nofollow" class="trm-toc-link" href="#使用md5值检验文件：加上-c选项"><span class="trm-toc-number">6.2.</span> <span class="trm-toc-text">使用md5值检验文件：加上-c选项</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="Open toc">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="Toggle between single-column and double-column" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="Searching...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    Find Something Special?
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.13"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <script>
+        "serviceWorker" in navigator ?
+        navigator.serviceWorker.register('/sw.js').then(function () {
+            navigator.serviceWorker.controller ? 
+             console.log("Assets cached by the controlling service worker.") :
+             console.log("Please reload this page to allow the service worker to handle network operations.")
+        }).catch(function (e) {
+            console.log("ERROR: " + e)
+        }) : console.log("Service workers are not supported in the current browser.")
+    </script>
+
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.13"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>
